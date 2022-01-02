@@ -28,17 +28,17 @@ exclude:
   - not-pure-poole.gemspec
 
 # Optimize Jekyl SEO Tag
-twitter:
-  username: vszhub
-  card: summary
-logo: logo.png
-social:
-  name: Songzi Vong
-  links:
-    - https://twitter.com/vszhub
-    - https://github.com/Effun-141
-google_site_verification: xxxxx
-lang: en
+#twitter:
+ # username: vszhub
+  #card: summary
+#logo: logo.png
+#social:
+  #name: Songzi Vong
+ # links:
+   # - https://twitter.com/vszhub
+  #  - https://github.com/Effun-141
+#google_site_verification: xxxxx
+#lang: en
 
 sass:
   sass_dir: _sass
