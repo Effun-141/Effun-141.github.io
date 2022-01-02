@@ -68,7 +68,7 @@ nav:
     - {title: 所有文章, description: archive, url: '/archive'}   
     - {title: 标签分类, description: tags, url: '/tags'}      
     - {title: 技术支持, description: support, url: '/support'}      
-    - {title:  关于我  , description: about, url: '/about'}   
+    - {title: 个人简历, description: about, url: '/about'}   
     
 
 # Pagination
