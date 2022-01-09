@@ -12,13 +12,13 @@ url: "https://effun.xyz"
 enableToc: true
 
 # Comment
-comment:
+#comment:
     # livere: MTAyMC81MDk5NC8yNzQ3Ng  # https://www.livere.com
-    disqus: effun
+    # disqus: effun
     # uyan: 2143225  # 有言id,登录有言官网申请
 
 # Social
-social:
+#social:
     #weibo: 5366874726 
     # github: Effun_141
     # zhihu: panpanleopard
