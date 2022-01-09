@@ -61,14 +61,19 @@ cover_color: clear
 
 # The blog button should not be removed.
 blog_button:
-    title: 博客主页
+   # title: 博客主页
+     title: 主页
 
 # Navigation buttons in the front page.s
 nav:
-    - {title: 所有文章, description: archive, url: '/archive'}   
-    - {title: 标签分类, description: tags, url: '/tags'}      
+    # - {title: 所有文章, description: archive, url: '/archive'}   
+    # - {title: 标签分类, description: tags, url: '/tags'}      
  #   - {title: 技术支持, description: support, url: '/support'}      
-    - {title: 个人简历, description: about, url: '/about'}   
+    # - {title: 个人简历, description: about, url: '/about'}   
+     - {title: 文章, description: archive, url: '/archive'}   
+     - {title: 标签, description: tags, url: '/tags'}      
+ #    - {title: 技术支持, description: support, url: '/support'}      
+     - {title: 简历, description: about, url: '/about'}   
     
 
 # Pagination
