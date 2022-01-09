@@ -34,9 +34,7 @@ Test:
 * A
 * B
 * C
-<!-- * social/weibo、github、zhihu、jianshu等: 个人站底部展示的微博等三方社交按钮，点击后直接跳转到个人微博或其他社交主页
-* baidu/id: 百度统计，用来统计你个人站点的用户访问情况
-* ga/id: google统计，用来统计你个人站点的用户访问情况 -->
+
 
 balabalabala
 
