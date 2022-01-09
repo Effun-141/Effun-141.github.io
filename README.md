@@ -1,0 +1,1 @@
+[点击跳转](https://effun.xyz/)
