@@ -5,7 +5,7 @@ description: Welcome
 # 头像里面的标题
 avatarTitle: Effun
 # 头像里面的描述
-avatarDesc: SLAM / 移动机器人控制
+avatarDesc: SLAM / 控制/ 移动机器人
 url: "https://effun.xyz"
 
 # 博客是否自动生成目录，false为不生成
