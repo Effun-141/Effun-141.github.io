@@ -20,12 +20,12 @@ comment:
 # Social
 social:
     #weibo: 5366874726 
-    github: Effun_141
+    # github: Effun_141
     # zhihu: panpanleopard
     # juejin: xxx
     #jianshu: 2ada30d8d0f7
     # twitter: 
-    mail: effunwayj@njust.edu.cn
+    # mail: effunwayj@njust.edu.cn
 
 
 # 百度统计 
@@ -35,9 +35,9 @@ social:
 
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
-ga:
-    id: UA-84134159-3  
-    host: auto  
+# ga:
+#     id: UA-84134159-3  
+#     host: auto  
 
 
 # 《----------------- 上面的信息修改成你自己的 ---------------------------》
