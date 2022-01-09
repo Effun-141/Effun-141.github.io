@@ -1,1 +1,1 @@
-[点击跳转](https://effun.xyz/)
+[点击跳转effun.xyz](https://effun.xyz/)
