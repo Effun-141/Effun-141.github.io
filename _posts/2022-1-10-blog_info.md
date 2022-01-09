@@ -1,14 +1,13 @@
 ---
 layout: post
-title: 博客模板功能介绍
-date: 2020-07-11
-tags: jekyll   
+title: Blog compile test
+date: 2022-01-10
+tags: test   
 ---
 
+Test:
 
-在此之前我有写过一篇[如何使用我博客模板的文章](http://leopardpan.cn/2016/10/jekyll_tutorials1/) 请先看这篇基础集成，这篇文章主要讲的是如何使用和修改我的博客主题，文章内容含以下几点：
-
-## 博客特性
+<!-- ## Test
 
 - [x] 适配电脑、手机、平板等各屏幕
 - [x] 响应式设计
@@ -21,27 +20,27 @@ tags: jekyll
 - [x] 支持代码高亮
 - [x] 支持文章H1、H2、H3、H4标题样式多样化
 - [x] 支持多种三方社交icon展示，能从博客直接跳转到自己的三方社交主页
-- [x] 支持三方社交分享(facebook、twitter)
+- [x] 支持三方社交分享(facebook、twitter) -->
 
 
-## 博客主要模块介绍
+## 二级标题
 
-### _config.yml 
+### 三级标题
 
-`_config.yml` 是博客的配置文件，整个站点的信息都在这修改，想要把我的模板改成你自己的也需要修改`_config.yml` 
+`test` balabalabala
 
-**重要字段说明** 
+**文内注释** 
 
-* enableToc: 是否开启文章自动生成目录，设置为false文章不会自动生成目录
-* comment/livere: livere评论系统，支持微信、qq、微博、豆瓣、twitter等登录后可以直接评论
-* comment/disqus: disqus评论系统，支持facebook、twitter等登录后可以直接评论
-* social/weibo、github、zhihu、jianshu等: 个人站底部展示的微博等三方社交按钮，点击后直接跳转到个人微博或其他社交主页
+* A
+* B
+* C
+<!-- * social/weibo、github、zhihu、jianshu等: 个人站底部展示的微博等三方社交按钮，点击后直接跳转到个人微博或其他社交主页
 * baidu/id: 百度统计，用来统计你个人站点的用户访问情况
-* ga/id: google统计，用来统计你个人站点的用户访问情况
+* ga/id: google统计，用来统计你个人站点的用户访问情况 -->
 
-_config.yml 文件除以上字段还有一些可以自行修改，例如title之类的字段
+balabalabala
 
-### _posts
+<!-- ### _posts
 
 `_posts` 目录是用来存放文章的目录，写新文章，直接放在这个目录即可
 
@@ -62,7 +61,7 @@ about.md、support.md 等为自定义页面，如果你想添加自动以页面�
 
 博客迭代信息请看[ReleaseNode](https://leopardpan.cn/2020/07/ReleaseNode/)
 
-遇到解决不了的问题可以找 [技术支持](https://leopardpan.cn/support/)
+遇到解决不了的问题可以找 [技术支持](https://leopardpan.cn/support/) -->
 
 
 
