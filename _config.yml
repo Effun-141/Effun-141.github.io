@@ -1,7 +1,7 @@
 # Basic
 title: Effun
 subtitle: effunwayj@njust.edu.cn
-description: Hi! Welcome to my biog
+description: Hi! Welcome to my blog
 # 头像里面的标题
 avatarTitle: 彭一凡
 # 头像里面的描述
@@ -62,7 +62,7 @@ cover_color: clear
 # The blog button should not be removed.
 blog_button:
    # title: 博客主页
-     title: homepage
+     title: Blog Homepage
 
 # Navigation buttons in the front page.s
 nav:
@@ -70,10 +70,10 @@ nav:
     # - {title: 标签分类, description: tags, url: '/tags'}      
  #   - {title: 技术支持, description: support, url: '/support'}      
     # - {title: 个人简历, description: about, url: '/about'}   
-     - {title: tags, description: tags, url: '/tags'}     
-     - {title: articles, description: archive, url: '/archive'}   
+     - {title: Tags, description: tags, url: '/tags'}     
+     - {title: Articles, description: archive, url: '/archive'}   
  #    - {title: 技术支持, description: support, url: '/support'}      
-     - {title: about me, description: about, url: '/about'}   
+     - {title: About Me, description: about, url: '/about'}   
     
 
 # Pagination
