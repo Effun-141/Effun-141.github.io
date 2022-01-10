@@ -62,7 +62,7 @@ cover_color: clear
 # The blog button should not be removed.
 blog_button:
    # title: 博客主页
-     title: personal homepage
+     title: homepage
 
 # Navigation buttons in the front page.s
 nav:
@@ -71,7 +71,7 @@ nav:
  #   - {title: 技术支持, description: support, url: '/support'}      
     # - {title: 个人简历, description: about, url: '/about'}   
      - {title: tags, description: tags, url: '/tags'}     
-     - {title: all articles, description: archive, url: '/archive'}   
+     - {title: articles, description: archive, url: '/archive'}   
  #    - {title: 技术支持, description: support, url: '/support'}      
      - {title: about me, description: about, url: '/about'}   
     
