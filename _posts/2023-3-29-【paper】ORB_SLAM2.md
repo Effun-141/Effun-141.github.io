@@ -35,4 +35,4 @@ tags: Paper
 
 ## A. 双目SLAM
 
-Paz等人的工作成果是早期有名的双目SLAM系统，
+Paz等人开发的SLAM系统是早期优秀的双目SLAM方案。该方案基于条件独立分治的扩展卡尔曼滤波SLAM（EKF-SLAM）
