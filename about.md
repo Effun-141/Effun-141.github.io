@@ -1,7 +1,23 @@
 ---
 layout: page
-title: 关于我 
+title: About me 
 ---
+
+I am a postgraduate in the School of Automation at Nanjing University of Science and Technology (NJUST), majoring in Control Science and Engineering.
+
+I am interested in the field of Multi-Sensors Fusion SLAM and the combination of SLAM and Deep Learning methods.
+
+If you find any mistake in my articles, welcome contact me by following ways. I will fix it at once. Meanwhile, you can also communicate with me about SLAM, Robots and Control Theory. 
+
+Thank you!
+
+Email: effunwayj@njust.edu.cn
+
+Wechat: pyf140718
+
+Github: [Effun-141](https://github.com/Effun-141)
+
+
 
 <!-- 一个工作6年的 iOS SDK 开发者，在一家游戏公司做SDK开发和维护。
 
