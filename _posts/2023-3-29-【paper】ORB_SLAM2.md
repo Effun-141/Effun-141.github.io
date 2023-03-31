@@ -58,7 +58,7 @@ Endres等人提出的RGB-D SLAM方法可能是第一个受到广泛好评的开�
 
 # III ORB-SLAM2
 
-ORB-SLAM2的双目相机模式和RGB-D相机模式是由基于特征点的ORB-SLAM发展而来，其主要的组成部分如下：NI
+ORB-SLAM2的双目相机模式和RGB-D相机模式是由基于特征点的ORB-SLAM发展而来，其主要的组成部分如下：
 
 ![fig2](https://effun.xyz/images/ORB-SLAM2/fig2.jpg)
 
