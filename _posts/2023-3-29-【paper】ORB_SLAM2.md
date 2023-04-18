@@ -102,4 +102,6 @@ $$u_R = u_L - \frac{f_xb}{d}\ \tag{1}$$
 
 &emsp;&emsp;本文提出的系统能够基于BA法在跟踪线程中优化相机位姿（纯运动BA），在局部建图线程中优化局部窗口内的关键帧和地图点（局部BA）以及在回环检测后优化全部的关键帧和地图点（全局BA）。本文基于g2o库中集成的列文伯格-马夸尔特方法求解BA。
 
-&emsp;&emsp;**纯运动BA**优化相机旋转矩阵$$\mathbf{R}\in SO(3)$$和位置$$\mathbf{t}\in\mathbb{R}^3$$
+&emsp;&emsp;**纯运动BA**优化相机旋转矩阵$$\mathbf{R}\in SO(3)$$和位置$$\mathbf{t}\in\mathbb{R}^3$$，最小化世界坐标系下互相匹配的3-D点云$$\mathbf{X}^i$$与关键点$$\mathbf{X}^i_{(\centerdot)}$$之间的投影误差。其中，关键点可以是单目点$$\mathbf{X}^i_m\in\mathbb{R}^2$$或双目点$$\mathbf{X}^i_s\in\mathbb{R}^3$$，$$i\in\chi$$，$$\chi$$为全部匹配的集合。
+
+$$\{\mathbf{R}, \mathbf{t}\} =  \tag{2}$$
