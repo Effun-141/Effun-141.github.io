@@ -2,7 +2,7 @@
 layout: post
 title: ORB-SLAM2:An Open-Source SLAM System for Monocular, Stereo, and RGB-D Cameras
 date: 2023-3-29 
-tags: Paper
+tags: 【Paper of slam】
 ---
 
 *This is the translation of the [paper](https://arxiv.org/abs/1610.06475)*
@@ -105,3 +105,5 @@ $$u_R = u_L - \frac{f_xb}{d}\ \tag{1}$$
 &emsp;&emsp;**纯运动BA**优化相机旋转矩阵$$\mathbf{R}\in SO(3)$$和位置$$\mathbf{t}\in\mathbb{R}^3$$，最小化世界坐标系下互相匹配的3-D点云$$\mathbf{X}^i$$与关键点$$\mathbf{x}^i_{(\centerdot)}$$之间的投影误差。其中，关键点可以是单目点$$\mathbf{x}^i_m\in\mathbb{R}^2$$或双目点$$\mathbf{x}^i_s\in\mathbb{R}^3$$，$$i\in\chi$$，$$\chi$$为全部匹配的集合。
 
 $$\{\mathbf{R}, \mathbf{t}\} =\underset{\mathbf{R,t}}{\mathbf{argmin}} \sum_{i\in\chi}\rho(\big\| \mathbf{x}^i_{(\centerdot)} - \pi_{(\centerdot)}(\mathbf{RX}^i+\mathbf{t}) \big\|^2_\Sigma)\tag{2}$$
+
+其中，$$\rho$$是鲁棒Huber代价函数，$$\Sigma$$是与关键点规模相关的协方差矩阵。
