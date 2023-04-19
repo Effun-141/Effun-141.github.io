@@ -2,7 +2,7 @@
 layout: post
 title: ORB-SLAM2:An Open-Source SLAM System for Monocular, Stereo, and RGB-D Cameras
 date: 2023-3-29 
-tags: 【Paper of slam】
+tags: {Paper of slam}
 ---
 
 *This is the translation of the [paper](https://arxiv.org/abs/1610.06475)*
