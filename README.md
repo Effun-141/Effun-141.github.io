@@ -1,1 +1,1 @@
-[欢迎访问个人网站](https://effun.xyz/)
+[Welcome to visit my blog](https://effun.xyz/)

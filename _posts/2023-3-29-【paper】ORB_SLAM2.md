@@ -139,7 +139,10 @@ $$ \pi_m\Bigg(
          f_y\frac{Y}{Z}+c_y \\
          f_x\frac{X-b}{Z}+c_x
         \end{matrix}
-    \right]
-    ,
-    
+    \right] 
+    \tag{3}
 $$
+
+其中，$$(f_x,f_y)$$ 是焦距，$$(c_x,c_y)$$ 是主点，$$b$$ 是基线，这些参数均由标定获得。
+
+&emsp;&emsp;**局部BA**对一系列共视的关键帧$$\kappa_L$$和在这些关键帧中观测到的全部点
