@@ -150,12 +150,13 @@ $$
 
 $$
 \begin{aligned}
-    \{\mathbf{X}^i,\mathbf{R}_l,\mathbf{t}_l|i\in\mathcal{P}_L,l\in\mathcal{K}_L\}&=\underset{\mathbf{X}^i,\mathbf{R}_l,\mathbf{t}_l}{\mathbf{argmin}}\sum_{k\in\mathcal{K}_L\cup\mathcal{K}_F}\sum_{j\in\mathcal{X}_k}\rho(E(k,j)) 
+    \{\mathbf{X}^i,\mathbf{R}_l,\mathbf{t}_l|i\in\mathcal{P}_L,l\in\mathcal{K}_L\}&=\underset{\mathbf{X}^i,\mathbf{R}_l,\mathbf{t}_l}{\mathbf{argmin}}\sum_{k\in\mathcal{K}_L\cup\mathcal{K}_F}\sum_{j\in\mathcal{X}_k}\rho(E(k,j)) \\
 
     E(k,j) &= \Big\| \mathbf{x}^j_{(\centerdot)}-\pi_{(\centerdot)}(\mathbf{R}_k\mathbf{X}^j+\mathbf{t}_k)\Big\|^2_\Sigma 
 
-\end{aligned}
 
+\end{aligned}
+\tag{4}
 
 $$
 
