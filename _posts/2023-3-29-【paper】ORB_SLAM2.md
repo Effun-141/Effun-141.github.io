@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ORB-SLAM2:An Open-Source SLAM System for Monocular, Stereo, and RGB-D Cameras 【translation】
+title: 【translation】ORB-SLAM2:An Open-Source SLAM System for Monocular, Stereo, and RGB-D Cameras
 date: 2023-3-29 
 tags: Paper
 ---
@@ -161,4 +161,10 @@ $$
 
 ## D.回环检测与全局BA
 
+&emsp;&emsp;回环检测分两步完成。首先，检测到一个回环并对其进行验证。接着，通过优化位姿图来校正该回环。与存在大尺度漂移的单目ORB-SLAM不同，双目或深度信息使得尺度信息可以观测到，几何校验和位姿图优化不再需要处理尺度漂移，并且是基于刚体变换而不是基于相似性的。
 
+&emsp;&emsp;ORB-SLAM2在位姿图优化后加入了全局BA优化来得到最优解。这一优化过程的代价可能会非常高，因此将会在一个单独的线程中运行，保证系统能够持续建图和检测回环。然而，这会导致全局BA优化输出和当前地图融合的问题。如果优化运行的过程中检测到了一个新的回环，系统能够停止优化并继续回环对齐，这种方式能够再次触发全局BA。当全局BA完成后，系统需要将更新后的关键帧子集和由全局BA优化过的点与未更新的关键帧和优化过程中插入的地图点合并。这是通过生成树将更新的关键帧的校正传播到非更新的关键帧来实现的。未更新的点根据应用于其参考关键帧的校正进行变换。
+
+## 关键帧的插入
+
+&emsp;&emsp;ORB-SLAM2
