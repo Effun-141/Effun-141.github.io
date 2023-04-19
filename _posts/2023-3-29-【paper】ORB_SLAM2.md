@@ -157,6 +157,5 @@ $$ \begin{aligned}
 
 ## D.回环检测与全局BA
 
-=======
 &emsp;&emsp;**局部BA**对一系列共视的关键帧$$\mathcal{K}_L$$和在这些关键帧中观测到的全部点$$\mathcal{P}_L$$进行优化。所有能够观测到$$\mathcal{P}_L$$中的点但是不在$$\mathcal{K}_L$$中的关键帧$$\mathcal{K}_F$$同样有助于
 
