@@ -145,4 +145,12 @@ $$
 
 其中，$$(f_x,f_y)$$ 是焦距，$$(c_x,c_y)$$ 是主点，$$b$$ 是基线，这些参数均由标定获得。
 
-&emsp;&emsp;**局部BA**对一系列共视的关键帧$$\mathcal{K}_L$$和在这些关键帧中观测到的全部点$$\mathcal{P}_L$$进行优化。所有能够观测到$$\mathcal{P}_L$$中的点但是不在$$\mathcal{K}_L$$中的关键帧$$\mathcal{K}_F$$同样有助于
+&emsp;&emsp;**局部BA**对一系列共视的关键帧$$\mathcal{K}_L$$和在这些关键帧中观测到的全部点$$\mathcal{P}_L$$进行优化。所有能够观测到$$\mathcal{P}_L$$中的点但是不在$$\mathcal{K}_L$$中的关键帧$$\mathcal{K}_F$$同样有助于构建代价函数，但是在优化中保持不变。将$$\mathcal{X}_k$$定义为$$\mathcal{P}_L$$中的点和关键帧$$k$$中的关键点之间能够相互匹配的点的集合，则优化问题如下：
+
+$$ \begin{aligned}
+    \{\mathbf{X}^i,\mathbf{R}_l,\mathbf{t}_l|i\in\mathcal{P}_L,l\in\mathcal{K}_L\}&=\underset{\mathbf{X}^i,\mathbf{R}_l,\mathbf{t}_l}{\mathbf{argmin}}\sum_{{k\in\mathcal{K}_L}\cup\mathcal{K}_F}\sum_{j\in\mathcal{X}_k}\rho(E(k,j)) \\
+    E(k,j) &= \Big\| \mathbf{x}^j_{(\centerdot)}-\pi_{(\centerdot)}(\mathbf{R}_k\mathbf{X}^j+\mathbf{t}_k)\Big\|^2_\Sigma
+    \tag{4}
+\end{aligned}$$
+
+&emsp;&emsp;全局BA是局部BA的特殊情况，所有地图中的关键帧和点都会被优化，除了原点关键帧始终固定不变以消除测量自由度。
