@@ -106,4 +106,40 @@ $$u_R = u_L - \frac{f_xb}{d}\ \tag{1}$$
 
 $$\{\mathbf{R}, \mathbf{t}\} =\underset{\mathbf{R,t}}{\mathbf{argmin}} \sum_{i\in\chi}\rho(\big\| \mathbf{x}^i_{(\centerdot)} - \pi_{(\centerdot)}(\mathbf{RX}^i+\mathbf{t}) \big\|^2_\Sigma)\tag{2}$$
 
-其中，$$\rho$$是鲁棒Huber代价函数，$$\Sigma$$是与关键点规模相关的协方差矩阵。
+其中，$$\rho$$是鲁棒Huber代价函数，$$\Sigma$$是与关键点规模相关的协方差矩阵。投影函数$$\pi_{(\centerdot)}$$在使用单目相机时为$$\pi_m$$，使用校正后的双目相机时为$$\pi_s$$，二者定义如下：
+
+$$ \pi_m\Bigg( 
+    \left[ 
+        \begin{matrix}
+        X\\
+        Y\\
+        Z
+        \end{matrix}
+    \right] \Bigg) 
+    =
+    \left[ 
+        \begin{matrix}
+         f_x\frac{X}{Z}+c_x \\
+         f_y\frac{Y}{Z}+c_y   
+        \end{matrix}
+    \right]
+    ,
+    \pi_s\Bigg( 
+    \left[ 
+        \begin{matrix}
+        X\\
+        Y\\
+        Z
+        \end{matrix}
+    \right] \Bigg) 
+    =
+    \left[ 
+        \begin{matrix}
+         f_x\frac{X}{Z}+c_x \\
+         f_y\frac{Y}{Z}+c_y \\
+         f_x\frac{X-b}{Z}+c_x
+        \end{matrix}
+    \right]
+    ,
+    
+$$
