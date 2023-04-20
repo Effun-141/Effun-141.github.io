@@ -188,17 +188,13 @@ $$
 &emsp;&emsp;文献[2]中的KITTI数据集包含由汽车在城市和高速公路环境下采集的双目数据段。
 
 <p align="center">
-<font face="黑体" size=2.>
 表1 基于KITTI数据集的精度对比
-</font>
 </p>
 
 ![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
 
 <p align="center">
-<front face="黑体" size=2.>
 表2 基于EURoC数据集的位移RMSE误差(m)对比
-</front>
 </p>
 
 ![tab2](https://effun.xyz/images/ORB-SLAM2/tba2.png)
