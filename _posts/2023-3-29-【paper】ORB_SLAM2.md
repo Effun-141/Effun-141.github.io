@@ -206,7 +206,7 @@ $$
 </div>
 
 
-<img src="D:\Effun-141.github.io\images\ORB-SLAM2" width = 550 />
+<img src="D:/Effun-141.github.io/images/ORB-SLAM2/fig4.png" width = 550 />
 
 <figure>
 图4. 基于KITTI数据集00、01、05和07数据段的估计轨迹（黑色）和实际轨迹（红色）
