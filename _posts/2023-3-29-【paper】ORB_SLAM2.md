@@ -179,3 +179,26 @@ $$
 
 &emsp;&emsp;ORB-SLAM2中加入了一个定位模式，该模式能够在地图已知的场景中有效实现轻量级的长时间定位，前提是环境没有发生巨大的变化。在定位模式下，局部建图和回环检测线程都会挂起，并且可以在需要时由跟踪线程使用重定位方法来持续定位相机。这一模式中，跟踪线程会利用视觉里程计匹配和与地图点的匹配。其中，视觉里程计匹配是指当前帧中的ORB特征点与由双目或深度信息生成的3-D点之间的匹配。这些匹配使得定位模式在未建图区域中仍然有较强的鲁棒性，但是同时会累积漂移误差。地图点匹配能够确保在已建立的地图下实现无漂移误差定位。该模式在本文所附视频中进行了演示。
 
+# IV.评估
+
+&emsp;&emsp;本文基于三个主流的数据集对ORB-SLAM2的性能进行评估，并与其他先进的SLAM系统进行了对比，所有比较均基于原作者发表的结果和文献中的标准评估指标。本文在CPU为Intel Core i7-4790，内存16GB的台式机上运行ORB-SLAM2。考虑到多线程系统的不确定性，我们对每个数据段运行五次，并取中位数作为评估轨迹的精度。本文开源系统实现方法，包括标定和在全部数据集中运行ORB-SLAM2的步骤介绍。
+
+<p align="center"><font face="黑体" size=2.>表1 基于KITTI数据集的精度对比</font></p>
+
+![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
+
+<p align="center"><font face="黑体" size=2.>表2 基于EURoC数据集的位移RMSE误差(m)对比</font></p>
+
+![tab2](https://effun.xyz/images/ORB-SLAM2/tab2.png)
+
+![fig4](https://effun.xyz/images/ORB-SLAM2/fig4.png)
+
+<figure>
+图4. 基于KITTI数据集00、01、05和07数据段的估计轨迹（黑色）和实际轨迹（红色）
+</figure>
+
+![fig5](https://effun.xyz/images/ORB-SLAM2/fig5.png)
+
+<figure>
+图5. 基于KITTI数据集08数据段的估计轨迹（黑色）和实际轨迹（红色）。左图为单目ORB-SLAM的结果对比，右图为双目ORB-SLAM2的对比结果。可以看出，在改数据段的测试下，单目ORB-SLAM中存在严重的尺度漂移，尤其是在转弯处。而本文提出的双目ORB-SLAM2则能够准确估计轨迹和地图，无尺度漂移误差。
+</figure>
