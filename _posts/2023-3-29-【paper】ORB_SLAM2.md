@@ -196,9 +196,9 @@ $$
 ![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
 
 <p align="center">
-<font face="黑体" size=2.>
+<front face="黑体" size=2.>
 表2 基于EURoC数据集的位移RMSE误差(m)对比
-</font>
+</front>
 </p>
 
 ![tab2](https://effun.xyz/images/ORB-SLAM2/tba2.png)
