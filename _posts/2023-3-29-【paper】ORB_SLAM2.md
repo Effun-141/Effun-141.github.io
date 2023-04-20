@@ -201,9 +201,11 @@ $$
 
 ![fig4](https://effun.xyz/images/ORB-SLAM2/fig4.png)
 
+<p align="center">
 <figure>
 图4. 基于KITTI数据集00、01、05和07数据段的估计轨迹（黑色）和实际轨迹（红色）
 </figure>
+</p>
 
 ![fig5](https://effun.xyz/images/ORB-SLAM2/fig5.png)
 
