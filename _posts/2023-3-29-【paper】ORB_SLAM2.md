@@ -183,11 +183,23 @@ $$
 
 &emsp;&emsp;本文基于三个主流的数据集对ORB-SLAM2的性能进行评估，并与其他先进的SLAM系统进行了对比，所有比较均基于原作者发表的结果和文献中的标准评估指标。本文在CPU为Intel Core i7-4790，内存16GB的台式机上运行ORB-SLAM2。考虑到多线程系统的不确定性，我们对每个数据段运行五次，并取中位数作为评估轨迹的精度。本文开源系统实现方法，包括标定和在全部数据集中运行ORB-SLAM2的步骤介绍。
 
-<p align="center"><font face="黑体" size=2.>表1 基于KITTI数据集的精度对比</font></p>
+## A.KITTI 数据集
+
+&emsp;&emsp;文献[2]中的KITTI数据集包含由汽车在城市和高速公路环境下采集的双目数据段。
+
+<p align="center">
+<font face="黑体" size=2.>
+表1 基于KITTI数据集的精度对比
+</font>
+</p>
 
 ![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
 
-<p align="center"><font face="黑体" size=2.>表2 基于EURoC数据集的位移RMSE误差(m)对比</font></p>
+<p align="center">
+<font face="黑体" size=2.>
+表2 基于EURoC数据集的位移RMSE误差(m)对比
+</font>
+</p>
 
 ![tab2](https://effun.xyz/images/ORB-SLAM2/tba2.png)
 
