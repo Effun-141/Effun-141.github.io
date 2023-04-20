@@ -185,11 +185,20 @@ $$
 
 ## A.KITTI 数据集
 
-&emsp;&emsp;文献[2]中的KITTI数据集包含由汽车在城市和高速公路环境下采集的双目数据段。
+&emsp;&emsp;文献[2]中的KITTI数据集包含由汽车在城市和高速公路场景中采集的双目数据段。双目传感器基线长度小于54cm，工作频率10Hz，校正后的分辨率为1240x376像素。00,02,05,06,07,09数据段包含回环。ORB-SLAM2能够检测除了09数据段外的所有回环，并且可以实现地图复用。09数据段的回环仅发生在视频流结尾的极少数帧中。表1给出了ORB-SLAM2与目前主流的双目LSD-SLAM在11个不同数据段（有真值）下的测试结果对比。这里要特别说明的是，LSD-SLAM是
+已知的唯一给出所有数据段详细测试结果的双目SLAM系统。本文基于两种不同的度量方式来评估误差，一个是文献[3]中提出的绝对平移均方根误差（RMSE）$$t_{abs}$$，另一个是文献[2]中提出的平均相对平移$$t_{rel}$$和旋转$$r_{rel}$$误差。本文提出的ORB-SLAM2在大多数数据集下的测试结果优于LSD-SLAM，并且相对误差普遍小于1%。如图3中所示，01数据段是训练集中唯一一个高速公路场景，并且位移误差略差。在这个数据段中，平移误差更难估计，这是因为高速行驶和低帧率导致只有少数的近点能被跟踪到。然而，由于很多远点能够被长时间跟踪到，旋转可以被准确估计，误差仅有每百米$$0.21\degree$$。下图4中给出了部分估计轨迹的示例。
+
 
 <p align="center">
 表1 基于KITTI数据集的精度对比
 </p>
+
+![fig4](https://effun.xyz/images/ORB-SLAM2/fig4.png)
+
+<img src="http//effun.xyz/images/ORB-SLAM2/fig4.png" width = 30% height = 30% />
+<figure>
+图4. 基于KITTI数据集00、01、05和07数据段的估计轨迹（黑色）和实际轨迹（红色）
+</figure>
 
 ![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
 
@@ -199,13 +208,7 @@ $$
 
 ![tab2](https://effun.xyz/images/ORB-SLAM2/tba2.png)
 
-![fig4](https://effun.xyz/images/ORB-SLAM2/fig4.png)
 
-<p align="center">
-<figure>
-图4. 基于KITTI数据集00、01、05和07数据段的估计轨迹（黑色）和实际轨迹（红色）
-</figure>
-</p>
 
 ![fig5](https://effun.xyz/images/ORB-SLAM2/fig5.png)
 
