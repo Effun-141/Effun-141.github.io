@@ -193,14 +193,14 @@ $$
 表1 基于KITTI数据集的精度对比
 </p>
 
-![fig4](https://effun.xyz/images/ORB-SLAM2/fig4.png)
+![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
 
 <img src="http//effun.xyz/images/ORB-SLAM2/fig4.png" width = 30% height = 30% />
 <figure>
 图4. 基于KITTI数据集00、01、05和07数据段的估计轨迹（黑色）和实际轨迹（红色）
 </figure>
 
-![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
+
 
 <p align="center">
 表2 基于EURoC数据集的位移RMSE误差(m)对比
