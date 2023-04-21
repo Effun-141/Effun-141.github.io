@@ -202,18 +202,13 @@ $$
 
 <div>			<!--块级封装-->
     <center>	<!--将图片和文字居中-->
-    <img src="http://effun.xyz/images/ORB-SLAM2/fig4.png"
+    <img src=D:/Effun-141.github.io/images/ORB-SLAM2/fig4.png
          alt="无法显示图片"
          style="zoom:40%"/>
     <br>		<!--换行-->
     这里是图片的标题	<!--标题-->
     </center>
 </div>
-
-
-<img src="D:\Effun-141.github.io\images\ORB-SLAM2\fig4" width = 550 />
-
-
 
 <p align="center">
 表2 基于EuRoC数据集的位移RMSE误差(m)对比
