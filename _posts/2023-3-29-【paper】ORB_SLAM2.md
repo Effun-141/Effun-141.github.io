@@ -199,7 +199,7 @@ $$
 </font>
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=400px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=650px>
 </figure>
 
 <figure>
