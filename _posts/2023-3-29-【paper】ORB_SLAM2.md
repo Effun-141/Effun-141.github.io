@@ -199,8 +199,7 @@ $$
 </font>
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=800px>
-
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=400px>
 </figure>
 
 <figure>
@@ -232,7 +231,7 @@ $$
 </font>
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tba2.png" width=800px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tba2.png" width=400px>
 
 </figure>
 
@@ -254,7 +253,7 @@ $$
 </font>
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tab3.png" width=800px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab3.png" width=400px>
 </figure>
 
 <figure>
