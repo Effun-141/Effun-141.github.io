@@ -27,10 +27,10 @@ tags: Paper
 
 &emsp;&emsp;图1给出了ORB-SLAM2系统输入双目和RGB-D相机数据时的输出结果。双目相机结果展现了最终的轨迹和对KITTI数据集中的00数据段的稀疏重建结果。KITTI数据集是一个带有多个回环的城市数据集，ORB-SLAM2能够成功检测到这些回环。RGB-D相机结果展示了TUM RGB-D数据集中的fr1-room数据段的关键帧估计位姿，并给出了根据估计关键帧位姿，对传感器深度图反向投影得到的稠密点云。值得注意的是，本文提出的SLAM方法并没有进行任何形式的融合，如KinectFusion或类似的方法，但是仍然能够精确估计关键帧的位姿。本文算法的更多示例在附件视频中展示。
 
-![fig1](https://effun.xyz/images/ORB-SLAM2/fig1.jpg)
-
 <figure>
-图1. ORB-SLAM2处理输入的双目和RGB-D相机数据来估计降级轨迹并建立环境地图。系统能够在实时CPU上运行并实现高精度和鲁棒性的回环检测、重定位和地图复用。(a) 双目输入下：得到轨迹和对包含多闭环的城市环境的重建结果。（b）RGB-D输入下：得到关键帧和仅有一个闭环的室内场景的点云。点云图是根据关键帧对传感器深度图反向投影渲染得到
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig1.jpg" width=400px>
+    <figcaption>图1. ORB-SLAM2处理输入的双目和RGB-D相机数据来估计降级轨迹并建立环境地图。系统能够在实时CPU上运行并实现高精度和鲁棒性的回环检测、重定位和地图复用。(a) 双目输入下：得到轨迹和对包含多闭环的城市环境的重建结果。（b）RGB-D输入下：得到关键帧和仅有一个闭环的室内场景的点云。点云图是根据关键帧对传感器深度图反向投影渲染得到。
+    </figcaption>
 </figure>
 
 &emsp;&emsp;下面，本文将在第II部分给出相关工作，在第III部分描述本文所设计的系统，接着在第IV部分给出估计结果，最后在第V部分给出结论。
@@ -62,10 +62,10 @@ tags: Paper
 
 &emsp;&emsp;ORB-SLAM2的双目相机模式和RGB-D相机模式是由基于特征点的ORB-SLAM发展而来，其主要的组成部分如下：
 
-![fig2](https://effun.xyz/images/ORB-SLAM2/fig2.jpg)
-
 <figure>
-图2. ORB-SLAM2由三个主要的并行线程组成：跟踪线程、建图线程和回环检测线程，回环检测能触发第四个线程即全局BA优化。跟踪线程预处理双目或RGB-D相机的输入数据使得系统其余的部分能够不依赖传感器独立运行。ORB-SLAM2还能够基于单目相机的输入数据运行（图中未给出）。(a)系统各线程与组成模块。(b)输入数据预处理。
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig2.jpg" width=400px>
+    <figcaption>图2. ORB-SLAM2由三个主要的并行线程组成：跟踪线程、建图线程和回环检测线程，回环检测能触发第四个线程即全局BA优化。跟踪线程预处理双目或RGB-D相机的输入数据使得系统其余的部分能够不依赖传感器独立运行。ORB-SLAM2还能够基于单目相机的输入数据运行（图中未给出）。(a)系统各线程与组成模块。(b)输入数据预处理。
+    </figcaption>
 </figure>
 
 &emsp;&emsp;系统总体架构如图2所示。ORB-SLAM2包含三个主要的并行线程：
@@ -169,10 +169,9 @@ $$
 
 &emsp;&emsp;ORB-SLAM2沿用了单目ORB-SLAM中经常插入关键帧并在之后剔除冗余关键帧的策略，远近双目点之间的区别能够引入一个新的关键帧插入条件，这对于一些具有挑战性的环境是至关重要的，因为这些环境中的很大一部分场景都远离双目传感器，如图3所示。在这样的环境中，系统需要有足够多的近点来估计平移，如果跟踪近点的数量下降到$$\tau_t$$以下，并且一帧能够生成至少$$\tau_c$$个新的近双目点，那么系统将插入一个新的关键帧。本文根据经验发现 ，当规定$$\tau_t=100$$，$$\tau_c=70$$时实验效果较好。
 
-![fig3](https://effun.xyz/images/ORB-SLAM2/fig3.jpg)
-
 <figure>
-图3. KITTI 01数据段中的跟踪点。绿色点的深度值小于双目基线长度的40倍，而蓝色点的深度值则远远大于该数据。在这一类数据段中，时常插入足够多的关键帧以使得近点数量足以用于准确的位移估计是至关重要的。远点虽有助于估计旋转，但是只能提供较弱的位移和尺度信息。
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig3.jpg" width=800px>
+    <figcaption>图3. KITTI 01数据段中的跟踪点。绿色点的深度值小于双目基线长度的40倍，而蓝色点的深度值则远远大于该数据。在这一类数据段中，时常插入足够多的关键帧以使得近点数量足以用于准确的位移估计是至关重要的。远点虽有助于估计旋转，但是只能提供较弱的位移和尺度信息。</figcaption>
 </figure>
 
 ## F. 定位模式
@@ -188,19 +187,81 @@ $$
 &emsp;&emsp;文献[2]中的KITTI数据集包含由汽车在城市和高速公路场景中采集的双目数据段。双目传感器基线长度小于54cm，工作频率10Hz，校正后的分辨率为1240x376像素。00,02,05,06,07,09数据段包含回环。ORB-SLAM2能够检测除了09数据段外的所有回环，并且可以实现地图复用。09数据段的回环仅发生在视频流结尾的极少数帧中。表1给出了ORB-SLAM2与目前主流的双目LSD-SLAM在11个不同数据段（有真值）下的测试结果对比。这里要特别说明的是，LSD-SLAM是
 已知的唯一给出所有数据段详细测试结果的双目SLAM系统。本文基于两种不同的度量方式来评估误差，一个是文献[3]中提出的绝对平移均方根误差（RMSE）$$t_{abs}$$，另一个是文献[2]中提出的平均相对平移$$t_{rel}$$和旋转$$r_{rel}$$误差。本文提出的ORB-SLAM2在大多数数据集下的测试结果优于LSD-SLAM，并且相对误差普遍小于1%。如图3中所示，01数据段是训练集中唯一一个高速公路场景，并且位移误差略差。在这个数据段中，平移误差更难估计，这是因为高速行驶和低帧率导致只有少数的近点能被跟踪到。然而，由于很多远点能够被长时间跟踪到，旋转可以被准确估计，误差仅有每百米$$0.21^\circ$$。下图4中给出了部分估计轨迹的示例。
 
+<p align="center">
+表1 基于KITTI数据集的精度对比
+</p>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=800px>
+
+</figure>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig4.png" width=800px>
+    <figcaption>图4. KTIII 00, 01, 05和07数据段估计轨迹（黑）与真实轨迹（红）。
+    </figcaption>
+</figure>
+
 &emsp;&emsp;与文献[1]中给出的单目ORB-SLAM的测试结果相比，本文提出的双目版本能够在单目系统失效的01数据段下持续运行。如图3所示，在这一高速公路场景下，仅有少数几帧能看到近点。双目ORB-SLAM2能够从一帧中生成地图点而不需要像单目版本一样通过延迟初始化来找到两个关键帧之间的匹配，这对于该数据段不丢失跟踪是至关重要的。此外，双目系ORB-SLAM2使用公制尺度估计地图和轨迹，并且不会受到尺度漂移的影响，如图5所示。
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig5.png" width=800px>
+    <figcaption>图5. 基于KITTI数据集08数据段的估计轨迹（黑色）和实际轨迹（红色）。左图为单目ORB-SLAM的结果对比，右图为双目ORB-SLAM2的对比结果。可以看出，在改数据段的测试下，单目ORB-SLAM中存在严重的尺度漂移，尤其是在转弯处。而本文提出的双目ORB-SLAM2则能够准确估计轨迹和地图，无尺度漂移误差。
+    </figcaption>
+</figure>
 
 ## B. EuRoC数据集
 
 &emsp;&emsp;最近发布的EURoC数据集包含11个由微型航空器（MAV）在两个不同的大房间和一个大规模工业场景中记录的双目数据段。双目传感器基线小于11cm，以20Hz的频率输出WVGA分辨率的图像。数据段依据MAV的移动速度，场景光照和纹理分为简单，中等和困难几类。在所有的数据段中，MAV都会重新进入场景中，这样使得ORB-SLAM2可以在必要时进行地图复用和回环检测。表2中给出了ORB-SLAM2在全部数据段测试下的绝对平移RMSE结果，并与文献[11]中给出的双目LSD-SLAM测试结果进行了对比。ORB-SLAM2能够实现厘米级的精确定位并且比LSD-SLAM更加准确。由于严重的运动扰动，ORB-SLAM2的跟踪线程会在*V2_03_difficult*数据段发生丢失现象。文献[22]提出，可以通过加入IMU信息解决上述问题。图6中给出了与真实轨迹对比的估计轨迹。
 
+<p align="center">
+表2 基于EuRoC数据集的位移RMSE误差(m)对比
+</p>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tba2.png" width=800px>
+
+</figure>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig6.png" width=800px>
+    <figcaption>图6. EuRoC V1_02, V2_02, MH_03和MH_05数据段估计轨迹（黑）与真实轨迹（红）。
+    </figcaption>
+</figure>
+
 ## C. TUM RGB-D数据集
 
 &emsp;&emsp;TUM RGB-D数据集包含由RGB-D传感器采集的室内数据段，这些数据段被分为几类用以评估在不同纹理、光照和结构条件下的目标重建以及SLAM或里程计效果。本文给出了在TUM的一些子序列下的测试结果（使用的数据段通常用于评估RGB-D方法）。表3呈现了ORB-SLAM2与ElasticFusion，Kintinuous，DVO-SLAM以及RGB-D SLAM这些主流SLAM方法在精度方面的对比结果。ORB-SLAM2是唯一一个基于光束平差法（BA）实现后端优化的SLAM方法且在大部分数据段下的测试结果都优于其他方法。文献[1]中给出的RGB-D SLAM测试结果表明，*freigurg2*序列的深度地图存在4%的尺度偏差，这可能是由于标定不准确引起的。本文对这一问题进行了补偿，一定程度上解释了为什么ORB-SLAM2具有更好的测试效果。图7展示了从四个数据段中计算出的关键帧位姿反推传感器深度图所获得的点云图。其中，书桌和海报的良好细节和直线轮廓证明了ORB-SLAM2具有较高的定位精度。
 
+<p align="center">
+表3 TUM RGB-D 数据集
+</p>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab3.png" width=800px>
+
+</figure>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig7-1.png" width=800px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig7-1.png" width=800px>
+    <figcaption>图7. 基于估计关键帧位姿和传感器深度图对TUM RGB-D *fr3_office, fr1_room, fr2_desk和fr3_nst*数据段的稠密点云重建结果
+    </figcaption>
+</figure>
+
 ## D. 计时结果
 
 &emsp;&emsp;为了完善对ORB-SLAM2的评估结果，本文在表4中给出了经过三个具有不同图像分辨率和传感器的数据段测试后得到的计时结果。每个线程消耗的时间和其标准差范围都在表中给出。由于这些数据段只包含一个回环，因此全局BA和回环检测的一部分程序只被执行了一次并且只给出时间结果。在每个数据段中，平均每帧的跟踪时间都低于相机帧率的倒数，这意味着ORB-SLAM2可以实时运行。因为双目图像中的ORB提取是并行的，所以在*V2_02*的双目WVGA图像中提取1000个ORB特征点与在*fr3_office*的单个VGA图像通道中提取相同数量的特征点的时间接近。
+
+<p align="center">
+表4 以毫秒为单位每个线程的耗时结果
+</p>
+
+<figure>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab4.png" width=1000px>
+
+</figure>
+
 
 &emsp;&emsp;一个回环中的关键帧数量可以视为回环检测线程消耗时间的参考。虽然KITTI 07中的回环包含更多关键帧，但室内*fr3_office*构建的共视图更密集，因此回环融合、位姿图优化和全局BA任务的代价更高。共视图的密度越高，局部地图包含的关键帧和点就越多，局部建图跟踪和局部BA的代价也就越高。
 
@@ -215,35 +276,3 @@ $$
 &emsp;&emsp;本文已开源系统代码，并附带有示例和指导，以便于其他研究者可以轻松使用本系统。ORB-SLAM2是已知的第一个开源的视觉SLAM系统，且可以基于单目、双目以及RGB-D相机输入的数据运行。除此以外，本文的源代码包含一个增强现实（AR）的应用案例，该案例基于单目相机完成，展现了ORB-SLAM2的潜力。
 
 &emsp;&emsp;本系统未来的扩展可能包括支持基于无重叠区域多相机、鱼眼相机和广角相机运行以及大规模稠密建图、协同建图和增强运动模糊情况下的鲁棒性。
-
-
-
-<p align="center">
-表1 基于KITTI数据集的精度对比
-</p>
-
-![tab1](https://effun.xyz/images/ORB-SLAM2/tab1.png)
-
-<div>			<!--块级封装-->
-    <center>	<!--将图片和文字居中-->
-    <img src="D:\Effun-141.github.io\images\ORB-SLAM2\fig4.png" 
-         alt="无法显示图片"
-         style="zoom:40%"/>
-    <br>		<!--换行-->
-    这里是图片的标题	<!--标题-->
-    </center>
-</div>
-
-<p align="center">
-表2 基于EuRoC数据集的位移RMSE误差(m)对比
-</p>
-
-![tab2](https://effun.xyz/images/ORB-SLAM2/tba2.png)
-
-
-
-![fig5](https://effun.xyz/images/ORB-SLAM2/fig5.png)
-
-<figure>
-图5. 基于KITTI数据集08数据段的估计轨迹（黑色）和实际轨迹（红色）。左图为单目ORB-SLAM的结果对比，右图为双目ORB-SLAM2的对比结果。可以看出，在改数据段的测试下，单目ORB-SLAM中存在严重的尺度漂移，尤其是在转弯处。而本文提出的双目ORB-SLAM2则能够准确估计轨迹和地图，无尺度漂移误差。
-</figure>
