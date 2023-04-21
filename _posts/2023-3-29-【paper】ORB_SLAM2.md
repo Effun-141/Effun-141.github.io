@@ -199,7 +199,7 @@ $$
 </font>
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=650px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab1.png" width=470px>
 </figure>
 
 <figure>
@@ -231,7 +231,7 @@ $$
 </font>
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tba2.png" width=400px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tba2.png" width=470px>
 
 </figure>
 
@@ -246,14 +246,16 @@ $$
 
 &emsp;&emsp;TUM RGB-D数据集包含由RGB-D传感器采集的室内数据段，这些数据段被分为几类用以评估在不同纹理、光照和结构条件下的目标重建以及SLAM或里程计效果。本文给出了在TUM的一些子序列下的测试结果（使用的数据段通常用于评估RGB-D方法）。表3呈现了ORB-SLAM2与ElasticFusion，Kintinuous，DVO-SLAM以及RGB-D SLAM这些主流SLAM方法在精度方面的对比结果。ORB-SLAM2是唯一一个基于光束平差法（BA）实现后端优化的SLAM方法且在大部分数据段下的测试结果都优于其他方法。文献[1]中给出的RGB-D SLAM测试结果表明，*freigurg2*序列的深度地图存在4%的尺度偏差，这可能是由于标定不准确引起的。本文对这一问题进行了补偿，一定程度上解释了为什么ORB-SLAM2具有更好的测试效果。图7展示了从四个数据段中计算出的关键帧位姿反推传感器深度图所获得的点云图。其中，书桌和海报的良好细节和直线轮廓证明了ORB-SLAM2具有较高的定位精度。
 
-<font size=2>
+
 <p align="center">
+<font size=2>
 表3 TUM RGB-D 数据集
-</p>
 </font>
+</p>
+
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/tab3.png" width=400px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/tab3.png" width=470px>
 </figure>
 
 <figure>
