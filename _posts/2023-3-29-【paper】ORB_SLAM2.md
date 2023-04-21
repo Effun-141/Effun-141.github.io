@@ -225,8 +225,7 @@ $$
 
 <figure>
     <img src="https://effun.xyz/images/ORB-SLAM2/fig6.png" width=800px>
-    <figcaption>图6. EuRoC V1_02, V2_02, MH_03和MH_05数据段估计轨迹（黑）与真实轨迹（红）。
-    </figcaption>
+    <figcaption>图6. EuRoC V1_02, V2_02, MH_03和MH_05数据段估计轨迹（黑）与真实轨迹（红）。</figcaption>
 </figure>
 
 ## C. TUM RGB-D数据集
@@ -239,14 +238,12 @@ $$
 
 <figure>
     <img src="https://effun.xyz/images/ORB-SLAM2/tab3.png" width=800px>
-
 </figure>
 
 <figure>
     <img src="https://effun.xyz/images/ORB-SLAM2/fig7-1.png" width=800px>
     <img src="https://effun.xyz/images/ORB-SLAM2/fig7-1.png" width=800px>
-    <figcaption>图7. 基于估计关键帧位姿和传感器深度图对TUM RGB-D *fr3_office, fr1_room, fr2_desk和fr3_nst*数据段的稠密点云重建结果
-    </figcaption>
+    <figcaption>图7. 基于估计关键帧位姿和传感器深度图对TUM RGB-D *fr3_office, fr1_room, fr2_desk和fr3_nst*数据段的稠密点云重建结果</figcaption>
 </figure>
 
 ## D. 计时结果
