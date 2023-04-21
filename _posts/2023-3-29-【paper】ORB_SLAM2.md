@@ -226,7 +226,9 @@ $$
 
 <figure>
     <img src="https://effun.xyz/images/ORB-SLAM2/fig6.png" width=800px>
+    <center>
     <figcaption>图6. EuRoC V1_02, V2_02, MH_03和MH_05数据段估计轨迹（黑）与真实轨迹（红）。</figcaption>
+    </center>
 </figure>
 
 ## C. TUM RGB-D数据集
