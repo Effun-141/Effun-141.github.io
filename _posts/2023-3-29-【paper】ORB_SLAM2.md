@@ -64,7 +64,7 @@ tags: Paper
 &emsp;&emsp;ORB-SLAM2的双目相机模式和RGB-D相机模式是由基于特征点的ORB-SLAM发展而来，其主要的组成部分如下：
 
 <figure>
-    <img src="https://effun.xyz/images/ORB-SLAM2/fig2.jpg" width=400px>
+    <img src="https://effun.xyz/images/ORB-SLAM2/fig2.jpg" width=800px>
     <center>
     <figcaption>图2. ORB-SLAM2由三个主要的并行线程组成：跟踪线程、建图线程和回环检测线程，回环检测能触发第四个线程即全局BA优化。跟踪线程预处理双目或RGB-D相机的输入数据使得系统其余的部分能够不依赖传感器独立运行。ORB-SLAM2还能够基于单目相机的输入数据运行（图中未给出）。(a)系统各线程与组成模块。(b)输入数据预处理。
     </figcaption>
