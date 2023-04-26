@@ -70,10 +70,12 @@ nav:
     # - {title: 标签分类, description: tags, url: '/tags'}      
  #   - {title: 技术支持, description: support, url: '/support'}      
     # - {title: 个人简历, description: about, url: '/about'}   
+    <font size="10">
      - {title: Tags, description: tags, url: '/tags'}     
      - {title: Articles, description: archive, url: '/archive'}   
  #    - {title: 技术支持, description: support, url: '/support'}      
-     - {title: About Me, description: about, url: '/about'}   
+     - {title: About Me, description: about, url: '/about'}  
+     </font> 
     
 
 # Pagination
