@@ -737,7 +737,7 @@ img::-moz-selection {
     display: inline-block;
     margin-left: 0px;
     line-height: 1em; 
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .navigation__item a {
