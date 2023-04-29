@@ -73,7 +73,8 @@ nav:
      - {title: Tags, description: tags, url: '/tags'}     
      - {title: Articles, description: archive, url: '/archive'}   
  #    - {title: 技术支持, description: support, url: '/support'}      
-     - {title: About Me, description: about, url: '/about'}   
+     - {title: About Me, description: about, url: '/about'}  
+    
     
 
 # Pagination
