@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 【experient recording】基于KITTI数据集测试Lego-LOAM并使用evo工具对生成的轨迹进行评估
+title: 【experiment recording】基于KITTI数据集测试Lego-LOAM并使用evo工具对生成的轨迹进行评估
 date: 2023-5-1
 tags: Lego-LOAM
 ---
