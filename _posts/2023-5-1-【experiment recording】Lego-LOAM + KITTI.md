@@ -43,6 +43,11 @@ Point cloud is not in dense format, please remove NaN points first!
 extern const bool useCloudRing = false;
 ```
 
+## 4.启用回环检测
+```
+extern const bool loopClosureEnableFlag = true;
+```
+
 # IV 运行命令
 
 &emsp;&emsp;运行Lego_LOAM
@@ -59,7 +64,24 @@ cd /home/effun/KITTI_Dataset/2011_09_26_drive_0035_sync
 rosbag play kitti_2011_09_26_drive_0035_synced.bag --clock --topic /kitti/velo/pointcloud
 ```
 
-# V 报错记录
+# V evo轨迹评估
+
+&emsp;&emsp;轨迹绘制
+```
+evo_traj kitti 00res.txt --ref=00.txt -p --plot_mode=xz
+```
+
+&emsp;&emsp;绝对位姿误差ape
+```
+evo_ape kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz --save_plot /home/effun --save_results /home/effun
+```
+
+&emsp;&emsp;相对位姿误差ape
+```
+evo_rpe kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz
+```
+
+# VI 报错记录
 
 &emsp;&emsp;运行Lego-LOAM并播放转化好的KITTI数据集bag时出现一个warning：
 ```
