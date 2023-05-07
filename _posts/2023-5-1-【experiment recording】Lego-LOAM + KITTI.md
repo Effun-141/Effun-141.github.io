@@ -76,7 +76,7 @@ evo_traj kitti 00res.txt --ref=00.txt -p --plot_mode=xz
 evo_ape kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz --save_plot /home/effun --save_results /home/effun
 ```
 
-&emsp;&emsp;相对位姿误差ape
+&emsp;&emsp;相对位姿误差rpe
 ```
 evo_rpe kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz
 ```
