@@ -83,13 +83,23 @@ evo_rpe kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz
 
 # VI 报错记录
 
-&emsp;&emsp;运行Lego-LOAM并播放转化好的KITTI数据集bag时出现一个warning：
+&emsp;&emsp;运行Lego-LOAM并播放转化好的KITTI数据集bag时出现2个warning：
+
+&emsp;&emsp;**warning1:**
 ```
 Detected jump back in time of 4.01076s. Clearing TF buffer
 ```
-&emsp;&emsp;关掉系统时间通过网络同步即可解决。
+&emsp;&emsp;**解决方法**：关掉系统时间通过网络同步即可解决。
 
+&emsp;&emsp;**warning2:**
 
+&emsp;&emsp;首先利用以下命令找到kitti2bag文件路径
+```
+whereis kitti2bag
+```
 
-
-
+&emsp;&emsp;接着在192行处找到`fill pcl msg`并将更改`i`为`intensity`。
+```
+gedit (kitti2bag路径)
+```
+&emsp;&emsp;最后重新转换一次即可
