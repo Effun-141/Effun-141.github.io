@@ -93,6 +93,10 @@ Detected jump back in time of 4.01076s. Clearing TF buffer
 
 &emsp;&emsp;**warning2:**
 
+```
+Failed to find match for field intensity
+```
+
 &emsp;&emsp;首先利用以下命令找到kitti2bag文件路径
 ```
 whereis kitti2bag
