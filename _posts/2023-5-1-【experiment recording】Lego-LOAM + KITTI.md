@@ -13,6 +13,14 @@ tags: Lego-LOAM
 
 # I 编译Lego-LOAM
 
+&emsp;&emsp;legoloam_ws是一个工作空间，首次运行需对其进行编译，使用的命令如下：
+```
+cd legoloam_ws
+catkin_make -j1
+```
+
+* 说明：只有首次编译需加-j1，后续重新编译只需要`catkin_make`即可。  
+
 # II 使用kitti2bag工具将KITTI数据段转化为bag文件
 
 # III 相关更改
@@ -57,28 +65,28 @@ roslaunch lego_loam run.launch
 
 &emsp;&emsp;进入KITTI数据段所在的文件夹
 ```
-cd /home/effun/KITTI_Dataset/2011_09_26_drive_0035_sync
+cd /home/effun/KITTI_Dataset/2011_09_30_drive_0027_sync
 ```
 
 ```
-rosbag play kitti_2011_09_26_drive_0035_synced.bag --clock --topic /kitti/velo/pointcloud
+rosbag play kitti_2011_09_30_drive_0027_synced.bag --clock --topic /kitti/velo/pointcloud
 ```
 
 # V evo轨迹评估
 
 &emsp;&emsp;轨迹绘制
 ```
-evo_traj kitti 00res.txt --ref=00.txt -p --plot_mode=xz
+evo_traj kitti 07res.txt --ref=07.txt -p --plot_mode=xz
 ```
 
 &emsp;&emsp;绝对位姿误差ape
 ```
-evo_ape kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz --save_plot /home/effun --save_results /home/effun
+evo_ape kitti 07.txt 07res.txt -r full -va --plot --plot_mode xyz --save_plot /home/effun --save_results /home/effun
 ```
 
 &emsp;&emsp;相对位姿误差rpe
 ```
-evo_rpe kitti 00.txt 00res.txt -r full -va --plot --plot_mode xyz
+evo_rpe kitti 07.txt 07res.txt -r full -va --plot --plot_mode xyz
 ```
 
 # VI 报错记录
