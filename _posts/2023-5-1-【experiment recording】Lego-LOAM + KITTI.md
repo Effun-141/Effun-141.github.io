@@ -23,6 +23,18 @@ catkin_make -j1
 
 # II 使用kitti2bag工具将KITTI数据段转化为bag文件
 
+&emsp;&emsp;安装kitt2bag工具
+```
+sudo pip install kitti2bag
+```
+
+&emsp;&emsp;在官网下载所需要的数据集数据，这里要注意的是，需要下载**raw data**选项下每个数据段的`[synced+rectified data] `和`[calibration]`中的文件。二者分别代表原始数据和标定文件。
+
+&emsp;&emsp;进入下载的文件夹中，使用下面的命令转换rosbag
+```
+kitti2bag -t 2011_09_30 -r 0027 raw_synced
+```
+
 # III 相关更改
 
 ## 1.更改Lego-LOAM的点云topic
