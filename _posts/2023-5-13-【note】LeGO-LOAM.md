@@ -18,7 +18,7 @@ tags: Lego-LOAM
 
 &emsp;&emsp;LeGO-LOAM的输入为激光雷达点云数据，输出为估计的位姿，系统结构框架如下：
 <figure>
-    <img src="https://effun.xyz/images/LeGO-LOAM/算法框架.png" width=400px>
+    <img src="https://effun.xyz/images/LeGO-LOAM/算法框架.png" width=200px>
     <center>
     <figcaption>图2.1 LeGO-LOAM系统框架</figcaption>
     </center>
