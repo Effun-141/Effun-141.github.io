@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 【close reading】LOAM: Lidar Odometry and Mapping in Real-time
+title: 【close reading】LOAM:Lidar Odometry and Mapping in Real-time
 date: 2023-7-28
 tags: Paper LOAM
 ---
