@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 【close reading】LeGO-LOAM:Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain
-date: 2023-5-4
+date: 2023-5-04
 tags: Paper Lego-LOAM
 ---
 
