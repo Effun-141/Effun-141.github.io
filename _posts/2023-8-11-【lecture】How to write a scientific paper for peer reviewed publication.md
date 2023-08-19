@@ -10,8 +10,6 @@ tags: Paper
 
 # Why Write and Publish a Paper?
 
-
-
 # Structure of a Scientific Paper
 
 # Process of Writing
