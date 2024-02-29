@@ -23,7 +23,7 @@ tags: Paper
 ## A. Overall framework
 
 <figure>
-    <img src="../images/towards/framework.png" width=800px>
+    <img src="https://effun.xyz/images/towards/framework.png" width=800px>
     <center>
     <figcaption>
     系统框图
@@ -59,7 +59,7 @@ $$
 &emsp;&emsp;**当某一簇的误差值相对其他簇较大时，认为该簇为动态点，并将簇内所有特征点剔除，不用于相机位姿估计**。这种几何聚类方法比对单点进行动静态判断更有效，且能够大致估计移动物体的形状。
 
 <figure>
-    <img src="../images/towards/dynamic object detection.png" width=1000px>
+    <img src="https://effun.xyz/images/towards/dynamic object detection.png" width=1000px>
     <center>
     <figcaption>
     动态物体检测的示例结果。第一行显示了所提出的语义模块（蓝色矩形的点）和几何模块（红色的点）检测到的动态特征。第二行是对应的语义分割结果。第三行显示深度图像的几何聚类结果，动态聚类以红色突出显示。 (a) 和 (b) 显示两个模块均检测到动态物体。 (c)-(h) 证明语义分割失败，而几何模块成功。帧取自序列 fr3/walking rpy
