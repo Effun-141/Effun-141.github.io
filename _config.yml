@@ -1,62 +1,85 @@
-# Site settings
-title: A.P
-baseurl: "/ap"
-url: "https://kssim.github.io"
-google_analytics: # Tracking ID, e.g. "UA-000000-01"
+# Basic
+title: Effun
+subtitle: effunwayj@njust.edu.cn
+description: Hi! Welcome to my blog
+# 头像里面的标题
+avatarTitle: 彭一凡
+# 头像里面的描述
+avatarDesc:   SLAM  /  移动机器人  /  控制算法
+url: "https://effun.xyz"
 
-# Author
-author:
-  name: KyeongSeob Sim
-  desc: Hello nice to meet you
-  email: ksub0912@gmail.com
-  selfie: assets/img/profile.jpg
+# 博客是否自动生成目录，false为不生成
+enableToc: true
 
-# social
-social:
-  email: true
-  behance:
-  bitbucket:
-  dribbble:
-  facebook: Test
-  flickr:
-  github: kssim
-  google_plus:
-  instagram:
-  keybase:
-  linkedin: https://www.linkedin.com/in/kssim/ 
-  pinterest:
-  reddit:
-  soundcloud:
-  stack_exchange:
-  steam:
-  tumblr:
-  gitlab:
-  twitter: Test
-  vimeo:
-  wordpress:
-  youtube:
-  default_txt: "Follow On"
+# Comment
+#comment:
+    # livere: MTAyMC81MDk5NC8yNzQ3Ng  # https://www.livere.com
+    # disqus: effun
+    # uyan: 2143225  # 有言id,登录有言官网申请
 
-# Build settings
-markdown: kramdown
+# Social
+#social:
+    #weibo: 5366874726 
+    # github: Effun_141
+    # zhihu: panpanleopard
+    # juejin: xxx
+    #jianshu: 2ada30d8d0f7
+    # twitter: 
+    # mail: effunwayj@njust.edu.cn
 
-# Assets
-sass:
-  sass_dir: _sass
-  style: compressed
 
-# Gems
-plugins:
-  - jekyll-paginate
+# 百度统计 
+# 使用博客模板请去掉或者更换 id 
+# baidu:
+#     id: 8ba1c6be0953b6f9c2ba38e57f615421  
 
-# Permalinks
-permalink: /:year-:month-:day/:title
-paginate_path: "/portfolio/page:num/"
-paginate: 5
-exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
-  - "*.gem"
-  - "LICENSE"
-  - "READE.md"
-  - "screenshot.png"
+# Google Analytics
+# 使用博客模板请去掉或者更换 id
+# ga:
+#     id: UA-84134159-3  
+#     host: auto  
+
+
+# 《----------------- 上面的信息修改成你自己的 ---------------------------》
+#
+#
+#  _post/ 下的文章更换成你自己的文章
+#  帮忙star一下，感谢~😆 地址： https://github.com/leopardpan/leopardpan.github.io
+#
+#
+# 《--------------- 下面的信息可以自行选择是否修改 ------------------------》
+
+
+permalink: /:year/:month/:title/
+# Format
+highlighter: rouge
+
+textColor: #FF0000
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: clear
+
+# The blog button should not be removed.
+blog_button:
+   # title: 博客主页
+     title: Blog Homepage
+
+# Navigation buttons in the front page.s
+nav:
+    # - {title: 所有文章, description: archive, url: '/archive'}   
+    # - {title: 标签分类, description: tags, url: '/tags'}      
+ #   - {title: 技术支持, description: support, url: '/support'}      
+    # - {title: 个人简历, description: about, url: '/about'}   
+     - {title: Tags, description: tags, url: '/tags'}     
+     - {title: Articles, description: archive, url: '/archive'}   
+ #    - {title: 技术支持, description: support, url: '/support'}      
+     - {title: About Me, description: about, url: '/about'}  
+    
+    
+
+# Pagination
+gems: [jekyll-paginate,jekyll-sitemap]
+paginate: 20
+paginate_path: "page/:num/"
+
+
