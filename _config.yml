@@ -1,6 +1,6 @@
 # Site settings
 title: A.P
-baseurl: "/ap"
+baseurl: ""
 url: "https://effun.xyz"
 google_analytics: # Tracking ID, e.g. "UA-000000-01"
 
