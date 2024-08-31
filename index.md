@@ -19,10 +19,10 @@ To achieve this, my research interests focus on
 
 <br/>
 
-# Interests
-I am interested in technology trends.  
-I'm not afraid to learn languages, but I enjoy using Python.  
-I like to automate and reduce annoying things.  
+# Publicaton
+[1] 
+
+[2]
 
 <br/>
 
