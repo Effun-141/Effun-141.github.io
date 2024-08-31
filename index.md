@@ -2,21 +2,20 @@
 layout: about 
 ---
 
-# About Me
-There is no specific format here. You can fill out the form you want.  
-For example, you might want to write a brief introduction about your self, experience, interests, publications, and other information.  
-I wrote "about me", "career", and "interests" on this page as an example.  
+# Biography
+Hi! I am a third-year postgradute student at School of Automation, Nanjing University of Science and Technology (NJUST, 211 project).
+My major is Control Science and Engineering, and my research focuses on mobile robot localization and scene understanding.
+
+I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology in June 2021.
 
 <br/>
 
-# Career
-* Second Company (2012/01 ~ )
-  * Web Application Firewall
-    * Developed TCP network acceleration module.
-    * Developde Application User Interface.
-* First Company (2011/01 ~ 2011/12)
-  * VPN Development Company
-  * Team Leader of VPN Development Div.
+# Research Interests
+My goal is to 
+
+To achieve this, my research interests focus on
+* Visul SLAM
+* Robot perception
 
 <br/>
 
