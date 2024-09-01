@@ -8,10 +8,14 @@ My major is Control Science and Engineering, and my research focuses on mobile r
 
 I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology in June 2021.
 
+https://img.shields.io/badge/-pyf-blue
+
+<a href='https://blog.csdn.net/weixin_43198704/article/details/132666618?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-pyf-blue?logo=gitbook&logoColor=white"></a>
+
 <br/>
 
 # Research Interests
-My goal is to enhance the intelligence of robots 🤖, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people. :tropical_fish:
+My goal is to enhance the intelligence of robots, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people. 
 
 To achieve this, my research interests focus on
 * **Visul SLAM in dynamic scene**
