@@ -6,9 +6,11 @@ layout: about
 Hi &#128522;! I am a third-year postgradute student at School of Automation, Nanjing University of Science and Technology (NJUST, 211 project).
 My major is Control Science and Engineering, and my research focuses on mobile robot localization and scene understanding.
 
-I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology in June 2021.
+I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology (NJUST) in June 2021, as a member of Robotics Innovation Lab (Auto-Robot). 
 
-<a href='https://blog.csdn.net/weixin_43198704/article/details/132666618?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-pyf-blue?logo=gitbook&logoColor=white"></a>
+My detailed CV can be accessed through the following link: 
+
+<a href='https://blog.csdn.net/weixin_43198704/article/details/132666618?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My CV-blue?logo=gitbook&logoColor=white"></a>
 
 <br/>
 
@@ -23,9 +25,9 @@ To achieve this, my research interests focus on
 <br/>
 
 # Publicaton
-[1] 
+<strong>[1]</strong>
 
-[2]
+<strong>[2]</strong>
 
 <br/>
 
