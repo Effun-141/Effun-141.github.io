@@ -8,6 +8,10 @@ My major is Control Science and Engineering, and my research focuses on mobile r
 
 I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology (NJUST) in June 2021, as a member of Robotics Innovation Lab (Auto-Robot). 
 
+Academic performance:
+
+* Master's: Average score: 91.48/100，ranked 11/390 (top 3%).
+* Bachelor's: GPA 3.42/4, ranked 56/188 (top 30%).
 
 <br/>
 
@@ -55,9 +59,28 @@ During my undergraduate studies, I also participated in the following **competit
 
 <br/>
 
-# &#128293; Professional Skills
+# &#128293; Skills
+**1.Visual SLAM Expertise:**
+* Familiar with fundamental theories of visual SLAM, with research experience in dynamic environments.
+* Proficient in ORB-SLAM2, including code modification and image processing using OpenCV.
 
-* Programming language: C/C++, python (a little)
+**2.ROS Development:**
+* Experienced in ROS development, able to quickly get started with and reproduce GitHub open-source projects.
+
+**3.Programming:**
+* Programming language: C/C++ (proficient), python (a little)
+
+**4.Ubuntu System Experience:**
+* Experienced with Ubuntu, familiar with basic commands, and capable of configuring environments (e.g., Python, OpenCV) and compiling open-source code via the command line.
+
+**5.Engineering Capabilty:**
+* Strong engineering practice skills, familiar with various experimental tools, and capable of independently designing and constructing complex robotic hardware.
+
+**6.Research and Writing Abilities:**
+* Proficient in academic reading, writing, drawing, and literature research.
+
+**7.Others:**
+* Skilled in version control using GitHub. 
 * Software: CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint
 
 <br/>
