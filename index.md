@@ -69,4 +69,4 @@ Please feel free to contact me at following ways:
 * **Wechat** : pyf140718
 * **Phone number** : +86 18852056252
 * **Facebook** : YiFan Peng 
-* **Personal website** : [effun.xyz]([effun.xyz](https://effun.xyz/))
+* **Personal website** : [effun.xyz](https://effun.xyz)
