@@ -27,9 +27,18 @@ To realize my academic goals, my research interests focus on:
 <br/>
 
 # &#128220; Publications
+
+**Paper:**
+
 <strong>[1]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv, Yifei Wu and Qingwei Chen. A High-Precision Dynamic RGB-D SLAM Algorithm for Environments with Potential Semantic Segmentation Network Failures. *(IEEE Transactions on Instrumentation & Measurement, JCR-Q1, **Under review**).*
 
 <strong>[2]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv and Yifei Wu. A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes. (***Accepted** at the 22nd IEEE International Conference on Industrial Informatics (IEEE-INDIN 2024)*)
+
+**Software copyrights：**
+
+<strong>[1]</strong> A Warehouse Management System V1.0 Based on Multi-AGV V1.0.
+
+<strong>[2]</strong> MATLAB-Based Multi-AGV Warehouse Management System Algorithm Simulation Program V1.0.
 
 <br/>
 
@@ -63,9 +72,13 @@ During my undergraduate studies, I also participated in the following **competit
 **1.Visual SLAM Expertise:**
 * Familiar with fundamental theories of visual SLAM, with research experience in dynamic environments.
 * Proficient in ORB-SLAM2, including code modification and image processing using OpenCV.
+* 熟悉特征提取与匹配原理，熟悉位姿估计原理
+* 了解后端优化原理，了解位姿优化库G2O
+* 熟悉回环检测原理
+* Capable of image processing based on OpenCV。
 
 **2.ROS Development:**
-* Experienced in ROS development, able to quickly get started with and reproduce GitHub open-source projects.
+* Experienced in ROS development, able to quickly get started with and reproduce GitHub open-source projects.（话题通信，写节点等）
 
 **3.Programming:**
 * Programming language: C/C++ (proficient), python (a little)
