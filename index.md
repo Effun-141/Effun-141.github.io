@@ -2,7 +2,7 @@
 layout: about 
 ---
 
-# ⭐ Biography
+# Biography
 Hi &#128522;! I am a third-year postgradute student at School of Automation, Nanjing University of Science and Technology (NJUST, 211 project).
 My major is Control Science and Engineering, and my research focuses on mobile robot localization and scene understanding.
 
@@ -16,7 +16,7 @@ I received my Bachelor’s degree in Automation at Nanjing University of Science
 
 <br/>
 
-# 🚀 Research Interests
+# Research Interests
 I hope to enhance the intelligence of robots, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
 
 To realize my academic goals, my research interests focus on:
@@ -27,14 +27,14 @@ To realize my academic goals, my research interests focus on:
 
 <br/>
 
-# 📰 Publications
+# Publications
 <strong>[1]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv, Yifei Wu and Qingwei Chen. A High-Precision Dynamic RGB-D SLAM Algorithm for Environments with Potential Semantic Segmentation Network Failures. *(IEEE Transactions on Instrumentation & Measurement, JCR-Q1, **Under review**).*
 
 <strong>[2]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv and Yifei Wu. A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes. (***Accepted** at the 22nd IEEE International Conference on Industrial Informatics (IEEE-INDIN 2024)*)
 
 <br/>
 
-# 📡 Project Experience
+# Project Experience
 
 Here are projects I participated in during my undergraduate and master's studies. More details and outcomes of all these projects are shown in [*Portfolio*](https://effun.xyz/portfolio/) page.
 
@@ -60,14 +60,14 @@ During my undergraduate studies, I also participated in the following **competit
 
 <br/>
 
-# 🔥 Professional Skills
+# Professional Skills
 
 * Programming language: C/C++, python (a little)
 * Software: CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint
 
 <br/>
 
-# 📧 Contact Information
+# Contact Information
 Please feel free to contact me at following ways:
 
 * **Email** : effunwayj@njust.edu.cn
