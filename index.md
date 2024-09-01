@@ -8,11 +8,6 @@ My major is Control Science and Engineering, and my research focuses on mobile r
 
 I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology (NJUST) in June 2021, as a member of Robotics Innovation Lab (Auto-Robot). 
 
- <!-- 
- My detailed CV can be accessed through the following link: 
-
-<a href='https://blog.csdn.net/weixin_43198704/article/details/132666618?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My CV-blue?logo=Git&logoColor=white"></a>
- --> 
 
 <br/>
 
