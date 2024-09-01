@@ -51,7 +51,7 @@ During my master’s and undergraduate studies, I participated in the following 
 1. *Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments.* (2024.02 ~ present)
 2. Design of a Navigation and Positioning System for an Autonomous Harvesting Robot in a Simulated Farmland Environment. (2023.09 ~ 2023.11)
 3. Design of a Laser SLAM System Based on LeGO-LOAM. (2023.05 ~ 2023.06)
-4. Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios. (2022.09 ~ 2022.11)
+4. **Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios. **(2022.09 ~ 2022.11)
 5. Design of a Navigation and Positioning System for a Quadruped Bionic Robot. (2021.01 ~ 2021.06)
 
 Additionally, I have participated in the following projects, which required not only **theoretical or engineering design** but also the **writing of related project proposals, patents, and theses**:：
@@ -78,7 +78,7 @@ During my undergraduate studies, I also participated in the following **competit
 * Capable of image processing based on OpenCV。
 
 **2.ROS Development:**
-* Experienced in ROS development, able to quickly get started with and reproduce GitHub open-source projects.（话题通信，写节点等）
+* Experienced in ROS development, able to quickly get started with and reproduce GitHub open-source projects.（话题通信，写具体）
 
 **3.Programming:**
 * Programming language: C/C++ (proficient), python (a little)
