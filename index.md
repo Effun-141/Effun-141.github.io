@@ -60,10 +60,10 @@ During my undergraduate studies, I also participated in the following **competit
 
 <br/>
 
-# 🔥 Skills
+# 🔥 Professional Skills
+
 * Programming language: C/C++, python (a little)
 * Software: CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint
-   
 
 <br/>
 
