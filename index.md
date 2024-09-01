@@ -11,7 +11,7 @@ I received my Bachelor’s degree in Automation at Nanjing University of Science
 <br/>
 
 # Research Interests
-My goal is to enhance the intelligence of robots 🤖, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people.
+My goal is to enhance the intelligence of robots 🤖, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people. :tropical_fish:
 
 To achieve this, my research interests focus on
 * **Visul SLAM in dynamic scene**
