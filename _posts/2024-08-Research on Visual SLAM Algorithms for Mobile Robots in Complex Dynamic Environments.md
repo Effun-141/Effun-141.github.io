@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Toy Project"
-info: "toy project"
-tech: "python"
-type: Toy 
+title:  "Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments"
+info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+tech: "SLAM C++ OpenCV "
+type: Academic research 
 ---
 
 ## Toy Project 1.
