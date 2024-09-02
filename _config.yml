@@ -46,8 +46,8 @@ sass:
   style: compressed
 
 # Gems
-plugins:
-  - jekyll-paginate
+# plugins:
+# - jekyll-paginate
 
 # Permalinks
 permalink: /:year-:month-:day/:title
