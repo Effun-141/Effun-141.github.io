@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Create AP theme"
-info: "Create About/Portfolio theme"
-tech : "ruby, jekyll"
-type: Toy
+title:  "Design of a Navigation and Localization System for an Autonomous Harvesting Robot in a Simulated Farmland Environment"
+info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+tech : "Outcomes:"
+type: Academic research
 ---
 
 ## Create AP theme

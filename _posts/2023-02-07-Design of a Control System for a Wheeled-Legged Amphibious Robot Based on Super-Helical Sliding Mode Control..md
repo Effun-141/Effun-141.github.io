@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Create github"
-info: "Create new github repository"
-tech: "none"
-type: A Company
+title:  "Design of a Control System for a Wheeled-Legged Amphibious Robot Based on Super-Helical Sliding Mode Control."
+info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+tech: "Outcomes:"
+type: Academic research
 ---
 
 ## Create 

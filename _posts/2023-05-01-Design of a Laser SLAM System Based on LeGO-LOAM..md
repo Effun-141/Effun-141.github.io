@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Reservation Bot"
-info: "Restaurant Reservation Bot"
-tech: "Python, Slack API"
-type: B Company
+title:  "Design of a Laser SLAM System Based on LeGO-LOAM."
+info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+tech: "Outcomes:"
+type: Academic research
 ---
 
 ## Reservation Bot 

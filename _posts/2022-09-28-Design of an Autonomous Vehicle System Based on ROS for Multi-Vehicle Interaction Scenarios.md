@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Toy Project 1"
-info: "toy project"
-tech: "python3"
-type: Toy
+title:  "Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios"
+info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+tech: "Outcomes:"
+type: Academic research
 ---
 
 ## Toy Project 1.
