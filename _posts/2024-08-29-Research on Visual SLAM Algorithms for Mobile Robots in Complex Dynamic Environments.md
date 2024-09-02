@@ -2,7 +2,7 @@
 layout: post
 title:  "Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments"
 info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
-tech: "SLAM C++ OpenCV "
+tech: "Outcomes: Two papers "
 type: Academic research 
 ---
 
