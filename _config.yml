@@ -46,13 +46,13 @@ sass:
   style: compressed
 
 # Gems
-# plugins:
-# - jekyll-paginate
+plugins:
+  - jekyll-paginate
 
 # Permalinks
 permalink: /:year-:month-:day/:title
 paginate_path: "/portfolio/page:num/"
-paginate: 5
+paginate: 20
 exclude:
   - "Gemfile"
   - "Gemfile.lock"
