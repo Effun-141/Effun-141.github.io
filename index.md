@@ -85,7 +85,7 @@ During my undergraduate studies, I also participated in the following <u>competi
 * Language: C/C++; Python (a little).
 * Platform: Ubuntu (frequently used command line; code writing and debugging).
 
-**3.Tools:** ROS (distributed communication framework); OpenCV (image processing); G2O (optimization); GitHub (code management).
+**3.Tools:** ROS (distributed communication framework); OpenCV (image processing); OpenMMlab (open-source deep learning framework); G2O (optimization); PCL (point cloud mapping); GitHub (code management).
 
 **4.Engineering practice:**
 * PCB hardware design.
