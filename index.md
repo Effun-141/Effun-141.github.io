@@ -73,7 +73,7 @@ During my undergraduate studies, I also participated in the following <u>competi
 
 **1.Visual SLAM:** 
 * Theories: especially feature extraction and matching, pose estimation and optimization, pointcloud map creation.
-* Dynamic Visual SLAM Algorithms: especially detection and handling of dynamic targets.
+* Learning-based Dynamic Visual SLAM Algorithms: especially detection and handling of dynamic targets.
 * Various Open-source Systems: ORB-SLAM2/3, DS-SLAM, SG-SLAM (read the code and perform secondary development).
 
 **2.Programming Development:**
