@@ -19,7 +19,7 @@ Academic performance:
 
 My current research interests focus on:
 
-* **Learning-based Visul SLAM in dynamic scene**
+* **Deep Learning-based Visul SLAM in dynamic scene**
 * **Robot environment perception and understanding**
 * **Multi-robot collaborative SLAM**
 
@@ -34,6 +34,10 @@ Currently, SLAM remains a fundamental task in robotics. In the future, I hope to
 <strong>[1]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv, Yifei Wu and Qingwei Chen. A High-Precision Dynamic RGB-D SLAM Algorithm for Environments with Potential Semantic Segmentation Network Failures. *(IEEE Transactions on Instrumentation & Measurement, JCR-Q1, **Under review**).*
 
 <strong>[2]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv and Yifei Wu. A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes. (***Accepted** at the 22nd IEEE International Conference on Industrial Informatics (IEEE-INDIN 2024)*)
+
+**Patents：**
+
+<strong>[1]</strong> Yifei Wu, Jialun Yu, Jian Guo, Qingwei Chen, Yvmeng Xv, **Yifan Peng**, Rui Xv and Qiwei Ma. A Wheel-Legged Air-Ground Integrated Reconnaissance Robot Based On Super-Spiral Sliding Form.
 
 **Software copyrights：**
 
