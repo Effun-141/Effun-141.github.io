@@ -16,13 +16,14 @@ Academic performance:
 <br/>
 
 # &#128640; Research Interests
-I hope to enhance the intelligence of robots, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
 
-To realize my academic goals, my research interests focus on:
+My current research interests focus on:
 
-* **Visul SLAM in dynamic scene**
+* **Learning-based Visul SLAM in dynamic scene**
 * **Robot environment perception and understanding**
 * **Multi-robot collaborative SLAM**
+
+Currently, SLAM remains a fundamental task in robotics. In the future, I hope to focus on the **integration of deep learning techniques (such as generative models and semantic segmentation, etc.) with robotics**, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
 
 <br/>
 
