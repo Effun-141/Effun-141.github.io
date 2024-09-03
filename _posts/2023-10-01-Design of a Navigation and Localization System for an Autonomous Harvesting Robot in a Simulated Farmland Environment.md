@@ -1,23 +1,64 @@
 ---
 layout: post
 title:  "Design of a Navigation and Localization System for an Autonomous Harvesting Robot in a Simulated Farmland Environment"
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+info: ""
 tech : "Outcomes:"
-type: Academic research
+type: Brief introduction
 ---
 
-## Create AP theme
-This is about the ap project.  
-I had a management page for my career.  
-But this time, I decided to change to the github page.  
-By the way, I did not have a favorite theme, so I customized it myself.  
+## Introduction
+
+#### &#127774; Aims: 
+
+1. 
+2. 
+3. 
+
+#### &#128221; Advisor: Prof. Yifei Wu 
+
+#### &#128197; Duration: Oct. 2023 - Nov. 2023
+
+## Contributions
+
+1. 
+2. 
+3. 
+4. 
+
+## Conclusion
+
+1. 
+2. 
+
+## Outcomes
+ 
+1. 
+2. 
+3. 
+
+## Project Showcase
+
+### Robot used for experiments:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">Front</font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">Back</font>
+			</center>
+		</td>
+	</tr>
+</table>
 
 
-## Tech
-Now that I have a github page, I need to know ruby and jekyll.  
-And, html, js, css or so?  
+### Experimental processing and results:
 
-
-## Duration
-It did not take long to change the existing theme.  
-I made it by modifying the ["tale"](https://github.com/chesterhow/tale) theme.  

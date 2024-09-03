@@ -3,15 +3,61 @@ layout: post
 title:  "Design of a Control System for a Wheeled-Legged Amphibious Robot Based on Super-Helical Sliding Mode Control."
 info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
 tech: "Outcomes:"
-type: Academic research
+type: Brief introduction
 ---
 
-## Create 
-This time I recorded the creation of the github account.  
-I can not say this is a project, but I did not have a project to write.  
+## Introduction
 
-## Tech
-There is no description because I created an account on the homepage.  
+#### &#127774; Aims: 
 
-## Duration
-It takes less than an hour to create an account.
+1. 
+2. 
+3. 
+
+#### &#128221; Advisor: Prof. Yifei Wu 
+
+#### &#128197; Duration: Oct. 2023 - Nov. 2023
+
+## Contributions
+
+1. 
+2. 
+3. 
+4. 
+
+## Conclusion
+
+1. 
+2. 
+
+## Outcomes
+ 
+1. 
+2. 
+3. 
+
+## Project Showcase
+
+### Robot used for experiments:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">Front</font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">Back</font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+
+### Experimental processing and results:
