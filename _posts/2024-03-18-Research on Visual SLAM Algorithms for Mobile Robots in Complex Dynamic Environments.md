@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments"
-info: ""
+info: "Mitigating the impact of various dynamic objects on SLAM system performance to achieve high-precision localization and static dense point cloud map construction."
 tech: "Outcomes: Two papers "
 type: Brief introduction 
 ---
@@ -19,7 +19,7 @@ type: Brief introduction
 #### &#128197; Duration: Feb. 2024 - present
 
 ## Contributions
- 
+
 
 
 ## Outcomes
