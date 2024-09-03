@@ -72,50 +72,28 @@ During my undergraduate studies, I also participated in the following <u>competi
 
 
 **1.Visual SLAM:** 
-* Theories: Feature Extraction and Matching; Pose Estimation and Optimization; Point Cloud Map Creation.
-* Dynamic Visual SLAM Algorithms: Detection and Handling of Dynamic Targets.
+* Theories: especially feature extraction and matching, pose estimation and optimization, pointcloud map creation.
+* Dynamic Visual SLAM Algorithms: especially detection and handling of dynamic targets.
 * Various Open-source Systems: ORB-SLAM2/3, DS-SLAM, SG-SLAM (read the code and perform secondary development).
 
 **2.Programming Development:**
-* Language: C/C++; Python (a little)
-* Platform: Ubuntu (frequently used command line; code writing and debugging)
+* Language: C/C++; Python (a little).
+* Platform: Ubuntu (frequently used command line; code writing and debugging).
 
 **3.Tools:**
-* ROS (distributed communication framework);
-* OpenCV (image processing);
-* G2O (optimization);
-* GitHub (code management) 
+* **ROS** (distributed communication framework); **OpenCV** (image processing); **G2O** (optimization).
+* GitHub (code management).
 
 **4.Engineering practice:**
+* PCB hardware design.
+* Proficient in using common laboratory equipment (soldering iron, multimeter, oscilloscope, etc.).
+* Capable of independently designing and building robots.
 
-**5.Software:** CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint
-
-**1.Visual SLAM Expertise:**
-* Familiar with fundamental theories of visual SLAM, with research experience in dynamic environments.
-* Proficient in ORB-SLAM2, including code modification and image processing using OpenCV.
-* 熟悉特征提取与匹配原理，熟悉位姿估计原理
-* 了解后端优化原理，了解位姿优化库G2O
-* 熟悉回环检测原理
-* Capable of image processing based on OpenCV。
-
-**2.ROS Development:**
-* Experienced in ROS development, able to quickly get started with and reproduce GitHub open-source projects.（话题通信，写具体）
-
-**3.Programming:**
-* Programming language: C/C++ (proficient), python (a little)
-
-**4.Ubuntu System Experience:**
-* Experienced with Ubuntu, familiar with basic commands, and capable of configuring environments (e.g., Python, OpenCV) and compiling open-source code via the command line.
-
-**5.Engineering Capabilty:**
-* Strong engineering practice skills, familiar with various experimental tools, and capable of independently designing and constructing complex robotic hardware.
+**5.Software:** 
+* CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint.
 
 **6.Research and Writing Abilities:**
 * Proficient in academic reading, writing, drawing, and literature research.
-
-**7.Others:**
-* Skilled in version control using GitHub. 
-* Software: CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint
 
 <br/>
 
