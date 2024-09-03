@@ -80,20 +80,16 @@ During my undergraduate studies, I also participated in the following <u>competi
 * Language: C/C++; Python (a little).
 * Platform: Ubuntu (frequently used command line; code writing and debugging).
 
-**3.Tools:**
-* **ROS** (distributed communication framework); **OpenCV** (image processing); **G2O** (optimization).
-* GitHub (code management).
+**3.Tools:** ROS (distributed communication framework); OpenCV (image processing); G2O (optimization); GitHub (code management).
 
 **4.Engineering practice:**
 * PCB hardware design.
 * Proficient in using common laboratory equipment (soldering iron, multimeter, oscilloscope, etc.).
 * Capable of independently designing and building robots.
 
-**5.Software:** 
-* CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint, etc.
+**5.Software:** CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint, etc.
 
-**6.Research and Writing Abilities:**
-* Proficient in academic reading, writing, drawing, and literature research.
+**6.Research and Writing Abilities:** Proficient in academic reading, writing, drawing, and literature research.
 
 <br/>
 
