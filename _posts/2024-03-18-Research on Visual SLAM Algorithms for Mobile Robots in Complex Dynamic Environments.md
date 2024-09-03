@@ -35,11 +35,12 @@ type: Brief introduction
 
 ### Robot used for experiments
 
-![1](https://effun.xyz/assets/img/20240318/1.jpg)
-
-<figure>
-    <img src="https://effun.xyz/assets/img/20240318/1.jpg" width=400px>
-</figure>
+<p float="left">
+<center>
+  <img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="240" />
+  <img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="240" />
+  </center>
+</p>
 
 ### Experimental processing and results
 
