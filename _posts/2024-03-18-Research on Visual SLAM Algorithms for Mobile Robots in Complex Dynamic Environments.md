@@ -39,27 +39,29 @@ type: Brief introduction
 	<tr>
 		<td>
 			<center>
-				<img src="https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg" width="60%" />
+				<img src="https://effun.xyz/assets/img/20240318/1.jpg" width="60%" />
 				<br/>
 				<font color="AAAAAA">001.jpg</font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://i-blog.csdnimg.cn/blog_migrate/1468f1fe06eeaec6ba08576623f2f232.jpeg" width="60%" />
+				<img src="https://effun.xyz/assets/img/20240318/1.jpg" width="60%" />
 				<br/>
-				<font color="AAAAAA">002.jpg</font>
+				<font color="AAAAAA">001.jpg</font>
+			</center>
+		</td>
+        <td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20240318/1.jpg" width="60%" />
+				<br/>
+				<font color="AAAAAA">001.jpg</font>
 			</center>
 		</td>
 	</tr>
 </table>
 
 
-<p float="left">
-  <img src="https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg" width="200" />
-  <img src="https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg" width="200" />
-  <img src="https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg" width="200" />
-</p>
 
 
 ### Experimental processing and results
