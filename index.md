@@ -3,6 +3,7 @@ layout: about
 ---
 
 # &#11088; Biography
+
 Hi &#128522;! I am a third-year postgradute student at School of Automation, Nanjing University of Science and Technology (NJUST, 211 project).
 My major is Control Science and Engineering, and my research focuses on mobile robot localization and scene understanding.
 
@@ -23,7 +24,7 @@ My current research interests focus on:
 * **Robot environment perception and understanding**
 * **Multi-robot collaborative SLAM**
 
-Currently, SLAM remains a fundamental task in robotics. In the future, I hope to focus on the **integration of deep learning techniques (such as generative models and semantic segmentation, etc.) with robotics**, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
+Currently, SLAM remains a fundamental task in robotics. In the future, I hope to focus on the **integration of deep learning techniques (such as generative models and semantic segmentation, etc.) with robotics SLAM**, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
 
 <br/>
 
@@ -74,7 +75,6 @@ During my undergraduate studies, I also participated in the following <u>competi
 <br/>
 
 # &#128293; Skills
-
 
 **1.Visual SLAM:** 
 * Theories: especially feature extraction and matching, pose estimation and optimization, pointcloud map creation.
