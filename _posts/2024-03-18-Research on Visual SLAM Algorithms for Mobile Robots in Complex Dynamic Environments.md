@@ -2,7 +2,7 @@
 layout: post
 title:  "Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments"
 info: "Mitigating the impact of various dynamic objects on SLAM system performance to achieve high-precision localization and static dense point cloud map construction."
-tech: "Outcomes: Two papers "
+tech: "Outcomes: Two papers; A complete novel RGB-D visual SLAM system"
 type: Brief introduction 
 ---
 
@@ -20,13 +20,19 @@ type: Brief introduction
 
 ## Contributions
 
-1. 在开源视觉SLAM算法ORB-SLAM2中
-2. 设计了一种基于深度图聚类和多视图几何相结合的
-3. 提出了一种语义信息和动态深度簇
+1. Embedded the ANN semantic segmentation network into ORB-SLAM2 by leveraging ROS framework to identify common dynamic objects.
+2. Proposed an unknown dynamic object recognition algorithm combining depth map clustering and multi-view geometry, enabling accurate dynamic object recognition when the semantic segmentation network fails.
+3. Designed a strategy to remove dynamic features using semantic information and dynamic depth clusters, improving localization accuracy and map quality.
+4. Developed a static point cloud map creating thread to construct high-quality maps in dynamic environments.
 
 ## Outcomes
  
-1. A complete novel RGB-D SLAM system
-2. 
+1. A complete novel RGB-D visual SLAM system with improved accuracy, robustness, and environmental awareness in highly dynamic scenarios.
+2. A journal-type paper. (IEEE Transactions on Instrumentation & Measurement, JCR-Q1, ***Under review***)
+3. A conference-type paper. (***Accepted*** at the 22nd IEEE International Conference on Industrial Informatics (IEEE-INDIN 2024))
 
 ## Project Showcase
+
+### Robot used for experiments
+
+### Experimental processing and results
