@@ -27,7 +27,7 @@ type: Brief introduction
 
 ## Conclusion
 
-1. Localization: Experimental results on the TUM and Bonn datasets show that the proposed system achieves top or second positioning accuracy compared to most mainstream dynamic SLAM algorithms. Localization accuracy improves by over 90% compared to ORB-SLAM2 on the TUM dataset, with a minimum ATE of only 0.0072m. The system also demonstrates up to a 70% improvement in accuracy compared to methods relying solely on semantic information.
+1. Localization: Experimental results on TUM and Bonn datasets show top or second accuracy compared to most mainstream dynamic SLAM algorithms. Over 90% improvement in localization accuracy on TUM dataset versus ORB-SLAM2, with minimum ATE of 0.0072m. Accuracy improved up to 70% compared to semantic-only methods.
 2. Map creation: The proposed system is capable of constructing high-quality static dense point cloud maps in dynamic environments.
 
 ## Outcomes
