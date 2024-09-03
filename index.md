@@ -92,7 +92,7 @@ During my undergraduate studies, I also participated in the following <u>competi
 * Proficient in using common laboratory equipment (soldering iron, multimeter, oscilloscope, etc.).
 * Capable of independently designing and building robots.
 
-**5.Software:** CLion、MATLAB、Altium Designer、Keil 5、Photoshop、Word、PowerPoint, etc.
+**5.Software:** MATLAB、CLion、Altium Designer、Keil 5、Photoshop、Word、PowerPoint, etc.
 
 **6.Research and Writing Abilities:** Proficient in academic reading, writing, drawing, and literature research.
 
