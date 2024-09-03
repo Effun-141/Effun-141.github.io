@@ -16,7 +16,7 @@ type: Brief introduction
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Feb. 2024 - present
+#### &#128197; Duration: Mar. 2024 - present
 
 ## Contributions
 
@@ -35,4 +35,12 @@ type: Brief introduction
 
 ### Robot used for experiments
 
+<p float="left">
+  <img src="[1](https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg)" width="200" />
+  <img src="[1](https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg)" width="200" />
+  <img src="[1](https://github.com/Effun-141/Effun-141.github.io/blob/main/assets/img/20240318/1.jpg)" width="200" />
+</p>
+
+
 ### Experimental processing and results
+
