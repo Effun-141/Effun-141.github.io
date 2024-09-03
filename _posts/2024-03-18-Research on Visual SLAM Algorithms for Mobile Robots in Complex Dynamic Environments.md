@@ -61,8 +61,10 @@ type: Brief introduction
 	</tr>
 </table>
 
-
-
-
 ### Experimental processing and results
 
+Since the relevant papers are still under review, some experimental results are present here:
+
+![2](https://effun.xyz/assets/img/20240318/2.jpg)
+
+![3](https://effun.xyz/assets/img/20240318/3.jpg)
