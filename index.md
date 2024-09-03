@@ -18,7 +18,7 @@ Academic performance:
 
 # &#128640; Research Interests
 
-My current research interests focus on:
+My research interests focus on:
 
 * **Deep Learning-based Visul SLAM in dynamic scene**
 * **Robot environment perception and understanding**
