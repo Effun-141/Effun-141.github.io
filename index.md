@@ -70,18 +70,21 @@ During my undergraduate studies, I also participated in the following <u>competi
 
 # &#128293; Skills
 
-* Visual SLAM: 
 
 **1.Visual SLAM:** 
-* Fundamental Theories: Feature Extraction and Matching; Pose Estimation and Optimization; Point Cloud Map Creation.
+* Theories: Feature Extraction and Matching; Pose Estimation and Optimization; Point Cloud Map Creation.
 * Dynamic Visual SLAM Algorithms: Detection and Handling of Dynamic Targets.
-* Various Open-source Systems: ORB-SLAM2/3, DS-SLAM, and SG-SLAM, capable of reading the code and performing secondary development.
+* Various Open-source Systems: ORB-SLAM2/3, DS-SLAM, SG-SLAM (read the code and perform secondary development).
 
 **2.Programming Development:**
 * Language: C/C++; Python (a little)
-* Platform: Ubuntu (common-used )
+* Platform: Ubuntu (frequently used command line; code writing and debugging)
 
 **3.Tools:**
+* ROS (distributed communication framework);
+* OpenCV (image processing);
+* G2O (optimization);
+* GitHub (code management) 
 
 **4.Engineering practice:**
 
