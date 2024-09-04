@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Design of a Control System for a Wheeled-Legged Amphibious Robot Based on Super-Helical Sliding Mode Control."
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system."
-tech: "Outcomes:"
+info: "Designed and developed a novel wheeled-legged amphibious robot, focusing on its balance control issues."
+tech: "Outcomes: A patent."
 type: Brief introduction
 ---
 
@@ -10,11 +10,13 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-Drafted the project proposal based on the given title, including sections on research background and significance, research content, scientific questions, and technical approach.
+1. Designed and developed a wheeled-legged amphibious reconnaissance robot, and researched a robot balance control system based on the super-helical sliding mode control method.
+
+
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Oct. 2023 - Nov. 2023
+#### &#128197; Duration: Feb. 2023 - Mar. 2023
 
 ## Contributions
 

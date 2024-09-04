@@ -16,7 +16,7 @@ type: Brief introduction
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Oct. 2023 - Nov. 2023
+#### &#128197; Duration: May. 2023 - Jun. 2023
 
 ## Contributions
 
