@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Design of a Navigation and Localization System for a Quadruped Bionic Robot"
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+info: ""
 tech: "Outcomes:"
 type: Brief introduction
 ---
@@ -20,10 +20,9 @@ type: Brief introduction
 
 ## Contributions
 
-1. 
-2. 
-3. 
-4. 
+1. 学习了视觉SLAM基础理论。熟悉并复现了ORB-SLAM2算法
+2. 设计了稠密点云地图构建和八叉树地图构建程序
+3. 基于D435I相机完成室内外实验测试
 
 ## Conclusion
 
