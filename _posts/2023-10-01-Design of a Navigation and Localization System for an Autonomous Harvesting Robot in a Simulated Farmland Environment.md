@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Design of a Navigation and Localization System for an Autonomous Harvesting Robot in a Simulated Farmland Environment"
-info: "Design a mobile robot with mapping and autonomous waypoint navigation capabilities."
-tech : "Outcomes:"
+info: "Designed a mobile robot with mapping and autonomous waypoint navigation capabilities."
+tech : "Outcomes: A simulated unmanned agricultural robot"
 type: Brief introduction
 ---
 
