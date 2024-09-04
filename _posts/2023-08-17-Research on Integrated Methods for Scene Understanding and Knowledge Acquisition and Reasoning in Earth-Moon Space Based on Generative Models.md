@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Research on Integrated Methods for Scene Understanding and Knowledge Acquisition and Reasoning in Earth-Moon Space Based on Generative Models"
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+info: "This is a National Natural Science Foundation of China (NSFC) project currently in the application process. It has passed the preliminary review and will soon proceed to the defense stage. "
 tech: "Outcomes: National Natural Science Foundation Project Proposal"
 type: Brief introduction
 ---
