@@ -10,9 +10,7 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-1. 
-2. 
-3. 
+Drafted the project proposal based on the given title, including sections on research background and significance, research content, scientific questions, and technical approach.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 

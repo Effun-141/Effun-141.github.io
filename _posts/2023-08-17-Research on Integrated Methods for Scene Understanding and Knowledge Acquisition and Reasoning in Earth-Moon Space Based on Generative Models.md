@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Research on Integrated Methods for Scene Understanding and Knowledge Acquisition and Reasoning in Earth-Moon Space Based on Generative Models"
-info: "This is a National Natural Science Foundation of China (NSFC) project currently in the application process. It has passed the preliminary review and will soon proceed to the defense stage. "
+info: "A National Natural Science Foundation project in application process, passed preliminary review, awaiting defense. "
 tech: "Outcomes: National Natural Science Foundation Project Proposal"
 type: Brief introduction
 ---
@@ -10,9 +10,7 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-1. 
-2. 
-3. 
+Drafted the project proposal based on the given title, including sections on research background and significance, research content, scientific questions, and technical approach.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
@@ -20,7 +18,7 @@ type: Brief introduction
 
 ## Contributions
 
-1. 
+1. Investigated mainstream methods and theories in the sim2real field
 2. 
 3. 
 4. 
