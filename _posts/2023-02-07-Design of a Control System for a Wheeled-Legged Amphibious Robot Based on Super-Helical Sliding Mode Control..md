@@ -10,8 +10,8 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-1. Designed and developed a wheeled-legged amphibious reconnaissance robot, and researched a robot balance control system based on the super-helical sliding mode control method.
-
+1. Design and production of physical prototypes of wheeled-legged robot.
+2. Design a effective balance control algorithm based for the designed wheeled-legged robot.
 
 
 #### &#128221; Advisor: Prof. Yifei Wu 
@@ -20,21 +20,20 @@ type: Brief introduction
 
 ## Contributions
 
-1. 
-2. 
-3. 
-4. 
+1. Conducted forward and inverse kinematics analysis of the robot using the D-H method, and established kinematic and dynamic models considering joint center of mass constraints.
+2. Designed a super-helical sliding mode balance controller based on the robot modeling results, and verified the balance algorithm through simulations in Simulink.
+3. Designed and developed the robot's hardware circuitry. Built an air-ground integrated experimental prototype of the robot.
+
 
 ## Conclusion
 
-1. 
-2. 
+Concluded that the designed balance controller quickly converges to the desired position or speed, exhibits strong disturbance rejection during air-to-ground transitions, and maintains robustness when the robot's height changes.
+
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+1. A patent (A Wheel-Legged Air-Ground Integrated Robot Based On Super-Spiral Sliding Form.)
+2. An experimental prototype of the robot
 
 ## Project Showcase
 
