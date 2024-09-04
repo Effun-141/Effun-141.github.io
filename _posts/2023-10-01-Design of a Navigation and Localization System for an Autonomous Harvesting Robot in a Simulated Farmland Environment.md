@@ -37,14 +37,14 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<img src="" width="90%" />
 				<br/>
 				<font color="AAAAAA">Front</font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
+				<img src="" width="90%" />
 				<br/>
 				<font color="AAAAAA">Back</font>
 			</center>
