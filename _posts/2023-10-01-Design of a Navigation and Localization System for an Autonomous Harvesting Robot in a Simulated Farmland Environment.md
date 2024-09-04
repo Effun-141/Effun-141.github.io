@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Design of a Navigation and Localization System for an Autonomous Harvesting Robot in a Simulated Farmland Environment"
-info: ""
+info: "Design a mobile robot with mapping and autonomous waypoint navigation capabilities."
 tech : "Outcomes:"
 type: Brief introduction
 ---
@@ -10,9 +10,9 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-1. 
-2. 
-3. 
+1. Solve the problem of 2D map construction for mobile robots.
+2. Implement autonomous navigation using prior maps.
+3. Address waypoint data interaction issues.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
@@ -20,21 +20,14 @@ type: Brief introduction
 
 ## Contributions
 
-1. 
-2. 
-3. 
-4. 
+1. Deployed a 2D LiDAR SLAM algorithm based on Cartographer in the mobile robot, adapted to the robot's LiDAR for 2D map creataion.
+2. Designed autonomous navigation module using AMCL and move_base, established and managed TF transformations. Implemented A* and DWA algorithms for path planning, and tuned parameters for the robot and test environment.
+3. Designed a ROS topic-based data interaction program to subscribe odometry data, publish target linear/angular velocities to mobile base, and waypoints to navigation module.
 
-## Conclusion
-
-1. 
-2. 
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+Developed a complete navigation and localization system for a mobile robot, enabling it to create 2D maps and autonomously cruise along designated waypoints 
 
 ## Project Showcase
 
@@ -59,6 +52,12 @@ type: Brief introduction
 	</tr>
 </table>
 
+
+### Partial core code
+
+`
+1
+`
 
 ### Experimental processing and results:
 
