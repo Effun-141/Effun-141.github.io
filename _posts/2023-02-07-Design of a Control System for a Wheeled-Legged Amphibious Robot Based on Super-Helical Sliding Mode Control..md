@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Design of a Control System for a Wheeled-Legged Amphibious Robot Based on Super-Helical Sliding Mode Control."
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+info: "Solve the problem of static reliance, improve the performance of visual SLAM system."
 tech: "Outcomes:"
 type: Brief introduction
 ---

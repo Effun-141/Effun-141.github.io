@@ -18,44 +18,18 @@ Drafted the project proposal based on the given title, including sections on res
 
 ## Contributions
 
-1. Investigated mainstream methods and theories in the sim2real field
-2. 
-3. 
-4. 
-
-## Conclusion
-
-1. 
-2. 
+1. Investigated mainstream methods in the field of Generative Artificial Intelligence and scene understanding
+2. Produced the defence PowerPoint. 
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+1. A national natural science foundation project of China (NSFC) proposal.
+2. A defence PowerPoint.
+3. Significantly enhanced my academic skills, including literature review, academic writing, and scientific illustration.
 
 ## Project Showcase
 
-### Robot used for experiments:
-
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Front</font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Back</font>
-			</center>
-		</td>
-	</tr>
-</table>
+As the project is still in the application stage, I can't give the details here, sorry!
 
 
-### Experimental processing and results:
+
