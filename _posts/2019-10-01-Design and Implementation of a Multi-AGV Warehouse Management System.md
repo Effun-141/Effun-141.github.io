@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Design of a Vehicle-Type Exploration and Cruising Robot"
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+title:  "Design and Implementation of a Multi-AGV Warehouse Management System"
+info: ""
 tech: "Outcomes:"
 type: Brief introduction
 ---

@@ -28,15 +28,12 @@ type: Brief introduction
 ## Conclusion
 
 1. Concluded that the designed navigation and localization system can achieve indoor localization accuracy of less than 5cm and outdoor accuracy of less than 0.3m.
-2. 
+2. Produced the point cloud map and the octree map.
 
-The real-time indoor positioning accuracy of the robot is 5cm, and the real-time outdoor positioning accuracy is 0.5m, and the point cloud map and the octree map which serves the navigation have been established.
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+1. An undergraduate thesis that won the second prize for excellent graduation design in Jiangsu Province.
 
 ## Project Showcase
 
