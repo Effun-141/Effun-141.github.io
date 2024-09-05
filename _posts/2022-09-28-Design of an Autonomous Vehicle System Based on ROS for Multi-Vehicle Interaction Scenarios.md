@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios"
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
+info: "Simulate the process of an autonomous vehicle driving on the road."
 tech: "Outcomes:"
 type: Brief introduction
 ---
@@ -20,44 +20,18 @@ type: Brief introduction
 
 ## Contributions
 
-1. 
-2. 
-3. 
-4. 
+1. Proposed a dual-loop localization and obstacle avoidance algorithm based on LiDAR data for angle and position control, enabling the autonomous vehicle to drive in the center of a simulated road and interact with multiple vehicles.
+2. Designed a communication program between the NVIDIA Jetson Nano and the lower-level control board based on ROS; integrated all algorithms into ROS packages to improve development efficiency.
+3. Independently completed the full assembly of the mobile robot.
 
-## Conclusion
-
-1. 
-2. 
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+A complete and versatile development platform for unmanned vehicles.
+
 
 ## Project Showcase
 
 ### Robot used for experiments:
-
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Front</font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Back</font>
-			</center>
-		</td>
-	</tr>
-</table>
-
 
 ### Experimental processing and results:
