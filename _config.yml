@@ -17,9 +17,9 @@ social:
   behance:
   bitbucket:
   dribbble:
-  facebook: Test
+  facebook: 
   flickr:
-  github: kssim
+  github: 
   google_plus:
   instagram:
   keybase:
@@ -35,7 +35,7 @@ social:
   vimeo:
   wordpress:
   youtube:
-  default_txt: "Follow On"
+  default_txt: 
 
 # Build settings
 markdown: kramdown
