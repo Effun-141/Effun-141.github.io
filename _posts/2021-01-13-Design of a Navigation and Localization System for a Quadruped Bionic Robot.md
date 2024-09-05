@@ -33,7 +33,7 @@ type: Brief introduction
 
 ## Outcomes
  
-1. An undergraduate thesis that won the second prize for excellent graduation design in Jiangsu Province.
+An undergraduate thesis that won the second prize for excellent graduation design in Jiangsu Province.
 
 ## Project Showcase
 
