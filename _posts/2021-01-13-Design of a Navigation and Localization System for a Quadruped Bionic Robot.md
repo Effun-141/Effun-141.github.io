@@ -2,7 +2,7 @@
 layout: post
 title:  "Design of a Navigation and Localization System for a Quadruped Bionic Robot"
 info: "Researched Visual Simultaneous Localization and Mapping (VSLAM) techniques for undergraduate thesis project."
-tech: "Outcomes:"
+tech: "Outcomes: An undergraduate thesis that won the second prize for excellent graduation design in Jiangsu Province."
 type: Brief introduction
 ---
 
