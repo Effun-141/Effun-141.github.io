@@ -20,7 +20,7 @@ Academic performance:
 
 My research interests focus on:
 
-* **Deep Learning-based Visul SLAM in dynamic scene**
+* **Deep Learning-based Visual SLAM in dynamic scene**
 * **Robot environment perception and understanding**
 * **Multi-robot collaborative SLAM**
 

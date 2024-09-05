@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Design of a Navigation and Localization System for a Quadruped Bionic Robot"
-info: ""
+info: "Researched Visual Simultaneous Localization and Mapping (VSLAM) techniques for undergraduate thesis project."
 tech: "Outcomes:"
 type: Brief introduction
 ---
@@ -14,20 +14,23 @@ type: Brief introduction
 2. 
 3. 
 
+
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Oct. 2023 - Nov. 2023
+#### &#128197; Duration: Jan. 2021 - Jun. 2021
 
 ## Contributions
 
-1. 学习了视觉SLAM基础理论。熟悉并复现了ORB-SLAM2算法
-2. 设计了稠密点云地图构建和八叉树地图构建程序
-3. 基于D435I相机完成室内外实验测试
+1. Learned visual SLAM fundamental theories and ORB-SLAM2 source code.
+2. Reproduced ORB-SLAM2 for indoor/outdoor high-precision localization using TUM dataset and D435i camera.
+3. Developed dense point cloud and octree mapping programs using ROS, OpenCV, and PCL for environment perception and navigation.
 
 ## Conclusion
 
-1. 
+1. Concluded that the designed navigation and localization system can achieve indoor localization accuracy of less than 5cm and outdoor accuracy of less than 0.3m.
 2. 
+
+The real-time indoor positioning accuracy of the robot is 5cm, and the real-time outdoor positioning accuracy is 0.5m, and the point cloud map and the octree map which serves the navigation have been established.
 
 ## Outcomes
  
@@ -38,25 +41,5 @@ type: Brief introduction
 ## Project Showcase
 
 ### Robot used for experiments:
-
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Front</font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Back</font>
-			</center>
-		</td>
-	</tr>
-</table>
-
 
 ### Experimental processing and results:
