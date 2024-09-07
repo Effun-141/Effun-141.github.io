@@ -58,7 +58,7 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 </table>
 
 
-### Experimental processing and results:
+### Experimental results:
 
 <video width="480" height="270" controls>
     
