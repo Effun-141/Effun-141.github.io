@@ -72,13 +72,6 @@ Concluded that the designed balance controller quickly converges to the desired 
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20230207/kongdi (1).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA"></font>
-			</center>
-		</td>
-		<td>
-			<center>
 				<img src="https://effun.xyz/assets/img/20230207/kongdi (5).jpg" width="90%" />
 				<br/>
 				<font color="AAAAAA"></font>
@@ -112,9 +105,21 @@ Concluded that the designed balance controller quickly converges to the desired 
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20230207/kongdi (4).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20230207/3.jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/4.jpg" width="90%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
@@ -123,6 +128,8 @@ Concluded that the designed balance controller quickly converges to the desired 
 </table>
 
 ### Mathematical model of the robot
+
+The balancing of the robot involves only position and inclination control.
 
 <table rules="none" align="center">
 	<tr>
@@ -136,14 +143,34 @@ Concluded that the designed balance controller quickly converges to the desired 
 	</tr>
 </table>
 
+Using $x$ and $\phi$ represent the position and inclination of the robot, $C_l$ and $C_r$ represent the left and right motor torque, we can get the mathematical model of the robot as following
+
 <table rules="none" align="center">
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20230207/13.png" width="60%" />
+				<img src="https://effun.xyz/assets/img/20230207/12.png" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
 </table>
+
+(More details are coming soon ...)
+
+### Simulink-based simulation model:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/11.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+### Partial simulation results:
