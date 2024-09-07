@@ -11,8 +11,9 @@ type: Brief introduction
 #### &#127774; Aims: 
 
 1. The main goal of this project is to design a versatile unmanned vehicle experimental platform that can be used for the development and validation of algorithms such as SLAM, path planning, and object detection.
-2. We used the designed unmanned vehicle platform to participate in the 13th Jiangsu Provincial Robotics Competition's multi-drone interaction project. The competition simulates autonomous vehicles driving on roads, involving tasks such as straight-line driving, overtaking, lane changing, and parking.
-3. 
+2. We used the designed unmanned vehicle platform to participate in the *13th Jiangsu Provincial Robotics Competition's multi-drone interaction project*. The competition simulates autonomous vehicles driving on roads, involving tasks such as straight-line driving, overtaking, lane changing, and parking.
+3. It was also the final project for a course called 'Comprehensive Embedded Systems Experiment' during my master's studies. 
+   
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
@@ -29,6 +30,7 @@ type: Brief introduction
  
 A complete and versatile development platform for unmanned vehicles.
 
+A course report that received a score of 93, ranking 1/114 in the class.
 
 ## Project Showcase
 
