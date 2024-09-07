@@ -137,7 +137,7 @@ $\alpha$ represents the offset angle of the car head. In heading control, the go
 
 The sine of the angle $\alpha$ can be obtained from the following equation:
 
-$$sin \alpha = \sqrt{1-(\frac{x}{range\_30})^2}$$
+$$sin \\alpha = \\sqrt{1-(\\frac{x}{range\\_30})^2}$$
 
 The block diagram of the heading-position double closed-loop control is shown below:
 
