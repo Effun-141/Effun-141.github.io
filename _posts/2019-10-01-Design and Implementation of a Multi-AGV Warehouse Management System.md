@@ -36,6 +36,14 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 
 ## Project Showcase
 
+### Experimental results:
+
+<video width="640" height="480" controls>
+    
+    <source src="https://effun.xyz/assets/img/20191001/多AGV.mp4" type="video/mp4">
+
+</video>
+
 ### Robot used for experiments:
 
 <table rules="none" align="center">
@@ -58,10 +66,3 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 </table>
 
 
-### Experimental results:
-
-<video width="640" height="480" controls>
-    
-    <source src="https://effun.xyz/assets/img/20191001/多AGV.mp4" type="video/mp4">
-
-</video>
