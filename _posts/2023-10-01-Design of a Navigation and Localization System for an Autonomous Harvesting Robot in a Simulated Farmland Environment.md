@@ -52,7 +52,7 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	</tr>
 </table>
 
-### Experimental processing and results:
+### Experimental results:
 
 <table rules="none" align="center">
 	<tr>
@@ -76,6 +76,12 @@ Developed a complete navigation and localization system for a mobile robot, enab
 <video width="480" height="272" controls>
     <center>
     <source src="https://effun.xyz/assets/img/20231001/2 (2).mp4" type="video/mp4">
+	</center>
+</video>
+
+<video width="480" height="272" controls>
+    <center>
+    <source src="https://effun.xyz/assets/img/20231001/2 (3).mp4" type="video/mp4">
 	</center>
 </video>
 
