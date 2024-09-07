@@ -117,10 +117,9 @@ By using the distance information at 90° and 270°, the distance $x$ from the L
 
 <br>
 
-\[
-\frac{x}{90-x} = \frac{range\_30}{range\_9}
-\]
-
+<div>
+    $$\frac{x}{90-x} = \frac{range\_30}{range\_9}$$
+</div>
 
 <br>
 
@@ -128,14 +127,6 @@ $$
 x = \frac{90 * range\_30}{range\_9 + range\_30}
 $$
 
- 
-$$
-x = \frac{90 * range\_30}{range\_9 + range\_30}
-$$
- 
-$$
-\frac{x}{90-x} = \frac{a}{b}
-$$
 
 
 
