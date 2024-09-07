@@ -61,3 +61,9 @@ type: Brief introduction
 
 
 ### Experimental processing and results:
+
+<video width="640" height="480" controls>
+    
+    <source src="探险巡航 - Compressed with FlexClip.mp4" type="video/mp4">
+
+</video>
