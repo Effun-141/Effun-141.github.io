@@ -74,7 +74,9 @@ Developed a complete navigation and localization system for a mobile robot, enab
 </table>
 
 <video width="640" height="480" controls>
+    <center>
     <source src="https://effun.xyz/assets/img/20231001/2 (2).mp4" type="video/mp4">
+	</center>
 </video>
 
 
