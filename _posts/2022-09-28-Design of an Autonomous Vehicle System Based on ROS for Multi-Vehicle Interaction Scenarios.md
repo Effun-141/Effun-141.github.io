@@ -76,6 +76,28 @@ It comprises of a NVIDIA Jetson Nano, a 2D Lidar, a gimbal camera, a Wifi module
 
 </video>
 
+The designed platform can also used to deploy SLAM algorithm:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/6.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+        		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/5.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+        </td>
+	</tr>
+</table>
+
 ### Dual-loop localization algorithm based on LiDAR data:
 
 ####  Lidar centre position solution:
