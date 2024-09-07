@@ -233,51 +233,52 @@ typedef union{
         {
           int i;
 		  ROS_INFO_STREAM("odom received");
-				  for(i=0;i<4;i++){
-					posx.cvalue[i] = r_buffer[2+i];//x 坐标
-					posy.cvalue[i] = r_buffer[6+i];//y 坐标
-					vx.cvalue[i] = r_buffer[10+i];// x方向速度
-					vy.cvalue[i] = r_buffer[14+i];//y方向速度
-					va.cvalue[i] = r_buffer[18+i];//角速度
-					yaw.cvalue[i] = r_buffer[22+i];	//yaw 偏航角
-					
-				  }	
-				  ROS_INFO("[%f], [%f], [%f], [%f], [%f], [%f]",posx.fvalue, posy.fvalue, vx.fvalue, vy.fvalue, va.fvalue, yaw.fvalue);		
-				  //将偏航角转换成四元数才能发布
-				  odom_quat = tf::createQuaternionMsgFromYaw(yaw.fvalue);
 
-				odom_trans.header.stamp = current_time;
-				//发布坐标变换父子坐标系
-				odom_trans.header.frame_id = "odom";
-				odom_trans.child_frame_id = "base_link";
-				//填充获取的数据
-				odom_trans.transform.translation.x = posx.fvalue;//x坐标
-				odom_trans.transform.translation.y = posy.fvalue;//y坐标
-				odom_trans.transform.translation.z = 0;//z坐标				
-				odom_trans.transform.rotation = odom_quat;//偏航角
-				//发布tf坐标变换
-				odom_broadcaster.sendTransform(odom_trans);
-				//获取当前时间
-				//current_time = ros::Time::now();
-				//载入里程计时间戳
-				
-				odom.header.stamp = current_time;
-				//里程计父子坐标系
-				odom.header.frame_id = "odom";
-				odom.child_frame_id = "base_link";
-				//里程计位置数据
-				odom.pose.pose.position.x = posx.fvalue;
-				odom.pose.pose.position.y = posy.fvalue;
-				odom.pose.pose.position.z = 0;
-				odom.pose.pose.orientation = odom_quat;
-				//载入线速度和角速度
-				odom.twist.twist.linear.x = vx.fvalue;
-				odom.twist.twist.linear.y = vy.fvalue;
-				odom.twist.twist.angular.z = va.fvalue;
-				//发布里程计消息
-				odom_pub.publish(odom);
-				ROS_INFO("publish odometry");
-				last_time = current_time;
+		  for(i=0;i<4;i++){
+			posx.cvalue[i] = r_buffer[2+i];//x 坐标
+			posy.cvalue[i] = r_buffer[6+i];//y 坐标
+			vx.cvalue[i] = r_buffer[10+i];// x方向速度
+			vy.cvalue[i] = r_buffer[14+i];//y方向速度
+			va.cvalue[i] = r_buffer[18+i];//角速度
+			yaw.cvalue[i] = r_buffer[22+i];	//yaw 偏航角	
+		}
+			
+		ROS_INFO("[%f], [%f], [%f], [%f], [%f], [%f]",posx.fvalue, posy.fvalue, vx.fvalue, vy.fvalue, va.fvalue, yaw.fvalue);		
+		//将偏航角转换成四元数才能发布
+		odom_quat = tf::createQuaternionMsgFromYaw(yaw.fvalue);
+
+		odom_trans.header.stamp = current_time;
+		//发布坐标变换父子坐标系
+		odom_trans.header.frame_id = "odom";
+		odom_trans.child_frame_id = "base_link";
+		//填充获取的数据
+		odom_trans.transform.translation.x = posx.fvalue;//x坐标
+		odom_trans.transform.translation.y = posy.fvalue;//y坐标
+		odom_trans.transform.translation.z = 0;//z坐标				
+		odom_trans.transform.rotation = odom_quat;//偏航角
+		//发布tf坐标变换
+		odom_broadcaster.sendTransform(odom_trans);
+		//获取当前时间
+		//current_time = ros::Time::now();
+		//载入里程计时间戳
+		
+		odom.header.stamp = current_time;
+		//里程计父子坐标系
+		odom.header.frame_id = "odom";
+		odom.child_frame_id = "base_link";
+		//里程计位置数据
+		odom.pose.pose.position.x = posx.fvalue;
+		odom.pose.pose.position.y = posy.fvalue;
+		odom.pose.pose.position.z = 0;
+		odom.pose.pose.orientation = odom_quat;
+		//载入线速度和角速度
+		odom.twist.twist.linear.x = vx.fvalue;
+		odom.twist.twist.linear.y = vy.fvalue;
+		odom.twist.twist.angular.z = va.fvalue;
+		//发布里程计消息
+		odom_pub.publish(odom);
+		ROS_INFO("publish odometry");
+		last_time = current_time;
         }
         memset(r_buffer,0,rBUFFERSIZE);
     }              
