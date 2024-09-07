@@ -117,9 +117,10 @@ By using the distance information at 90° and 270°, the distance $x$ from the L
 
 <br>
 
-$$
+\[
 \frac{x}{90-x} = \frac{range\_30}{range\_9}
-$$
+\]
+
 
 <br>
 
