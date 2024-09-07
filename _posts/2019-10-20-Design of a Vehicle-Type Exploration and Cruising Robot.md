@@ -38,32 +38,75 @@ type: Brief introduction
 
 ## Project Showcase
 
-### Robot used for experiments:
+### The process of robot making:
 
 <table rules="none" align="center">
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20191020/微信图片_20240906151349.jpg" width="90%" />
 				<br/>
-				<font color="AAAAAA">Front</font>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20191020/微信图片_20240906151348.jpg" width="90%" />
 				<br/>
-				<font color="AAAAAA">Back</font>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20191020/微信图片_20240906151346.jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
 </table>
 
+### Display of our robot:
 
-### Experimental processing and results:
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20191020/微信图片_20240906151343.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20191020/微信图片_20240906151342.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20191020/微信图片_20240906151345.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+### Competition record:
 
 <video width="480" height="270" controls>
     
-    <source src="https://effun.xyz/assets/img/20221020/1.mp4" type="video/mp4">
+    <source src="https://effun.xyz/assets/img/20191020/1.mp4" type="video/mp4">
 
 </video>
