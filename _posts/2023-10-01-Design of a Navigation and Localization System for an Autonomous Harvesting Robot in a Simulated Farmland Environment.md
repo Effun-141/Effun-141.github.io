@@ -52,7 +52,7 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	</tr>
 </table>
 
-### Experimental results:
+### Experimental processing:
 
 <table rules="none" align="center">
 	<tr>
@@ -72,6 +72,8 @@ Developed a complete navigation and localization system for a mobile robot, enab
 		</td>
 	</tr>
 </table>
+
+### Autonomous navigation at designated points to simulate the process of harvesting in a farm field:
 
 <video width="480" height="272" controls>
     
