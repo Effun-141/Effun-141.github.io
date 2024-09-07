@@ -73,6 +73,7 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	</tr>
 </table>
 
+<video src="https://effun.xyz/assets/img/20231001/2 (2).mp4"></video>
 
 
 ### Partial core code
