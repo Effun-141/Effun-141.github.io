@@ -53,14 +53,20 @@ A course report that received a score of 93, ranking 1/114 in the class.
 			</center>
 		</td>
         </td>
-        		<td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
+		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20220928/微信图片_20240907205620.jpg" width="100%" />
+				<img src="https://effun.xyz/assets/img/20220928/微信图片_20240907205620.jpg" width="80%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
 </table>
+        		
 
 ### Experimental processing and results:
