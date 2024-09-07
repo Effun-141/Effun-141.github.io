@@ -2,7 +2,7 @@
 layout: post
 title:  "Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios"
 info: "Simulate the process of an autonomous vehicle driving on the road."
-tech: "Outcomes:A complete and versatile development platform for unmanned vehicles."
+tech: "Outcomes: A complete and versatile development platform for unmanned vehicles."
 type: Brief introduction
 ---
 
@@ -10,8 +10,8 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-1. 
-2. 
+1. The main goal of this project is to design a versatile unmanned vehicle experimental platform that can be used for the development and validation of algorithms such as SLAM, path planning, and object detection.
+2. We used the designed unmanned vehicle platform to participate in the 13th Jiangsu Provincial Robotics Competition's multi-drone interaction project. The competition simulates autonomous vehicles driving on roads, involving tasks such as straight-line driving, overtaking, lane changing, and parking.
 3. 
 
 #### &#128221; Advisor: Prof. Yifei Wu 
@@ -33,5 +33,17 @@ A complete and versatile development platform for unmanned vehicles.
 ## Project Showcase
 
 ### Robot used for experiments:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/抗扰.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
 
 ### Experimental processing and results:
