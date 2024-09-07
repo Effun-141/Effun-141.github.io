@@ -161,7 +161,7 @@ Test the Lidar data:
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20220928/3.jpg" width="1000%" />
+				<img src="https://effun.xyz/assets/img/20220928/3.jpg" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
@@ -175,7 +175,7 @@ Test the proposed double-loop localization algorithm:
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20220928/4.jpg" width="1000%" />
+				<img src="https://effun.xyz/assets/img/20220928/4.jpg" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
