@@ -36,6 +36,8 @@ A course report that received a score of 93, ranking 1/114 in the class.
 
 ### Designed unmanned vehicle development platform:
 
+It comprises of a NVIDIA Jetson Nano, a 2D Lidar, a gimbal camera, a Wifi module, a remoting module and a power module.
+
 <table rules="none" align="center">
 	<tr>
 		<td>
@@ -68,5 +70,102 @@ A course report that received a score of 93, ranking 1/114 in the class.
 	</tr>
 </table>
         		
+<video width="480" height="272" controls>
+    
+    <source src="https://effun.xyz/assets/img/20220928/ackerman-2.mp4" type="video/mp4">
 
-### Experimental processing and results:
+</video>
+
+### Dual-loop localization algorithm based on LiDAR data:
+
+####  Lidar centre position solution:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/Quicker_20240907_211427.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+By using the distance information at 90° and 270°, the distance $x$ from the LiDAR center to the right-side barrier can be calculated.
+
+$$\frac{x}{90-x} = \frac{range\_30}{range\_9}$$
+
+$$x = \frac{90 * range\_30}{range\_9 + range\_30}$$
+
+For heading control, it is necessary to determine the front-facing direction and the change in orientation of the mobile robot. Since the Ackermann steering mechanism was used in this design, the servo's steering angle can not directly represent the vehicle's heading. To address this issue, the design used a trigonometric method to determine the heading.
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/Quicker_20240907_211522.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+$\alpha$ represents the offset angle of the car head. In heading control, the goal is to maintain the angle $\alpha$ at 0°, meaning the vehicle's front is pointing forward.
+
+The sine of the angle $\alpha$ can be obtained from the following equation:
+
+$$sin \alpha = \sqrt{1-(\frac{x}{range\_30})^2}$$
+
+The block diagram of the heading-position double closed-loop control is shown below:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/Quicker_20240907_211552.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+### System test:
+
+Test the Lidar data:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/3.jpg" width="1000%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+Test the proposed double-loop localization algorithm:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/4.jpg" width="1000%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+### Final effect:
+
+<video width="480" height="272" controls>
+    
+    <source src="ackerman-1" type="video/mp4">
+
+</video>
