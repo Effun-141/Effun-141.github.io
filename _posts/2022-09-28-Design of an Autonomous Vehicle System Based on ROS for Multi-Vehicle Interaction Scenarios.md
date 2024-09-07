@@ -28,19 +28,34 @@ type: Brief introduction
 
 ## Outcomes
  
-A complete and versatile development platform for unmanned vehicles.
+A complete and versatile development development platform for unmanned vehicle.
 
 A course report that received a score of 93, ranking 1/114 in the class.
 
 ## Project Showcase
 
-### Robot used for experiments:
+### Designed unmanned vehicle development platform:
 
 <table rules="none" align="center">
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20230207/抗扰.png" width="100%" />
+				<img src="https://effun.xyz/assets/img/20220928/2.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+        		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/1.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+        </td>
+        		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20220928/微信图片_20240907205620.jpg" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
