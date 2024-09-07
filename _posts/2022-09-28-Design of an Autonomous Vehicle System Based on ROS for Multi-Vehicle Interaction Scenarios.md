@@ -115,9 +115,13 @@ The designed platform can also used to deploy SLAM algorithm:
 
 By using the distance information at 90° and 270°, the distance $x$ from the LiDAR center to the right-side barrier can be calculated.
 
-$$\frac{x}{90-x} = \frac{range\_30}{range\_9}$$
+$$
+\frac{x}{90-x} = \frac{range\_30}{range\_9}
+$$
 
-$$x = \frac{90 * range\_30}{range\_9 + range\_30}$$
+$$
+x = \frac{90 * range\_30}{range\_9 + range\_30}
+$$
 
 For heading control, it is necessary to determine the front-facing direction and the change in orientation of the mobile robot. Since the Ackermann steering mechanism was used in this design, the servo's steering angle can not directly represent the vehicle's heading. To address this issue, the design used a trigonometric method to determine the heading.
 
