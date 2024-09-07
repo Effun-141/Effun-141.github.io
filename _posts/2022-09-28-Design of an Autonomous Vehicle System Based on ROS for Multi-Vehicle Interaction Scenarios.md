@@ -94,7 +94,6 @@ The designed platform can also used to deploy SLAM algorithm:
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
-        
 	</tr>
 </table>
 
