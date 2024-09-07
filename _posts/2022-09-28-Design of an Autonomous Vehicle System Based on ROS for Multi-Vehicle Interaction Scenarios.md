@@ -115,17 +115,29 @@ The designed platform can also used to deploy SLAM algorithm:
 
 By using the distance information at 90° and 270°, the distance $x$ from the LiDAR center to the right-side barrier can be calculated.
 
+<br>
+
 $$
 \frac{x}{90-x} = \frac{range\_30}{range\_9}
 $$
+
+<br>
 
 $$
 x = \frac{90 * range\_30}{range\_9 + range\_30}
 $$
 
+ 
+$$
+x = \frac{90 * range\_30}{range\_9 + range\_30}
+$$
+ 
 $$
 \frac{x}{90-x} = \frac{a}{b}
 $$
+
+
+
 
 $$
 ^B_T T =  
