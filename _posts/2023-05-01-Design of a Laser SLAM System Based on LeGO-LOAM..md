@@ -32,7 +32,7 @@ This is a course I took during my graduate studies, titled Robot Control Theory 
 
 ## Outcomes
  
-1. A course report that received a score of 98, ranking 1/90 in the class, which can be access at the following link: 
+A course report that received a score of 98, ranking 1/90 in the class, which can be access at the following link: 
 
 <a href='https://effun.xyz/assets/img/20230501/1.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-course report-blue?logo=Git&logoColor=white"></a>
 
