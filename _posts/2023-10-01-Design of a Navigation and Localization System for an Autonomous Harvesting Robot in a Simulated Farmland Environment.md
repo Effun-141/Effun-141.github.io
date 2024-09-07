@@ -52,6 +52,28 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	</tr>
 </table>
 
+### Experimental processing and results:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20231001/1 (6).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">Creating 2D map based on Cartograpgher</font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20231001/1 (4).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">Autonomous localization and navigation based on AMCL and move_base</font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+
 
 ### Partial core code
 
@@ -253,23 +275,3 @@ typedef union{
 }
 ```
 
-### Experimental processing and results:
-
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20231001/1 (2).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA"></font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20231001/1 (5).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA"></font>
-			</center>
-		</td>
-	</tr>
-</table>
