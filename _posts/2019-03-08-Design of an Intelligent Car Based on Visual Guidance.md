@@ -62,7 +62,7 @@ type: Brief introduction
 
 ### Competitiion record:
 
-<video width="480" height="270" controls>
+<video width="640" height="480" controls>
     
     <source src="https://effun.xyz/assets/img/20190308/比赛-恩智浦华东四轮.mp4" type="video/mp4">
 
