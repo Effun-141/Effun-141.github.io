@@ -37,7 +37,7 @@ Concluded that the designed balance controller quickly converges to the desired 
 
 ## Project Showcase
 
-#### Conceptual diagram of the robot design:
+### Conceptual diagram of the robot design:
 
 <table rules="none" align="center">
 	<tr>
@@ -66,7 +66,7 @@ Concluded that the designed balance controller quickly converges to the desired 
 </table>
 
 
-#### Hardware circuitry for the robot's wheel leg section:
+### Hardware circuitry for the robot's wheel leg section:
 
 <table rules="none" align="center">
 	<tr>
@@ -87,7 +87,7 @@ Concluded that the designed balance controller quickly converges to the desired 
 	</tr>
 </table>
 
-#### The designed amphibious air-ground robot:
+### The designed amphibious air-ground robot:
 
 <table rules="none" align="center">
 	<tr>
@@ -127,7 +127,7 @@ Concluded that the designed balance controller quickly converges to the desired 
 	</tr>
 </table>
 
-#### Mathematical model of the robot
+### Mathematical model of the robot
 
 The balancing of the robot involves only position and inclination control.
 
@@ -159,7 +159,7 @@ Using $x$ and $\phi$ represent the position and inclination of the robot, $C_l$ 
 
 (More details are coming soon ...)
 
-#### Simulink-based simulation model of super-helical sliding mode control algorithm:
+### Simulink-based simulation model of super-helical sliding mode control algorithm:
 
 <table rules="none" align="center">
 	<tr>
@@ -173,7 +173,7 @@ Using $x$ and $\phi$ represent the position and inclination of the robot, $C_l$ 
 	</tr>
 </table>
 
-#### Partial simulation results:
+### Partial simulation results:
 
 The targst position is 1m and the initial inclination is $\frac{\pi}{4}$:
 
