@@ -186,7 +186,7 @@ Test the proposed double-loop localization algorithm:
 
 ### Final effect:
 
-<video width="480" height="272" controls>
+<video width="310" height="640" controls>
     
     <source src="https://effun.xyz/assets/img/20220928/ackerman-1.mp4" type="video/mp4">
 
