@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Design of a Laser SLAM System Based on LeGO-LOAM."
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
-tech: "Outcomes:"
+info: "Learned the principles of Lego-LOAM and replicated it, completing the related course report."
+tech: "Outcomes: A course report that received a score of 98, ranking 1st out of 90 in the class."
 type: Brief introduction
 ---
 
@@ -27,14 +27,14 @@ type: Brief introduction
 
 ## Conclusion
 
-1. 
-2. 
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+1. A course report that received a score of 98, ranking 1st out of 90 in the class.
+
+<a href='https://effun.xyz/assets/img/20230501/1.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-course report-blue?logo=Git&logoColor=white"></a>
+
+
 
 ## Project Showcase
 
