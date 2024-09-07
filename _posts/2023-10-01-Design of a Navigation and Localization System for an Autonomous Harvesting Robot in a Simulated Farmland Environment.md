@@ -73,7 +73,7 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	</tr>
 </table>
 
-### Autonomous navigation at designated points to simulate the process of harvesting in a farm field:
+#### Autonomous navigation at designated points to simulate the process of harvesting in a farm field:
 
 <video width="480" height="272" controls>
     
