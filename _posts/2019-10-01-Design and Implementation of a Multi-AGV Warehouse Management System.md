@@ -42,14 +42,14 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20191001/微信图片_202409061520531.jpg" width="90%" />
 				<br/>
 				<font color="AAAAAA">Front</font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20191001/微信图片_20240906151343.jpg" width="90%" />
 				<br/>
 				<font color="AAAAAA">Back</font>
 			</center>
