@@ -35,6 +35,14 @@
   </script>
   {% endif %}
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],  // 只启用 $...$ 作为内嵌公式的标记符
+        displayMath: [['$$', '$$']]  // 保持 $$...$$ 作为单行公式的标记符
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  
 
 </head>
