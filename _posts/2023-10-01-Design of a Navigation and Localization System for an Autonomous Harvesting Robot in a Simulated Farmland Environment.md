@@ -52,7 +52,7 @@ Developed a complete navigation and localization system for a mobile robot, enab
 	</tr>
 </table>
 
-### Experimental processing:
+### Experimental process:
 
 <table rules="none" align="center">
 	<tr>
