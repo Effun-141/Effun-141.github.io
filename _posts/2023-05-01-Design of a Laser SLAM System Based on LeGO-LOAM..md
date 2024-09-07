@@ -8,6 +8,8 @@ type: Brief introduction
 
 ## Introduction
 
+This is a course I took during my graduate studies, titled Robot Control Theory and Technology. The final assessment involved the teacher presenting multiple robotics-related topics, from which students could choose one to conduct experiments and write a course paper. I selected a topic related to laser SLAM, and the specific requirements are as follows:
+
 #### &#127774; Aims: 
 
 1. 
