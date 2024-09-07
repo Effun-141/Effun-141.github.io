@@ -40,26 +40,51 @@ A course report that received a score of 98, ranking 1/90 in the class, which ca
 
 ## Project Showcase
 
-### Robot used for experiments:
+### Results of 3D point cloud map:
 
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Front</font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Back</font>
-			</center>
-		</td>
-	</tr>
-</table>
+<figure>
+    <img src="https://effun.xyz/assets/img/20230501/3.png" width=600px>
+    <center>
+    <figcaption>
+	Global map
+    </figcaption>
+    </center>
+</figure>
 
+<figure>
+    <img src="https://effun.xyz/assets/img/20230501/2.png" width=600px>
+    <center>
+    <figcaption>
+	Part of the detail display
+    </figcaption>
+    </center>
+</figure>
 
-### Experimental processing and results:
+<figure>
+    <img src="https://effun.xyz/assets/img/20230501/4.png" width=600px>
+    <center>
+    <figcaption>
+	Part of the detail display
+    </figcaption>
+    </center>
+</figure>
+
+### Results of localization:
+
+<figure>
+    <img src="https://effun.xyz/assets/img/20230501/1 (5).png" width=600px>
+    <center>
+    <figcaption>
+	Trajectory (ATE)
+    </figcaption>
+    </center>
+</figure>
+
+<figure>
+    <img src="https://effun.xyz/assets/img/20230501/1 (4).png" width=600px>
+    <center>
+    <figcaption>
+	RPE
+    </figcaption>
+    </center>
+</figure>
