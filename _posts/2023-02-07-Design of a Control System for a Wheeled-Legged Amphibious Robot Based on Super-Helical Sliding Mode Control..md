@@ -66,4 +66,86 @@ Concluded that the designed balance controller quickly converges to the desired 
 </table>
 
 
-### Experimental processing and results:
+### Hardware circuitry for the robot's wheel leg section:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (1).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (5).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (6).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+### The designed amphibious air-ground robot:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (2).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (3).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (4).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+### Mathematical model of the robot
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (2).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (3).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi (4).jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
