@@ -143,9 +143,7 @@ The sine of the angle $\alpha$ can be obtained from the following equation:
 
 <div>
 
-$$
-sin \alpha = \sqrt{ 1 - (\frac{x}{range\_30})^2}
-$$
+$$sin \alpha = \sqrt{ 1 - (\frac{x}{range\_30})^2}$$
 
 </div>
 
