@@ -115,39 +115,12 @@ The designed platform can also used to deploy SLAM algorithm:
 
 By using the distance information at 90° and 270°, the distance $x$ from the LiDAR center to the right-side barrier can be calculated.
 
-<br>
 
 <div>
     $$\frac{x}{90-x} = \frac{range\_30}{range\_9}$$
 </div>
 
-<br>
 
-$$
-x = \frac{90 * range\_30}{range\_9 + range\_30}
-$$
-
-
-
-
-
-$$
-^B_T T =  
-\left [
-    \begin{array}{}
-        I & p_{TB} \\\\
-        0   & 1   \\\\
-    \end{array}
-\right ] = 
-\left [
-    \begin{array}{}
-        1 & 0 & 0 & -l \\\\
-        0 & 1 & 0 & H_1 + H_2 - h_1 \\\\
-        0 & 0 & 1 & -d \\\\
-        0 & 0 & 0 & 1   \\\\     
-    \end{array}
-\right ]
-$$
 
 
 For heading control, it is necessary to determine the front-facing direction and the change in orientation of the mobile robot. Since the Ackermann steering mechanism was used in this design, the servo's steering angle can not directly represent the vehicle's heading. To address this issue, the design used a trigonometric method to determine the heading.
@@ -168,9 +141,13 @@ $\alpha$ represents the offset angle of the car head. In heading control, the go
 
 The sine of the angle $\alpha$ can be obtained from the following equation:
 
+<div>
+
 $$
 sin \alpha = \sqrt{ 1 - (\frac{x}{range\_30})^2}
 $$
+
+</div>
 
 The block diagram of the heading-position double closed-loop control is shown below:
 
