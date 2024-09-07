@@ -128,21 +128,19 @@ Concluded that the designed balance controller quickly converges to the desired 
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20230207/kongdi (2).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20230207/kongdi3.png" width="60%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20230207/kongdi (3).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA"></font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20230207/kongdi (4).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20230207/13.png" width="60%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
