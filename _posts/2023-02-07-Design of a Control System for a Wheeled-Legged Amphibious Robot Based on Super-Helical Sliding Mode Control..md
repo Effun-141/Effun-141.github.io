@@ -37,22 +37,29 @@ Concluded that the designed balance controller quickly converges to the desired 
 
 ## Project Showcase
 
-### Robot used for experiments:
+### Conceptual diagram of the robot design:
 
 <table rules="none" align="center">
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20230207/kongdi.png" width="90%" />
 				<br/>
-				<font color="AAAAAA">Front</font>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20230207/kongdi1.png" width="90%" />
 				<br/>
-				<font color="AAAAAA">Back</font>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20230207/kongdi2.png" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
