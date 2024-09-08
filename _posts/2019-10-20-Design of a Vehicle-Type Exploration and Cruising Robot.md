@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Design of a Vehicle-Type Exploration and Cruising Robot"
-info: "The 14th NXP Cup Intelligent Vehicle Competition for National University Students (Visual Four-wheel Racing)"
-tech: "Outcomes: Second Prize in the Four-wheel Vehicle Category of the 14th NXP Cup Intelligent Vehicle Competition for National Students (East China Region) "
+info: "This is the Robot Exploration and Navigation project of the 2019 SoftBank Cup China Robotics Skills Competition."
+tech: "Outcomes: Second Prize in the Robot Exploration and Navigation Programme of the 2019 Softbank Cup China Robotics Skills Competition "
 type: Brief introduction
 ---
 
@@ -10,7 +10,7 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-This is a competition project in the National University Student Intelligent Car Contest. The competition requires the intelligent car to be able to operate on any designed track and increase its speed as much as possible. The intelligent car uses rear-wheel drive, with front-wheel servo control for steering. It uses a camera to collect real-time road image information and send it back to the MCU for image processing. The MCU then finds the road centerline based on the processed image and controls the intelligent car to drive on the track.
+The competition rules require designing a wheeled mobile robot capable of autonomously following a line, with the goal of reaching as many scoring points as possible.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
@@ -18,20 +18,13 @@ This is a competition project in the National University Student Intelligent Car
 
 ## Contributions
 
-1. Image preprocessing, including image binarization and mean filtering.
-2. Based on the principle of inverse perspective transformation, establish the correspondence between the world coordinate system and the pixel coordinate system to achieve better control effect.
-3. Use PI (Proportional-Integral) algorithm based on integral separation for motor closed-loop control.
-4. Apply PD (Proportional-Derivative) algorithm based on incomplete differentiation for servo control.
+The competing robot was one of the AGV designed in project [Multi-AGV](https://effun.xyz/2019-10-21/Design-and-Implementation-of-a-Multi-AGV-Warehouse-Management-System). 
 
 
-
-## Conclusion
-
-The designed visually guided intelligent vehicle is able to run well on the track with a maximum speed of 2m/s.
 
 ## Outcomes
  
-Second Prize in the Four-wheel Vehicle Category of the 14th NXP Cup Intelligent Vehicle Competition for National Students (East China Region)
+Second Prize in the Robot Exploration and Navigation Programme of the 2019 Softbank Cup China Robotics Skills Competition
 
 ## Project Showcase
 
