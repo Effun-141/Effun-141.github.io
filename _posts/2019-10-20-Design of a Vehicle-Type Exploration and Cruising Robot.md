@@ -23,7 +23,6 @@ This is a competition project in the National University Student Intelligent Car
 3. Use PI (Proportional-Integral) algorithm based on integral separation for motor closed-loop control.
 4. Apply PD (Proportional-Derivative) algorithm based on incomplete differentiation for servo control.
 
-研究结论：所设计的视觉引导智能车能够很好地在赛道上运行，最高速度达到2m/s。
 
 
 ## Conclusion
