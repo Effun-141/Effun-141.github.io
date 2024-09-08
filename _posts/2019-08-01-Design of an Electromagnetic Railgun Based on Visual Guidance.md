@@ -10,6 +10,20 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
+The positions of the railgun and the circular target are shown in the diagram. The railgun is placed at the calibration point, with the initial horizontal direction of the barrel aligned with the central axis at an angle of 0° and the vertical elevation angle also at 0°. The circular target is placed horizontally on the ground, with its bullseye located at a distance of 200 cm < d < 300 cm from the calibration point and at an angle of -30° < α < 30° relative to the central axis.
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20190801/curved-fire-gun-1.jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
 1. 
 2. 
 3. 
@@ -30,16 +44,12 @@ type: Brief introduction
 3. 
 4. 
 
-## Conclusion
-
-1. 
-2. 
+标靶识别算法实现。基于OpenMV，使用Python语言编写了红色标靶的识别程序、测距程序以及单片机与OpenMV的通信程序。
+利用MATLAB和EXCEL拟合出弹丸出射距离与充电电压之间的关系，得到弹道射表关系曲线，确保命中靶心。
 
 ## Outcomes
  
-1. 
-2. 
-3. 
+ First Prize of National Student Electronic Design Competition (Jiangsu Division)
 
 ## Project Showcase
 
