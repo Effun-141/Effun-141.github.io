@@ -67,7 +67,7 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 			<center>
 				<img src="https://effun.xyz/assets/img/20191001/多AGV.jpg" width="90%" />
 				<br/>
-				<font color="AAAAAA">AGV1</font>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
@@ -86,27 +86,6 @@ You can get the code of this simulation at my [GithHub](https://github.com/Effun
 				<img src="https://effun.xyz/assets/img/20191001/un1titled.jpg" width="90%" />
 				<br/>
 				<font color="AAAAAA"></font>
-			</center>
-		</td>
-	</tr>
-</table>
-
-### Designed PCB:
-
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20191001/微信图片_20240906151355.jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA"></font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20191001/微信图片_20240906151354.jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">AGV1</font>
 			</center>
 		</td>
 	</tr>
