@@ -213,6 +213,32 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 	</tr>
 </table>
 
+#### Trajectory:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-12 11-39-30 的屏幕截图.png" width="80%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/33.bmp" width="80%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
 
 #### Dense point cloud map:
 
