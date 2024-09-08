@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Design of an Electromagnetic Railgun Based on Visual Guidance"
-info: "Solve the problem of static reliance, improve the performance of visual SLAM system"
-tech: "Outcomes:"
+info: "This is the control category problem of the 2019 National Undergraduate Electronic Design Competition."
+tech: "Outcomes: First Prize of National Student Electronic Design Competition (Jiangsu Division) "
 type: Brief introduction
 ---
 
