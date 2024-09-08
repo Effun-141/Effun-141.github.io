@@ -104,21 +104,21 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<img src="https://effun.xyz/assets/img/20210113/10C0802F3F087825431C7B6603F1505A.jpg" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<img src="https://effun.xyz/assets/img/20210113/7E14CF3A52AD30588098B3D2C882BFE1.jpg" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
 		</td>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<img src="https://effun.xyz/assets/img/20210113/DBBEB6C8D782568ED1B022148B9EE106.jpg" width="100%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
