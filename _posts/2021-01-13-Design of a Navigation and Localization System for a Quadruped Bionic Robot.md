@@ -42,4 +42,86 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 
 ### Robot used for experiments:
 
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/微信图片_20240908173151.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
 ### Experimental processing and results:
+
+#### ORB feature points extraction and matching:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/筛后.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-03-21 12-04-06 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+#### Experiment under TUM dataset:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+#### Experiment in real-world environment:
+
+#### Indoor scene:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
