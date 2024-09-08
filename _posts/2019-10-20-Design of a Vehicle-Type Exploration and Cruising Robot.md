@@ -14,7 +14,7 @@ The competition rules require designing a wheeled mobile robot capable of autono
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Oct. 2023 - Nov. 2023
+#### &#128197; Duration: Oct. 2019 - Dec. 2019
 
 ## Contributions
 
