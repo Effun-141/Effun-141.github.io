@@ -165,3 +165,52 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 		</td>
 	</tr>
 </table>
+
+#### Octree map:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-11 14-51-38 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+#### Outdoor scene:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/664C850F1C38F52F9E9B3440DC0B60B6.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/99F9167659279048C0656C2070CDAC6B.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/64472C86F2974A112DDFE1B91D00F51B.jpg" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
+#### Dense point cloud map:
