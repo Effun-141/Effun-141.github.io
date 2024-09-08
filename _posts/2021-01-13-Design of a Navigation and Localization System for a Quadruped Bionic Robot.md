@@ -46,7 +46,7 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20210113/微信图片_20240908173151.jpg" width="100%" />
+				<img src="https://effun.xyz/assets/img/20210113/微信图片_20240908173151.jpg" width="80%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
@@ -88,7 +88,7 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="100%" />
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-07 10-48-21 的屏幕截图.png" width="80%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
