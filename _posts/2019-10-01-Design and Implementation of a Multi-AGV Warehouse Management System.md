@@ -75,13 +75,17 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 
 ### Simulation of A* algorithem:
 
+You can get the code of this simulation at my [GithHub](https://github.com/Effun-141/Simulaion-of-A-star-algorithm). 
+
+#### Result of simulation in MATLAB:
+
 <table rules="none" align="center">
 	<tr>
 		<td>
 			<center>
 				<img src="https://effun.xyz/assets/img/20191001/un1titled.jpg" width="90%" />
 				<br/>
-				<font color="AAAAAA">AGV1</font>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
