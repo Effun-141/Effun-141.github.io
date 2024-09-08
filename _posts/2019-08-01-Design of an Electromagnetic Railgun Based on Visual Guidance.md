@@ -38,26 +38,36 @@ type: Brief introduction
 
 ## Project Showcase
 
-### Robot used for experiments:
+### The electromagnetic railgun and competition site:
 
 <table rules="none" align="center">
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (1).jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20190801/微信图片_20240906152047.jpg" width="90%" />
 				<br/>
-				<font color="AAAAAA">Front</font>
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="https://effun.xyz/assets/img/20240318/1 (2).jpg" width="90%" />
-				<br/>
-				<font color="AAAAAA">Back</font>
+				<font color="AAAAAA"></font>
 			</center>
 		</td>
 	</tr>
 </table>
 
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20190801/微信图片_20240906152055.jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
 
-### Experimental processing and results:
+We refined our electromagnetic railgun in 2023.
+
+<video width="640" height="480" controls>
+    
+    <source src="https://effun.xyz/assets/img/20190801/curved-fire-gun-1.mp4" type="video/mp4">
+
+</video>
