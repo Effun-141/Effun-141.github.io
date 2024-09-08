@@ -14,7 +14,7 @@ This is a competition project in the National University Student Intelligent Car
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Oct. 2023 - Nov. 2023
+#### &#128197; Duration: Mar. 2019 - Jul. 2019
 
 ## Contributions
 
