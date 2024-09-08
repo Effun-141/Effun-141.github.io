@@ -214,3 +214,20 @@ An undergraduate thesis that won the second prize for excellent graduation desig
 </table>
 
 #### Dense point cloud map:
+
+
+
+
+#### Octree map:
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20210113/2021-05-12 14-05-44 的屏幕截图.png" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
