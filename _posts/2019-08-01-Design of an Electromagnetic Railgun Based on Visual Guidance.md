@@ -71,6 +71,22 @@ The positions of the railgun and the circular target are shown in the diagram. T
 	</tr>
 </table>
 
+
+
+#### Accuracy display
+
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20190801/curved-fire-gun-1.gif" width="100%" />
+				<br/>
+				<font color="AAAAAA"></font>
+			</center>
+		</td>
+	</tr>
+</table>
+
 We refined our electromagnetic railgun in 2023.
 
 <video width="640" height="480" controls>
