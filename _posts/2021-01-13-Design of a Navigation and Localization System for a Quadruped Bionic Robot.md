@@ -8,21 +8,15 @@ type: Brief introduction
 
 ## Introduction
 
+This is the title of my undergraduate thesis. The main research focus is on vision-based Simultaneous Localization and Mapping (SLAM) technology. This project was my first SLAM topic and marked the beginning of my strong interest in SLAM. In this project, I engaged in academic writing for the first time and encountered a series of new concepts, including the Ubuntu operating system, Robot Operating System (ROS), PCL, G2O, and more (prior to this, I primarily used microcontrollers for bare-metal embedded development). 
+
+It is no exaggeration to say that this project significantly enhanced my overall capabilities. This was not only because I learned a new algorithm (ORB-SLAM2), but also because I ventured into a new field of robotics development, learned how to conduct academic writing, and updated my "knowledge base" in engineering implementation. Most importantly, this project taught me how to analyze and solve problems, providing me with a reasonable approach to tackle various future projects. By the way, my thesis based on this project received the Second Prize for Excellent Graduation Design in Jiangsu Province (ranking first among over 400 students in my college), marking a perfect conclusion to my undergraduate studies.
+
 #### &#127774; Aims: 
 
-1. 
-2. 
-3. 
-
-研究内容：主要研究内容为同时定位与建图技术（SLAM），机器人平台为宇树科技A1。在Ubuntu18.04系统下，基于ORB-SLAM2算法框架和ROS，使用Intel D435i深度相机，实现机器人室内定位精度5cm ，室外定位精度0.5m ,并建立了点云地图和服务于导航的八叉树地图。
-
-研究方法：
-定位子系统：完成了基于ORB特征匹配的前端视觉里程计、基于Bundle Adjsutment的后端优化、基于词袋模型的回环检测模块设计。基于TUM数据集验证了定位精度，使用g2o库自带的球形数据集验证了后端优化和回环检测效果。
-建图子系统：利用相机采集的深度和颜色信息,基于Pcl库和Octomap库建立了半稠密点云地图和服务于导航的八叉树地图。
-导航子系统：设计了一种 A*-DWA 融合导航算法，兼顾全局最优路径和局部动态避障性能。
-
-研究结论：机器人室内实时定位精度5cm ，室外实时定位精度0.5m ,并建立了点云地图和服务于导航的八叉树地图。
-
+1. Familiarize yourself with the principles and code of an open-source visual SLAM algorithm and replicate it in the quadruped robot (Yushu Technology A1).
+2. Achieve indoor localization accuracy of 5 cm and outdoor localization accuracy of 0.5 m for the robot.
+3. Creat the map ofexperimental scenes.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
