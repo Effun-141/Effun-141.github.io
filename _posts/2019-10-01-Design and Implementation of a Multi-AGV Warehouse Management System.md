@@ -84,6 +84,13 @@ The designed multi-AGV system operates efficiently on the simulated map. Each AG
 				<font color="AAAAAA">AGV1</font>
 			</center>
 		</td>
+		<td>
+			<center>
+				<img src="https://effun.xyz/assets/img/20191001/多AGV.jpg" width="90%" />
+				<br/>
+				<font color="AAAAAA">AGV1</font>
+			</center>
+		</td>
 	</tr>
 </table>
 
