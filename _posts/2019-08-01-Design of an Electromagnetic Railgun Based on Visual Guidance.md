@@ -8,7 +8,6 @@ type: Brief introduction
 
 ## Introduction
 
-#### &#127774; Aims: 
 
 The positions of the railgun and the circular target are shown in the diagram. The railgun is placed at the calibration point, with the initial horizontal direction of the barrel aligned with the central axis at an angle of 0° and the vertical elevation angle also at 0°. The circular target is placed horizontally on the ground, with its bullseye located at a distance of 200 cm < d < 300 cm from the calibration point and at an angle of -30° < α < 30° relative to the central axis.
 
@@ -24,14 +23,11 @@ The positions of the railgun and the circular target are shown in the diagram. T
 	</tr>
 </table>
 
-1. 
-2. 
-3. 
+#### &#127774; Aims: 
 
-研究内容：电磁炮炮身由一个两自由度云台控制，使用OpenMV作为视觉传感器采集目标信息设计了一个DC-AC逆变电路模块和整流模块为电磁炮充能，可控硅控制充电时间与充电量。电磁炮具有手动和自动两种工作模式，手动模式下，根据输入的靶心位置坐标击发弹丸；自动模式下，OpenMV识别红色标志确定靶心位置坐标，自动击发弹丸。
-
-研究方法：主要负责系统硬件搭建和算法实现，在OpenMV IDE中使用Python语言编写了红色标靶的识别程序、测距程序以及单片机与OpenMV的通信程序。利用MATLAB和EXCEL拟合出弹丸出射距离与充电电压之间的关系，得到弹道射表关系曲线，确保命中靶心。
-
+1. Electromagnetic guns have both manual and automatic operating modes
+2. In manual mode, the projectile is fired based on the input of the target center position coordinates. 
+3. In automatic mode, the target center position coordinates are determined by recognizing the red marker using a visual sensor, and the projectile is fired automatically.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
@@ -39,13 +35,9 @@ The positions of the railgun and the circular target are shown in the diagram. T
 
 ## Contributions
 
-1. 
-2. 
-3. 
-4. 
+1. Target Recognition Algorithm Implementation. Based on OpenMV sensor, a red target recognition program, distance measurement program, and communication program between the microcontroller and OpenMV were written in Python.
+2. Using MATLAB and Excel, the relationship between the projectile launch distance and the charging voltage was fitted to obtain a ballistic table relationship curve, ensuring that the projectile hits the target center.
 
-标靶识别算法实现。基于OpenMV，使用Python语言编写了红色标靶的识别程序、测距程序以及单片机与OpenMV的通信程序。
-利用MATLAB和EXCEL拟合出弹丸出射距离与充电电压之间的关系，得到弹道射表关系曲线，确保命中靶心。
 
 ## Outcomes
  
