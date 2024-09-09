@@ -100,6 +100,33 @@ During my undergraduate studies, I also participated in the following <u>competi
 
 <br/>
 
+# &#127942; Honours & Awards
+
+All certificates can be accessed via the following link: 
+
+<a href='https://effun.xyz/assets/img/20230501/1.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My certificates-blue?logo=Git&logoColor=white"></a>
+
+**1.Scholarships:** 
+* **First Prize for Postgraduate Academic Scholarship in NJUST (2023, 2022)**
+* 	Second Prize of Outstanding Student Scholarship for undergraduate students in NJUST. 2023, 2022.
+* Third Prize of Outstanding Student Scholarship for undergraduate students in NJUST. 2021, 2020, 2019, 2018.
+
+**2.Awards:** 
+
+* Outstanding Postgraduate Student in NJUST. 2023.
+* **Second Prize of Excellent Graduation Design (Provincial Level)**. 2021.
+* Excellent Graduation Design of NJUST. 2021
+
+**3.Competitions:** 
+
+* Third Prize of Unmanned Vehicle Multi-vehicle Interaction Project in the 13th Jiangsu University Student Robot Competition. 2022.
+* Second Prize in the National College Student Mathematics Competition (Jiangsu Division). 2020.
+* S**econd Prize in the Robotics Adventure Programme in the 2019 Softbank Cup China Robotics Skills Competition.** 2019.
+* **First Prize of National Student Electronic Design Competition (Jiangsu Division)**. 2019
+* **Second Prize in the Four-wheel Vehicle Category of the 14th NXP Cup Intelligent Vehicle Competition for National Students (East China Region).** 2019.
+* Third Prize in Robot Adventure Tour in the Ninth Jiangsu University Student Robotics Competition. 2018.
+* Third Prize of the Fifteenth Higher Mathematics Competition of Jiangsu Province. 2018.
+
 # &#128231; Contact Information
 Please feel free to contact me at following ways:
 
