@@ -108,7 +108,7 @@ All certificates can be accessed via the following link:
 
 **1.Scholarships:** 
 * **First Prize for Postgraduate Academic Scholarship in NJUST (2023, 2022)**
-* 	Second Prize of Outstanding Student Scholarship for undergraduate students in NJUST. 2023, 2022.
+* Second Prize of Outstanding Student Scholarship for undergraduate students in NJUST. 2023, 2022.
 * Third Prize of Outstanding Student Scholarship for undergraduate students in NJUST. 2021, 2020, 2019, 2018.
 
 **2.Awards:** 
