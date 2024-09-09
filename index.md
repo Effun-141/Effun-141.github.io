@@ -104,7 +104,7 @@ During my undergraduate studies, I also participated in the following <u>competi
 
 All certificates can be accessed via the following link: 
 
-<a href='https://effun.xyz/assets/img/20230501/1.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My certificates-blue?logo=Git&logoColor=white"></a>
+<a href='https://effun.xyz/assets/img/certificates.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My certificates-blue?logo=Git&logoColor=white"></a>
 
 **1.Scholarships:** 
 * **First Prize for Postgraduate Academic Scholarship in NJUST (2023, 2022)**
