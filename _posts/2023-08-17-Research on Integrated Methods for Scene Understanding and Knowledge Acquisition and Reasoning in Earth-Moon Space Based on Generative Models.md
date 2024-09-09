@@ -10,7 +10,10 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
+Research the related field's current status, design a research content combining generative models with SLAM for spacecraft environment perception and scene understanding.
+
 Drafted the project proposal based on the given title, including sections on research background and significance, research content, scientific questions, and technical approach.
+
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
