@@ -121,7 +121,7 @@ All certificates can be accessed via the following link:
 
 * Third Prize of Unmanned Vehicle Multi-vehicle Interaction Project in the 13th Jiangsu University Student Robot Competition. 2022.
 * Second Prize in the National College Student Mathematics Competition (Jiangsu Division). 2020.
-* S**econd Prize in the Robotics Adventure Programme in the 2019 Softbank Cup China Robotics Skills Competition.** 2019.
+* **Second Prize in the Robotics Adventure Programme in the 2019 Softbank Cup China Robotics Skills Competition.** 2019.
 * **First Prize of National Student Electronic Design Competition (Jiangsu Division)**. 2019
 * **Second Prize in the Four-wheel Vehicle Category of the 14th NXP Cup Intelligent Vehicle Competition for National Students (East China Region).** 2019.
 * Third Prize in Robot Adventure Tour in the Ninth Jiangsu University Student Robotics Competition. 2018.
