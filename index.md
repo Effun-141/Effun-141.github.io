@@ -60,7 +60,7 @@ During my master’s and undergraduate studies, I participated in the following 
 2. ***Design of a Navigation and Localization System for an Autonomous Harvesting Robot in a Simulated Farmland Environment.*** (2023.09 ~ 2023.11)
 3. ***Design of a Laser SLAM System Based on LeGO-LOAM.*** (2023.05 ~ 2023.06)
 4. ***Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios.*** (2022.09 ~ 2022.11)
-5. ***Design of a Navigation and Localization System for a Quadruped Bionic Robot.*** (2021.01 ~ 2021.06)
+5. ***Research on Visual SLAM System for Quadruped Bionic Robot.*** (2021.01 ~ 2021.06)
 
 Additionally, I have participated in the following projects, which required not only <u>theoretical or engineering design</u> but also the <u>writing of related project proposals, patents, and theses</u>:：
 
