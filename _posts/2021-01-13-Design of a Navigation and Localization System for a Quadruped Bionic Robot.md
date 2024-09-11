@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Design of a Visual SLAM System for a Quadruped Bionic Robot"
+title:  "Research on visual SLAM system for quadruped bionic robot"
 info: "Researched Visual Simultaneous Localization and Mapping (VSLAM) techniques for undergraduate thesis project."
 tech: "Outcomes: An undergraduate thesis that won the second prize for excellent graduation design in Jiangsu Province."
 type: Brief introduction
