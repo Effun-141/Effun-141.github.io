@@ -48,7 +48,7 @@ Second Prize in the Four-wheel Vehicle Category of the 14th NXP Cup Intelligent 
 	<tr>
 		<td>
 			<center>
-				<img src="https://effun.xyz/assets/img/gallery/微信图片_20240906151113.jpg" width="90%" />
+				<img src="https://effun.xyz/assets/img/20190308/微信图片_20240906151113.jpg" width="90%" />
 				<br/>
 				<font color="AAAAAA"></font>
 			</center>
