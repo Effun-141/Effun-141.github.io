@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Design and Implementation of a Multi-AGV Warehouse Management System"
+title:  "Multi-AGV Warehouse Management System Project"
 info: "Design of three optically guided model AGVs to simulate the warehouse management scheduling process."
 tech: "Outcomes: Two software copyright; A complete multi-AGV system."
 type: Brief introduction
