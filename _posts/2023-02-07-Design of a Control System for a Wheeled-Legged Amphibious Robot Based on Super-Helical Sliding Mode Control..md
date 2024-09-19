@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Design of a Control System for a Wheeled-Legged Amphibious Robot Based on Super-Helical Sliding Mode Control."
+title:  "Wheeled-Legged Amphibious Robot Project"
 info: "Designed and developed a novel wheeled-legged amphibious robot, focusing on its balance control issues."
 tech: "Outcomes: A patent."
 type: Brief introduction
@@ -16,7 +16,7 @@ type: Brief introduction
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Feb. 2023 - Mar. 2023
+#### &#128197; Duration: Feb. 2023 - Apr. 2023
 
 ## Contributions
 
