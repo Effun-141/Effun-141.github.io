@@ -17,7 +17,7 @@ type: Brief introduction
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
-#### &#128197; Duration: Sep. 2022 - Nov. 2022
+#### &#128197; Duration: Oct. 2022 - Dec. 2022
 
 ## Contributions
 
