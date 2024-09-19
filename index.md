@@ -34,7 +34,7 @@ Currently, SLAM remains a fundamental task in robotics. In the future, I hope to
 
 **Paper:**
 
-<strong>[1]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv, Yifei Wu and Qingwei Chen. A High-Precision Dynamic RGB-D SLAM Algorithm for Environments with Potential Semantic Segmentation Network Failures. *(IEEE Transactions on Instrumentation & Measurement, JCR-Q1, **Under review**).*
+<strong>[1]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv, Yifei Wu and Qingwei Chen. A High-Precision Dynamic RGB-D SLAM Algorithm for Environments with Potential Semantic Segmentation Network Failures. *(Measurement, JCR-Q1, **IF = 5.2**, **Under review**).*
 
 <strong>[2]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv and Yifei Wu. A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes. (***Accepted** at the 22nd IEEE International Conference on Industrial Informatics (IEEE-INDIN 2024)*)
 
