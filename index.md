@@ -11,7 +11,7 @@ I received my Bachelor’s degree in Automation at Nanjing University of Science
 
 Academic performance:
 
-* Master's: Average score: 91.48/100，ranked 11/390 (top 3%).
+* Master's: **Average score: 91.48/100，ranked 11/390 (top 3%).**
 * Bachelor's: GPA 3.42/4, ranked 56/188 (top 30%).
 
 
@@ -56,17 +56,17 @@ Here are projects I participated in during my undergraduate and master's studies
 
 During my master’s and undergraduate studies, I participated in the following <u>projects closely related to my research interests</u>. These projects involved `visual SLAM`, `laser SLAM`, and the `Robot Operating System (ROS)`:
 
-1. ***Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments.*** (2024.02 ~ present)
-2. ***Design of a Navigation and Localization System for an Autonomous Harvesting Robot in a Simulated Farmland Environment.*** (2023.09 ~ 2023.11)
+1. ***Dynamic Visual SLAM Project.*** (2024.02 ~ present)
+2. ***Autonomous Harvesting Robot Project.*** (2023.09 ~ 2023.11)
 3. ***Design of a Laser SLAM System Based on LeGO-LOAM.*** (2023.05 ~ 2023.06)
-4. ***Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios.*** (2022.09 ~ 2022.11)
-5. ***Research on Visual SLAM System for Quadruped Bionic Robot.*** (2021.01 ~ 2021.06)
+4. ***Unmanned Vehicle Experimental Platform Project.*** (2022.10 ~ 2022.12)
+5. ***Visual SLAM System for Quadruped Bionic Robot Project.*** (2021.01 ~ 2021.06)
 
 Additionally, I have participated in the following projects, which required not only <u>theoretical or engineering design</u> but also the <u>writing of related project proposals, patents, and theses</u>:：
 
-1. ***Research on Integrated Methods for Scene Understanding and Knowledge Acquisition and Reasoning in Earth-Moon Space Based on Generative Models.*** (2023.09 ~ present)
-2. ***Design of a Control System for a Wheeled-Legged Amphibious Robot Based on Super-Helical Sliding Mode Control.*** (2023.02 ~ 2023.03)
-3. ***Design and Implementation of a Multi-AGV Warehouse Management System.*** (2019.10 ~ 2020.05)
+1. ***Generative AI and Scene Understanding Project (National Natural Science Foundation).*** (2023.09 ~ present)
+2. ***Wheeled-Legged Amphibious Robot Project.*** (2023.02 ~ 2023.04)
+3. ***Multi-AGV Warehouse Management System Project.*** (2019.10 ~ 2020.05)
 
 During my undergraduate studies, I also participated in the following <u>competition-related projects</u>:
 
