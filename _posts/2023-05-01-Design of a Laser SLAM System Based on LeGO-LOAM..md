@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Design of a Laser SLAM System Based on LeGO-LOAM."
+title:  "Design of a Laser SLAM System Based on LeGO-LOAM"
 info: "Learned the principles of Lego-LOAM and replicated it, completing the related course report."
 tech: "Outcomes: A course report that received a score of 98, ranking 1st out of 90 in the class."
 type: Brief introduction
