@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Research on Visual SLAM Algorithms for Mobile Robots in Complex Dynamic Environments"
+title:  "Dynamic Visual SLAM Project"
 info: "Mitigating the impact of various dynamic objects on SLAM system performance to achieve high-precision localization and static dense point cloud map construction."
 tech: "Outcomes: Two papers; A complete novel RGB-D visual SLAM system"
 type: Brief introduction 
