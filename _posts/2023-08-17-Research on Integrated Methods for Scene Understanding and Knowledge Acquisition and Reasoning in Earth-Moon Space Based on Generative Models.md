@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Research on Integrated Methods for Scene Understanding and Knowledge Acquisition and Reasoning in Earth-Moon Space Based on Generative Models"
+title:  "Generative AI and Scene Understanding Project (National Natural Science Foundation)"
 info: "A National Natural Science Foundation project in application process, passed preliminary review, awaiting defense. "
 tech: "Outcomes: National Natural Science Foundation Project Proposal"
 type: Brief introduction
