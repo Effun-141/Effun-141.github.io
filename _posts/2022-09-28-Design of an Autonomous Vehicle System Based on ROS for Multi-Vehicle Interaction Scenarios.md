@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Design of an Autonomous Vehicle System Based on ROS for Multi-Vehicle Interaction Scenarios"
+title:  "Unmanned Vehicle Experimental Platform Project"
 info: "Simulate the process of an autonomous vehicle driving on the road."
 tech: "Outcomes: A complete and versatile development platform for unmanned vehicles."
 type: Brief introduction
