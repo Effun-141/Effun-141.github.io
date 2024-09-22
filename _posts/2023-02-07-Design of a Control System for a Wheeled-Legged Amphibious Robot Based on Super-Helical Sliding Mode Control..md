@@ -10,7 +10,7 @@ type: Brief introduction
 
 #### &#127774; Aims: 
 
-1. Design and production of physical prototypes of wheeled-legged robot.
+1. Design and make the physical prototype of wheeled-legged robot.
 2. Design a effective balance control algorithm based for the designed wheeled-legged robot.
 
 
