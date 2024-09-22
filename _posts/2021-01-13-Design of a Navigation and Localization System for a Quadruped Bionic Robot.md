@@ -16,7 +16,7 @@ It is no exaggeration to say that this project significantly enhanced my overall
 
 1. Familiarize with the principles and code of an open-source visual SLAM algorithm and replicate it in the quadruped robot (Yushu Technology A1).
 2. Achieve indoor localization accuracy of 5 cm and outdoor localization accuracy of 0.5 m for the robot.
-3. Creat the map ofexperimental scenes.
+3. Creat the map of experimental scenes.
 
 #### &#128221; Advisor: Prof. Yifei Wu 
 
