@@ -5,7 +5,7 @@ layout: about
 # &#11088; Biography
 
 Hi &#128522;! I am a third-year postgradute student at School of Automation, Nanjing University of Science and Technology (NJUST, 211 project). Meanwhile, I am also a Research Assistant at The Chinese University of Hong Kong, ShenZhen, advised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/group/junfeng-wu) and Prof. [Ziyang Hong](https://sds.cuhk.edu.cn/teacher/1865). 
-My major is Control Science and Engineering, and my research focuses on mobile robot localization and scene understanding.
+My major is Control Science and Engineering, and my research focuses on SLAM and robotics.
 
 I received my Bachelor’s degree in Automation at Nanjing University of Science and Technology (NJUST) in June 2021, as a member of Robotics Innovation Lab (Auto-Robot). 
 
