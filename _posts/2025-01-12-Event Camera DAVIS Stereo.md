@@ -2,7 +2,7 @@
 layout: post
 title:  "Event Camera DAVIS346 使用记录"
 info: "记录DAVIS346事件相机的使用方法以及一些对驱动程序的修改."
-tech: " "
+tech: " 持续更新ing "
 type: Brief introduction 
 ---
 
