@@ -14,7 +14,7 @@ Academic performance:
 * Master's: **Average score: 91.48/100，ranked 11/390 (top 3%).**
 * Bachelor's: GPA 3.42/4, ranked 56/188 (top 30%).
 
-<a href='https://effun.xyz/assets/img/CV_PENG Yifan.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My CV-blue?logo=Git&logoColor=white"></a>
+<a href='https://effun.xyz/assets/img/彭一凡-CV个人简历.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My CV-blue?logo=Git&logoColor=white"></a>
 
 
 <br/>
