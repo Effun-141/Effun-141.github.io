@@ -38,11 +38,11 @@ My academic belief and pursuit can be seen in [*Belief & Pursuit*](https://effun
 
 **Paper:**
 
-<strong>[1]</strong> **Yifan Peng**, Rui Xv, Wenwen Lu, Xiaorui Wu, Yvmeng Xv, Yifei Wu and Qingwei Chen. A high-precision dynamic RGB-D SLAM algorithm for environments with potential semantic segmentation network failures[J]. Measurement, 2025: 118090.
+<strong>[1]</strong> **Yifan Peng**, Rui Xv, Wenwen Lu, Xiaorui Wu, Yvmeng Xv, Yifei Wu and Qingwei Chen. A high-precision dynamic RGB-D SLAM algorithm for environments with potential semantic segmentation network failures[J]. *Measurement*, 2025: 118090.
 
-<strong>[2]</strong> **Yifan Peng**, Yuze Hong, Ziyang Hong, Apple Pui-Yi Chui and Junfeng Wu. AquaticVision: Benchmarking Visual SLAM in Underwater Environment with Events and Frames[C]. IEEE International Conference on Robotics and Automation (ICRA) Worshop on Field Robotics, 2025.
+<strong>[2]</strong> **Yifan Peng**, Yuze Hong, Ziyang Hong, Apple Pui-Yi Chui and Junfeng Wu. AquaticVision: Benchmarking Visual SLAM in Underwater Environment with Events and Frames[C]. *IEEE International Conference on Robotics and Automation (ICRA) Worshop on Field Robotics*, 2025.
 
-<strong>[3]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv and Yifei Wu. A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes[C]. 22nd IEEE International Conference on Industrial Informatics, 2024: pp 1-7.
+<strong>[3]</strong> **Yifan Peng**, Rui Xv, Yvmeng Xv and Yifei Wu. A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes[C]. *22nd IEEE International Conference on Industrial Informatics*, 2024: pp 1-7.
 
 **Patents：**
 
