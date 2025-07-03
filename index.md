@@ -9,11 +9,6 @@ My major is Control Science and Engineering, and my research focuses on SLAM and
 
 I received my Master's degree in Control Science and Engineering in April 2025 and Bachelor’s degree in Automation in June 2021 at Nanjing University of Science and Technology (NJUST, 211 project) , as a member of Robotics Innovation Lab (Auto-Robot). 
 
-Academic performance:
-
-* Master's: **Average score: 91.48/100，ranked 11/390 (top 3%).**
-* Bachelor's: GPA 3.42/4, ranked 56/188 (top 30%).
-
 <a href='https://effun.xyz/assets/img/彭一凡-CV个人简历.pdf?spm=1001.2014.3001.5502'><img src="https://img.shields.io/badge/-My CV-blue?logo=Git&logoColor=white"></a>
 
 
