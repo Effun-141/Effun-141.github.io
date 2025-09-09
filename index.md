@@ -22,11 +22,6 @@ My research interests focus on:
 * **Multi-robot collaborative SLAM**
 * **Deep Learning-based Visual SLAM in dynamic scene**
 * **Robot environment perception and understanding**
-s
-
-Currently, SLAM remains a fundamental task in robotics. In the future, I hope to focus on the **integration of deep learning techniques (such as generative models and semantic segmentation, etc.) with robotics SLAM**, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
-
-My academic belief and pursuit can be seen in [*Belief & Pursuit*](https://effun.xyz/2014-07-18/Story) page.
 
 <br/>
 
