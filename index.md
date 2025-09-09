@@ -4,8 +4,8 @@ layout: about
 
 # &#11088; Biography
 
-Hi &#128522;! I am a Research Assistant at The Chinese University of Hong Kong, ShenZhen, advised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/group/junfeng-wu) and Prof. [Ziyang Hong](https://sds.cuhk.edu.cn/teacher/1865). 
-My major is Control Science and Engineering, and my research focuses on SLAM and robotics.
+Hi &#128522;! I am a PhD student at The Chinese University of Hong Kong, ShenZhen, advised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/group/junfeng-wu) and Prof. [Ziyang Hong](https://sds.cuhk.edu.cn/teacher/1865). 
+My major is Computer Science, and my research focuses on underwater SLAM and robotics.
 
 I received my Master's degree in Control Science and Engineering in April 2025 and Bachelor’s degree in Automation in June 2021 at Nanjing University of Science and Technology (NJUST, 211 project) , as a member of Robotics Innovation Lab (Auto-Robot). 
 
@@ -19,9 +19,10 @@ I received my Master's degree in Control Science and Engineering in April 2025 a
 My research interests focus on:
 
 * **Event camera-based Visual SLAM in underwater scene**
+* **Multi-robot collaborative SLAM**
 * **Deep Learning-based Visual SLAM in dynamic scene**
 * **Robot environment perception and understanding**
-* **Multi-robot collaborative SLAM**
+s
 
 Currently, SLAM remains a fundamental task in robotics. In the future, I hope to focus on the **integration of deep learning techniques (such as generative models and semantic segmentation, etc.) with robotics SLAM**, enabling them to perceive and understand the world like humans do, so that they can be truly applied in human life and work collaboratively with people in the future. 
 
