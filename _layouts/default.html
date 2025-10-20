@@ -1,0 +1,64 @@
+{% if page.menubar or page.menubar_toc %}
+    {% assign has_left_sidebar = true %}
+{% endif %}
+
+{% if has_left_sidebar and page.show_sidebar %} 
+    {% assign content_width = 'is-4' %} 
+{% elsif page.show_sidebar %}
+    {% assign content_width = 'is-8' %}
+{% elsif has_left_sidebar %}
+    {% assign content_width = 'is-7' %}
+{% elsif page.slim_content_width %}
+    {% assign content_width = 'is-8' %} 
+{% else %}
+    {% assign content_width = 'is-12' %} 
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+    {% if page.series_nav_color %} 
+        {% include header_series.html %}
+    {% else %}
+        {% include header.html %}
+    {% endif %}
+    {% unless page.hide_hero %} 
+        {% include hero.html %} 
+    {% endunless %} 
+    {% include callouts.html %}
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                {% if page.menubar_toc %}
+                <div class="column is-3-desktop is-3-tablet">
+                    {% assign contentsTitle = page.toc_title | default: 'Contents' %}
+                    {% include toc.html html=content class='menu-list' h_min=2 h_max=3 contents_title=contentsTitle %}
+                </div>
+                {% elsif page.menubar %}
+                <div class="column is-4-desktop is-4-tablet">
+                    {% include menubar.html %}
+                </div>
+                {% endif %}
+
+                {% if page.slim_content_width %}
+                <div class="column is-2">
+
+                </div>
+                {% endif %}
+                <div class="column {{ content_width }}">
+                    {% include tabs.html %} {% include showcase.html %} {{ content }}
+                </div>
+                {% if site.posts and page.show_sidebar %}
+                <div class="column is-4-desktop is-12-tablet">
+                    {% include latest-posts.html %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    {% unless page.hide_footer %} {% include footer.html %} {% endunless %}
+    <script src="{{ site.baseurl }}/assets/js/app.js" type="text/javascript"></script>
+    {%- include footer-scripts.html -%}
+</body>
+
+</html>
