@@ -13,10 +13,10 @@ hero_link2: /current-members/
 hero_link_text2: See Our Team
 ---
 
-# About Us
-Our mission is to advance state-of-the-art autonomy.
+# Who are we?
+We are the Laboratory for Intelligent Autonomous Systems from [School of Data Scinece](https://sds.cuhk.edu.cn/) at [The Chinese University of HongKong, ShenZhen](https://www.cuhk.edu.cn/).
 
-We are proud to be part of the [Robotics Institute](https://www.ri.cmu.edu/) at [Carnegie Mellon University](https://www.cmu.edu/).
+Our research focus on ...
 
 # Highlights
 {% assign posts = site.posts | where:"categories","highlights" %}
