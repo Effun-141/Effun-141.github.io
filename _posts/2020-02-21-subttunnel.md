@@ -2,7 +2,7 @@
 layout: post
 title:  "Team Explorer wins DARPA SubT Challenge Tunnel Circuit"
 date:   2019-08-22 10:50:07
-categories: highlights
+categories: 
 author: "Cherie Ho"
 published: true
 sidebar:  false

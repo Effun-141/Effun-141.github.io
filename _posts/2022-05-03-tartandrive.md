@@ -2,7 +2,7 @@
 layout: post
 title:  "TartanDrive is selected as an outstanding learning paper finalist in ICRA2022"
 date:   2022-05-03 10:33:07
-categories: highlights
+categories: 
 author: "Wenshan Wang"
 published: true
 sidebar:  false

@@ -2,7 +2,7 @@
 layout: post
 title:  "AACUS wins Howard Hughes Award, nominated for Collier Trophy"
 date:   2018-03-09 10:50:07
-categories: highlights
+categories: 
 author: "Cherie Ho"
 published: true
 sidebar:  false
