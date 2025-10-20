@@ -1,0 +1,38 @@
+---
+layout: team_member_base
+---
+
+<div class="columns is-multiline">
+
+    <div class="column is-6">
+        <figure class="image is-4by3">
+            <img src="{{ page.image }}" />
+        </figure>
+    </div>
+
+    <div class="column is-6">
+        <!-- <p class="title is-3">{{ page.title }}</p>
+        <p class="subtitle is-3">{{ page.job_title }}</p> -->
+
+        <div class="content">
+            <!-- <div class="content-large-font"> -->
+                {{ content }}
+            <!-- </div> -->
+
+            <h2>Thesis</h2>
+            <a href="{{ page.thesis_link }}" target="_blank">{{page.thesis_title}}</a>
+
+            <h2>Advisors</h2>
+            {% for advisor in page.advisors %}
+            <p> {{ advisor.name }} </p>
+            {% endfor %}
+
+            <h2>Where are they now?</h2>
+            <a href="{{ page.linkedin }}" target="_blank">{{page.linkedin}}</a>
+
+
+        </div>
+    </div>
+
+</div>
+
