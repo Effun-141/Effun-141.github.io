@@ -5,12 +5,12 @@ layout: page
 show_sidebar: false
 hide_footer: false
 hero_height: is-large
-hero_image: /img/homepage_slideshow.gif
+hero_image: /img/head2.png
 hero_link: /research/
-hero_link_text: See Our Research
+hero_link_text: Our Research
 
 hero_link2: /current-members/
-hero_link_text2: See Our Team
+hero_link_text2: Our Team
 ---
 
 # Who are we?
