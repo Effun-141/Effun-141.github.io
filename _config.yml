@@ -1,86 +1,62 @@
-# Site Settings
-title: AirLab
-tagline: We build intelligent autonomous robots
-email: contact@theairlab.org
-description: >
-  Researching, developing, and testing autonomous robots at Carnegie Mellon University
-baseurl:
-url: "https://theairlab.org"
-permalink: pretty
+# Site settings
+title: Effun
+baseurl: ""
+url: "https://effun.xyz"
+google_analytics: # Tracking ID, e.g. "UA-000000-01"
 
-paginate: 5
-paginate_path: "/research/page:num"
+# Author
+author:
+  name: Yifan Peng
+  desc: Forge ahead, overcoming any obstacles along the way | 逢山开路，遇水搭桥
+  email: effunwayj@njust.edu.cn
+  selfie: assets/img/profile.jpg
 
-# Disqus Comments
-disqus:
-  # Leave shortname blank to disable comments site-wide.
-  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-  # shortname: my_disqus_shortname
-  shortname: 
-  comments: false
+# social
+social:
+  email: 
+  behance:
+  bitbucket:
+  dribbble:
+  facebook: 
+  flickr:
+  github: 
+  google_plus:
+  instagram:
+  keybase:
+  linkedin:  
+  pinterest:
+  reddit:
+  soundcloud:
+  stack_exchange:
+  steam:
+  tumblr:
+  gitlab:
+  twitter: 
+  vimeo:
+  wordpress:
+  youtube:
+  default_txt: 
 
-
-plugins:
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-scholar
-  - kramdown-parser-gfm
-  - nokogiri
-
-exclude:
-  - Gemfile
-  - clean-theme.gemspec
-  - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-
-livereload: true
-
-sass:
-  style: compressed
-  source_dir: _sass
-
-google_analytics: G-ERWFHDG4GX
-
-defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      show_sidebar: true
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      author: "AirLab"
-      layout: post
-      show_sidebar: true
-
+# Build settings
 markdown: kramdown
-highlighter: rouge
 
-footer_menu: example_footer_menu
+# Assets
+sass:
+  sass_dir: _sass
+  style: compressed
 
-collections:
-  team:
-    output: true
-    layout: product
-    image: https://via.placeholder.com/800x600
-    show_sidebar: false
-  medium_posts_json:
-    output: true
+# Gems
+plugins:
+  - jekyll-paginate
 
-
-scholar:
-  style: simple-ieee.csl
-  bibliography_list_tag: "ol"
-  bibliography_template: bibtemplate
-
-exclude: [vendor]
+# Permalinks
+permalink: /:year-:month-:day/:title
+paginate_path: "/portfolio/page:num/"
+paginate: 20
+exclude:
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "*.gem"
+  - "LICENSE"
+  - "READE.md"
+  - "screenshot.png"
