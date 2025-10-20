@@ -1,6 +1,6 @@
 ---
-title: AirLab
-subtitle: We research autonomous robots
+title: LIAS
+subtitle: Welcome to The Laboratory for Intelligent Autonomous Systems!
 layout: page
 show_sidebar: false
 hide_footer: false
