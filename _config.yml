@@ -1,7 +1,7 @@
 # Site Settings
-title: AirLab
+title: LIAS
 tagline: We build intelligent autonomous robots
-email: contact@theairlab.org
+email: junfengwu@cuhk.edu.cn
 description: >
   Researching, developing, and testing autonomous robots at Carnegie Mellon University
 baseurl:
@@ -59,7 +59,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      author: "AirLab"
+      author: "LIAS"
       layout: post
       show_sidebar: true
 
