@@ -1,10 +1,10 @@
 ---
-title: Sebastian Scherer
-subtitle: Associate Research Professor
-job_title: Associate Research Professor
+title: Junfeng Wu
+subtitle: Associate Professor
+job_title: Associate Professor
 category: lab_head
 layout: team_member_personal_page
-image: /img/team/basti.jpg
+image: /img/team/current_member/wujunfeng.jpg
 ---
 
 
