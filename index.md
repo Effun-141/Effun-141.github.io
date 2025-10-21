@@ -5,7 +5,7 @@ layout: page
 show_sidebar: false
 hide_footer: false
 hero_height: is-large
-hero_image: /img/head2.png
+hero_image: /img/homepage_slideshow.gif
 hero_link: /research/
 hero_link_text: Our Research
 
