@@ -2,7 +2,7 @@
 title: Steven Willits
 subtitle: Scientist
 job_title: Lead Scientist
-category: 
+category: postdoc
 layout: team_member_personal_page
 image: /img/team/stevenw.png
 link-new-tab: true
