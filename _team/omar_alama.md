@@ -5,8 +5,6 @@ job_title: Ph.D. Student
 category: phd_student
 layout: team_member_personal_page
 image: /img/team/omar_alama.png
-starting_year: 2019
-graduation_year: 2026
 link-new-tab: true
 ---
 

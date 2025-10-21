@@ -5,8 +5,6 @@ job_title: Ph.D. Student
 category:  phd_student
 layout: team_member_personal_page
 image: /img/team/nikhil_keetha.jpg
-starting_year: 2018
-graduation_year: 2025
 link-new-tab: true
 ---
 
