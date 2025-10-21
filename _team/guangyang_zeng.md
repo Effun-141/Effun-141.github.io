@@ -8,5 +8,5 @@ image: /img/team/current_member/zengguangyang.jpg
 link-new-tab: true
 ---
 
-Guangyang Zeng is a postdoctoral researcher 
+Guangyang Zeng is a postdoctoral researcher at
 
