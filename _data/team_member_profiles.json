@@ -19,7 +19,7 @@
 	{ "name": "jay_patrikar",	"link": "/team/jay" },
 	{ "name": "yuheng_qiu",	"link": "/team/yuheng" },
 	{ "name": "andrew_saba",	"link": "/team/alumni/andrews" },
-	{ "name": "junfengwu",	"link": "/team/junfengwu" },
+	{ "name": "junfeng_wu",	"link": "/team/junfengwu" },
 	{ "name": "vaibhav_(via)_viswanathan",	"link": "/team/vaibhavv" },
 	{ "name": "chen_wang",	"link": "/team/alumni/chen" },
 	{ "name": "wenshan_wang",	"link": "/team/wenshan" },
@@ -30,5 +30,6 @@
 	{ "name": "shibo_zhao",	"link": "/team/shiboz" },
 	{ "name": "weikun_zhen",	"link": "/team/alumni/weikun" },
 	{ "name": "peng_yin",	"link": "/team/alumni/peng_yin" }
+	{ "name": "guangyang_zeng",	"link": "/team/guangyangzeng" }
 	]
 }
