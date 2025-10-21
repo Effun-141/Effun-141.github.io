@@ -1,10 +1,10 @@
 ---
-title: Wenshan Wang
-subtitle: Systems Scientist
-job_title: Systems Scientist
+title: Ziyang Hong
+subtitle: Research Assistant Professor
+job_title: Research Assistant Professor
 category: lab_head
 layout: team_member_personal_page
-image: /img/team/wenshan.jpg
+image: /img/team/current_member/hongziyang.jpg
 ---
 
 [Personal Website](http://www.wangwenshan.com)
