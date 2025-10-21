@@ -1,11 +1,11 @@
 ---
 title: Current Members
-subtitle: We're lucky to have a wonderful group of people
+subtitle: 
 layout: team_members
 show_sidebar: false
 hide_footer: false
 sort: subtitle
-hero_image: /img/team-2023.jpg
-image: /img/team-2023.jpg
+hero_image: 
+image: 
 hero_height: is-large
 ---
