@@ -1,18 +1,12 @@
 ---
-title: Yunwoo Lee
+title: Guangyang Zeng
 subtitle: Postdoctor
 job_title: Postdoctoral Researcher
 category: postdoc
 layout: team_member_personal_page
-image: /img/team/yunwoolee.jpg
+image: /img/team/current_member/zengguangyang.jpg
 link-new-tab: true
 ---
 
-Yunwoo Lee is a postdoctoral researcher at AirLab. He earned his PhD (Mechanical and Aerospace Engineering) and bachelor’s degree (Electrical and Computer Engineering) from Seoul National University, South Korea. His research interests include multi-robot systems, aerial tracking, and mobile robot planning. He is passionate about the developing fully autonomous robots.
-
-## Website ##
-[https://yunwoolee94.github.io/](https://yunwoolee94.github.io/)
-
-## Email ##
-yunwool@andrew.cmu.edu
+Guangyang Zeng is a postdoctoral researcher 
 
