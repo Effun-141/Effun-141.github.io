@@ -23,11 +23,9 @@
       link: /tartanplanningseries/
     - name: 2024 ICRA Off-road Workshop
       link: /icra2024_offroad_workshop/
-- name: Datasets
-  link: /datasets/
+#- name: Datasets
+#  link: /datasets/
 - name: Openings
   link: /openings/
 - name: Contact
   link: /contact/
-- name: Give Now
-  link: https://givenow.cmu.edu/campaigns/42968/donations/new?a=8545879&designation=airlabfund
