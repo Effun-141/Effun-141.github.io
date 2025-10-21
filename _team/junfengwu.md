@@ -8,4 +8,4 @@ image: /img/team/current_member/wujunfeng1.jpg
 ---
 
 
-Junfeng Wu is an Associate Research Professor at The Chinese University of HongKong, Shenzhen.
+Junfeng Wu is an Associate Professor at The Chinese University of HongKong, Shenzhen.
