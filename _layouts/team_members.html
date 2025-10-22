@@ -41,7 +41,7 @@ show_sidebar: false
 <br>
 <div class="columns is-multiline">
 {% assign sorted_postdocs = site.team | where:"category","postdoc" %}
-{% for person in sorted_persons %}
+{% for person in sorted_postdocs %}
 <div class="column is-one-fifth-desktop is-6-tablet">
   <a href="{{ person.url | prepend: site.baseurl }}">
     <div class="card">
@@ -53,7 +53,7 @@ show_sidebar: false
       </div>
       {% endif %}
       <div class="card-content">
-        <p class="title is-6">{{ person.title }}</h2>
+        <p class="title is-6">{{ person.title }}</p>
         <p class="subtitle is-6">{{ person.subtitle }}</p>
       </div>
     </div>
@@ -66,7 +66,6 @@ show_sidebar: false
 <h1 style="font-size:35px;">Ph.D Students</h1>
 <br>
 <div class="columns is-multiline">
-{% assign sorted_persons = site.team | where:"category","phd" %}
 {% assign sorted_persons = site.team | where:"category","phd" | sort: "join_date" %}
 {% for person in sorted_persons %}
 <div class="column is-one-fifth-desktop is-6-tablet">
