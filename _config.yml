@@ -1,62 +1,86 @@
-# Site settings
-title: Effun
-baseurl: ""
-url: "https://effun.xyz"
-google_analytics: # Tracking ID, e.g. "UA-000000-01"
+# Site Settings
+title: LIAS
+tagline: We build intelligent autonomous robots
+email: junfengwu@cuhk.edu.cn
+description: >
+  Researching, developing, and testing autonomous robots at Carnegie Mellon University
+baseurl:
+url: ""
+permalink: pretty
 
-# Author
-author:
-  name: Yifan Peng
-  desc: Forge ahead, overcoming any obstacles along the way | 逢山开路，遇水搭桥
-  email: effunwayj@njust.edu.cn
-  selfie: assets/img/profile.jpg
+paginate: 5
+paginate_path: "/research/page:num"
 
-# social
-social:
-  email: 
-  behance:
-  bitbucket:
-  dribbble:
-  facebook: 
-  flickr:
-  github: 
-  google_plus:
-  instagram:
-  keybase:
-  linkedin:  
-  pinterest:
-  reddit:
-  soundcloud:
-  stack_exchange:
-  steam:
-  tumblr:
-  gitlab:
-  twitter: 
-  vimeo:
-  wordpress:
-  youtube:
-  default_txt: 
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  # shortname: my_disqus_shortname
+  shortname: 
+  comments: false
 
-# Build settings
-markdown: kramdown
 
-# Assets
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# Gems
 plugins:
+  - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-scholar
+  - kramdown-parser-gfm
+  - nokogiri
 
-# Permalinks
-permalink: /:year-:month-:day/:title
-paginate_path: "/portfolio/page:num/"
-paginate: 20
 exclude:
-  - "Gemfile"
-  - "Gemfile.lock"
-  - "*.gem"
-  - "LICENSE"
-  - "READE.md"
-  - "screenshot.png"
+  - Gemfile
+  - clean-theme.gemspec
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+livereload: true
+
+sass:
+  style: compressed
+  source_dir: _sass
+
+google_analytics: G-ERWFHDG4GX
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      show_sidebar: true
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "LIAS"
+      layout: post
+      show_sidebar: true
+
+markdown: kramdown
+highlighter: rouge
+
+footer_menu: example_footer_menu
+
+collections:
+  team:
+    output: true
+    layout: product
+    image: https://via.placeholder.com/800x600
+    show_sidebar: false
+  medium_posts_json:
+    output: true
+
+
+scholar:
+  style: simple-ieee.csl
+  bibliography_list_tag: "ol"
+  bibliography_template: bibtemplate
+
+exclude: [vendor]
