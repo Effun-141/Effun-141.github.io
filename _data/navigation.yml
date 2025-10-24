@@ -9,8 +9,8 @@
   link: /research/
 - name: Publications
   link: /publications/
-# - name: News
-#   link: /news/
+- name: News
+  link: /news/
 - name: Seminars
   dropdown:
     - name: 2020 Summer School
