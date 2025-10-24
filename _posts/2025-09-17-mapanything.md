@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: 
 title: "MapAnything: Universal Feed-Forward Metric 3D Reconstruction"
 date: 2025-09-17 11:00:00
 categories: 
