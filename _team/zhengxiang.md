@@ -9,6 +9,6 @@ image: /img/team/current_member/placeholder_male.png
 link-new-tab: true
 ---
 
-**Yuze HONG** received his B.Eng. degree from Zhejiang University.
+**Xiang Zheng** received his B.Eng. degree from Zhejiang University.
 
 **Duration:** 2024/09/01 - present
