@@ -6,6 +6,8 @@ show_sidebar: false
 hide_footer: false
 ---
 
+
+<!--
 ## How to reach our lab
 
 To reach our lab by car please park in Squirrel Hill. Darlington Ave is typically convenient to park.
@@ -39,3 +41,4 @@ Email: [wenshanw@andrew.cmu.edu](mailto:wenshanw@andrew.cmu.edu)
 Robotics Institute, Squirrel Hill Location, Carnegie Mellon University, 1723 Murray Ave, Pittsburgh, PA 15217
 
 Email: [janicek@andrew.cmu.edu](mailto:janicek@andrew.cmu.edu)
+-->
