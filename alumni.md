@@ -60,6 +60,7 @@ hide_footer: false
 {% endfor %}
 </div>
 
+<!--
 <hr>
 <h1 style="font-size:35px;">Former Postdoctoral Fellows and Scientists</h1>
 <br>
@@ -85,4 +86,4 @@ hide_footer: false
   </a>
 </div>
 {% endfor %}
-</div>
+</div> -->
