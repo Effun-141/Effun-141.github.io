@@ -1,6 +1,6 @@
 ---
 title: Alumni
-subtitle: Ordered by year of graduation
+subtitle: 
 layout: default
 show_sidebar: false
 hide_footer: false
