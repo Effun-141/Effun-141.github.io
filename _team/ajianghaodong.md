@@ -1,5 +1,5 @@
 ---
-title: Hongdong Jiang
+title: Haodong Jiang
 subtitle: Ph.D. Student
 job_title: Ph.D. Student
 category: phd
