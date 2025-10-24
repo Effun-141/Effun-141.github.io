@@ -6,10 +6,9 @@ categories: research
 description: "MapAnything is a simple, end-to-end trained transformer model that directly regresses the factored metric 3D geometry of a scene given various types of inputs (images, calibration, poses, or depth)."
 author: "Nikhil Keetha"
 published: true
-redirect: ""
 show_sidebar: false
 # slim_content_width: true
-permalink: /mapanything_redirect/
+permalink: /mapanything/
 image: /img/posts/2025-09-17-mapanything/mapanything_teaser.png
 datatable: true
 title_image: None
