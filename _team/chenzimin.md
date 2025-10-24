@@ -1,5 +1,5 @@
 ---
-title: Yifan Peng
+title: Zimin Chen
 subtitle: Mphil Student
 job_title: Mphil Student
 category: master
