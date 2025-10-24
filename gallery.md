@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Current Openings
+title: Gallery
 show_sidebar: false
 hide_footer: false
 ---
