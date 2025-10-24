@@ -13,6 +13,6 @@ advisors:
 ---
 
 
-**Ke Fang** received his B.Eng. degree from Harbin Institute of Technology and his M.Phil. degree from Beihang University. His research interests include Online control and Distributed control systems.
+**Ke Fang** received his B.Eng. degree from Harbin Institute of Technology and his M.Phil. degree from Beihang University. He obtained his Ph.D. degree from Zhejiang University. His research interests include Online control and Distributed control systems.
 
 **Duration:** 2019/09/21 - 2025/03
