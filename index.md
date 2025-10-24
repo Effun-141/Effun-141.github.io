@@ -18,8 +18,8 @@ We are the Laboratory for Intelligent Autonomous Systems from [School of Data Sc
 
 Our research focus on ...
 
-# Highlights
-{% assign posts = site.posts | where:"categories","highlights" %}
+# News
+{% assign posts = site.posts | where:"categories","news" %}
 <div class="columns is-multiline">
     {% for post in posts %}
     <div class="column is-4-desktop is-6-tablet">
