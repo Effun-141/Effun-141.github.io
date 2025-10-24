@@ -9,6 +9,6 @@ image: /img/team/current_member/lihaoying.jpg
 link-new-tab: true
 ---
 
-**Haoying LI** received his B.Eng. degree from Zhejiang University. His research interests include SLAM, Robot perception, and sensor fusion.
+**Haoying LI** received his B.Eng. degree from Zhejiang University. Her research interests include SLAM, Robot perception, and sensor fusion.
 
 **Duration:** 2022/09/01 – present
