@@ -9,3 +9,4 @@ image: /img/team/current_member/zhangnanxi.jpg
 link-new-tab: true
 ---
 
+**Nanxi Zhang** is an undergraduate student from the Chinese University of Hong Kong, Shenzhen.

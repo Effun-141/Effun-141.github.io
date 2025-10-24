@@ -9,3 +9,6 @@ image: /img/team/current_member/shaoyunling.jpg
 link-new-tab: true
 ---
 
+**Yunling SHAO** received his B.Eng. degree from Zhejiang University. His research interests include Underwater Robot, SLAM, and sensor fusion.
+
+**Duration:** 2024/09/01 - present

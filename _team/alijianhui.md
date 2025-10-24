@@ -9,3 +9,6 @@ image: /img/team/current_member/lijianhui.jpg
 link-new-tab: true
 ---
 
+**Jianhui LI** received his B.Eng. degree from Zhejiang University. His research interests include Reinforcement Learning and Optimal control.
+
+**Duration:** 2020/09/01 - present

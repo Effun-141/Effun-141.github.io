@@ -9,3 +9,6 @@ image: /img/team/current_member/shenyuan.jpg
 link-new-tab: true
 ---
 
+**Yuan SHEN** received his B.Eng. degree from Nanjing University of Science and Technology. His research interests include SLAM.
+
+**Duration:** 2023/09/01 – present

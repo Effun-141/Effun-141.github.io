@@ -12,3 +12,6 @@ advisors:
  - name: Junfeng Wu
 ---
 
+**Yanglin ZHANG** received his B.Eng. degree and M.phil degree from the Chinese University of Hong Kong, Shenzhen.
+
+**Duration:** 2023/09/01 – 2025 (Co-supervised with Prof. Ruimao Zhang)

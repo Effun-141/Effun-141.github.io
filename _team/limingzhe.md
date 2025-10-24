@@ -9,3 +9,6 @@ image: /img/team/current_member/limingzhe.jpg
 link-new-tab: true
 ---
 
+**Mingzhe Li** received his B.Eng. degree from Harbin Institute of Technology, Shenzhen.
+
+**Duration:** 2025/09/01 – present 

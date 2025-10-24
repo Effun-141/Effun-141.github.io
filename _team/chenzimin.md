@@ -9,3 +9,6 @@ image: /img/team/current_member/chenzimin.jpg
 link-new-tab: true
 ---
 
+**Zimin CHEN** received his B.Eng. degree from the Chinese University of Hong Kong, Shenzhen.
+
+**Duration:** 2023/09/01 – present (Co-supervised with Prof. Tianlin Lin); 2022/06/01 - present.

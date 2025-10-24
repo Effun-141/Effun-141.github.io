@@ -9,3 +9,6 @@ image: /img/team/current_member/jianghaodong.jpg
 link-new-tab: true
 ---
 
+**Haodong JIANG** received his B.Eng. degree from Zhejiang University. His research interests include SLAM and Probabilistic Graph.
+
+**Duration:** 2021/09/01 – present

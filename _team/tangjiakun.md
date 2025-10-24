@@ -9,3 +9,6 @@ image: /img/team/current_member/tangjiakun.jpg
 link-new-tab: true
 ---
 
+**Jiakun Tang** received his B.Eng. degree from Southeast University.
+
+**Duration:** 2025/09/01 – present 
