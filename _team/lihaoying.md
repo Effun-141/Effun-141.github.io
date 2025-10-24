@@ -1,5 +1,5 @@
 ---
-title: Hongying Li
+title: Haoying Li
 subtitle: Ph.D. Student
 job_title: Ph.D. Student
 category: phd
