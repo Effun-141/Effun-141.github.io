@@ -7,10 +7,10 @@ hide_footer: false
 hero_height: is-large
 hero_image: /img/homepage_slideshow.gif
 hero_link: /publications/
-hero_link_text: Our Research
+hero_link_text: Academic Paper
 
 hero_link2: /current-members/
-hero_link_text2: Our Team
+hero_link_text2: Team
 ---
 
 # Who are we?
