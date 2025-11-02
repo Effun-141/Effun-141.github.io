@@ -129,6 +129,5 @@ Please feel free to contact me at following ways:
 
 * **Email** : effunwayj@njust.edu.cn
 * **Wechat** : pyf140718
-* **Phone number** : +86 18852056252
 * **Facebook** : YiFan Peng 
 * **Personal website** : [effun.xyz](https://effun.xyz)
