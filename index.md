@@ -4,7 +4,7 @@ layout: about
 
 # &#11088; Biography
 
-Hi &#128522;! I am a PhD student at The Chinese University of Hong Kong, ShenZhen, advised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/lab-pi/) and Prof. [Ziyang Hong](https://scholar.google.ca/citations?hl=zh-CN&authuser=1&user=IUi8EjkAAAAJ). 
+Hi &#128522;! I am a PhD student at The Chinese University of Hong Kong, ShenZhen, advised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/lab-pi/) and Prof. [Ziyang Hong](https://sites.google.com/view/ziyanghong/home). 
 My major is Computer Science, and my research focuses on underwater SLAM and robotics. Welcome to visit our [lab website](https://lias-cuhksz.github.io/).
 
 I received my Master's degree in Control Science and Engineering in April 2025 and Bachelor’s degree in Automation in June 2021 at Nanjing University of Science and Technology (NJUST, 211 project) , as a member of Robotics Innovation Lab (Auto-Robot). 
