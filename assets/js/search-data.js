@@ -445,7 +445,7 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_10/";
-            },},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra-field-robotics-workshop-paper",
+            },},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra-field-robotics-workshop",
           title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
           description: "",
           section: "News",},{id: "news-a-paper-was-accepted-by-measurement-sci-q2-if-5-6-paper",
