@@ -444,9 +444,9 @@ ninja.data = [{
           title: 'A long announcement with details',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+              window.location.href = "/news/announcement_10/";
+            },},{id: "news-a-paper-was-accepted-by-measurement-sci-q2-if-5-6",
+          title: '🎉 A paper was accepted by Measurement (SCI-Q2, IF=5.6)!',
           description: "",
           section: "News",},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra",
           title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
