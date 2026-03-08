@@ -441,7 +441,7 @@ ninja.data = [{
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
             },},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra",
-          title: 'A paper was accepted by 2026 IEEE International Conference on Robotics and Automation...',
+          title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
           description: "",
           section: "News",},{id: "news-a-long-announcement-with-details",
           title: 'A long announcement with details',
