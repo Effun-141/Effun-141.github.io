@@ -445,10 +445,13 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/announcement_10/";
-            },},{id: "news-a-paper-was-accepted-by-measurement-sci-q2-if-5-6",
-          title: '🎉 A paper was accepted by Measurement (SCI-Q2, IF=5.6)!',
+            },},{id: "news-a-paper-was-accepted-by-measurement-sci-q2-if-5-6-paper-https-www-sciencedirect-com-science-article-pii-s0263224125014496",
+          title: '🎉 A paper was accepted by Measurement (SCI-Q2, IF=5.6)! (paper)[https://www.sciencedirect.com/science/article/pii/S0263224125014496]',
           description: "",
-          section: "News",},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra",
+          section: "News",},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra-field-robotics-workshop-paper",
+          title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
+          description: "",
+          section: "News",},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra-paper",
           title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
           description: "",
           section: "News",},{id: "projects-project-1",
