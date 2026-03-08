@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 **A paper was accepted by Measurement (SCI-Q2, IF=5.6)!**
+🎉 **A paper was accepted by Measurement (SCI-Q2, IF=5.6)! (paper)[https://www.sciencedirect.com/science/article/pii/S0263224125014496]**

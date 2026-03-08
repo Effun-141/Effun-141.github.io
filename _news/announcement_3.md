@@ -1,0 +1,8 @@
+---
+layout: post
+date: 2025-06-04 07:59:00-0400
+inline: true
+related_posts: false
+---
+
+🎉 **A paper was accepted by 2026 IEEE International Conference on Robotics and Automation (ICRA) Field Robotics Workshop! [paper](https://arxiv.org/abs/2505.03448)**
