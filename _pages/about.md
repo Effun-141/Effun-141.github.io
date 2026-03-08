@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='#'>CUHK-SZ</a>
+subtitle: <a href='#'>逢山开路，遇水搭桥</a>
 
 profile:
   align: right
