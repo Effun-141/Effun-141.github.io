@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 **A [paper](https://arxiv.org/abs/2505.03448) was accepted by 2026 IEEE International Conference on Robotics and Automation (ICRA) Field Robotics Workshop!**
+🎉 **A [paper](https://arxiv.org/abs/2505.03448) was accepted by 2025 IEEE International Conference on Robotics and Automation (ICRA) Field Robotics Workshop!**
