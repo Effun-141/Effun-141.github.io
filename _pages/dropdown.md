@@ -13,6 +13,6 @@ children:
   - title: divider
   - title: blog
     permalink: /blog/
-  - title: blog
+  - title: Team
     permalink: /people/
 ---
