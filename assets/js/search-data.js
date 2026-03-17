@@ -83,6 +83,17 @@ ninja.data = [{
             window.location.href = "/blog/2026/multirobot-mathematical-model-1/";
           
         },
+      },{id: "post-asynchronous-distributed-smoothing-and-mapping-via-on-manifold-consensus-admm",
+        
+          title: "Asynchronous Distributed Smoothing and Mapping via On-Manifold Consensus ADMM",
+        
+        description: "基于流形上一致性ADMM的异步分布式平滑与映射",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E6%B5%81%E5%BD%A2%E4%B8%80%E8%87%B4%E6%80%A7%E5%88%86%E5%B8%83%E5%BC%8FADMM/";
+          
+        },
       },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
         
           title: "基于Kalibr&amp;Matlab的水下相机IMU联合标定",
