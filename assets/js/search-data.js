@@ -58,7 +58,21 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
+        },{id: "dropdown-gallery",
+              title: "Gallery",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/gallery/";
+              },
+            },{id: "dropdown-bookshelf",
+              title: "bookshelf",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "/books/";
+              },
+            },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
         
           title: "基于Kalibr&amp;Matlab的水下相机IMU联合标定",
         
