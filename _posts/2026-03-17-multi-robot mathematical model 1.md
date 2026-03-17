@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 基于Kalibr&Matlab的水下相机IMU联合标定
-date: 2025-03-26 14:24:00
+title: 多机协同感知
+date: 2026-03-17 14:24:00
 description: 标定相机内参，IMU内参，相机-IMU外参 for SLAM
 tags: 
 categories: SLAM Engineering
