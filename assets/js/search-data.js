@@ -65,11 +65,11 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/gallery/";
               },
-            },{id: "post-a-post-with-plotly-js",
+            },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
         
-          title: "a post with plotly.js",
+          title: "基于Kalibr&amp;Matlab的水下相机IMU联合标定",
         
-        description: "this is what included plotly.js code could look like",
+        description: "标定相机内参，IMU内参，相机-IMU外参 for SLAM",
         section: "Posts",
         handler: () => {
           
