@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Event Camera DAVIS346 使用记录
-date: 2024-12-04 01:59:00
+date: 2025-01-12 01:59:00
 description: 记录DAVIS346事件相机的使用方法以及一些对驱动程序的修改
 # tags: formatting images
 categories: Event-Camera Engineering
