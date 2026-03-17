@@ -94,15 +94,15 @@ ninja.data = [{
             window.location.href = "/blog/2026/Kalibr/";
           
         },
-      },{id: "post-a-post-with-image-galleries",
+      },{id: "post-event-camera-davis346-使用记录",
         
-          title: "a post with image galleries",
+          title: "Event Camera DAVIS346 使用记录",
         
-        description: "this is what included image galleries could look like",
+        description: "记录DAVIS346事件相机的使用方法以及一些对驱动程序的修改",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2024/photo-gallery/";
+            window.location.href = "/blog/2025/DAVIS346-stereo-kit/";
           
         },
       },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
