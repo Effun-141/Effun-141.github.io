@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Submenus
-nav: false
-nav_order: 8
+nav: true
+nav_order: 10
 dropdown: true
 children:
   - title: Gallery
