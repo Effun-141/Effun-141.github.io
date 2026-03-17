@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
+            },{id: "post-多机器人协同感知1-问题建模",
+        
+          title: "多机器人协同感知1——问题建模",
+        
+        description: "综合阅读一些相关论文，搞清楚多机分布式优化问题的本质",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/multirobot-mathematical-model-1/";
+          
+        },
+      },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
         
           title: "基于Kalibr&amp;Matlab的水下相机IMU联合标定",
         
