@@ -92,7 +92,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Notes & Thoughts # blog_name will be displayed in your blog page
-blog_description: Robotics research about SLAM, distributed optimization and engineering details etc. # blog_description will be displayed in your blog page
+blog_description: My robotics research records about SLAM, distributed optimization and engineering details etc. # blog_description will be displayed in your blog page
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
