@@ -37,3 +37,5 @@ My research focuses on SLAM and underwater robotics. To be more specific, it's a
 4. Dynamic visual SLAM (past work)
 
 I received my Master's degree in Control Science and Engineering in April 2025 and Bachelor's degree in Automation in June 2021 at Nanjing University of Science and Technology (NJUST, 211 project) ,as a member of Robotics Innovation Lab (Auto-Robot).
+
+[Google Scholar](https://scholar.google.ca/citations?user=J6gOU4gAAAAJ&hl=zh-CN&authuser=1)
