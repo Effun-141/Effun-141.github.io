@@ -1,115 +1,47 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title     = {Relativity: the Special and General Theory},
-  author    = {Einstein, Albert},
-  year      = {1920},
-  publisher = {Methuen & Co Ltd},
-  html      = {relativity.html}
+@article{PENG2025118090,
+title = {A high-precision dynamic RGB-D SLAM algorithm for environments with potential semantic segmentation network failures},
+journal = {Measurement},
+volume = {256},
+pages = {118090},
+year = {2025},
+issn = {0263-2241},
+doi = {https://doi.org/10.1016/j.measurement.2025.118090},
+url = {https://www.sciencedirect.com/science/article/pii/S0263224125014496},
+author = {Yifan Peng and Rui Xv and Wenwen Lu and Xiaorui Wu and Yvmeng Xv and Yifei Wu and Qingwei Chen},
+keywords = {Dynamic visual SLAM, Pose measurement, Data association, Epipolar geometry, Environment perception},
+abstract = {Most deep learning-based dynamic visual SLAM systems struggle to accurately recognize unknown dynamic objects in scenes, particularly those that are highly ambiguous or irregular, resulting in degraded pose measurement accuracy. Besides, these systems primarily focus on pose estimation performance and overlook environmental perception. This paper proposes a high-precision RGB-D SLAM system specifically designed for dynamic scenarios where semantic segmentation networks may fail. The system integrates an Asymmetric Non-local Neural (ANN) Network for semantic segmentation with a static dense point cloud mapping thread. Through an innovative combination of depth image clustering, based on a weight-variable K-Means algorithm, and multi-view geometry constraints, the system can identify unknown dynamic objects when semantic information is unreliable. Further incorporating semantic information extracted by the ANN network, the system effectively filters out dynamic outliers in the SLAM front-end and removes dynamic pixels in keyframes. The mapping thread selectively projects static pixels in keyframes to construct the point cloud map utilizing high-precision localization results. Additionally, loop closure constraints are incorporated to ensure global consistency of the map. Experimental comparisons with mainstream dynamic visual SLAM systems demonstrate significant improvements in pose measurement accuracy, particularly in challenging scenarios where semantic segmentation networks may fail, while maintaining the ability to construct high-quality static point cloud maps. The experimental results validate the system’s effectiveness in both high-precision localization and environmental perception tasks.}
 }
 
-@book{einstein1956investigations,
-  bibtex_show = {true},
-  title       = {Investigations on the Theory of the Brownian Movement},
-  author      = {Einstein, Albert},
-  year        = {1956},
-  publisher   = {Courier Corporation},
-  preview     = {brownian-motion.gif}
+
+@INPROCEEDINGS{10774274,
+  author={Peng, YiFan and Xu, Rui and Xu, YuMeng and Wu, YiFei},
+  booktitle={2024 IEEE 22nd International Conference on Industrial Informatics (INDIN)}, 
+  title={A Visual SLAM Method Based on Semantic Segmentation Network in Dynamic Scenes}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-7},
+  keywords={Visualization;Simultaneous localization and mapping;Accuracy;Semantic segmentation;Heuristic algorithms;Pose estimation;Semantics;Neural networks;Feature extraction;Robustness;visual SLAM;semantic segmentation;dynamic scene;robot},
+  doi={10.1109/INDIN58382.2024.10774274}}
+
+
+@article{peng2025aquaticvisionbenchmarkingvisualslam,
+      booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA) Field Robotics Workshop}, 
+      title={AquaticVision: Benchmarking Visual SLAM in Underwater Environment with Events and Frames}, 
+      author={Yifan Peng and Yuze Hong and Ziyang Hong and Apple Pui-Yi Chui and Junfeng Wu},
+      year={2025},
+      url={https://arxiv.org/abs/2505.03448}, 
 }
 
-@article{einstein1950meaning,
-  abbr        = {AJP},
-  bibtex_show = {true},
-  title       = {The meaning of relativity},
-  author      = {Einstein, Albert and Taub, AH},
-  journal     = {American Journal of Physics},
-  volume      = {18},
-  number      = {6},
-  pages       = {403--404},
-  year        = {1950},
-  publisher   = {American Association of Physics Teachers}
-}
-
-@article{PhysRev.47.777,
-  abbr              = {PhysRev},
-  title             = {Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author            = {Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract          = {In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal           = {Phys. Rev.},
-  location          = {New Jersey},
-  volume            = {47},
-  issue             = {10},
-  pages             = {777--780},
-  numpages          = {0},
-  year              = {1935},
-  month             = {May},
-  publisher         = aps,
-  doi               = {10.1103/PhysRev.47.777},
-  url               = {https://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html              = {https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf               = {example_pdf.pdf},
-  altmetric         = {248277},
-  dimensions        = {true},
-  google_scholar_id = {qyhmnyLat1gC},
-  video             = {https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info   = {. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation        = {* Example use of superscripts<br>† Albert Einstein},
-  selected          = {true},
-  inspirehep_id     = {3255}
-}
-
-@article{einstein1905molekularkinetischen,
-  title     = {{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author    = {Einstein, A.},
-  journal   = {Annalen der physik},
-  volume    = {322},
-  number    = {8},
-  pages     = {549--560},
-  year      = {1905},
-  publisher = {Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr    = {Ann. Phys.},
-  title   = {Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author  = {Einstein, A.},
-  journal = {Ann. Phys.},
-  volume  = {17},
-  pages   = {549--560},
-  year    = {1905}
-}
-
-@article{einstein1905electrodynamics,
-  title  = {On the electrodynamics of moving bodies},
-  author = {Einstein, A.},
-  year   = {1905}
-}
-
-@article{einstein1905photoelectriceffect,
-  bibtex_show = {true},
-  abbr        = {Ann. Phys.},
-  title       = {{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}},
-  author      = {Albert Einstein},
-  abstract    = {This is the abstract text.},
-  journal     = {Ann. Phys.},
-  volume      = {322},
-  number      = {6},
-  pages       = {132--148},
-  year        = {1905},
-  doi         = {10.1002/andp.19053220607},
-  award       = {Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name  = {Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show = {true},
-  title       = {Letters on wave mechanics},
-  author      = {Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year        = {1967},
-  publisher   = {Vision},
-  preview     = {wave-mechanics.gif},
-  abbr        = {Vision}
+@misc{li2025supervisorymeasurementguidednoisecovariance,
+      title={Supervisory Measurement-Guided Noise Covariance Estimation}, 
+      author={Haoying Li and Yifan Peng and Xinghan Li and Junfeng Wu},
+      year={2025},
+      eprint={2510.24508},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2510.24508}, 
 }
