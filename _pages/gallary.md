@@ -1,10 +1,10 @@
 ---
 layout: profiles
-permalink: /people/
-title: Team
+permalink: /gallery/
+title: Gallery
 description: 
 nav: true
-nav_order: 7
+nav_order: 9
 ---
 
 
