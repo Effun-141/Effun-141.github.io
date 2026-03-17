@@ -44,6 +44,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
+        },{id: "nav-team",
+          title: "Team",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/people/";
+          },
         },{id: "nav-gallery",
           title: "Gallery",
           description: "",
@@ -59,18 +66,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2025/multi-robot-mathematical-model-1/";
-          
-        },
-      },{id: "post-基于kalibr-amp-matlab的水下相机imu联合标定",
-        
-          title: "基于Kalibr&amp;Matlab的水下相机IMU联合标定",
-        
-        description: "标定相机内参，IMU内参，相机-IMU外参 for SLAM",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/Kalibr/";
+            window.location.href = "/blog/2026/Kalibr/";
           
         },
       },{id: "post-a-post-with-image-galleries",
