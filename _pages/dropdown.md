@@ -11,9 +11,6 @@ children:
   - title: teaching
     permalink: /teaching/
   - title: divider
-  - title: blog
-    permalink: /blog/
-  - title: divider
   - title: Team
     permalink: /people/
 ---
