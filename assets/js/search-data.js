@@ -83,9 +83,20 @@ ninja.data = [{
             window.location.href = "/blog/2026/multirobot-mathematical-model-1/";
           
         },
-      },{id: "post-paper-asynchronous-distributed-smoothing-and-mapping-via-on-manifold-consensus-admm",
+      },{id: "post-从机器人slam的角度理解流形",
         
-          title: "【paper】Asynchronous Distributed Smoothing and Mapping via On-Manifold Consensus ADMM",
+          title: "从机器人SLAM的角度理解流形",
+        
+        description: "从欧式空间到李群、李代数，理解流形在工程中的具体应用",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E7%90%86%E8%A7%A3%E6%B5%81%E5%BD%A2/";
+          
+        },
+      },{id: "post-asynchronous-distributed-smoothing-and-mapping-via-on-manifold-consensus-admm",
+        
+          title: "Asynchronous Distributed Smoothing and Mapping via On-Manifold Consensus ADMM",
         
         description: "【论文阅读】基于流形上一致性ADMM的异步分布式平滑与映射",
         section: "Posts",
