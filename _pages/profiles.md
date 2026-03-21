@@ -8,7 +8,7 @@ nav: true
 nav_order: 7
 ---
 
-I feel truly honored to have Yumeng XU and Rui XU by my side — not only as the most reliable teammates I could ask for, but also as my best friends!
+I feel truly honored to have Yumeng XU and Rui XU by my side — not only as the most reliable teammates I could ask for, but also as my best friends for all these years!
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
