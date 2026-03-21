@@ -11,7 +11,7 @@ chart:
 
 Kimera-Multi是MIT SPARK实验室提出的一种多机协同SLAM算法，共有ICRA和TRO两个版本，本文将对其系统进行深入理解。
 
-[Kimera-Multi](https://ieeexplore.ieee.org/abstract/document/9561090?casa_token=RNUxNIr638MAAAAA:E5EbWTn2-9VzpIeRaxqsDYlHpFjnrddeZs-0OCmR6Y3Fzpo1_YWc6sk-lmAatoXlQ4QO3LbkZB9leg) ICRA 版：
+Kimera-Multi [ICRA](https://ieeexplore.ieee.org/abstract/document/9561090?casa_token=RNUxNIr638MAAAAA:E5EbWTn2-9VzpIeRaxqsDYlHpFjnrddeZs-0OCmR6Y3Fzpo1_YWc6sk-lmAatoXlQ4QO3LbkZB9leg) 版：
 ```
 @INPROCEEDINGS{9561090,
   author={Chang, Yun and Tian, Yulun and How, Jonathan P. and Carlone, Luca},
@@ -26,7 +26,7 @@ Kimera-Multi是MIT SPARK实验室提出的一种多机协同SLAM算法，共有I
 
 ```
 
-[Kimera-Multi](https://ieeexplore.ieee.org/document/9686955) TRO版：
+Kimera-Multi [TRO](https://ieeexplore.ieee.org/document/9686955) 版：
 ```
 @ARTICLE{9686955,
   author={Tian, Yulun and Chang, Yun and Herrera Arias, Fernando and Nieto-Granda, Carlos and How, Jonathan P. and Carlone, Luca},
