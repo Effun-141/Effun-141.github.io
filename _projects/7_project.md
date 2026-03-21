@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 7
-description: with background image
+title: Dynamic Visual SLAM
+description: Work during Master stage
 img: assets/img/4.jpg
 importance: 1
 category: work
