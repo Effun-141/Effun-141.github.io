@@ -20,9 +20,9 @@ I feel truly honored to have Yumeng XU and Rui XU by my side — not only as the
 </div>
 
 
-Yumeng's personal website: (xym.work)[https://xym.work/]
+Yumeng's personal website: [xym.work](https://xym.work/)
 
-Rui's personal website: (raechim.work)[https://raechim.work/]
+Rui's personal website: [raechim.work](https://raechim.work/)
 
 <!-- # profiles:
 #   # if you want to include more than one profile, just replicate the following block
