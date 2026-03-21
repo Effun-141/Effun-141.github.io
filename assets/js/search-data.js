@@ -87,7 +87,7 @@ ninja.data = [{
         
           title: "多机器人协同感知1——问题建模",
         
-        description: "综合阅读一些相关论文，搞清楚多机分布式优化问题的本质",
+        description: "综合阅读一些相关论文，搞清楚多机分布式优化问题的本质（入门记录o((&gt;ω&lt; ))o）",
         section: "Posts",
         handler: () => {
           
