@@ -76,7 +76,7 @@ ninja.data = [{
         
           title: "主流多机SLAM框架1——Kimera-Multi",
         
-        description: "深入理解Kimera-Multi",
+        description: "【论文阅读】深入理解Kimera-Multi",
         section: "Posts",
         handler: () => {
           
