@@ -2,7 +2,7 @@
 layout: page
 permalink: /gallery/
 title: Gallery
-description: 
+description: 整理中，coming soon
 nav: true
 nav_order: 9
 ---
