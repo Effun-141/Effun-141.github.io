@@ -2,7 +2,7 @@
 layout: post
 title: 主流多机SLAM框架1——Kimera-Multi
 date: 2026-03-21 14:24:00
-description: 深入理解Kimera-Multi
+description: 【论文阅读】深入理解Kimera-Multi
 tags: 
 categories: SLAM Distributed-Optimization Paper-Reading
 chart:
