@@ -10,6 +10,10 @@ nav_order: 7
 
 I feel truly honored to have Yumeng XU and Rui XU by my side — not only as the most reliable teammates I could ask for, but also as my best friends for all these years!
 
+Yumeng's personal website: [xym.work](https://xym.work/)
+
+Rui's personal website: [raechim.work](https://raechim.work/)
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/img/team/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -19,10 +23,6 @@ I feel truly honored to have Yumeng XU and Rui XU by my side — not only as the
     Yifan PENG(Me), Yumeng XU and Rui XU.
 </div>
 
-
-Yumeng's personal website: [xym.work](https://xym.work/)
-
-Rui's personal website: [raechim.work](https://raechim.work/)
 
 <!-- # profiles:
 #   # if you want to include more than one profile, just replicate the following block
