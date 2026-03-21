@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-多机器人协同感知1-问题建模",
+            },{id: "post-主流多机slam框架1-kimera-multi",
+        
+          title: "主流多机SLAM框架1——Kimera-Multi",
+        
+        description: "深入理解Kimera-Multi",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B61-kimera/";
+          
+        },
+      },{id: "post-多机器人协同感知1-问题建模",
         
           title: "多机器人协同感知1——问题建模",
         
