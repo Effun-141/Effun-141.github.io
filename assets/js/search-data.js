@@ -498,9 +498,9 @@ ninja.data = [{
           section: "News",},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra",
           title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-dataset",
+          title: 'Dataset',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-project-2",
