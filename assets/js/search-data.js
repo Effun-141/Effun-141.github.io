@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-主流多机slam框架1-kimera-multi",
+            },{id: "post-多机器人协同感知2-分布式优化理论学习",
+        
+          title: "多机器人协同感知2——分布式优化理论学习",
+        
+        description: "【论文阅读】A Tutorial on Distributed  Optimization for Cooperative  Robotics",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96/";
+          
+        },
+      },{id: "post-主流多机slam框架1-kimera-multi",
         
           title: "主流多机SLAM框架1——Kimera-Multi",
         
