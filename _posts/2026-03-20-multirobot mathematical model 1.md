@@ -90,17 +90,28 @@ $$\mathcal{P}_{global} = \bigcup_{i=0}^N \left\{ \bar{X}_i \cdot p_k^{local} \mi
 当 Landmark 在多机后端被丢弃后，替代它成为约束条件的是**机器人之间的“相对位姿（Relative Pose）”**。在 SLAM 工程和数学优化领域，这种约束可以分为“软约束”和“硬约束”两种视角来理解：
 
 **1. SLAM 工程师视角的“软约束” (Soft Constraints)：相对位姿残差**
-在集中式位姿图优化中，“约束”本质上是**观测残差**。前端利用共同看到的 Landmark，计算出一个相对位姿的测量值 $\tilde{X}_{\beta_j}^{\alpha_i} = (\tilde{R}_{\beta_j}^{\alpha_i}, \tilde{t}_{\beta_j}^{\alpha_i})$。
+在集中式位姿图优化中，“约束”本质上是**观测残差**。前端利用共同看到的 Landmark，计算出一个相对位姿的测量值：
+
+$\tilde{X}_{\beta_j}^{\alpha_i} = (\tilde{R}_{\beta_j}^{\alpha_i}, \tilde{t}_{\beta_j}^{\alpha_i})$
+
 在目标函数中，这个相对位姿化身为残差函数（如弦距离）：
+
 $$r_{\beta_j}^{\alpha_i}(X_{\alpha_i}, X_{\beta_j}) \triangleq \left( w_R \| R_{\beta_j} - R_{\alpha_i} \tilde{R}_{\beta_j}^{\alpha_i} \|_F^2 + w_t \| t_{\beta_j} - t_{\alpha_i} - R_{\alpha_i} \tilde{t}_{\beta_j}^{\alpha_i} \|_2^2 \right)^{1/2}$$
+
 此时，目标函数 $\min \sum r^2$ 中的自变量已百分之百变成了机器人的位姿状态 $X$，不再有 Landmark 的影子。
 
 **2. 数学家视角的“硬约束” (Hard Constraints)：分布式状态共识**
 在多机分布式计算（如 ADMM 算法）中，真正的硬约束（`subject to`）是为了切断变量、实现算力解耦而人为引入的。
 机器人 $\alpha$ 和 $\beta$ 各自维护自己认为的全局轨迹 $X^{(\alpha)}$ 和 $X^{(\beta)}$。为了强迫它们在公共相遇点达成一致，优化问题被表述为带约束的形式：
+
 $$\min_{X^{(\alpha)}, X^{(\beta)}} \quad f_{\alpha}(X^{(\alpha)}) + f_{\beta}(X^{(\beta)})$$
 $$\text{s.t.} \quad X_{\text{shared}}^{(\alpha)} = X_{\text{shared}}^{(\beta)}$$
-（或者引入虚拟边缘变量 $z$：$\text{s.t.} \quad X_{\text{shared}}^{(\alpha)} = z, \quad X_{\text{shared}}^{(\beta)} = z$）
+
+或者引入虚拟边缘变量 $z$：
+
+$\text{s.t.} \quad X_{\text{shared}}^{(\alpha)} = z, 
+
+\quad X_{\text{shared}}^{(\beta)} = z$
 
 **总结：** Landmark 就像是“纽带”，前端把纽带打成了一个结（相对位姿变换）。到了后端，系统不再关心这条纽带是由多少根纤维（3D 空间点）编成的，而是只关心这个“结”本身，并把它作为两台机器人位姿之间的拉力（软约束），或者强制要求两台机器人对这个结的位置达成共识（硬约束）。
 
