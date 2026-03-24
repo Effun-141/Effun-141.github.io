@@ -92,7 +92,7 @@ $$\mathcal{P}_{global} = \bigcup_{i=0}^N \left\{ \bar{X}_i \cdot p_k^{local} \mi
 **1. SLAM 工程师视角的“软约束” (Soft Constraints)：相对位姿残差**
 在集中式位姿图优化中，“约束”本质上是**观测残差**。前端利用共同看到的 Landmark，计算出一个相对位姿的测量值：
 
-$\tilde{X}_{\beta_j}^{\alpha_i} = (\tilde{R}_{\beta_j}^{\alpha_i}, \tilde{t}_{\beta_j}^{\alpha_i})$
+$$\tilde{X}_{\beta_j}^{\alpha_i} = (\tilde{R}_{\beta_j}^{\alpha_i}, \tilde{t}_{\beta_j}^{\alpha_i})$$
 
 在目标函数中，这个相对位姿化身为残差函数（如弦距离）：
 
