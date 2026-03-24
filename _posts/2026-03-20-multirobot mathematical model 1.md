@@ -109,9 +109,7 @@ $$\text{s.t.} \quad X_{\text{shared}}^{(\alpha)} = X_{\text{shared}}^{(\beta)}$$
 
 或者引入虚拟边缘变量 $z$：
 
-$\text{s.t.} \quad X_{\text{shared}}^{(\alpha)} = z, 
-
-\quad X_{\text{shared}}^{(\beta)} = z$
+$$\text{s.t.} \quad X_{\text{shared}}^{(\alpha)} = z, \quad X_{\text{shared}}^{(\beta)} = z$$
 
 **总结：** Landmark 就像是“纽带”，前端把纽带打成了一个结（相对位姿变换）。到了后端，系统不再关心这条纽带是由多少根纤维（3D 空间点）编成的，而是只关心这个“结”本身，并把它作为两台机器人位姿之间的拉力（软约束），或者强制要求两台机器人对这个结的位置达成共识（硬约束）。
 
