@@ -41,3 +41,13 @@ Kimera-Multi [TRO](https://ieeexplore.ieee.org/document/9686955) 版：
 
 ```
 
+从代码看：
+
+* Kimera-Multi 的分布式后端（DPGO）主要优化的是位姿图，不是全局 landmark 图。
+
+* landmark 在系统里主要用于单机 VIO/建图与可视化（前端+本地后端），而不是多机分布式后端的联合变量。
+
+DPGO 的图分类只有 odom、private loop closure、shared loop closure，分布式前端输出给后端的增量图在处理时只看 ODOM 和 LOOPCLOSE，虽然消息定义里有 LANDMARK 枚举，但当前分布式链路没有把它作为后端可优化实体来处理，landmark 的“实质优化”主要在单机 VIO 后端（smart factor + iSAM2）
+
+## 分布式优化中的“全局”究竟是什么？
+
