@@ -617,6 +617,8 @@ $$
 
 **总结**：在真实的 3D SLAM 代码中，矩阵的维度虽然膨胀到了 $9 \times 9$ 甚至成千上万维，但其核心的**分块雅可比、零空间投影 ($N_{null}^T$)**以及**一阶泰勒修正**的逻辑，与这个例子是严丝合缝的完全一致！
 
+
+
 ## 分布式优化中的“全局”究竟是什么？
 
 $$\min_{X_A,X_B};E_A^{odom}(X_A)+E_A^{intra}(X_A)+E_B^{odom}(X_B)+E_B^{intra}(X_B)+E_{AB}^{inter}(X_A,X_B)$$
@@ -625,3 +627,190 @@ $$X_A^{k+1}=\arg\min_{X_A}F(X_A,X_B^k),\quad
 X_B^{k+1}=\arg\min_{X_B}F(X_A^{k+1},X_B)$$
 
 $$X_A^{k+1}=\arg\min_{X_A}F(X_A,X_B^k)=\arg\min_{X_A}E_A^{odom}(X_A)+E_A^{intra}(X_A)+E_{AB}^{inter}(X_A,X_B)$$
+
+
+
+
+
+# Kimera-Multi 单机 VIO 残差公式（可直接复制）
+
+## 1. 优化变量与整体目标
+
+设关键帧集合为 $\mathcal{K}$，相邻关键帧 IMU 约束边集合为 $\mathcal{I}$，路标集合为 $\mathcal{L}$。  
+单机 VIO 后端在滑窗内优化状态：
+$$
+\mathcal{X}=\left\{\mathbf{x}_k\mid k\in\mathcal{K}\right\},\quad
+\mathbf{x}_k=\left(\mathbf{R}_k,\mathbf{p}_k,\mathbf{v}_k,\mathbf{b}^a_k,\mathbf{b}^g_k\right).
+$$
+
+其加权最小二乘目标可写为：
+$$
+\min_{\mathcal{X}} \;
+\underbrace{\|r_{\mathrm{prior}}\|^2_{\Sigma_{\mathrm{prior}}^{-1}}}_{\text{初始化先验}}
++\underbrace{\sum_{(i,j)\in\mathcal{I}}\|r^{\mathrm{imu}}_{ij}\|^2_{\Sigma^{-1}_{ij,\mathrm{imu}}}}_{\text{IMU预积分约束}}
++\underbrace{\sum_{l\in\mathcal{L}}\|r^{\mathrm{smart}}_l\|^2}_{\text{视觉Smart因子}}
++\underbrace{\sum_{(i,j)\in\mathcal{B}}\|r^{\mathrm{between}}_{ij}\|^2_{\Sigma^{-1}_{ij,\mathrm{b}}}}_{\text{位姿Between约束}}
++\underbrace{\sum_{k\in\mathcal{Z}}\|r^{v=0}_k\|^2_{\Sigma^{-1}_{v0}}}_{\text{零速度先验}}
++\underbrace{\sum_{(i,j)\in\mathcal{N}}\|r^{\mathrm{nomotion}}_{ij}\|^2_{\Sigma^{-1}_{\mathrm{nm}}}}_{\text{无运动约束}}
++\underbrace{\sum_{k\in\mathcal{O}}\|r^{\text{odom-vel}}_k\|^2_{\Sigma^{-1}_{\mathrm{ov}}}}_{\text{外部速度先验(可选)}}.
+$$
+
+其中加权二范数定义为：
+$$
+\|r\|^2_{\Sigma^{-1}} = r^\top \Sigma^{-1} r.
+$$
+
+---
+
+## 2. 各项残差公式与物理含义
+
+### 2.1 初始化先验项 $r_{\mathrm{prior}}$
+
+常见分为位姿、速度、偏置三项：
+$$ r^{\mathrm{pose}}_0=\log\!\left((\mathbf{T}^{\mathrm{init}}_{WB_0})^{-1}\mathbf{T}_{WB_0}\right),\quad
+r^{\mathrm{vel}}_0=\mathbf{v}_0-\mathbf{v}^{\mathrm{init}}_0,\quad
+r^{\mathrm{bias}}_0=\mathbf{b}_0-\mathbf{b}^{\mathrm{init}}_0. $$
+
+含义：把系统锚定在初始参考附近，避免自由度漂移，尤其是初始时刻不可观部分带来的不稳定。
+
+---
+
+### 2.2 IMU 预积分项 $r^{\mathrm{imu}}_{ij}$
+
+对相邻关键帧 $i\to j$，典型写成：
+
+$$ r^{\mathrm{imu}}_{ij}=
+\begin{bmatrix}
+r_R\\
+r_v\\
+r_p
+\end{bmatrix},$$
+
+$$ r_R=\log\!\left(
+\left(\Delta\mathbf{R}_{ij}\operatorname{Exp}(\mathbf{J}_{R,b_g}\delta\mathbf{b}_g)\right)^\top 
+\mathbf{R}_i^\top\mathbf{R}_j
+\right), $$
+
+$$ r_v=\mathbf{R}_i^\top(\mathbf{v}_j-\mathbf{v}_i-\mathbf{g}\Delta t_{ij})
+-\left(\Delta\mathbf{v}_{ij}
++\mathbf{J}_{v,b_g}\delta\mathbf{b}_g
++\mathbf{J}_{v,b_a}\delta\mathbf{b}_a\right), $$
+
+$$ r_p=\mathbf{R}_i^\top\!\left(\mathbf{p}_j-\mathbf{p}_i-\mathbf{v}_i\Delta t_{ij}
+-\frac{1}{2}\mathbf{g}\Delta t_{ij}^2\right)
+-\left(\Delta\mathbf{p}_{ij}
++\mathbf{J}_{p,b_g}\delta\mathbf{b}_g
++\mathbf{J}_{p,b_a}\delta\mathbf{b}_a\right). $$
+
+含义：约束状态在旋转、速度、位置上与 IMU 在 $[i,j]$ 时间段积分出来的运动一致。  
+权重 $\Sigma^{-1}_{ij,\mathrm{imu}}$ 越大，表示越信任 IMU 预积分测量。
+
+---
+
+### 2.3 Bias 漂移项（在非 CombinedImuFactor 时显式加入）
+
+$$
+r^{b}_{ij}=
+\begin{bmatrix}
+\mathbf{b}^a_j-\mathbf{b}^a_i\\
+\mathbf{b}^g_j-\mathbf{b}^g_i
+\end{bmatrix},
+\quad
+\Sigma_b \propto \Delta t_{ij}.
+$$
+
+含义：把偏置建模成随机游走，鼓励相邻时刻偏置平滑变化。  
+注：若使用 Combined IMU 因子，偏置演化已合并进 IMU 因子内部。
+
+---
+
+### 2.4 视觉 Smart Stereo 项 $r^{\mathrm{smart}}_l$
+
+对路标 $l$ 的观测集合 $\mathcal{K}(l)$，单次重投影误差：
+$$
+\mathbf{e}_{k,l}
+=
+\mathbf{z}_{k,l}
+-
+\pi_s\!\left(\mathbf{T}_{BC}^{-1}\mathbf{T}_{WB_k}^{-1}\mathbf{P}^W_l\right),
+\quad
+\mathbf{z}_{k,l}=[u_L,u_R,v]^\top.
+$$
+
+Smart 因子对路标位置做隐式消元：
+$$
+r^{\mathrm{smart}}_l
+=
+\min_{\mathbf{P}^W_l}\sum_{k\in\mathcal{K}(l)}
+\|\mathbf{e}_{k,l}\|^2_{\Sigma_s^{-1}},
+\quad
+\Sigma_s=\sigma_{\mathrm{smart}}^2\mathbf{I}_3.
+$$
+
+含义：利用多帧对同一路标的观测直接约束相机位姿，不显式把每个路标都作为长期优化变量，计算更高效、数值更稳。
+
+---
+
+### 2.5 位姿 Between 项 $r^{\mathrm{between}}_{ij}$（可选）
+
+$$
+r^{\mathrm{between}}_{ij}
+=
+\log\!\left(
+\mathbf{Z}_{ij}^{-1}
+(\mathbf{T}_{WB_i}^{-1}\mathbf{T}_{WB_j})
+\right).
+$$
+
+含义：约束相邻关键帧相对位姿与外部或前端估计的相对运动一致（例如 stereo RANSAC 或外部里程计）。  
+其信息矩阵通常对旋转和位置分量分别赋权。
+
+---
+
+### 2.6 零速度先验项 $r^{v=0}_k$（低视差静止检测触发）
+
+$$
+r^{v=0}_k=\mathbf{v}_k-\mathbf{0}.
+$$
+
+含义：当系统判断近似静止时，直接抑制速度漂移，防止纯惯导积分造成虚假运动。
+
+---
+
+### 2.7 无运动约束项 $r^{\mathrm{nomotion}}_{ij}$（低视差触发）
+
+$$ r^{\mathrm{nomotion}}_{ij}
+= \log\!\left(\mathbf{I}^{-1} (\mathbf{T}_{WB_i}^{-1}\mathbf{T}_{WB_j})\right)
+= \log\!\left(\mathbf{T}_{WB_i}^{-1}\mathbf{T}_{WB_j}\right). $$
+
+含义：直接约束相邻关键帧相对位姿接近单位变换，即“几乎没有位姿变化”。
+
+---
+
+### 2.8 外部速度先验项 $r^{\text{odom-vel}}_k$（可选）
+
+$$
+r^{\text{odom-vel}}_k=\mathbf{v}_k-\mathbf{v}^{\mathrm{odom}}_k.
+$$
+
+含义：用外部来源速度进一步稳定估计。该速度应与状态速度同一参考系定义，否则会引入系统误差。
+
+---
+
+## 3. 加权最小二乘中“权重”的直观解释
+
+$$
+\|r\|^2_{\Sigma^{-1}} = r^\top \Sigma^{-1} r
+$$
+可理解为“误差按置信度归一化后再平方求和”。
+
+1. 协方差 $\Sigma$ 小（信息矩阵 $\Sigma^{-1}$ 大）：该测量更可信，对优化拉力更强。  
+2. 协方差 $\Sigma$ 大（信息矩阵 $\Sigma^{-1}$ 小）：该测量更不可靠，对优化影响更弱。  
+3. 不同项之间通过各自 $\Sigma$ 自动完成量纲平衡和可信度融合。  
+4. 最终等价于在高斯噪声假设下的最大后验估计（MAP）。
+
+---
+
+## 4. 一句话总结
+
+Kimera-Multi 的单机 VIO 后端本质是：以位姿-速度-偏置为状态，用 IMU 预积分项提供时序运动约束，用 Smart Stereo 重投影项提供几何观测约束，再叠加初始化、between、静止检测和外部先验等项，统一在一个加权最小二乘框架中联合优化。
