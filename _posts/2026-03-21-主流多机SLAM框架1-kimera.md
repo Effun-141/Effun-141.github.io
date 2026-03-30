@@ -814,3 +814,340 @@ $$
 ## 4. 一句话总结
 
 Kimera-Multi 的单机 VIO 后端本质是：以位姿-速度-偏置为状态，用 IMU 预积分项提供时序运动约束，用 Smart Stereo 重投影项提供几何观测约束，再叠加初始化、between、静止检测和外部先验等项，统一在一个加权最小二乘框架中联合优化。
+
+
+## 1. 场景设定（两帧 i,j + 一个路标）
+
+我们只看关键帧 i 和 j，时间间隔为：
+
+$$
+\Delta t = 0.1 \text{ s}
+$$
+
+当前估计状态：
+
+$$
+\mathbf{R}_i=\mathbf{I},\quad
+\mathbf{p}_i=\begin{bmatrix}0\\0\\0\end{bmatrix},\quad
+\mathbf{v}_i=\begin{bmatrix}1\\0\\0\end{bmatrix}
+$$
+
+$$
+\mathbf{R}_j \text{ 为 } z \text{ 轴偏航 } 5^\circ,\quad
+\mathbf{p}_j=\begin{bmatrix}0.11\\0.01\\0\end{bmatrix},\quad
+\mathbf{v}_j=\begin{bmatrix}1.02\\0.02\\0\end{bmatrix}
+$$
+
+重力：
+
+$$
+\mathbf{g}=\begin{bmatrix}0\\0\\-9.81\end{bmatrix}
+$$
+
+IMU 预积分测量（在前一时刻线性化偏置下）：
+
+$$
+\Delta \mathbf{R}_{ij}: 4^\circ \text{ yaw},\quad
+\Delta \mathbf{v}_{ij}=\begin{bmatrix}0.01\\0\\0.98\end{bmatrix},\quad
+\Delta \mathbf{p}_{ij}=\begin{bmatrix}0.01\\0\\0.05\end{bmatrix}
+$$
+
+---
+
+## 2. IMU 残差在三维空间中的具体计算
+
+### 2.1 旋转残差
+
+$$
+r_R=\log\!\left(\Delta\mathbf{R}_{ij}^\top \mathbf{R}_i^\top \mathbf{R}_j\right)
+$$
+
+这里就是 yaw 差值：
+
+$$
+5^\circ-4^\circ=1^\circ
+$$
+
+转成弧度：
+
+$$
+r_R \approx \begin{bmatrix}0\\0\\0.01745\end{bmatrix}\ \text{rad}
+$$
+
+### 2.2 速度残差
+
+$$
+r_v=\mathbf{R}_i^\top(\mathbf{v}_j-\mathbf{v}_i-\mathbf{g}\Delta t)-\Delta\mathbf{v}_{ij}
+$$
+
+先算中间项：
+
+$$
+\mathbf{v}_j-\mathbf{v}_i=\begin{bmatrix}0.02\\0.02\\0\end{bmatrix},\quad
+-\mathbf{g}\Delta t=\begin{bmatrix}0\\0\\0.981\end{bmatrix}
+$$
+
+$$
+\mathbf{v}_j-\mathbf{v}_i-\mathbf{g}\Delta t
+=\begin{bmatrix}0.02\\0.02\\0.981\end{bmatrix}
+$$
+
+再减去预积分速度：
+
+$$
+r_v=
+\begin{bmatrix}0.02\\0.02\\0.981\end{bmatrix}
+-
+\begin{bmatrix}0.01\\0\\0.98\end{bmatrix}
+=
+\begin{bmatrix}0.01\\0.02\\0.001\end{bmatrix}
+$$
+
+### 2.3 位置残差
+
+$$
+r_p=\mathbf{R}_i^\top\!\left(\mathbf{p}_j-\mathbf{p}_i-\mathbf{v}_i\Delta t-\frac12\mathbf{g}\Delta t^2\right)-\Delta\mathbf{p}_{ij}
+$$
+
+先算：
+
+$$
+\mathbf{p}_j-\mathbf{p}_i-\mathbf{v}_i\Delta t
+=
+\begin{bmatrix}0.11\\0.01\\0\end{bmatrix}
+-
+\begin{bmatrix}0.1\\0\\0\end{bmatrix}
+=
+\begin{bmatrix}0.01\\0.01\\0\end{bmatrix}
+$$
+
+$$
+-\frac12\mathbf{g}\Delta t^2
+=
+\begin{bmatrix}0\\0\\0.04905\end{bmatrix}
+$$
+
+所以括号内为：
+
+$$
+\begin{bmatrix}0.01\\0.01\\0.04905\end{bmatrix}
+$$
+
+减去 \(\Delta\mathbf{p}_{ij}\)：
+
+$$
+r_p=
+\begin{bmatrix}0.01\\0.01\\0.04905\end{bmatrix}
+-
+\begin{bmatrix}0.01\\0\\0.05\end{bmatrix}
+=
+\begin{bmatrix}0\\0.01\\-0.00095\end{bmatrix}
+$$
+
+---
+
+## 3. 视觉重投影残差具体例子（Smart Stereo 的单观测）
+
+设内参和基线：
+
+$$
+f_x=f_y=400,\quad c_x=320,\quad c_y=240,\quad b=0.1\text{ m}
+$$
+
+路标在世界坐标：
+
+$$
+\mathbf{P}^W=\begin{bmatrix}2\\0.2\\4\end{bmatrix}
+$$
+
+在关键帧 j 的相机坐标（简化后）：
+
+$$
+\mathbf{P}^C=(X,Y,Z)=\begin{bmatrix}1.89\\0.19\\4.0\end{bmatrix}
+$$
+
+预测像素：
+
+$$
+u_L=f_x X/Z+c_x,\quad
+u_R=f_x (X-b)/Z+c_x,\quad
+v=f_y Y/Z+c_y
+$$
+
+得到：
+
+$$
+\hat u_L=509,\quad \hat u_R=499,\quad \hat v=259
+$$
+
+若观测为：
+
+$$
+\mathbf z=\begin{bmatrix}510\\498.5\\258.5\end{bmatrix}
+$$
+
+则残差：
+
+$$
+\mathbf e=\mathbf z-\hat{\mathbf z}
+=
+\begin{bmatrix}1\\-0.5\\-0.5\end{bmatrix}\ \text{pixel}
+$$
+
+---
+
+## 4. 视觉雅可比怎么计算（链式法则）
+
+先对相机坐标点 \((X,Y,Z)\) 求投影雅可比：
+
+$$
+\mathbf J_\pi=
+\begin{bmatrix}
+\frac{f_x}{Z} & 0 & -\frac{f_x X}{Z^2}\\
+\frac{f_x}{Z} & 0 & -\frac{f_x (X-b)}{Z^2}\\
+0 & \frac{f_y}{Z} & -\frac{f_y Y}{Z^2}
+\end{bmatrix}
+$$
+
+代入数值：
+
+$$
+\mathbf J_\pi \approx
+\begin{bmatrix}
+100 & 0 & -47.25\\
+100 & 0 & -44.75\\
+0 & 100 & -4.75
+\end{bmatrix}
+$$
+
+若位姿扰动定义为 $\delta\boldsymbol{\xi}=[\delta\mathbf t,\delta\boldsymbol\theta]\in\mathbb R^6$，有：
+
+$$
+\delta\mathbf P^C=\mathbf A\,\delta\boldsymbol\xi,\quad
+\mathbf A=[-\mathbf I\ \ [\mathbf P^C]_\times]
+$$
+
+因此视觉因子的雅可比为：
+
+$$
+\mathbf J_{\text{vis}}=\frac{\partial \mathbf e}{\partial \delta\boldsymbol\xi}
+=-\mathbf J_\pi \mathbf A
+$$
+
+这就是 BA 中常见的三维几何雅可比来源。
+
+---
+
+## 5. 偏置 \(b_a, b_g\) 的传播与“进入残差”的方式
+
+### 5.1 偏置随机游走模型
+
+$$
+\mathbf b_{a,j}=\mathbf b_{a,i}+\mathbf n_{wa}\sqrt{\Delta t},\quad
+\mathbf b_{g,j}=\mathbf b_{g,i}+\mathbf n_{wg}\sqrt{\Delta t}
+$$
+
+表示偏置是慢变随机过程，不是直接由观测积分成状态。
+
+### 5.2 预积分对偏置的一阶修正
+
+在预积分里，通常在某个线性化偏置 \(\hat{\mathbf b}\) 附近展开：
+
+$$
+\Delta \mathbf R \approx \Delta \bar{\mathbf R}\,\operatorname{Exp}(\mathbf J_{R,b_g}\delta\mathbf b_g)
+$$
+
+$$
+\Delta \mathbf v \approx \Delta \bar{\mathbf v}
++\mathbf J_{v,b_a}\delta\mathbf b_a
++\mathbf J_{v,b_g}\delta\mathbf b_g
+$$
+
+$$
+\Delta \mathbf p \approx \Delta \bar{\mathbf p}
++\mathbf J_{p,b_a}\delta\mathbf b_a
++\mathbf J_{p,b_g}\delta\mathbf b_g
+$$
+
+举例：
+
+$$
+\delta\mathbf b_a=\begin{bmatrix}0.02\\-0.01\\0\end{bmatrix},\quad
+\delta\mathbf b_g=\begin{bmatrix}0.001\\0\\-0.002\end{bmatrix}
+$$
+
+若
+
+$$
+\mathbf J_{v,b_a}=0.1\mathbf I,\quad
+\mathbf J_{p,b_a}=0.005\mathbf I,\quad
+\mathbf J_{R,b_g}=0.1\mathbf I
+$$
+
+则：
+
+$$
+\delta(\Delta\mathbf v)=\mathbf J_{v,b_a}\delta\mathbf b_a
+=\begin{bmatrix}0.002\\-0.001\\0\end{bmatrix}
+$$
+
+$$
+\delta(\Delta\mathbf p)=\mathbf J_{p,b_a}\delta\mathbf b_a
+=\begin{bmatrix}1\times10^{-4}\\-5\times10^{-5}\\0\end{bmatrix}
+$$
+
+$$
+\delta\boldsymbol\theta=\mathbf J_{R,b_g}\delta\mathbf b_g
+=\begin{bmatrix}1\times10^{-4}\\0\\-2\times10^{-4}\end{bmatrix}\ \text{rad}
+$$
+
+这就是 \(b_a,b_g\) 如何通过雅可比进入 IMU 残差。
+
+---
+
+## 6. 一步高斯牛顿的数值融合示例（看加权最小二乘怎么折中）
+
+简化为只更新一个变量 \(\delta\psi\)（偏航增量）。
+
+IMU 旋转残差：
+$$
+r_{\text{imu}}=0.01745,\quad \sigma_{\text{imu}}=0.01
+$$
+
+白化后：
+$$
+\tilde r_1=r_{\text{imu}}/\sigma_{\text{imu}}=1.745,\quad
+\tilde J_1=1/\sigma_{\text{imu}}=100
+$$
+
+视觉一维残差（例如 \(u_L\)）：
+$$
+r_{\text{vis}}=1\ \text{pixel},\quad \sigma_{\text{vis}}=1,\quad
+\frac{\partial u_L}{\partial\psi}\approx -19
+$$
+
+白化后：
+$$
+\tilde r_2=1,\quad \tilde J_2=-19
+$$
+
+法方程：
+
+$$
+(\tilde J^\top \tilde J)\delta\psi=-\tilde J^\top \tilde r
+$$
+
+$$
+(100^2+(-19)^2)\delta\psi
+=-(100\cdot1.745 + (-19)\cdot1)
+$$
+
+$$
+10361\,\delta\psi=-155.5
+\Rightarrow
+\delta\psi\approx -0.015\ \text{rad}\approx -0.86^\circ
+$$
+
+这就是加权最小二乘把 IMU 和视觉按各自置信度进行折中更新。
+
+---
