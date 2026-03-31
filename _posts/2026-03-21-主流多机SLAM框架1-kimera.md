@@ -1151,3 +1151,14 @@ $$
 这就是加权最小二乘把 IMU 和视觉按各自置信度进行折中更新。
 
 ---
+
+
+$$
+\min_{\{T_k^r\}} \Bigg[
+\sum_{(i,j)\in \mathcal{E}_{\text{intra}}}
+\rho\!\left(\left\|\log\!\left(Z_{ij}^{-1}(T_i^{-1}T_j)\right)\right\|_{\Omega_{ij}}^2\right)
++
+\sum_{(i,j)\in \mathcal{E}_{\text{inter}}}
+\rho\!\left(\left\|\log\!\left(Z_{ij}^{-1}(T_i^{-1}T_j)\right)\right\|_{\Omega_{ij}}^2\right)
+\Bigg]
+$$
