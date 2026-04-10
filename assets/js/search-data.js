@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-多机器人协同感知2-分布式优化理论学习",
+            },{id: "post-主流多机slam框架2-swarm-lio2",
+        
+          title: "主流多机SLAM框架2——Swarm-LIO2",
+        
+        description: "【论文阅读】深入理解Swarm-LIO2",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B62-swarmlio2/";
+          
+        },
+      },{id: "post-多机器人协同感知2-分布式优化理论学习",
         
           title: "多机器人协同感知2——分布式优化理论学习",
         

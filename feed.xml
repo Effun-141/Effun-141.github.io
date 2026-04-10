@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://effun.xyz/feed.xml" rel="self" type="application/atom+xml"/><link href="https://effun.xyz/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-03-31T13:14:25+00:00</updated><id>https://effun.xyz/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">多机器人协同感知2——分布式优化理论学习</title><link href="https://effun.xyz/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96/" rel="alternate" type="text/html" title="多机器人协同感知2——分布式优化理论学习"/><published>2026-03-22T14:24:00+00:00</published><updated>2026-03-22T14:24:00+00:00</updated><id>https://effun.xyz/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96</id><content type="html" xml:base="https://effun.xyz/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96/"><![CDATA[<p>读论文 <a href="https://ieeexplore.ieee.org/abstract/document/10969623?casa_token=QDGz-QaH-4oAAAAA:5ToZctSC0tQyQvHGjRtcJ63kq9YKQDheJVg29hb1HB7-nI3iZwSieN4MLR8E0kor2Rn507Xg3oYbiw">A tutorial on distributed optimization for cooperative robotics: from setups and algorithms to toolboxes and research directions</a>。但这篇论文偏向约束耦合优化还有聚合优化</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@article{testa2025tutorial,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://effun.xyz/feed.xml" rel="self" type="application/atom+xml"/><link href="https://effun.xyz/" rel="alternate" type="text/html" hreflang="en"/><updated>2026-04-10T08:28:04+00:00</updated><id>https://effun.xyz/feed.xml</id><title type="html">blank</title><subtitle>A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design. </subtitle><entry><title type="html">主流多机SLAM框架2——Swarm-LIO2</title><link href="https://effun.xyz/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B62-swarmlio2/" rel="alternate" type="text/html" title="主流多机SLAM框架2——Swarm-LIO2"/><published>2026-04-09T14:24:00+00:00</published><updated>2026-04-09T14:24:00+00:00</updated><id>https://effun.xyz/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B62-swarmlio2</id><content type="html" xml:base="https://effun.xyz/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B62-swarmlio2/"><![CDATA[]]></content><author><name></name></author><category term="SLAM"/><category term="Distributed-Optimization"/><category term="Paper-Reading"/><summary type="html"><![CDATA[【论文阅读】深入理解Swarm-LIO2]]></summary></entry><entry><title type="html">多机器人协同感知2——分布式优化理论学习</title><link href="https://effun.xyz/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96/" rel="alternate" type="text/html" title="多机器人协同感知2——分布式优化理论学习"/><published>2026-03-22T14:24:00+00:00</published><updated>2026-03-22T14:24:00+00:00</updated><id>https://effun.xyz/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96</id><content type="html" xml:base="https://effun.xyz/blog/2026/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%98%E5%8C%96/"><![CDATA[<p>读论文 <a href="https://ieeexplore.ieee.org/abstract/document/10969623?casa_token=QDGz-QaH-4oAAAAA:5ToZctSC0tQyQvHGjRtcJ63kq9YKQDheJVg29hb1HB7-nI3iZwSieN4MLR8E0kor2Rn507Xg3oYbiw">A tutorial on distributed optimization for cooperative robotics: from setups and algorithms to toolboxes and research directions</a>。但这篇论文偏向约束耦合优化还有聚合优化</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@article{testa2025tutorial,
   title={A tutorial on distributed optimization for cooperative robotics: from setups and algorithms to toolboxes and research directions},
   author={Testa, Andrea and Carnevale, Guido and Notarstefano, Giuseppe},
   journal={Proceedings of the IEEE},
@@ -78,67 +78,13 @@ Content 2
 <span class="cp">{%</span><span class="w"> </span><span class="nt">endtab</span><span class="w"> </span><span class="cp">%}</span>
 
 <span class="cp">{%</span><span class="w"> </span><span class="nt">endtabs</span><span class="w"> </span><span class="cp">%}</span>
-</code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="cbb2fe97-9e58-4889-a972-7091b2c383b9" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="cbb2fe97-9e58-4889-a972-7091b2c383b9" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
+</code></pre></div></div> <p>With this you can generate visualizations like:</p> <ul id="log" class="tab" data-tab="8256aa1c-4858-463f-a319-b6f96b3d3ecf" data-name="log"> <li class="active" id="log-php"> <a href="#">php </a> </li> <li id="log-js"> <a href="#">js </a> </li> <li id="log-ruby"> <a href="#">ruby </a> </li> </ul> <ul class="tab-content" id="8256aa1c-4858-463f-a319-b6f96b3d3ecf" data-name="log"> <li class="active"> <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
 </code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div></div> </li> <li> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pputs</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span>
-</code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="3db954b1-deff-4aa0-a1ce-55434196d8d7" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="3db954b1-deff-4aa0-a1ce-55434196d8d7" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
+</code></pre></div></div> </li> </ul> <h2 id="another-example">Another example</h2> <ul id="data-struct" class="tab" data-tab="c07b6912-57a1-4292-ab7c-ff562be1e043" data-name="data-struct"> <li class="active" id="data-struct-yaml"> <a href="#">yaml </a> </li> <li id="data-struct-json"> <a href="#">json </a> </li> </ul> <ul class="tab-content" id="c07b6912-57a1-4292-ab7c-ff562be1e043" data-name="data-struct"> <li class="active"> <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s2">"</span><span class="s">whatsup"</span>
   <span class="pi">-</span> <span class="s2">"</span><span class="s">hi"</span>
 </code></pre></div></div> </li> <li> <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"hello"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"whatsup"</span><span class="p">,</span><span class="w"> </span><span class="s2">"hi"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="0a208861-e8d0-4bb9-8be4-a1c39ada9ac2" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="0a208861-e8d0-4bb9-8be4-a1c39ada9ac2" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry><entry><title type="html">a post with typograms</title><link href="https://effun.xyz/blog/2024/typograms/" rel="alternate" type="text/html" title="a post with typograms"/><published>2024-04-29T23:36:10+00:00</published><updated>2024-04-29T23:36:10+00:00</updated><id>https://effun.xyz/blog/2024/typograms</id><content type="html" xml:base="https://effun.xyz/blog/2024/typograms/"><![CDATA[<p>This is an example post with some <a href="https://github.com/google/typograms/">typograms</a> code.</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
-</span><span class="sb">+----+
-|    |---&gt; My first diagram!
-+----+</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>Which generates:</p> <pre><code class="language-typograms">+----+
-|    |---&gt; My first diagram!
-+----+
-</code></pre> <p>Another example:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">typograms
-</span><span class="sb">.------------------------.
-|.----------------------.|
-||"https://example.com" ||
-|'----------------------'|
-| ______________________ |
-||                      ||
-||   Welcome!           ||
-||                      ||
-||                      ||
-||  .----------------.  ||
-||  | username       |  ||
-||  '----------------'  ||
-||  .----------------.  ||
-||  |"*******"       |  ||
-||  '----------------'  ||
-||                      ||
-||  .----------------.  ||
-||  |   "Sign-up"    |  ||
-||  '----------------'  ||
-||                      ||
-|+----------------------+|
-.------------------------.</span>
-<span class="p">```</span>
-</code></pre></div></div> <p>which generates:</p> <pre><code class="language-typograms">.------------------------.
-|.----------------------.|
-||"https://example.com" ||
-|'----------------------'|
-| ______________________ |
-||                      ||
-||   Welcome!           ||
-||                      ||
-||                      ||
-||  .----------------.  ||
-||  | username       |  ||
-||  '----------------'  ||
-||  .----------------.  ||
-||  |"*******"       |  ||
-||  '----------------'  ||
-||                      ||
-||  .----------------.  ||
-||  |   "Sign-up"    |  ||
-||  '----------------'  ||
-||                      ||
-|+----------------------+|
-.------------------------.
-</code></pre> <p>For more examples, check out the <a href="https://google.github.io/typograms/#examples">typograms documentation</a>.</p>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="diagrams"/><summary type="html"><![CDATA[this is what included typograms code could look like]]></summary></entry></feed>
+</span></code></pre></div></div> </li> </ul> <h2 id="tabs-for-something-else">Tabs for something else</h2> <ul id="something-else" class="tab" data-tab="36444853-ff57-4506-bfe6-4d3720b9791a" data-name="something-else"> <li class="active" id="something-else-text"> <a href="#">text </a> </li> <li id="something-else-quote"> <a href="#">quote </a> </li> <li id="something-else-list"> <a href="#">list </a> </li> </ul> <ul class="tab-content" id="36444853-ff57-4506-bfe6-4d3720b9791a" data-name="something-else"> <li class="active"> <p>Regular text</p> </li> <li> <blockquote> <p>A quote</p> </blockquote> </li> <li> <p>Hipster list</p> <ul> <li>brunch</li> <li>fixie</li> <li>raybans</li> <li>messenger bag</li> </ul> </li> </ul>]]></content><author><name></name></author><category term="sample-posts"/><category term="formatting"/><category term="code"/><summary type="html"><![CDATA[this is what included tabs in a post could look like]]></summary></entry></feed>
