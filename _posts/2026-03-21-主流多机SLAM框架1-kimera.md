@@ -1162,3 +1162,34 @@ $$
 \rho\!\left(\left\|\log\!\left(Z_{ij}^{-1}(T_i^{-1}T_j)\right)\right\|_{\Omega_{ij}}^2\right)
 \Bigg]
 $$
+
+
+图变量（节点）
+设 ego 是 (i)，对每个队友 (j) 设变量
+$$
+X_j \in SE(3),\quad X_j \equiv {}^{G_i}T_{G_j}
+$$
+ego 自己是固定的先验节点：
+$$
+X_i = I
+$$
+这和图 5 里的 “(G_i = I)” 完全一致。
+
+图约束（边）
+每条边是一个已知相对外参观测 $(Z_{ab}\approx {}^{G_a}T_{G_b})$，来源有两类：
+
+本机轨迹匹配得到的外参（初始化子模块2）
+网络收到的队友外参（子模块3）
+优化目标（等价写法）
+$$
+\min_{{X_j}}
+\sum_{(a,b)\in \mathcal E}
+\left|
+\log!\left(
+Z_{ab}^{-1},(X_a^{-1}X_b)
+\right)
+\right|^2_{\Sigma_{ab}^{-1}}
+;+;
+\left|\log(X_i)\right|^2_{\Sigma_p^{-1}}
+$$
+这就是标准 Pose-Graph with BetweenFactor + PriorFactor。
