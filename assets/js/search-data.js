@@ -83,9 +83,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B63-slideslam/";
           
         },
-      },{id: "post-主流多机slam框架3-slideslam",
+      },{id: "post-主流多机slam框架4-多机slam问题思考总结",
         
-          title: "主流多机SLAM框架3——SlideSLAM",
+          title: "主流多机SLAM框架4——多机SLAM问题思考总结",
         
         description: "【论文阅读】深入理解SlideSLAM",
         section: "Posts",
