@@ -72,9 +72,9 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-主流多机slam框架4-多机slam问题思考总结",
+            },{id: "post-主流多机slam框架4-多机slam问题思考与总结",
         
-          title: "主流多机SLAM框架4——多机SLAM问题思考总结",
+          title: "主流多机SLAM框架4——多机SLAM问题思考与总结",
         
         description: "总结一下Multi-robot SLAM中的相关问题",
         section: "Posts",
