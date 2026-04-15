@@ -76,7 +76,7 @@ ninja.data = [{
         
           title: "主流多机SLAM框架4——多机SLAM问题思考总结",
         
-        description: "【论文阅读】深入理解SlideSLAM",
+        description: "总结一下Multi-robot SLAM中的相关问题",
         section: "Posts",
         handler: () => {
           
