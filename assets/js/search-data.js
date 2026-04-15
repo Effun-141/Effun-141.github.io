@@ -72,7 +72,29 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-主流多机slam框架2-swarm-lio2",
+            },{id: "post-主流多机slam框架3-slideslam",
+        
+          title: "主流多机SLAM框架3——SlideSLAM",
+        
+        description: "【论文阅读】深入理解SlideSLAM",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B63-slideslam/";
+          
+        },
+      },{id: "post-主流多机slam框架3-slideslam",
+        
+          title: "主流多机SLAM框架3——SlideSLAM",
+        
+        description: "【论文阅读】深入理解SlideSLAM",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B64-%E5%A4%9A%E6%9C%BASLAM%E9%97%AE%E9%A2%98%E6%80%9D%E8%80%83%E6%80%BB%E7%BB%93/";
+          
+        },
+      },{id: "post-主流多机slam框架2-swarm-lio2",
         
           title: "主流多机SLAM框架2——Swarm-LIO2",
         
