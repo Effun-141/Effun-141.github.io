@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-主流多机slam框架-多机slam问题思考与总结",
+            },{id: "post-llm微调-lora",
+        
+          title: "LLM微调——LoRA",
+        
+        description: "用LoRA微调场景理解模型适配垂直领域任务",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/LLM%E5%BE%AE%E8%B0%83/";
+          
+        },
+      },{id: "post-主流多机slam框架-多机slam问题思考与总结",
         
           title: "主流多机SLAM框架——多机SLAM问题思考与总结",
         
