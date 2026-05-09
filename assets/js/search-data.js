@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-llm微调-lora",
+            },{id: "post-主流多机slam框架-分布式状态估计的两种方法",
+        
+          title: "主流多机SLAM框架——分布式状态估计的两种方法",
+        
+        description: "以kimera和swarm-lio2为例推导两篇论文中分布式状态估计的具体原理",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/%E4%B8%BB%E6%B5%81%E5%A4%9A%E6%9C%BASLAM%E6%A1%86%E6%9E%B65-%E5%88%86%E5%B8%83%E5%BC%8F%E7%8A%B6%E6%80%81%E4%BC%B0%E8%AE%A1%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/";
+          
+        },
+      },{id: "post-llm微调-lora",
         
           title: "LLM微调——LoRA",
         
