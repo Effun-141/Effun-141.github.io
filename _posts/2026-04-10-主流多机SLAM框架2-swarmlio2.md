@@ -117,6 +117,19 @@ $$
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260415/16.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    初始化全局外参
+</div>
+
+所以说对于Swarm-LIO2来说，全局外参是其核心内容，但这里要区分一点：**每架 AAV 的 ego state 都是在自己的 global frame 里估计的。论文里说这个 global frame 通常是该 AAV 的第一个 IMU frame。**所以不能理解为所有无人机有一个共同的全局外参。
+
+
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/img/20260415/11.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
@@ -133,11 +146,3 @@ $$
     基于雷达反射率的目标检测
 </div>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/img/20260415/16.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    初始化全局外参
-</div>
