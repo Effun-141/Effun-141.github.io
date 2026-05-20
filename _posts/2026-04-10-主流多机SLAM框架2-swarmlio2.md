@@ -109,7 +109,7 @@ $$
 \text{AAV } j \text{ 自己估计自己}
 \xrightarrow{\text{broadcast}}
 \text{AAV } i \text{ 接收 } j \text{ 的 ego state}
-\xrightarrow{{}^{G_i}\mathbf{T}_{G_j}}
+\xrightarrow{\,{}^{G_i}\mathbf{T}_{G_j}\,}
 \text{投影到 } G_i \text{ 下}
 $$
 
