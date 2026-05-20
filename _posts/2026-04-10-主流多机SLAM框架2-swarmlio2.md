@@ -92,6 +92,15 @@ Swarm-LIO2 的核心贡献是提出了一个完整的去中心化多机 LiDAR-in
 
 现在我们首先考虑一个核心问题：多机状态估计到底怎么建模？
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260323/1.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    系统建模
+</div>
+
 Swarm-LIO2首先考虑一个由 $N$ 架 AAV 组成的空中集群，每架 AAV 都搭载 LiDAR 和 IMU。每架 AAV 要做两件事：
 
 第一，估计自己的状态，也就是 **ego state estimation**。  
@@ -115,14 +124,7 @@ $$
 
 所以，**mutual state estimation 的关键就变成了 global extrinsic calibration**。
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/img/20260415/16.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    初始化全局外参
-</div>
+
 
 所以说对于Swarm-LIO2来说，全局外参是其核心内容，但这里要区分一点：**所谓 global extrinsic 并不是所有无人机相对于某一个公共世界坐标系的外参，而是不同 AAV 自己的 global reference frame 之间的相对变换。论文里说这个 global frame 通常是该 AAV 的第一个 IMU frame。**所以不能理解为所有无人机有一个共同的全局外参。
 
