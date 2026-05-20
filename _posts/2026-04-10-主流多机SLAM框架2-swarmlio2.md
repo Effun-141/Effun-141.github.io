@@ -74,10 +74,45 @@ Swarm-LIO2 的核心贡献是提出了一个完整的去中心化多机 LiDAR-in
 
 在状态估计阶段，它将 IMU、LiDAR 点云和主动/被动 mutual observation 统一放入 ESIKF（误差状态不变卡尔曼滤波） 中紧耦合优化，并通过 temporal compensation 保证异步多机观测的一致性。为了支持大规模集群，它提出 marginalization 策略降低状态维度，并结合 LiDAR degeneration evaluation 在点云退化时利用队友互观测增强定位鲁棒性。
 
-* **基于因子图优化高效地标定与队友之间的外参**，很大程度上降低了群体初始化的复杂度和能耗。用N个AAV初始化一个swarm所需的初始化飞行次数从O(N)减少到O(1)。
+* **基于因子图优化高效地标定与队友之间的外参**：很大程度上降低了群体初始化的复杂度和能耗。用N个AAV初始化一个swarm所需的初始化飞行次数从O(N)减少到O(1)。
 
 * **把 LiDAR、IMU、互观测一起放进 ESIKF 中紧耦合估计**：Swarm-LIO2 的状态估计继承 FAST-LIO2/IKFoM 的单机 LIO 框架，但扩展到了多机。每架 AAV 的状态主要包括：自己的 pose、速度、IMU bias、重力加速度以及与队友 global frame 之间的 global extrinsic。它融合IMU measurements、LiDAR point cloud measurements和mutual observation measurements（本机看到队友，或队友看到本机，作为额外几何约束）。
 
-* **marginalization 提升可扩展性**：如果每架 AAV 都把所有队友的 global extrinsic 都放进 ESIKF 状态里，那么随着队友数量增加，状态维度会增长，滤波更新的计算复杂度会急剧上升。当前 scan 中没有被观测到、也没有提供有效互观测的队友外参状态，可以被 marginalize 掉，只把必要信息以先验或扩展测量噪声形式保留下来。该 marginalization 策略可以把状态估计复杂度增长从 cubic 降到 sublinear。
+* **mutual observation 的严谨建模和时间补偿**：Swarm-LIO2 中的 mutual observation 有两种。首先是主动观测（active observation）AAV i 用自己的 LiDAR 看到 AAV j，也就是“我看到队友”。然后是被动观测（passive observation）AAV j 用它的 LiDAR 看到 AAV i，然后把这个观测发给 i。也就是“队友看到我，并告诉我”。这两类观测都被建模成 measurement residual，进入 ESIKF 更新。但多机系统存在时间错位：AAV i 的 LiDAR scan end time、AAV j 的状态时间戳、网络传输延迟都可能不同。因此 Swarm-LIO2 加入了 temporal compensation，用 constant velocity model 把队友状态或本机状态补偿到统一时间。因为如果不做时间补偿，互观测约束其实是在错误时间上建立的，会破坏滤波器一致性。
 
-* **LiDAR degeneration evaluation 与模式切换**：Swarm-LIO2 还加入了 LiDAR 退化检测。它通过分析 LiDAR 点云残差对 ego pose 的 Jacobian 奇异值，判断当前点云是否足以约束完整位姿。如果 LiDAR 没有退化，主要用点云约束优化 ego state，同时 refine global extrinsic。如果 LiDAR 退化，系统更依赖 global extrinsic 和 mutual observation 来帮助确定 ego state。即非退化时用 LiDAR refine 外参；退化时用队友互观测约束支撑定位。
+* **冗余状态信息边缘化提升可扩展性**：如果每架 AAV 都把所有队友的 global extrinsic 都放进 ESIKF 状态里，那么随着队友数量增加，状态维度会增长，滤波更新的计算复杂度会急剧上升。当前 scan 中没有被观测到、也没有提供有效互观测的队友外参状态，可以被 marginalize 掉，只把必要信息以先验或扩展测量噪声形式保留下来。该 marginalization 策略可以把状态估计复杂度增长从 cubic 降到 sublinear。
+
+* **LiDAR 退化估计与模式切换**：Swarm-LIO2 还加入了 LiDAR 退化检测。它通过分析 LiDAR 点云残差对 ego pose 的 Jacobian 奇异值，判断当前点云是否足以约束完整位姿。如果 LiDAR 没有退化，主要用点云约束优化 ego state，同时 refine global extrinsic。如果 LiDAR 退化，系统更依赖 global extrinsic 和 mutual observation 来帮助确定 ego state。即非退化时用 LiDAR refine 外参；退化时用队友互观测约束支撑定位。
+
+其实ESIKF在之前的Swarm-LIO中已经应用了，这里我把它总结为Swarm-LIO2的创新点一起学习一下。
+
+## 3.方法
+
+### 3.1 System overview
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260415/11.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    SlideSLAM 系统框架
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260415/17.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    基于雷达反射率的目标检测
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260415/16.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    初始化全局外参
+</div>
