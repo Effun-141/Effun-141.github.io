@@ -124,10 +124,15 @@ $$
     初始化全局外参
 </div>
 
-所以说对于Swarm-LIO2来说，全局外参是其核心内容，但这里要区分一点：**每架 AAV 的 ego state 都是在自己的 global frame 里估计的。论文里说这个 global frame 通常是该 AAV 的第一个 IMU frame。**所以不能理解为所有无人机有一个共同的全局外参。
+所以说对于Swarm-LIO2来说，全局外参是其核心内容，但这里要区分一点：**所谓 global extrinsic 并不是所有无人机相对于某一个公共世界坐标系的外参，而是不同 AAV 自己的 global reference frame 之间的相对变换。论文里说这个 global frame 通常是该 AAV 的第一个 IMU frame。**所以不能理解为所有无人机有一个共同的全局外参。
 
+Swarm-LIO2是一个滤波框架，这里我提前给出他的状态向量：
 
+  $$\mathbf{x}_{i} = \left[{}^{G_i}R_{b_i}^T, {}^{G_i}p_{b_i}^T, {}^{G_i}v_{b_i}^T, b_{g_i}^T, b_{a_i}^T, {}^{G_i}g^T, \cdots, {}^{G_i}R_{G_j}^T, {}^{G_i}p_{G_j}^T, \cdots \right]^T$$
 
+从这里我们也能看出，全局外参也是状态向量中的一组待估计状态，对每一个队友 j，都会增加一个 6 维外参状态块，整体状态维度是 18+6(N−1)。
+
+下图是
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/img/20260415/11.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -136,6 +141,8 @@ $$
 <div class="caption">
     SlideSLAM 系统框架
 </div>
+
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
