@@ -90,6 +90,31 @@ Swarm-LIO2 的核心贡献是提出了一个完整的去中心化多机 LiDAR-in
 
 ### 3.1 System overview
 
+现在我们首先考虑一个核心问题：多机状态估计到底怎么建模？
+
+Swarm-LIO2首先考虑一个由 $N$ 架 AAV 组成的空中集群，每架 AAV 都搭载 LiDAR 和 IMU。每架 AAV 要做两件事：
+
+第一，估计自己的状态，也就是 **ego state estimation**。  
+第二，估计其他队友的状态，也就是 **mutual state estimation**。
+
+但是，如果让每一架 AAV 都在自己的滤波器里直接估计所有队友的完整状态，状态维度会非常高，计算量也会很大。因此 Swarm-LIO2 没有采用“每架无人机估计所有无人机完整状态”的方式，而是采用一个更轻量的思路：
+
+> 每架 AAV 主要估计自己的 ego state，并广播出去；其他 AAV 收到后，通过两机 global frame 之间的外参 $${}^{G_i}\mathbf{T}_{G_j}$$，把队友的 ego state 投影到自己的 global frame 中，从而得到 mutual state。
+
+这就是 Section III 最重要的建模思想。
+
+换句话说，Swarm-LIO2 不是让 AAV $i$ 直接完整估计 AAV $j$ 的所有状态，而是：
+
+$$
+\text{AAV } j \text{ 自己估计自己}
+\xrightarrow{\text{broadcast}}
+\text{AAV } i \text{ 接收 } j \text{ 的 ego state}
+\xrightarrow{{}^{G_i}\mathbf{T}_{G_j}}
+\text{投影到 } G_i \text{ 下}
+$$
+
+所以，**mutual state estimation 的关键就变成了 global extrinsic calibration**。
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/img/20260415/11.png" title="example image" class="img-fluid rounded z-depth-1" %}
