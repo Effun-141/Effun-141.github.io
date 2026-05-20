@@ -78,4 +78,6 @@ Swarm-LIO2 的核心贡献是提出了一个完整的去中心化多机 LiDAR-in
 
 * **把 LiDAR、IMU、互观测一起放进 ESIKF 中紧耦合估计**：Swarm-LIO2 的状态估计继承 FAST-LIO2/IKFoM 的单机 LIO 框架，但扩展到了多机。每架 AAV 的状态主要包括：自己的 pose、速度、IMU bias、重力加速度以及与队友 global frame 之间的 global extrinsic。它融合IMU measurements、LiDAR point cloud measurements和mutual observation measurements（本机看到队友，或队友看到本机，作为额外几何约束）。
 
-* ****
+* **marginalization 提升可扩展性**：如果每架 AAV 都把所有队友的 global extrinsic 都放进 ESIKF 状态里，那么随着队友数量增加，状态维度会增长，滤波更新的计算复杂度会急剧上升。当前 scan 中没有被观测到、也没有提供有效互观测的队友外参状态，可以被 marginalize 掉，只把必要信息以先验或扩展测量噪声形式保留下来。该 marginalization 策略可以把状态估计复杂度增长从 cubic 降到 sublinear。
+
+* **LiDAR degeneration evaluation 与模式切换**：Swarm-LIO2 还加入了 LiDAR 退化检测。它通过分析 LiDAR 点云残差对 ego pose 的 Jacobian 奇异值，判断当前点云是否足以约束完整位姿。如果 LiDAR 没有退化，主要用点云约束优化 ego state，同时 refine global extrinsic。如果 LiDAR 退化，系统更依赖 global extrinsic 和 mutual observation 来帮助确定 ego state。即非退化时用 LiDAR refine 外参；退化时用队友互观测约束支撑定位。
