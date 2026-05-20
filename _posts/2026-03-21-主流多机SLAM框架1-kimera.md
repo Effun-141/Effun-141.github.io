@@ -1182,7 +1182,7 @@ $$
 网络收到的队友外参（子模块3）
 优化目标（等价写法）
 $$
-\min_{{X_j}}
+\min_{X_j}
 \sum_{(a,b)\in \mathcal E}
 \left|
 \log!\left(
