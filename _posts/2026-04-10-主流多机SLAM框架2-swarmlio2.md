@@ -88,6 +88,17 @@ Swarm-LIO2 的核心贡献是提出了一个完整的去中心化多机 LiDAR-in
 
 ## 3.方法
 
+符号定义（懒得写了，直接截图）
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260323/2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    系统符号定义
+</div>
+
 ### 3.1 System overview
 
 现在我们首先考虑一个核心问题：多机状态估计到底怎么建模？
@@ -141,8 +152,28 @@ Swarm-LIO2是一个滤波框架，这里我提前给出他的状态向量：
     </div>
 </div>
 <div class="caption">
-    SlideSLAM 系统框架
+    SwarmLIO2 系统框架
 </div>
+
+蓝色部分是初始化模块，包含三个子模块。
+
+第一，New Teammate Monitoring on Network & Temporal Calibration。这个模块通过 ad hoc network 监听新出现的队友。每架 AAV 会广播自己的 identity/time information。收到新的队友信息后，系统会估计两者之间的 temporal offset。（可能没有直接观测但有通信）。
+
+第二，New Teammate Detection From LiDAR Observations & Extrinsic Calibration。这个模块从 LiDAR 点云中检测新队友。检测依赖 reflective tape 的高反射特性。检测到候选目标后，系统会跟踪它的轨迹，并通过 trajectory matching 识别它是哪架 AAV，同时得到两机 global frame 之间的初始外参。
+
+第三，FGO-based Extrinsic Calibration of Non-Directly Observed Teammates。这是 Swarm-LIO2 比 Swarm-LIO 更进一步的地方。即使 AAV i 没有直接在 LiDAR 中看到 AAV j，只要网络里收到了其他 AAV 之间的 global extrinsic 约束，就可以通过 factor graph optimization 推断出 $${}^{G_i}\mathbf{T}_{G_j}$$ 。就是说无人机不一定要亲眼看到所有队友，只要整个外参约束图连通，我也能标定和未直接观测队友之间的 global extrinsic。
+
+当某个队友 j 的 global extrinsic $${}^{G_i}\mathbf{T}_{G_j}$$被标定后，论文说它就会被认为是一个 valid teammate，并且它的相关状态会加入到后续 state estimation 模块中继续估计和 refine。。
+
+绿色部分是状态估计模块。它的状态包括两部分：ego state+global extrinsics
+
+
+
+##### Swarm-LIO2的总体流程可以总结如下：
+
+网络发现队友→时间同步→LiDAR 观测队友→身份识别→global extrinsic 初始化→加入 ESIKF 状态→融合 LiDAR/IMU/互观测→更新 ego state 与 global extrinsic→广播给其他 AAV
+
+
 
 
 
