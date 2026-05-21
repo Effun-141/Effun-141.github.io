@@ -2007,6 +2007,49 @@ $$
   $$^{G_{i}}p_{b_{i}}^{comp} = ^{G_{i}}p_{b_{i}} + ^{G_{i}}v_{b_{i}}(t_{j,k} - t_{i,k} - ^{i}\tau_{j}) \tag{17}$$
   代入 (13) 得到补偿后的模型 (18)。
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260415/13.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    ESIKF 预测步与更新步：雅可比矩阵与 MAP 估计构造
+</div>
+
+**2. 预测步雅可比与协方差传播**
+* **雅可比矩阵构建**：同理推导出速度 $\delta v$、零偏 $\delta b_g, \delta b_a$ 及重力 $\delta g$ 的误差传播后，将所有状态变量对误差变量的偏导数进行汇总，组装成高维的**状态转移雅可比矩阵 $F_x$** 与**噪声雅可比矩阵 $F_w$**。
+* **协方差预测**：基于线性化后的误差传递模型推导出的经典先验协方差预测公式为：$P_{k+1} = F_x P_k F_x^T + F_w Q F_w^T$。
+
+**3. 更新步：基于 MAP 的目标函数构造**
+* **最大后验估计**：更新步并未直接套用经典的卡尔曼增益公式，而是从 MAP (Maximum A Posteriori) 视角出发。系统通过构建一个联合代价函数 $C(\delta x^k)$，将基于运动学方程预测得来的**先验残差**，与基于 LiDAR 和多机通讯获取的**测量残差**进行联合最小化优化。
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260415/14.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    ESIKF 更新步：二次型优化与卡尔曼增益等价性证明
+</div>
+
+**4. 更新步：状态求解与等价性证明**
+
+* **观测模型**：代价函数中的观测模型对应三个部分：LiDAR 点对面的几何约束（公式 9）、系统预测自身位置与主动观测点云的残差（公式 11），以及系统预测队友位置与被动观测的残差（公式 13）。
+
+* **二次型求导**：将观测方程在当前迭代点处进行一阶泰勒展开，将非线性优化问题转化为线性最小二乘问题。对该二次型代价函数关于误差状态求导并令其等于零
+
+$$\frac{\partial C}{\partial \delta x^k} = 0$$
+
+，解出高斯-牛顿法中的最优状态增量：
+
+  $$\delta x^k = (P^{-1} + H^T R^{-1} H)^{-1} [ P^{-1}(\hat{x} - \tilde{x}^k) + H^T R^{-1}(y - h(\tilde{x}^k)) ]$$
+
+* **卡尔曼增益等价性**：通过应用**矩阵求逆引理 (Matrix Inversion Lemma)** 对上述优化求解结果进行恒等变换，可以严格证明：基于迭代优化的解法在数学上与经典的卡尔曼增益 $$K = P H^T (H P H^T + R)^{-1}$$ 形式完全等价。即 
+
+$$\delta x^k = (I - KH)(\hat{x} - \tilde{x}^k) + K(y - h(\tilde{x}^k))$$
+
+这种等价性证明了 ESIKF 在融合复杂非线性观测时的严谨性与有效性。
+
 #### 状态更新
 
 最后，利用迭代卡尔曼滤波器（ESIKF）反复计算增益并更新状态，直到收敛。此过程耦合了 IMU、点云和互观测，保证了在 LiDAR 退化场景下的厘米级精度。
