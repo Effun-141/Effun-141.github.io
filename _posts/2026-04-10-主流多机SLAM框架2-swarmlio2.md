@@ -651,6 +651,95 @@ p_k - Rq_k - t
 0
 $$
 
+得到：
+
+$$
+t^*(R)=\bar{p}-R\bar{q}
+$$
+
+把它代回目标函数，定义中心化点：
+
+$$
+p'_k=p_k-\bar{p}
+$$
+
+$$
+q'_k=q_k-\bar{q}
+$$
+
+于是：
+
+$$
+J(R)=\sum_{k=1}^{K}\frac{1}{2}\|p'_k-Rq'_k\|^2
+$$
+
+展开：
+
+$$
+J(R)=\frac{1}{2}\sum_k\left(\|p'_k\|^2+\|q'_k\|^2-2p_k'^T Rq'_k\right)
+$$
+
+前两项与 $R$ 无关，因此最小化 $J(R)$ 等价于最大化：
+
+$$
+\sum_k p_k'^T Rq'_k
+$$
+
+写成 trace 形式：
+
+$$
+\sum_k p_k'^T Rq'_k
+=
+\mathrm{tr}\left(
+R\sum_k q'_k p_k'^T
+\right)
+$$
+
+定义 cross-covariance matrix：
+
+$$
+\mathbf{S}
+=
+\sum_{k=1}^{K}q'_k p_k'^T
+$$
+
+对 $\mathbf{S}$ 做 SVD：
+
+$$
+\mathbf{S}=U\Sigma V^T
+$$
+
+则最优旋转为：
+
+$$
+R^*
+=
+V
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & \det(VU^T)
+\end{bmatrix}
+U^T
+$$
+
+最优平移为：
+
+$$
+t^*=\bar{p}-R^*\bar{q}
+$$
+
+最终得到：
+
+$$
+{}^{G_i}\breve{\mathbf{T}}_{G_j}
+=
+(R^*,t^*)
+$$
+
+这就是 trajectory matching 返回的初始 global extrinsic。
+
+如果匹配 residual 小于阈值，则认为 temporary tracker $m$ 实际上对应 AAV $j$。此时 temporary tracker 会被移除，并转化为 teammate tracker，后续进入状态估计模块。论文还说明，这个 trajectory matching 得到的 extrinsic 会发送给本机的第三个子模块，以及网络中的其他 teammates，而且只发送一次。
 
 #### C. 基于factor graph的
 
