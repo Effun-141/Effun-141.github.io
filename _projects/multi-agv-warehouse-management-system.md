@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Multi-AGV Warehouse Management System"
 description: "A multi-AGV warehouse management system with scheduling and collaborative transport."

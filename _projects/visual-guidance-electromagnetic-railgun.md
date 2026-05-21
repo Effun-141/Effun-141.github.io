@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Electromagnetic Railgun Based on Visual Guidance"
 description: "A vision-guided electromagnetic railgun system for target recognition and aiming."

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Generative AI and Scene Understanding Project"
 description: "NSFC proposal work on generative models for spacecraft scene understanding and reasoning."

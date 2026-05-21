@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Intelligent Car Based on Visual Guidance"
 description: "A visual-guided smart car project for autonomous track perception and control."

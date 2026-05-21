@@ -32,8 +32,8 @@ Hi &#128522;! I am a PhD student at The Chinese University of Hong Kong, ShenZhe
 My research focuses on SLAM and underwater robotics. To be more specific, it's about the following four main areas:
 
 1. **Event-based underwater SLAM** (current work)
-2. **Multi-robot collaborative perception** (current work)
-3. Scene understanding (future work)
+2. **LLM-based scene understanding** (current work)
+3. Multi-robot collaborative perception (future work)
 4. Dynamic visual SLAM (past work)
 
 I received my Master's degree in Control Science and Engineering in April 2025 and Bachelor's degree in Automation in June 2021 at Nanjing University of Science and Technology (NJUST, 211 project) ,as a member of Robotics Innovation Lab (Auto-Robot).

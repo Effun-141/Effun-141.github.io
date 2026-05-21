@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Vehicle-Type Exploration and Cruising Robot"
 description: "A vehicle-type robot for exploration, cruising, and task execution."

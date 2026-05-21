@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Dynamic Visual SLAM Project"
 description: "RGB-D visual SLAM for robust localization and dense mapping in complex dynamic environments."

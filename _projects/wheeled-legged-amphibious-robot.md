@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Wheeled-Legged Amphibious Robot Project"
 description: "A wheeled-legged amphibious robot with super-helical sliding mode balance control."

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Laser SLAM System Based on LeGO-LOAM"
 description: "Laser SLAM mapping and localization experiments based on LeGO-LOAM and KITTI data."

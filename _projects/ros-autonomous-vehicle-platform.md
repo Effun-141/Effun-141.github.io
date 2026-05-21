@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "ROS Autonomous Vehicle Platform"
 description: "An unmanned vehicle experimental platform for SLAM, planning, and multi-vehicle interaction scenarios."

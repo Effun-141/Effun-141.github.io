@@ -1,4 +1,4 @@
-﻿---
+---
 layout: page
 title: "Autonomous Harvesting Robot Project"
 description: "Navigation and localization system for an autonomous harvesting robot in a simulated farmland environment."
