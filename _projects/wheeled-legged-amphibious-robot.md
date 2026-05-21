@@ -3,7 +3,7 @@ layout: page
 title: "Wheeled-Legged Amphibious Robot Project"
 description: "A wheeled-legged amphibious robot with super-helical sliding mode balance control."
 img: assets/img/img/20230207/kongdi.png
-importance: 3
+importance: 4
 category: research
 ---
 
