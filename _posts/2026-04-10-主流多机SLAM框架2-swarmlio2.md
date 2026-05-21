@@ -968,7 +968,9 @@ prediction prior 和 measurement residual 共同构成 MAP 问题，求解得到
 
 ---
 
-**这是一个总体的描述，如果是第一次阅读可能会感觉很绕，所以接下来详细拆解一下这其中的原理，首先明确一些概念，ESIKF 中的“误差状态”到底是什么：**
+**这是一个总体的描述，如果是第一次阅读可能会感觉很绕，所以接下来详细拆解一下这其中的原理，首先明确一些概念**
+
+#### ESIKF 中的“误差状态”到底是什么：
 
 Swarm-LIO2 是建立在 IKFoM / on-manifold IESKF 和 FAST-LIO2 之上的。IKFoM 论文的核心思想是：机器人状态往往不在普通欧氏空间里，而是在 manifold 上，比如旋转 $SO(3)$。因此不能像普通 Kalman Filter 那样简单写：
 
@@ -1093,3 +1095,235 @@ $$
 $$
 R = \hat{R}\mathrm{Exp}(\delta \theta)
 $$
+
+#### 和普通 KF/EKF 相比，ESIKF 好在哪里？
+
+普通 EKF 通常把整个状态当成欧氏向量：
+
+$$
+x_{k+1}=f(x_k,u_k,w_k),
+\qquad
+x \leftarrow x+\Delta x
+$$
+
+但对 $SO(3)$ 这种旋转状态，这样有三个问题：
+
+第一，直接加法会破坏 manifold 约束。比如 $R+\Delta R$ 不一定仍然是旋转矩阵。
+
+第二，如果用欧拉角，会有奇异性；如果用四元数，会有单位范数约束和冗余参数。
+
+第三，高维系统里手推 Jacobian 很容易错。Swarm-LIO2 的状态不仅有本机 pose、velocity、bias、gravity，还包括多个 global extrinsic，状态维度随队友数量变大。
+
+ESIKF 的好处是：
+
+$$
+\text{nominal state 在 manifold 上传播，error state 在线性空间中滤波。}
+$$
+
+所以：
+
+- $R$ 始终通过 $\mathrm{Exp}$ 更新，保持在 $SO(3)$ 上；
+- 协方差 $P$ 只描述局部误差 $\delta x$，维度最小；
+- Kalman update 仍然可以在欧氏误差空间中使用；
+- 每次迭代都在当前状态附近重新线性化，降低非线性测量的线性化误差。
+
+这也是为什么 Swarm-LIO2 说它在 ESIKF framework 中融合 LiDAR、IMU 和 mutual observation。
+
+#### 预测模型
+
+预测步一般分成状态预测-误差状态传播-协方差传播
+
+对于 AAV $i$，状态为：
+
+$$
+\mathbf{x}_i
+=
+\left[
+{}^{G_i}\mathbf{R}_{b_i}^{T},
+{}^{G_i}\mathbf{p}_{b_i}^{T},
+{}^{G_i}\mathbf{v}_{b_i}^{T},
+\mathbf{b}_{g_i}^{T},
+\mathbf{b}_{a_i}^{T},
+{}^{G_i}\mathbf{g}^{T},
+\cdots,
+{}^{G_i}\mathbf{R}_{G_j}^{T},
+{}^{G_i}\mathbf{p}_{G_j}^{T},
+\cdots
+\right]^T
+$$
+
+其中：
+
+- ${}^{G_i}\mathbf{R}_{b_i}$：本机 body 到本机 global frame 的旋转；
+- ${}^{G_i}\mathbf{p}_{b_i}$：本机位置；
+- ${}^{G_i}\mathbf{v}_{b_i}$：本机速度；
+- $\mathbf{b}_{g_i}, \mathbf{b}_{a_i}$：陀螺仪和加速度计 bias；
+- ${}^{G_i}\mathbf{g}$：本机 global frame 下的重力向量；
+- ${}^{G_i}\mathbf{R}_{G_j}, {}^{G_i}\mathbf{p}_{G_j}$：队友 $j$ 的 global frame 到本机 global frame 的外参。
+
+论文中 process noise 和输入为：
+
+$$
+\mathbf{w}_i
+=
+\left[
+\mathbf{n}_{g_i}^{T},
+\mathbf{n}_{a_i}^{T},
+\mathbf{n}_{b_{g_i}}^{T},
+\mathbf{n}_{b_{a_i}}^{T}
+\right]^T
+$$
+
+$$
+\mathbf{u}_i
+=
+\left[
+\boldsymbol{\omega}_{m_i}^{T},
+\mathbf{a}_{m_i}^{T}
+\right]^T
+$$
+
+也就是 IMU 角速度、加速度输入，以及对应测量噪声和 bias random walk noise。
+
+
+
+## 2.2 名义状态预测： IMU 运动模型
+
+记：
+
+$$
+\hat{\omega}=\omega_m-\hat{b}_g
+$$
+
+$$
+\hat{a}=a_m-\hat{b}_a
+$$
+
+真实 IMU 模型是：
+
+$$
+\omega=\omega_m-b_g-n_g
+$$
+
+$$
+a=a_m-b_a-n_a
+$$
+
+连续时间模型可以理解为：
+
+$$
+\dot{R}=R[\omega]_{\times}
+$$
+
+$$
+\dot{p}=v
+$$
+
+$$
+\dot{v}=Ra+g
+$$
+
+$$
+\dot{b}_g=n_{b_g},
+\qquad
+\dot{b}_a=n_{b_a}
+$$
+
+$$
+\dot{g}=0
+$$
+
+$$
+{}^{G_i}\dot{R}_{G_j}=0,
+\qquad
+{}^{G_i}\dot{p}_{G_j}=0
+$$
+
+也就是说，global extrinsic 在预测阶段被认为是常量，主要靠后续 measurement update 修正。
+
+离散化后：
+
+$$
+{}^{G_i}\hat{R}_{b_i,k+1}
+=
+{}^{G_i}\hat{R}_{b_i,k}
+\mathrm{Exp}
+\left(
+(\omega_m-\hat{b}_g)\Delta t
+\right)
+$$
+
+$$
+{}^{G_i}\hat{p}_{b_i,k+1}
+=
+{}^{G_i}\hat{p}_{b_i,k}
++
+{}^{G_i}\hat{v}_{b_i,k}\Delta t
++
+\frac{1}{2}
+\left(
+{}^{G_i}\hat{R}_{b_i,k}(a_m-\hat{b}_a)
++
+{}^{G_i}\hat{g}
+\right)
+\Delta t^2
+$$
+
+$$
+{}^{G_i}\hat{v}_{b_i,k+1}
+=
+{}^{G_i}\hat{v}_{b_i,k}
++
+\left(
+{}^{G_i}\hat{R}_{b_i,k}(a_m-\hat{b}_a)
++
+{}^{G_i}\hat{g}
+\right)
+\Delta t
+$$
+
+$$
+\hat{b}_{g,k+1}=\hat{b}_{g,k}
+$$
+
+$$
+\hat{b}_{a,k+1}=\hat{b}_{a,k}
+$$
+
+$$
+{}^{G_i}\hat{g}_{k+1}
+=
+{}^{G_i}\hat{g}_{k}
+$$
+
+$$
+{}^{G_i}\hat{T}_{G_j,k+1}
+=
+{}^{G_i}\hat{T}_{G_j,k}
+$$
+
+这就是论文 Eq. (4)-(6) 的展开形式。论文采用 compact manifold form：
+
+$$
+\mathbf{x}_{i,\tau+1}
+=
+\mathbf{x}_{i,\tau}
+\boxplus
+\left(
+\Delta t_{\tau} f_i(\mathbf{x}_{i,\tau},\mathbf{u}_{i,\tau},\mathbf{w}_{i,\tau})
+\right)
+$$
+
+预测时令 process noise 为零：
+
+$$
+\hat{\mathbf{x}}_{i,\tau+1}
+=
+\hat{\mathbf{x}}_{i,\tau}
+\boxplus
+\left(
+\Delta t_{\tau} f_i(\hat{\mathbf{x}}_{i,\tau},\mathbf{u}_{i,\tau},0)
+\right)
+$$
+
+FAST-LIO2 中也是同样的结构：IMU 到来的做 propagation，LiDAR scan 到来的做 iterated update。
