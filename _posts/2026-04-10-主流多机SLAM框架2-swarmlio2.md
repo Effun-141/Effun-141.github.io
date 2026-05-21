@@ -741,7 +741,7 @@ $$
 
 如果匹配 residual 小于阈值，则认为 temporary tracker $m$ 实际上对应 AAV $j$。此时 temporary tracker 会被移除，并转化为 teammate tracker，后续进入状态估计模块。论文还说明，这个 trajectory matching 得到的 extrinsic 会发送给本机的第三个子模块，以及网络中的其他 teammates，而且只发送一次。
 
-#### C. 基于factor graph的
+#### C. 基于factor graph的未直接观测队友外参标定
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -752,9 +752,161 @@ $$
     外参初始化因子图
 </div>
 
+IV-B 只能处理一种情况：AAV $i$ 在自己的 LiDAR 中直接看到了 AAV $j$，并通过 trajectory matching 得到：
 
+$$
+{}^{G_i}\breve{\mathbf{T}}_{G_j}
+$$
 
+但真实集群中，AAV $i$ 不一定能看到所有队友。比如 AAV $i$ 只看到 AAV $k$，AAV $k$ 看到了 AAV $j$，那么 AAV $i$ 仍然希望得到：
 
+$$
+{}^{G_i}\mathbf{T}_{G_j}
+$$
+
+前序 Swarm-LIO 主要依赖直接 trajectory matching，因此当集群规模变大时，需要更多 AAV 分别飞行、互相进入 FoV。Swarm-LIO2 的重要改进就是引入 factor graph optimization，将不同 AAV 之间已经标定出来的 pairwise extrinsic 共享出来，并图优化推断未直接观测队友的 global extrinsic。论文也把这一点作为相比 Swarm-LIO 的关键扩展，并指出初始化飞行次数可以从 $O(N)$ 降到 $O(1)$。
+
+##### 基本思想：global frame 作为图节点，pairwise extrinsic 作为边
+
+在 Swarm-LIO2 中，每架 AAV 都会维护一个 factor graph。
+
+图中的节点是各个 AAV 的 global reference frame：
+
+$$
+G_1, G_2, \cdots, G_N
+$$
+
+图中的边是已经得到的 pairwise global extrinsic measurement：
+
+$$
+{}^{G_k}\breve{\mathbf{T}}_{G_l}
+$$
+
+这些边可能来自：
+
+1. 本机直接 trajectory matching 得到；
+2. 网络中其他 AAV 发送过来的 pairwise extrinsic。
+
+例如：
+
+- AAV $i$ 直接看到 AAV $k$，得到 ${}^{G_i}\breve{\mathbf{T}}_{G_k}$；
+- AAV $k$ 直接看到 AAV $j$，得到 ${}^{G_k}\breve{\mathbf{T}}_{G_j}$；
+- 通过 factor graph，AAV $i$ 可以推断 ${}^{G_i}\mathbf{T}_{G_j}$。
+
+##### Factor graph 的数学形式：
+
+为了写成优化问题，我们给每个 global frame $G_k$ 分配一个待优化变量：
+
+$$
+\mathbf{X}_k \in SE(3)
+$$
+
+为了消除 gauge freedom，需要固定本机的 global frame。对于 AAV $i$ 来说，令：
+
+$$
+\mathbf{X}_i = I
+$$
+
+这对应论文 Fig. 5 中给 self frame 加一个 prior factor。论文也明确说，为了处理 factor graph 的 gauge freedom，会插入 prior factor $G_i = I$。
+
+对于任意一条边 $(k,l)$，测量为：
+
+$$
+\mathbf{Z}_{kl}
+=
+{}^{G_k}\breve{\mathbf{T}}_{G_l}
+$$
+
+根据论文的 frame notation，节点之间预测的相对变换可以写成：
+
+$$
+\hat{\mathbf{Z}}_{kl}
+=
+\mathbf{X}_k\mathbf{X}_l^{-1}
+$$
+
+于是该边的 $SE(3)$ residual 可以写为：
+
+$$
+\mathbf{e}_{kl}
+=
+\mathrm{Log}
+\left(
+\mathbf{Z}_{kl}^{-1}\hat{\mathbf{Z}}_{kl}
+\right)
+=
+\mathrm{Log}
+\left(
+\left(
+{}^{G_k}\breve{\mathbf{T}}_{G_l}
+\right)^{-1}
+\mathbf{X}_k\mathbf{X}_l^{-1}
+\right)
+$$
+
+其中：
+
+$$
+\mathrm{Log}: SE(3) \rightarrow se(3)
+$$
+
+把 $SE(3)$ 上的误差映射到 6 维李代数向量：
+
+$$
+\mathbf{e}_{kl} \in \mathbb{R}^6
+$$
+
+因此 factor graph optimization 可以写成：
+
+$$
+\min_{\{\mathbf{X}_k\}}
+\sum_{(k,l)\in \mathcal{E}}
+\left\|
+\mathbf{e}_{kl}
+\right\|^2_{\Omega_{kl}}
+$$
+
+也就是：
+
+$$
+\min_{\{\mathbf{X}_k\}}
+\sum_{(k,l)\in \mathcal{E}}
+\left\|
+\mathrm{Log}
+\left(
+\left(
+{}^{G_k}\breve{\mathbf{T}}_{G_l}
+\right)^{-1}
+\mathbf{X}_k\mathbf{X}_l^{-1}
+\right)
+\right\|^2_{\Omega_{kl}}
+$$
+
+subject to:
+
+$$
+\mathbf{X}_i = I
+$$
+
+这里 $\Omega_{kl}$ 是信息矩阵。如果实现里不强调不同边的置信度，也可以理解为统一权重。
+
+优化结束后，AAV $i$ 想要的 global extrinsic 是：
+
+$$
+{}^{G_i}\hat{\mathbf{T}}_{G_j}
+=
+G_iG_j^{-1}
+$$
+
+论文中也是这样写的：固定 self-AAV 的 global frame $G_i$ 后，可以由优化结果推导出每个 teammate 相对 self-AAV 的 global extrinsic：
+
+$$
+{}^{G_i}\hat{\mathbf{T}}_{G_j}
+=
+G_iG_j^{-1}
+$$
+
+这个结果既可以用于直接观测到的 teammate，也可以用于未直接观测到但在图中连通的 teammate。
 
 ### 3.3 分布式状态估计
 
