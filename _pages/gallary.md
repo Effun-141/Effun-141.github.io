@@ -2,80 +2,127 @@
 layout: page
 permalink: /gallery/
 title: Gallery
-description: 整理中，coming soon
+description: Academic activities and competition memories
 nav: true
 nav_order: 9
 ---
 
+A small collection of academic activities, conference moments, and robotics competition memories.
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Academic Activities
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+### ICRA 2025 Workshop on Field Robotics
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+We released an underwater dataset captured by event camera and presented the poster at the 2025 ICRA Workshop on Field Robotics.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-10 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/gallery/poster.png" title="ICRA 2025 Workshop poster" alt="Poster presented at the 2025 ICRA Workshop on Field Robotics" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Poster for the underwater event camera dataset.
 </div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+
+### INDIN 2024
+
+Report at the 22nd IEEE International Conference on Industrial Informatics.
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/gallery/indin (1).jpg" title="INDIN 2024 presentation" alt="Presentation at INDIN 2024" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/gallery/微信图片_20240911181231.jpg" title="INDIN 2024 conference moment" alt="Conference moment at INDIN 2024" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Moments from INDIN 2024.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+### The Fourth National SLAM Technical Forum
+
+Very excited to meet Dr. Xiang Gao.
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-9 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906155042.jpg" title="The fourth national SLAM technical forum" alt="At the fourth national SLAM technical forum" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    At the fourth national SLAM technical forum.
+</div>
+
+## Competitions
+
+Some of the robotics and engineering competitions I have participated in.
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-9 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240911181123.jpg" title="Competition memories" alt="Competition memories" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    Competition memories.
+</div>
+
+### 2018 My First Robot Competition
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906152026.jpg" title="2018 first robot competition" alt="My first robot competition in 2018" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
 <div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+    My first robot competition in 2018.
 </div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+### 2018 Jiangsu Province University Student Robot Competition
 
-{% raw %}
-
-```html
 <div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906152030.jpg" title="Jiangsu Province University Student Robot Competition" alt="The 9th Jiangsu Province University Student Robot Competition" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
 </div>
-```
+<div class="caption">
+    The 9th Jiangsu Province University Student Robot Competition.
+</div>
 
-{% endraw %}
+### 2019 NXP Cup Smart Car Competition
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906152042.jpg" title="NXP Cup smart car competition" alt="The 14th NXP Cup National University Student Smart Car Competition" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906153148.jpg" title="NXP Cup smart car competition team moment" alt="Team moment from the 14th NXP Cup National University Student Smart Car Competition" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    The 14th NXP Cup National University Student Smart Car Competition.
+</div>
+
+### 2019 National Undergraduate Electronic Design Contest
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906152057.jpg" title="National Undergraduate Electronic Design Contest" alt="2019 National Undergraduate Electronic Design Contest" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+    <div class="col-sm-6 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906153154.jpg" title="National Undergraduate Electronic Design Contest project" alt="Project from the 2019 National Undergraduate Electronic Design Contest" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    2019 National Undergraduate Electronic Design Contest.
+</div>
+
+### 2022 Jiangsu Province University Student Robot Competition
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        {% include figure.liquid path="assets/img/img/gallery/微信图片_20240906152426.jpg" title="Jiangsu Province University Student Robot Competition 2022" alt="The 13th Jiangsu Province University Student Robot Competition" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
+<div class="caption">
+    The 13th Jiangsu Province University Student Robot Competition.
+</div>
