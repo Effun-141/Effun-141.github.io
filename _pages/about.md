@@ -27,7 +27,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi &#128522;! I am a PhD student at The Chinese University of Hong Kong, ShenZhen, supervised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/lab-pi/) and Prof. [Ziyang Hong](https://sites.google.com/view/ziyanghong/home). My major is Computer Science. Welcome to visit our [lab website](https://lias-cuhksz.github.io/)!
+Hi &#128522;! I am a PhD student at [The Chinese University of Hong Kong, ShenZhen](https://www.cuhk.edu.cn/en), supervised by Prof. [Junfeng Wu](https://lias-cuhksz.github.io/lab-pi/) and Prof. [Ziyang Hong](https://sites.google.com/view/ziyanghong/home). My major is Computer Science. Welcome to visit our [lab website](https://lias-cuhksz.github.io/)!
 
 My research focuses on SLAM and underwater robotics. To be more specific, it's about the following four main areas:
 
