@@ -75,7 +75,7 @@ Some of the robotics and engineering competitions I have participated in.
     My first robot competition in 2018.
 </div>
 
-### 2018 Jiangsu Province University Student Robot Competition
+### 2018 江苏省大学生机器人大赛
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
@@ -86,7 +86,7 @@ Some of the robotics and engineering competitions I have participated in.
     The 9th Jiangsu Province University Student Robot Competition.
 </div>
 
-### 2019 NXP Cup Smart Car Competition
+### 2019 恩智浦杯智能汽车竞赛
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-6 mt-3 mt-md-0">
@@ -100,7 +100,7 @@ Some of the robotics and engineering competitions I have participated in.
     The 14th NXP Cup National University Student Smart Car Competition.
 </div>
 
-### 2019 National Undergraduate Electronic Design Contest
+### 2019 全国大学生电子设计大赛
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-6 mt-3 mt-md-0">
@@ -114,7 +114,7 @@ Some of the robotics and engineering competitions I have participated in.
     2019 National Undergraduate Electronic Design Contest.
 </div>
 
-### 2022 Jiangsu Province University Student Robot Competition
+### 2022 江苏省机器人大赛
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
