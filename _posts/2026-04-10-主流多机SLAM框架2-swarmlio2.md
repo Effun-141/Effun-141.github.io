@@ -315,6 +315,12 @@ $$
 
 #### B. 直接lidar观测下的队友检测与外参标定
 
+上面解决“网络中有谁”和“时钟差多少”，但它不知道：
+
+1. LiDAR 里看到的某个物体是不是队友
+2. 如果是队友，它是哪一架 AAV；
+3. AAV j 的 global frame 和 AAV i 的 global frame之间的变换 $${}^{G_i}\mathbf{T}_{G_j}$$ 是多少。
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -325,9 +331,191 @@ $$
     基于雷达反射率的目标检测
 </div>
 
+**Step 1：点云预处理与高反射点提取**：
+
+AAV $i$ 收到一帧 LiDAR scan 后，首先对原始点云做 undistortion。这里和 FAST-LIO2 的思想有关：LiDAR 一帧 scan 中的点不是同一时刻采集的，如果无人机在运动，点云会有 motion distortion。因此需要利用 IMU 进行运动补偿，把点投影到 scan end time。FAST-LIO2 中就把 motion compensation/back-propagation 作为 LiDAR-inertial odometry 的关键步骤。
+
+设去畸变后的点云为：
+
+$$
+{}^{b_i}\mathbf{P}
+$$
+
+其中 $b_i$ 是 AAV $i$ 当前 body frame。
+
+由于每架 AAV 上贴了 reflective tapes，这些点在 LiDAR 中会有较高反射强度。因此系统进行 reflectivity filtering：
+
+$$
+{}^{b_i}\mathbf{P}_h
+=
+\left\{
+{}^{b_i}\mathbf{p}_n \in {}^{b_i}\mathbf{P}
+\mid
+\rho({}^{b_i}\mathbf{p}_n) > \rho_{\mathrm{thr}}
+\right\}
+$$
+
+其中：
+
+- $\rho({}^{b_i}\mathbf{p}_n)$ 是 LiDAR 点的 reflectivity；
+- $\rho_{\mathrm{thr}}$ 是预设阈值；
+- ${}^{b_i}\mathbf{P}_h$ 是高反射点集合。
+
+论文中 Algorithm 1 第一行就是：
+
+$$
+{}^{b_i}\mathbf{P}_h
+=
+\mathrm{ReflectivityFiltering}({}^{b_i}\mathbf{P})
+$$
+
+这个设计的优点是非常直接：不需要训练视觉检测网络，也不依赖光照条件。
+
+**Step 2：高反射点聚类，得到候选队友位置**：
+
+接下来对高反射点做 Euclidean clustering：
+
+$$
+{}^{b_i}\breve{\mathbf{p}}_m
+=
+\mathrm{FastEuclideanClustering}({}^{b_i}\mathbf{P}_h)
+$$
+
+每个 cluster 的 centroid 被认为是一个候选 AAV 位置：
+
+$$
+{}^{b_i}\breve{\mathbf{p}}_m
+$$
+
+这里的 $\breve{}$ 表示 measured quantity，也就是测量值。
+
+需要注意，高反射点不一定全是队友，也可能是环境中其他反光物体。因此这里只是 potential teammate AAV，还不能直接加入状态估计。
+
+Swarm-LIO 的前序工作里也提到，反射强度会受距离和激光入射角影响，所以高反射点可能不能完整覆盖无人机本体，因此需要结合 tracker 和 predicted region 进一步提高聚类稳定性。
+
+**Step 3： temporary tracker 临时跟踪候选目标**：
+
+对于每个候选目标，Swarm-LIO2 使用一个 Kalman-filter-based temporary tracker 进行跟踪，假设目标近似满足 constant velocity model。
+
+可以把 temporary tracker 的状态写成：
+
+$$
+\mathbf{s}_{m,k}
+=
+\begin{bmatrix}
+{}^{G_i}\mathbf{p}_{m,k} \\
+{}^{G_i}\mathbf{v}_{m,k}
+\end{bmatrix}
+$$
+
+其中：
+
+- ${}^{G_i}\mathbf{p}_{m,k}$ 是第 $m$ 个候选目标在 AAV $i$ 的 global frame 下的位置；
+- ${}^{G_i}\mathbf{v}_{m,k}$ 是速度。
+
+由于 LiDAR 聚类得到的是 body frame 下的位置 ${}^{b_i}\breve{\mathbf{p}}_{m,k}$，需要先转换到 AAV $i$ 的 global frame：
+
+$$
+{}^{G_i}\breve{\mathbf{p}}_{m,k}
+=
+{}^{G_i}\mathbf{T}_{b_i,k}
+\circ
+{}^{b_i}\breve{\mathbf{p}}_{m,k}
+$$
+
+其中论文使用 $\circ$ 表示刚体变换：
+
+$$
+T \circ p = Rp + t
+$$
+
+temporary tracker 的预测模型可以写成：
+
+$$
+{}^{G_i}\hat{\mathbf{p}}_{m,k}
+=
+{}^{G_i}\mathbf{p}_{m,k-1}
++
+{}^{G_i}\mathbf{v}_{m,k-1}\Delta t
+$$
+
+$$
+{}^{G_i}\hat{\mathbf{v}}_{m,k}
+=
+{}^{G_i}\mathbf{v}_{m,k-1}
+$$
+
+矩阵形式为：
+
+$$
+\mathbf{s}_{m,k}
+=
+\mathbf{F}\mathbf{s}_{m,k-1}
++
+\mathbf{w}_k
+$$
+
+$$
+\mathbf{F}
+=
+\begin{bmatrix}
+I_3 & \Delta t I_3 \\
+0 & I_3
+\end{bmatrix}
+$$
+
+测量模型为：
+
+$$
+\mathbf{z}_{m,k}
+=
+\mathbf{H}\mathbf{s}_{m,k}
++
+\mathbf{n}_k
+$$
+
+$$
+\mathbf{z}_{m,k}
+=
+{}^{G_i}\breve{\mathbf{p}}_{m,k},
+\qquad
+\mathbf{H}
+=
+\begin{bmatrix}
+I_3 & 0
+\end{bmatrix}
+$$
+
+因此可以用标准 Kalman filter 更新 temporary tracker。
+
+这一步的作用不是最终估计队友状态，而是积累一段候选目标轨迹：
+
+$$
+{}^{G_i}\mathcal{T}_m
+=
+\left\{
+{}^{G_i}\breve{\mathbf{p}}_{m,1},
+{}^{G_i}\breve{\mathbf{p}}_{m,2},
+\cdots,
+{}^{G_i}\breve{\mathbf{p}}_{m,K}
+\right\}
+$$
+
+这条轨迹后面用于和网络中收到的各个 AAV ego trajectory 做匹配。
+
+
+
 
 #### C. 基于factor graph的
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/img/20260323/3.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    基于雷达反射率的目标检测
+</div>
 
 
 
