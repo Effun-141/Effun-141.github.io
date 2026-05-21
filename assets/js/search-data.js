@@ -574,11 +574,6 @@ ninja.data = [{
           description: "RGB-D visual SLAM for robust localization and dense mapping in complex dynamic environments.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/dynamic-visual-slam/";
-            },},{id: "projects-laser-slam-system-based-on-lego-loam",
-          title: 'Laser SLAM System Based on LeGO-LOAM',
-          description: "Laser SLAM mapping and localization experiments based on LeGO-LOAM and KITTI data.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/lego-loam-laser-slam/";
             },},{id: "projects-multi-agv-warehouse-management-system",
           title: 'Multi-AGV Warehouse Management System',
           description: "A multi-AGV warehouse management system with scheduling and collaborative transport.",
