@@ -1,0 +1,189 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Autonomous Harvesting Robot Project | PENG Yifan (彭一凡) </title> <meta name="author" content="PENG Yifan (彭一凡)"> <meta name="description" content="Navigation and localization system for an autonomous harvesting robot in a simulated farmland environment."> <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?v=a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?v=f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?v=62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://effun.xyz/projects/autonomous-harvesting-robot/"> <script src="/assets/js/theme.js?v=5fea5159b787642c1bbc1f334d60f883"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">About </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">Blog </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">Publications </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">Projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">Teaching </a> </li> <li class="nav-item "> <a class="nav-link" href="/people/">Team </a> </li> <li class="nav-item "> <a class="nav-link" href="/gallery/">Gallery </a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Others </a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item " href="/gallery/">Gallery</a> <div class="dropdown-divider"></div> <a class="dropdown-item " href="/books/">bookshelf</a> </div> </li> <li class="nav-item"> <button id="search-toggle" title="Search" onclick="openSearchModal()"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Autonomous Harvesting Robot Project</h1> <p class="post-description">Navigation and localization system for an autonomous harvesting robot in a simulated farmland environment.</p> </header> <article> <h2 id="introduction">Introduction</h2> <h4 id="-aims">🌞 Aims:</h4> <ol> <li>Solve the problem of 2D map construction for mobile robots.</li> <li>Implement autonomous navigation using prior maps.</li> <li>Address waypoint data interaction issues.</li> </ol> <h4 id="-advisor-prof-yifei-wu">📝 Advisor: Prof. Yifei Wu</h4> <h4 id="-duration-oct-2023---nov-2023">📅 Duration: Oct. 2023 - Nov. 2023</h4> <h2 id="contributions">Contributions</h2> <ol> <li>Deployed a 2D LiDAR SLAM algorithm based on Cartographer in the mobile robot, adapted to the robot’s LiDAR for 2D map creataion.</li> <li>Designed autonomous navigation module using AMCL and move_base, established and managed TF transformations. Implemented A* and DWA algorithms for path planning, and tuned parameters for the robot and test environment.</li> <li>Designed a ROS topic-based data interaction program to subscribe odometry data, publish target linear/angular velocities to mobile base, and waypoints to navigation module.</li> </ol> <h2 id="outcomes">Outcomes</h2> <p>Developed a complete navigation and localization system for a mobile robot, enabling it to create 2D maps and autonomously cruise along designated waypoints</p> <h2 id="project-showcase">Project Showcase</h2> <h3 id="robot-used-for-experiments">Robot used for experiments:</h3> <table rules="none" align="center"> <tr> <td> <center> <img src="/assets/img/img/20231001/1%20(2).jpg" width="90%"> <br> <font color="AAAAAA"></font> </center> </td> <td> <center> <img src="/assets/img/img/20231001/1%20(5).jpg" width="90%"> <br> <font color="AAAAAA"></font> </center> </td> </tr> </table> <h3 id="experimental-process">Experimental process:</h3> <table rules="none" align="center"> <tr> <td> <center> <img src="/assets/img/img/20231001/1%20(6).jpg" width="90%"> <br> <font color="AAAAAA">Creating 2D map based on Cartograpgher</font> </center> </td> <td> <center> <img src="/assets/img/img/20231001/1%20(4).jpg" width="90%"> <br> <font color="AAAAAA">Autonomous localization and navigation based on AMCL and move_base</font> </center> </td> </tr> </table> <h4 id="autonomous-navigation-at-designated-points-to-simulate-the-process-of-harvesting-in-a-farm-field">Autonomous navigation at designated points to simulate the process of harvesting in a farm field:</h4> <p>Two vedios:</p> <video width="480" height="272" controls=""> <source src="/assets/img/img/20231001/2%20(2).mp4" type="video/mp4"></source> </video> <video width="480" height="272" controls=""> <source src="/assets/img/img/20231001/2%20(3).mp4" type="video/mp4"></source> </video> <h3 id="partial-core-code">Partial core code</h3> <h4 id="linear-velocity-angular-velocity-data-encapsulation-function">Linear velocity, angular velocity data encapsulation function:</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void data_pack(const geometry_msgs::Twist&amp; cmd_vel){
+	//unsigned char i;
+	float_union Vx,Vy,Ang_v;
+	Vx.fvalue = cmd_vel.linear.x;
+	Vy.fvalue = cmd_vel.linear.y;
+	Ang_v.fvalue = cmd_vel.angular.z;
+	
+	memset(s_buffer,0,sizeof(s_buffer));
+	//数据打包
+	s_buffer[0] = 0xff;
+	s_buffer[1] = 0xff;
+	//Vx
+	s_buffer[2] = Vx.cvalue[0];
+	s_buffer[3] = Vx.cvalue[1];
+	s_buffer[4] = Vx.cvalue[2];
+	s_buffer[5] = Vx.cvalue[3];
+	//Vy
+	s_buffer[6] = Vy.cvalue[0];
+	s_buffer[7] = Vy.cvalue[1];
+	s_buffer[8] = Vy.cvalue[2];
+	s_buffer[9] = Vy.cvalue[3];
+	//Ang_v
+	s_buffer[10] = Ang_v.cvalue[0];
+	s_buffer[11] = Ang_v.cvalue[1];
+	s_buffer[12] = Ang_v.cvalue[2];
+	s_buffer[13] = Ang_v.cvalue[3];
+	//CRC
+	s_buffer[14] = s_buffer[2]^s_buffer[3]^s_buffer[4]^s_buffer[5]^s_buffer[6]^s_buffer[7]^
+					s_buffer[8]^s_buffer[9]^s_buffer[10]^s_buffer[11]^s_buffer[12]^s_buffer[13];
+	/*
+	for(i=0;i&lt;15;i++){
+		ROS_INFO("0x%02x",s_buffer[i]);
+	}
+	*/
+	ser.write(s_buffer,sBUFFERSIZE);
+	
+}
+</code></pre></div></div> <h4 id="subscribe-to-the-callback-function-for-the-topic-cmd_vel-for-displaying-velocity-as-well-as-angular-velocity-">Subscribe to the callback function for the topic /cmd_vel for displaying velocity as well as angular velocity :</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void DataCallback(const geometry_msgs::Twist&amp; vel) {
+    ROS_INFO("I heard linear velocity: x-[%f],y-[%f],",vel.linear.x,vel.linear.y);
+	ROS_INFO("I heard angular velocity: [%f]",vel.angular.z);
+	std::cout &lt;&lt; "Twist Received" &lt;&lt; std::endl;	
+	data_pack(vel);
+};
+</code></pre></div></div> <h4 id="description-of-the-data-format-in-the-header-file">Description of the data format in the header file:</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define	sBUFFERSIZE	15//send buffer size 串口发送缓存长度
+#define	rBUFFERSIZE	27//receive buffer size 串口接收缓存长度
+
+unsigned char s_buffer[sBUFFERSIZE];//发送缓存
+unsigned char r_buffer[rBUFFERSIZE];//接收缓存
+
+/************************************
+ * 串口数据发送格式共15字节
+ * head head linear_v_x  linear_v_y angular_v  CRC
+ * 0xff 0xff float       float      float      u8
+ * **********************************/
+/**********************************************************
+ * 串口接收数据格式共27字节
+ * head head x-position y-position x-speed y-speed angular-speed pose-angular CRC
+ * 0xff 0xff float      float      float   float   float         float(yaw)   u8
+ * ********************************************************/
+
+//联合体，用于浮点数与16进制的快速转换
+typedef union{
+	unsigned char cvalue[4];
+	float fvalue;
+}float_union;
+
+</code></pre></div></div> <h4 id="initializes-a-ros-node-to-publish-odometry-data-and-broadcast-transforms-in-mainc">Initializes a ROS node to publish odometry data and broadcast transforms in main.c:</h4> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int main(int argc, char** argv){
+
+  ros::init(argc, argv, "odom_pub");
+
+  ros::NodeHandle nh;
+  ros::Subscriber vel_sub = nh.subscribe("/cmd_vel", 50, DataCallback); //订阅/cmd_vel数据
+  ros::Publisher odom_pub = nh.advertise&lt;nav_msgs::Odometry&gt;("odom", 30); //发布/odom话题
+  
+  //定义tf对象
+  tf::TransformBroadcaster odom_broadcaster;
+
+  float_union posx, posy, vx, vy, va, yaw;
+  //定义tf发布时需要的类型消息
+  geometry_msgs::TransformStamped odom_trans;
+
+  //定义里程计消息对象
+  nav_msgs::Odometry odom;
+
+  //定义四元数变量
+  geometry_msgs::Quaternion odom_quat;
+
+
+  //开启串口
+  try
+    {
+        ser.setPort("/dev/ttyUSB1");
+        ser.setBaudrate(115200);
+        serial::Timeout to = serial::Timeout::simpleTimeout(1000);
+        ser.setTimeout(to);
+        ser.open();
+    }
+    catch (serial::IOException&amp; e)
+    {
+        ROS_ERROR_STREAM("Unable to open port ");
+        return -1;
+    }
+
+    if(ser.isOpen()){
+        ROS_INFO_STREAM("Serial Port initialized");
+    }else{
+        return -1;
+    }
+
+  //定义时间
+  ros::Time current_time, last_time;
+  current_time = ros::Time::now();
+  last_time = ros::Time::now();
+
+
+  ros::Rate r(10); //10hz执行
+  while(ros::ok())
+  {
+
+    ros::spinOnce();
+     current_time = ros::Time::now();
+    if(ser.available())
+    {
+        ROS_INFO_STREAM("Reading from serial port");
+			  ser.read(r_buffer,rBUFFERSIZE);
+
+        if(data_analysis(r_buffer) != 0)
+        {
+          int i;
+		  ROS_INFO_STREAM("odom received");
+
+		  for(i=0;i&lt;4;i++){
+			posx.cvalue[i] = r_buffer[2+i];//x 坐标
+			posy.cvalue[i] = r_buffer[6+i];//y 坐标
+			vx.cvalue[i] = r_buffer[10+i];// x方向速度
+			vy.cvalue[i] = r_buffer[14+i];//y方向速度
+			va.cvalue[i] = r_buffer[18+i];//角速度
+			yaw.cvalue[i] = r_buffer[22+i];	//yaw 偏航角	
+		}
+			
+		ROS_INFO("[%f], [%f], [%f], [%f], [%f], [%f]",posx.fvalue, posy.fvalue, vx.fvalue, vy.fvalue, va.fvalue, yaw.fvalue);		
+		//将偏航角转换成四元数才能发布
+		odom_quat = tf::createQuaternionMsgFromYaw(yaw.fvalue);
+
+		odom_trans.header.stamp = current_time;
+		//发布坐标变换父子坐标系
+		odom_trans.header.frame_id = "odom";
+		odom_trans.child_frame_id = "base_link";
+		//填充获取的数据
+		odom_trans.transform.translation.x = posx.fvalue;//x坐标
+		odom_trans.transform.translation.y = posy.fvalue;//y坐标
+		odom_trans.transform.translation.z = 0;//z坐标				
+		odom_trans.transform.rotation = odom_quat;//偏航角
+		//发布tf坐标变换
+		odom_broadcaster.sendTransform(odom_trans);
+		//获取当前时间
+		//current_time = ros::Time::now();
+		//载入里程计时间戳
+		
+		odom.header.stamp = current_time;
+		//里程计父子坐标系
+		odom.header.frame_id = "odom";
+		odom.child_frame_id = "base_link";
+		//里程计位置数据
+		odom.pose.pose.position.x = posx.fvalue;
+		odom.pose.pose.position.y = posy.fvalue;
+		odom.pose.pose.position.z = 0;
+		odom.pose.pose.orientation = odom_quat;
+		//载入线速度和角速度
+		odom.twist.twist.linear.x = vx.fvalue;
+		odom.twist.twist.linear.y = vy.fvalue;
+		odom.twist.twist.angular.z = va.fvalue;
+		//发布里程计消息
+		odom_pub.publish(odom);
+		ROS_INFO("publish odometry");
+		last_time = current_time;
+        }
+        memset(r_buffer,0,rBUFFERSIZE);
+    }              
+    r.sleep();
+
+  }
+  return 0;
+}
+</code></pre></div></div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 PENG Yifan (彭一凡). Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?v=85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?v=2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?v=c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?v=a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?v=2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?v=f40d453793ff4f64e238e420181a1d17"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/js/search/ninja-keys.min.js?v=a3446f084dcaecc5f75aa1757d087dcf"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/js/search-setup.js?v=6c304f7b1992d4b60f7a07956e52f04a"></script> <script src="/assets/js/search-data.js"></script> <script src="/assets/js/shortcut-key.js?v=ccc841c459bfc0e64c1c2b5acd10df02"></script> </body> </html>

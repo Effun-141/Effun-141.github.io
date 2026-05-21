@@ -564,7 +564,62 @@ ninja.data = [{
           section: "News",},{id: "news-a-paper-was-accepted-by-2026-ieee-international-conference-on-robotics-and-automation-icra",
           title: '🎉 A paper was accepted by 2026 IEEE International Conference on Robotics and...',
           description: "",
-          section: "News",},{id: "teachings-data-science-fundamentals",
+          section: "News",},{id: "projects-autonomous-harvesting-robot-project",
+          title: 'Autonomous Harvesting Robot Project',
+          description: "Navigation and localization system for an autonomous harvesting robot in a simulated farmland environment.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/autonomous-harvesting-robot/";
+            },},{id: "projects-dynamic-visual-slam-project",
+          title: 'Dynamic Visual SLAM Project',
+          description: "RGB-D visual SLAM for robust localization and dense mapping in complex dynamic environments.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/dynamic-visual-slam/";
+            },},{id: "projects-generative-ai-and-scene-understanding-project",
+          title: 'Generative AI and Scene Understanding Project',
+          description: "NSFC proposal work on generative models for spacecraft scene understanding and reasoning.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/generative-ai-scene-understanding/";
+            },},{id: "projects-laser-slam-system-based-on-lego-loam",
+          title: 'Laser SLAM System Based on LeGO-LOAM',
+          description: "Laser SLAM mapping and localization experiments based on LeGO-LOAM and KITTI data.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/lego-loam-laser-slam/";
+            },},{id: "projects-multi-agv-warehouse-management-system",
+          title: 'Multi-AGV Warehouse Management System',
+          description: "A multi-AGV warehouse management system with scheduling and collaborative transport.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/multi-agv-warehouse-management-system/";
+            },},{id: "projects-quadruped-bionic-robot-visual-slam",
+          title: 'Quadruped Bionic Robot Visual SLAM',
+          description: "Navigation and localization system for a quadruped bionic robot based on visual SLAM.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/quadruped-bionic-robot-visual-slam/";
+            },},{id: "projects-ros-autonomous-vehicle-platform",
+          title: 'ROS Autonomous Vehicle Platform',
+          description: "An unmanned vehicle experimental platform for SLAM, planning, and multi-vehicle interaction scenarios.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ros-autonomous-vehicle-platform/";
+            },},{id: "projects-vehicle-type-exploration-and-cruising-robot",
+          title: 'Vehicle-Type Exploration and Cruising Robot',
+          description: "A vehicle-type robot for exploration, cruising, and task execution.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/vehicle-exploration-cruising-robot/";
+            },},{id: "projects-electromagnetic-railgun-based-on-visual-guidance",
+          title: 'Electromagnetic Railgun Based on Visual Guidance',
+          description: "A vision-guided electromagnetic railgun system for target recognition and aiming.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/visual-guidance-electromagnetic-railgun/";
+            },},{id: "projects-intelligent-car-based-on-visual-guidance",
+          title: 'Intelligent Car Based on Visual Guidance',
+          description: "A visual-guided smart car project for autonomous track perception and control.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/visual-guidance-smart-car/";
+            },},{id: "projects-wheeled-legged-amphibious-robot-project",
+          title: 'Wheeled-Legged Amphibious Robot Project',
+          description: "A wheeled-legged amphibious robot with super-helical sliding mode balance control.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/wheeled-legged-amphibious-robot/";
+            },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
           section: "Teachings",handler: () => {
