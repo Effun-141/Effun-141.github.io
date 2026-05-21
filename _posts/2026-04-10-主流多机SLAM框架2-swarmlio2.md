@@ -1016,8 +1016,6 @@ $$
 其中 18 是本机 ego state 的误差维度，后面每个队友增加 6 维 global extrinsic 误差。
 
 
-$$\boxplus / \boxminus$$ 是什么？
-
 对于一个简单的状态块：
 
 $$
@@ -1129,9 +1127,33 @@ $$
 
 这也是为什么 Swarm-LIO2 说它在 ESIKF framework 中融合 LiDAR、IMU 和 mutual observation。
 
-#### 预测模型
+---
+
+#### 预测步
 
 预测步一般分成状态预测-误差状态传播-协方差传播
+
+Swarm-LIO2中的状态转移模型可以写为：
+
+$$
+\mathbf{x}_{i,\tau+1}
+=
+\mathbf{x}_{i,\tau}
+\boxplus
+\left(
+\Delta t_{\tau}
+\mathbf{f}_{i}
+\left(
+\mathbf{x}_{i,\tau},
+\mathbf{u}_{i,\tau},
+\mathbf{w}_{i,\tau}
+\right)
+\right)
+$$
+
+其中，$\mathbf{x}_{i,\tau}$ 表示第 $i$ 个机器人在时刻 $\tau$ 的状态，$\mathbf{u}_{i,\tau}$ 表示输入量，$\mathbf{w}_{i,\tau}$ 表示过程噪声，$\mathbf{f}_i(\cdot)$ 表示系统动力学模型，$\Delta t_{\tau}$ 表示离散时间间隔，$\boxplus$ 表示流形上的状态更新操作。
+
+
 
 对于 AAV $i$，状态为：
 
@@ -1185,9 +1207,63 @@ $$
 
 也就是 IMU 角速度、加速度输入，以及对应测量噪声和 bias random walk noise。
 
+状态转移方程：
+
+$$
+\mathbf{f}_i \triangleq
+\begin{bmatrix}
+\boldsymbol{\omega}_{m_i} - \mathbf{b}_{g_i} - \mathbf{n}_{g_i} \\[4pt]
+{}^{G_i}\mathbf{v}_{b_i}
++
+\frac{1}{2}
+\left(
+{}^{G_i}\mathbf{R}_{b_i}
+\left(
+\mathbf{a}_{m_i}
+-
+\mathbf{b}_{a_i}
+-
+\mathbf{n}_{a_i}
+\right)
++
+{}^{G_i}\mathbf{g}
+\right)
+\Delta t_{\tau} \\[4pt]
+{}^{G_i}\mathbf{R}_{b_i}
+\left(
+\mathbf{a}_{m_i}
+-
+\mathbf{b}_{a_i}
+-
+\mathbf{n}_{a_i}
+\right)
++
+{}^{G_i}\mathbf{g} \\[4pt]
+\mathbf{n}_{b_{g_i}} \\[4pt]
+\mathbf{n}_{b_{a_i}} \\[4pt]
+\mathbf{0}_{3 \times 1} \\[4pt]
+\vdots \\[4pt]
+\mathbf{0}_{3 \times 1} \\[4pt]
+\mathbf{0}_{3 \times 1} \\[4pt]
+\vdots
+\end{bmatrix}
+$$
 
 
-## 2.2 名义状态预测： IMU 运动模型
+#### 首先是名义状态预测： IMU 运动模型
+
+预测时令 process noise 为零：
+
+$$
+\hat{\mathbf{x}}_{i,\tau+1}
+=
+\hat{\mathbf{x}}_{i,\tau}
+\boxplus
+\left(
+\Delta t_{\tau} f_i(\hat{\mathbf{x}}_{i,\tau},\mathbf{u}_{i,\tau},0)
+\right)
+$$
+
 
 记：
 
@@ -1302,28 +1378,366 @@ $$
 {}^{G_i}\hat{T}_{G_j,k}
 $$
 
-这就是论文 Eq. (4)-(6) 的展开形式。论文采用 compact manifold form：
+也就是说我们先用零噪声模型预测一个名义状态，然后推导真实状态相对于该名义状态的误差如何传播，并传播协方差；等 LiDAR 和 mutual observation 测量到来后，再通过 ESIKF update 求解误差修正量，并将该误差修正量注入名义状态。
+
+#### 误差状态传播
+
+不直接传播 $\hat{x}$ 的协方差，而是传播：
 
 $$
-\mathbf{x}_{i,\tau+1}
+\delta x_k = x_k \boxminus \hat{x}_k
+$$
+
+对于 Swarm-LIO2，我们令误差状态顺序为：
+
+$$
+\delta x
 =
-\mathbf{x}_{i,\tau}
-\boxplus
+\left[
+\delta \theta^T,
+\delta p^T,
+\delta v^T,
+\delta b_g^T,
+\delta b_a^T,
+\delta g^T,
+\cdots,
+\delta \theta_{G_j}^T,
+\delta p_{G_j}^T,
+\cdots
+\right]^T
+$$
+
+其中：
+
+$$
+R=\hat{R}\mathrm{Exp}(\delta \theta)
+$$
+
+$$
+p=\hat{p}+\delta p
+$$
+
+$$
+v=\hat{v}+\delta v
+$$
+
+$$
+b_g=\hat{b}_g+\delta b_g
+$$
+
+$$
+b_a=\hat{b}_a+\delta b_a
+$$
+
+$$
+g=\hat{g}+\delta g
+$$
+
+$$
+{}^{G_i}R_{G_j}
+=
+{}^{G_i}\hat{R}_{G_j}
+\mathrm{Exp}(\delta \theta_{G_j})
+$$
+
+$$
+{}^{G_i}p_{G_j}
+=
+{}^{G_i}\hat{p}_{G_j}
++
+\delta p_{G_j}
+$$
+
+ESIKF 的线性化目标是得到：
+
+$$
+\delta x_{k+1}
+\approx
+F_x\delta x_k+F_w w_k
+$$
+
+然后协方差传播为：
+
+$$
+P_{k+1}
+=
+F_xP_kF_x^T+F_wQF_w^T
+$$
+
+
+下面给出两个比较难以推导的例子参考：
+---
+
+#### 旋转误差传播推导
+
+真实旋转传播：
+
+$$
+R_{k+1}
+=
+R_k\mathrm{Exp}
 \left(
-\Delta t_{\tau} f_i(\mathbf{x}_{i,\tau},\mathbf{u}_{i,\tau},\mathbf{w}_{i,\tau})
+(\omega_m-b_g-n_g)\Delta t
 \right)
 $$
 
-预测时令 process noise 为零：
+代入误差形式：
 
 $$
-\hat{\mathbf{x}}_{i,\tau+1}
+R_k=\hat{R}_k\mathrm{Exp}(\delta \theta_k)
+$$
+
+$$
+b_g=\hat{b}_g+\delta b_g
+$$
+
+得到：
+
+$$
+R_{k+1}
 =
-\hat{\mathbf{x}}_{i,\tau}
-\boxplus
+\hat{R}_k
+\mathrm{Exp}(\delta \theta_k)
+\mathrm{Exp}
 \left(
-\Delta t_{\tau} f_i(\hat{\mathbf{x}}_{i,\tau},\mathbf{u}_{i,\tau},0)
+(\hat{\omega}-\delta b_g-n_g)\Delta t
 \right)
 $$
 
-FAST-LIO2 中也是同样的结构：IMU 到来的做 propagation，LiDAR scan 到来的做 iterated update。
+其中：
+
+$$
+\hat{\omega}=\omega_m-\hat{b}_g
+$$
+
+名义预测为：
+
+$$
+\hat{R}_{k+1}
+=
+\hat{R}_k
+\mathrm{Exp}(\hat{\omega}\Delta t)
+$$
+
+误差定义：
+
+$$
+R_{k+1}
+=
+\hat{R}_{k+1}
+\mathrm{Exp}(\delta \theta_{k+1})
+$$
+
+所以：
+
+$$
+\hat{R}_k
+\mathrm{Exp}(\hat{\omega}\Delta t)
+\mathrm{Exp}(\delta \theta_{k+1})
+=
+\hat{R}_k
+\mathrm{Exp}(\delta \theta_k)
+\mathrm{Exp}
+\left(
+(\hat{\omega}-\delta b_g-n_g)\Delta t
+\right)
+$$
+
+左右同乘 $\hat{R}_k^{-1}$，得到：
+
+$$
+\mathrm{Exp}(\hat{\omega}\Delta t)
+\mathrm{Exp}(\delta \theta_{k+1})
+=
+\mathrm{Exp}(\delta \theta_k)
+\mathrm{Exp}
+\left(
+(\hat{\omega}-\delta b_g-n_g)\Delta t
+\right)
+$$
+
+移项：
+
+$$
+\mathrm{Exp}(\delta \theta_{k+1})
+=
+\mathrm{Exp}(-\hat{\omega}\Delta t)
+\mathrm{Exp}(\delta \theta_k)
+\mathrm{Exp}
+\left(
+(\hat{\omega}-\delta b_g-n_g)\Delta t
+\right)
+$$
+
+接下来使用右雅可比近似：
+
+$$
+\mathrm{Exp}\left((\hat{\omega}-\delta b_g-n_g)\Delta t\right)
+\approx
+\mathrm{Exp}(\hat{\omega}\Delta t)
+\mathrm{Exp}\left(
+-J_r(\hat{\omega}\Delta t)(\delta b_g+n_g)\Delta t
+\right)
+$$
+
+代入后：
+
+$$
+\mathrm{Exp}(\delta\theta_{k+1})
+\approx
+\mathrm{Exp}(-\hat{\omega}\Delta t)
+\mathrm{Exp}(\delta\theta_k)
+\mathrm{Exp}(\hat{\omega}\Delta t)
+\mathrm{Exp}\left(
+-J_r(\hat{\omega}\Delta t)(\delta b_g+n_g)\Delta t
+\right)
+$$
+
+用 BCH 一阶近似，得到：
+
+$$
+\delta\theta_{k+1}
+\approx
+\mathrm{Exp}(-\hat{\omega}\Delta t)\delta\theta_k
+-
+J_r(\hat{\omega}\Delta t)\delta b_g\Delta t
+-
+J_r(\hat{\omega}\Delta t)n_g\Delta t
+$$
+
+这正是你手写图第一部分推导的内容。
+
+如果 IMU 频率很高，$\Delta t$ 很小，则：
+
+$$
+J_r(\hat{\omega}\Delta t)\approx I
+$$
+
+$$
+\mathrm{Exp}(-\hat{\omega}\Delta t)
+\approx
+I-[\hat{\omega}]\Delta t
+$$
+
+#### 位置误差传播推导
+
+真实位置传播：
+
+$$
+p_{k+1}
+=
+p_k+v_k\Delta t
++
+\frac{1}{2}
+\left(
+R_k(a_m-b_a-n_a)+g
+\right)
+\Delta t^2
+$$
+
+代入：
+
+$$
+p_k=\hat{p}_k+\delta p_k
+$$
+
+$$
+v_k=\hat{v}_k+\delta v_k
+$$
+
+$$
+R_k=\hat{R}_k\mathrm{Exp}(\delta\theta_k)
+$$
+
+$$
+b_a=\hat{b}_a+\delta b_a
+$$
+
+$$
+g=\hat{g}+\delta g
+$$
+
+记：
+
+$$
+\hat{a}=a_m-\hat{b}_a
+$$
+
+则：
+
+$$
+a_m-b_a-n_a
+=
+\hat{a}-\delta b_a-n_a
+$$
+
+于是：
+
+$$
+R_k(a_m-b_a-n_a)
+=
+\hat{R}_k
+\mathrm{Exp}(\delta\theta_k)
+(\hat{a}-\delta b_a-n_a)
+$$
+
+一阶近似：
+
+$$
+\mathrm{Exp}(\delta\theta_k)\hat{a}
+\approx
+\hat{a}+\delta\theta_k\times\hat{a}
+=
+\hat{a}-[\hat{a}]_{\times}\delta\theta_k
+$$
+
+忽略二阶小量 $\delta\theta\delta b_a、\delta\theta n_a$，得：
+
+$$
+R_k(a_m-b_a-n_a)
+\approx
+\hat{R}_k\hat{a}
+-
+\hat{R}_k[\hat{a}]_{\times}\delta\theta_k
+-
+\hat{R}_k\delta b_a
+-
+\hat{R}_k n_a
+$$
+
+名义位置预测：
+
+$$
+\hat{p}_{k+1}
+=
+\hat{p}_k+\hat{v}_k\Delta t
++
+\frac{1}{2}
+\left(
+\hat{R}_k\hat{a}+\hat{g}
+\right)
+\Delta t^2
+$$
+
+因此真实减名义：
+
+$$
+\delta p_{k+1}
+=
+\delta p_k
++
+\delta v_k\Delta t
+-
+\frac{1}{2}
+\hat{R}_k[\hat{a}]_{\times}\delta\theta_k\Delta t^2
+-
+\frac{1}{2}
+\hat{R}_k\delta b_a\Delta t^2
++
+\frac{1}{2}
+\delta g\Delta t^2
+-
+\frac{1}{2}
+\hat{R}_k n_a\Delta t^2
+$$
+
