@@ -560,7 +560,7 @@ $$
 因此 trajectory matching 求解下面的 least-squares problem：
 
 $$
-\min_{{}^{G_i}\mathbf{R}_{G_j}, {}^{G_i}\mathbf{p}_{G_j}}
+\min_{\,{}^{G_i}\mathbf{R}_{G_j}, {}^{G_i}\mathbf{p}_{G_j}\,}
 \sum_{k=1}^{K}
 \frac{1}{2}
 \left\|
