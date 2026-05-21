@@ -4,7 +4,7 @@ title: "ROS Autonomous Vehicle Platform"
 description: "An unmanned vehicle experimental platform for SLAM, planning, and multi-vehicle interaction scenarios."
 img: assets/img/img/20220928/2.jpg
 importance: 5
-category: competition
+category: research
 ---
 
 ## Introduction
