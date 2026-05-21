@@ -3,7 +3,7 @@ layout: page
 title: "Quadruped Bionic Robot Visual SLAM"
 description: "Navigation and localization system for a quadruped bionic robot based on visual SLAM."
 img: assets/img/img/20210113/微信图片_20240908173151.jpg
-importance: 2
+importance: 3
 category: research
 ---
 
