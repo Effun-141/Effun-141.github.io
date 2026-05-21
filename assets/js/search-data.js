@@ -574,11 +574,6 @@ ninja.data = [{
           description: "RGB-D visual SLAM for robust localization and dense mapping in complex dynamic environments.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/dynamic-visual-slam/";
-            },},{id: "projects-generative-ai-and-scene-understanding-project",
-          title: 'Generative AI and Scene Understanding Project',
-          description: "NSFC proposal work on generative models for spacecraft scene understanding and reasoning.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/generative-ai-scene-understanding/";
             },},{id: "projects-laser-slam-system-based-on-lego-loam",
           title: 'Laser SLAM System Based on LeGO-LOAM',
           description: "Laser SLAM mapping and localization experiments based on LeGO-LOAM and KITTI data.",
