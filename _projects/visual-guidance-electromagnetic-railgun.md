@@ -2,7 +2,7 @@
 layout: page
 title: "Electromagnetic Railgun Based on Visual Guidance"
 description: "A vision-guided electromagnetic railgun system for target recognition and aiming."
-img: assets/img/img/20190801/curved-fire-gun-1.jpg
+img: assets/img/img/20190801/微信图片_20240906152055.jpg
 importance: 2
 category: competition
 ---
