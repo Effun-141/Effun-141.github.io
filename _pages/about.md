@@ -40,22 +40,7 @@ I received my Master's degree in Control Science and Engineering in April 2025 a
 
 [Google Scholar](https://scholar.google.ca/citations?user=J6gOU4gAAAAJ&hl=zh-CN&authuser=1)
 
-<!-- ## Skills
 
-**视觉 SLAM 与机器人感知：**
-熟悉特征提取与匹配、位姿估计与优化、点云地图构建等视觉 SLAM 基础理论；关注基于学习方法的动态视觉 SLAM，尤其是动态目标检测、动态特征剔除与静态地图构建；阅读并二次开发过 ORB-SLAM2/3、DS-SLAM、SG-SLAM 等开源系统。
-
-**编程与开发：**
-主要使用 C/C++，具备一定 Python 开发能力；熟悉 Ubuntu/Linux 开发环境，能够进行命令行开发、调试与实验部署。
-
-**常用工具与框架：**
-ROS、OpenCV、OpenMMLab、g2o、PCL、Git/GitHub、MATLAB、CLion、Altium Designer、Keil 5、Photoshop、Word、PowerPoint 等。
-
-**工程实践：**
-具备 PCB 硬件设计经验，熟悉常用实验室设备的使用，包括电烙铁、万用表、示波器等；能够独立完成机器人系统的机械、电路、控制与软件集成。
-
-**科研与写作：**
-具备文献调研、学术写作、技术绘图、项目申报书撰写和实验总结能力。 -->
 
 ## Honours & Awards
 
