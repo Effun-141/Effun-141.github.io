@@ -503,7 +503,153 @@ $$
 
 这条轨迹后面用于和网络中收到的各个 AAV ego trajectory 做匹配。
 
+**Step 4： trajectory matching 识别队友并求 global extrinsic**：
 
+现在 AAV $i$ 有一条 LiDAR 观测得到的目标轨迹：
+
+$$
+{}^{G_i}\mathcal{T}_m
+=
+\left\{
+{}^{G_i}\breve{\mathbf{p}}_{m,k}
+\right\}_{k=1}^{K}
+$$
+
+同时，AAV $i$ 会从网络中收到每个 teammate $j$ 广播的 ego trajectory：
+
+$$
+{}^{G_j}\mathcal{T}_j
+=
+\left\{
+{}^{G_j}\breve{\mathbf{p}}_{b_j,k}
+\right\}_{k=1}^{K}
+$$
+
+如果这个 temporary tracker 实际上跟踪的是 AAV $j$，那么应该存在一个 rigid transformation：
+
+$$
+{}^{G_i}\mathbf{T}_{G_j}
+=
+\left(
+{}^{G_i}\mathbf{R}_{G_j},
+{}^{G_i}\mathbf{p}_{G_j}
+\right)
+$$
+
+使得：
+
+$$
+{}^{G_i}\breve{\mathbf{p}}_{m,k}
+\approx
+{}^{G_i}\mathbf{T}_{G_j}
+\circ
+{}^{G_j}\breve{\mathbf{p}}_{b_j,k}
+$$
+
+也就是：
+
+$$
+{}^{G_i}\breve{\mathbf{p}}_{m,k}
+\approx
+{}^{G_i}\mathbf{R}_{G_j}
+{}^{G_j}\breve{\mathbf{p}}_{b_j,k}
++
+{}^{G_i}\mathbf{p}_{G_j}
+$$
+
+因此 trajectory matching 求解下面的 least-squares problem：
+
+$$
+\min_{{}^{G_i}\mathbf{R}_{G_j}, {}^{G_i}\mathbf{p}_{G_j}}
+\sum_{k=1}^{K}
+\frac{1}{2}
+\left\|
+{}^{G_i}\breve{\mathbf{p}}_{m,k}
+-
+\left(
+{}^{G_i}\mathbf{R}_{G_j}
+{}^{G_j}\breve{\mathbf{p}}_{b_j,k}
++
+{}^{G_i}\mathbf{p}_{G_j}
+\right)
+\right\|^2
+$$
+
+这就是论文 Eq. (1) 的本质。论文也说明，只选取时间戳接近的数据对参与匹配，并且最近 $K$ 个位置组成 sliding window，避免通信丢包和计算量过大。
+
+下面推导trajectory matching 的闭式解
+
+令：
+
+$$
+p_k
+=
+{}^{G_i}\breve{\mathbf{p}}_{m,k}
+$$
+
+$$
+q_k
+=
+{}^{G_j}\breve{\mathbf{p}}_{b_j,k}
+$$
+
+要求：
+
+$$
+p_k
+\approx
+Rq_k + t
+$$
+
+目标函数：
+
+$$
+J(R,t)
+=
+\sum_{k=1}^{K}
+\frac{1}{2}
+\left\|
+p_k - Rq_k - t
+\right\|^2
+$$
+
+其中：
+
+$$
+R \in SO(3),
+\qquad
+t \in \mathbb{R}^3
+$$
+
+先对 $t$ 求最优解。令：
+
+$$
+\bar{p}
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+p_k,
+\qquad
+\bar{q}
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+q_k
+$$
+
+对 $t$ 求导：
+
+$$
+\frac{\partial J}{\partial t}
+=
+-
+\sum_{k=1}^{K}
+\left(
+p_k - Rq_k - t
+\right)
+=
+0
+$$
 
 
 #### C. 基于factor graph的
@@ -514,7 +660,7 @@ $$
     </div>
 </div>
 <div class="caption">
-    基于雷达反射率的目标检测
+    外参初始化因子图
 </div>
 
 
