@@ -1088,7 +1088,7 @@ $$
 \bar{x} = \hat{x} \boxplus \widehat{\delta x}
 $$
 
-这就是你手写图里一直在写的：
+这就是：
 
 $$
 R = \hat{R}\mathrm{Exp}(\delta \theta)
