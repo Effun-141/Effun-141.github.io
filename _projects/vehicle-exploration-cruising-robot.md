@@ -2,7 +2,7 @@
 layout: page
 title: "Vehicle-Type Exploration and Cruising Robot"
 description: "A vehicle-type robot for exploration, cruising, and task execution."
-img: assets/img/img/20191020/微信图片_20240906151349.jpg
+img: assets/img/img/20191020/微信图片_20240906151343.jpg
 importance: 3
 category: competition
 ---
