@@ -910,6 +910,9 @@ $$
 
 ### 3.3 分布式状态估计
 
+---
+
+这一部分涉及内容很多，在这里我先给一个总结：
 
 Swarm-LIO2 使用的是流形上的误差状态迭代卡尔曼滤波。它并不是直接在欧氏空间中对完整状态做普通加法更新，而是维护一个位于流形上的名义状态 $\hat{x}$，同时用误差状态 $$\delta x = x \boxminus \hat{x}$$ 描述真实状态相对于名义状态的局部小扰动。对于旋转 $R \in SO(3)$，误差写成 $$R = \hat{R}\mathrm{Exp}(\delta \theta)$$，因此滤波器只需要在三维小角度误差 $\delta \theta$ 上做线性化和协方差传播，而不会破坏旋转矩阵约束，也避免了对 9 个冗余旋转矩阵元素直接求导。协方差 $P$ 描述的是误差状态的不确定性，例如旋转部分的协方差描述的是 $\delta \theta$ 的不确定性，而不是旋转矩阵 $R$ 本身的协方差。
 
@@ -962,3 +965,131 @@ H\delta x + Dv
 $$
 
 prediction prior 和 measurement residual 共同构成 MAP 问题，求解得到误差修正量 $\widehat{\delta x}$，再通过 $\hat{x} \leftarrow \hat{x} \boxplus \widehat{\delta x}$ 注入名义状态。由于该过程是 iterated 的，系统会在更新后的名义状态附近重新线性化测量模型，从而减小非线性测量带来的线性化误差。
+
+---
+
+**这是一个总体的描述，如果是第一次阅读可能会感觉很绕，所以接下来详细拆解一下这其中的原理，首先明确一些概念，ESIKF 中的“误差状态”到底是什么：**
+
+Swarm-LIO2 是建立在 IKFoM / on-manifold IESKF 和 FAST-LIO2 之上的。IKFoM 论文的核心思想是：机器人状态往往不在普通欧氏空间里，而是在 manifold 上，比如旋转 $SO(3)$。因此不能像普通 Kalman Filter 那样简单写：
+
+$$
+x \leftarrow x + \delta x
+$$
+
+因为旋转矩阵 $R \in SO(3)$ 直接相加后不再是合法旋转矩阵。IKFoM 通过 $\boxplus / \boxminus$ 操作把 manifold 上的状态和局部欧氏误差联系起来；它强调 error-state system 是 minimal parameterization，并且 manifold constraints 可以和系统行为分解耦。
+
+对于 Swarm-LIO2 中文种复合状态：
+
+$$
+\mathbf{x}_i =
+\left[
+{}^{G_i}\mathbf{R}_{b_i},
+{}^{G_i}\mathbf{p}_{b_i},
+{}^{G_i}\mathbf{v}_{b_i},
+\mathbf{b}_{g_i},
+\mathbf{b}_{a_i},
+{}^{G_i}\mathbf{g},
+\cdots,
+{}^{G_i}\mathbf{R}_{G_j},
+{}^{G_i}\mathbf{p}_{G_j},
+\cdots
+\right]
+$$
+
+它的状态空间是：
+
+$$
+\mathcal{M}
+=
+SO(3) \times \mathbb{R}^{15}
+\times \cdots \times SO(3) \times \mathbb{R}^3
+$$
+
+论文也明确给出状态维度为：
+
+$$
+\dim(\mathcal{M}) = 18 + 6(N - 1)
+$$
+
+其中 18 是本机 ego state 的误差维度，后面每个队友增加 6 维 global extrinsic 误差。
+
+
+$$\boxplus / \boxminus$$ 是什么？
+
+对于一个简单的状态块：
+
+$$
+x = (R, a) \in SO(3) \times \mathbb{R}^n
+$$
+
+定义：
+
+$$
+x \boxplus \delta x
+=
+\begin{bmatrix}
+R \\
+a
+\end{bmatrix}
+\boxplus
+\begin{bmatrix}
+\delta \theta \\
+\delta a
+\end{bmatrix}
+=
+\begin{bmatrix}
+R\mathrm{Exp}(\delta \theta) \\
+a + \delta a
+\end{bmatrix}
+$$
+
+反过来：
+
+$$
+x_1 \boxminus x_2
+=
+\begin{bmatrix}
+R_1 \\
+a_1
+\end{bmatrix}
+\boxminus
+\begin{bmatrix}
+R_2 \\
+a_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathrm{Log}(R_2^T R_1) \\
+a_1 - a_2
+\end{bmatrix}
+$$
+
+所以误差状态不是原始状态本身，而是：
+
+$$
+\delta x = x \boxminus \hat{x}
+$$
+
+其中：
+
+- $x$：真实状态；
+- $\hat{x}$：当前估计状态；
+- $\delta x$：真实状态相对于当前估计状态的“小扰动”。
+
+对于旋转部分：
+
+$$
+R = \hat{R}\mathrm{Exp}(\delta \theta)
+$$
+
+也就是说，滤波器不是直接估计 $R$，而是估计一个小角度误差 $\delta \theta \in \mathbb{R}^3$。更新结束后再把它“加回” manifold：
+
+$$
+\bar{x} = \hat{x} \boxplus \widehat{\delta x}
+$$
+
+这就是你手写图里一直在写的：
+
+$$
+R = \hat{R}\mathrm{Exp}(\delta \theta)
+$$
