@@ -220,11 +220,97 @@ $$
 
 如果 2 秒内没有收到某个 teammate 的 heartbeat，则把它设为 disconnected；如果之后重新收到 heartbeat，则恢复为 connected。这个设计是为了支持 plug-and-play，也就是队友可以中途加入，也可以短时掉线后重新回来。论文明确说初始化模块通过 heartbeat 维护 teammate list，并在发现新 teammate 后进行 temporal calibration。
 
-## 1.3 时间标定： 基于 PTP peer-delay 机制
-
-Swarm-LIO2 使用的是类似 Precision Time Protocol, PTP 中 peer-delay mechanism 的思想。PTP 本质上是通过消息往返时间戳，估计两个设备之间的 clock offset 和 path delay。PTP 论文中也说明，peer-delay 机制用于测量 peer-to-peer delay，不需要所有 slave 都向 grandmaster 请求 end-to-end delay，因此更适合可扩展网络。
+**基于 PTP peer-delay 机制标定时间偏差：**Swarm-LIO2 使用的是类似 Precision Time Protocol, PTP 中 peer-delay mechanism 的思想。PTP 本质上是通过消息往返时间戳，估计两个设备之间的 clock offset 和 path delay。PTP 论文中也说明，peer-delay 机制用于测量 peer-to-peer delay，不需要所有 slave 都向 grandmaster 请求 end-to-end delay，因此更适合可扩展网络。
 
 Swarm-LIO2 并不是建立一个完整的 PTP master-slave 全局时钟系统，而是借用了它的 pairwise request-response 思路：每一对 AAV 之间单独估计 temporal offset。因此它仍然是 decentralized 的，不需要指定 master clock。
+
+那么如何由四个时间戳估计 offset? 数学推导如下：
+
+考虑 AAV $i$ 和 AAV $j$。假设 AAV $i$ 向 AAV $j$ 发送 request，AAV $j$ 回复 response。我们定义四个时间戳：
+
+$$
+t_1^i：\text{AAV } i \text{ 发送 request 的本地时间}
+$$
+
+$$
+t_2^j：\text{AAV } j \text{ 接收 request 的本地时间}
+$$
+
+$$
+t_3^j：\text{AAV } j \text{ 发送 response 的本地时间}
+$$
+
+$$
+t_4^i：\text{AAV } i \text{ 接收 response 的本地时间}
+$$
+
+设两机之间的单向网络延迟为 $d$，并假设短时间内双向延迟近似对称。设 AAV $j$ 的时钟相对 AAV $i$ 的时钟偏移为：
+
+$$
+{}^i\tau_j = t^j - t^i
+$$
+
+也就是说，如果同一个真实时刻下，AAV $j$ 的本地时间比 AAV $i$ 大，那么 ${}^i\tau_j > 0$。
+
+于是有：
+
+$$
+t_2^j = t_1^i + d + {}^i\tau_j
+$$
+
+因为 AAV $i$ 在 $t_1^i$ 发出消息，经过网络延迟 $d$，到达 AAV $j$。到达时如果换成 AAV $j$ 的时钟，需要加上 offset。
+
+同理，response 从 AAV $j$ 发出后到达 AAV $i$：
+
+$$
+t_4^i = t_3^j + d - {}^i\tau_j
+$$
+
+因为 $t_3^j$ 是 AAV $j$ 的时间，转换回 AAV $i$ 的时间要减去 ${}^i\tau_j$，再加上传输延迟 $d$。
+
+整理两个式子：
+
+$$
+t_2^j - t_1^i = d + {}^i\tau_j
+$$
+
+$$
+t_4^i - t_3^j = d - {}^i\tau_j
+$$
+
+两式相加得到 path delay：
+
+$$
+\hat{d}
+=
+\frac{
+(t_2^j - t_1^i) + (t_4^i - t_3^j)
+}{2}
+$$
+
+两式相减得到 temporal offset：
+
+$$
+{}^i\hat{\tau}_j
+=
+\frac{
+(t_2^j - t_1^i) - (t_4^i - t_3^j)
+}{2}
+$$
+
+这和 PTP 中 offset/path delay 的思想是一致的。PTP 论文中也给出 offset 可以由 master-slave 消息时间戳和 path delay 计算，path delay 则由双向消息时间差估计。
+
+Swarm-LIO2 中为了降低随机误差和网络抖动的影响，会重复这个 request-response 过程 30 次，然后取平均值作为最终的 ${}^i\tau_j$。论文指出，典型 AAV 飞行时间内 clock drift 可以忽略，所以通常只需要标定一次；如果 clock drift 明显，也可以固定频率重新估计，例如 1 Hz。
+
+最后，估计出的 ${}^i\tau_j$ 会存到 Hash table 中：
+
+$$
+\text{key : AAV ID,}
+\qquad
+\text{value : } {}^i\tau_j
+$$
+
+之后 AAV $i$ 收到 AAV $j$ 的任意数据，就可以快速查表修正时间戳。
 
 
 #### B. 直接lidar观测下的队友检测与外参标定
