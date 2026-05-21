@@ -7,8 +7,6 @@ nav: true
 nav_order: 9
 ---
 
-A small collection of academic activities, conference moments, and robotics competition memories.
-
 ## Academic Activities
 
 ### ICRA 2025 Workshop on Field Robotics
