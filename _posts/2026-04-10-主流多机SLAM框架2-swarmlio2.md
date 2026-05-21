@@ -1793,219 +1793,674 @@ F_xP_kF_x^T
 F_wQF_w^T
 $$
 
-#### 更新步
+#### 更新步：Error-State Iterative State Update
 
-这里给出LiDAR 点云、主动互观测、被动互观测如何变成测量残差，并进入 ESIKF 更新？
+解释 LiDAR 点云、主动互观测、被动互观测如何被统一建模为测量残差，并进入 ESIKF 更新。
 
-当接收到新的 LiDAR 扫描或互观测数据时，在扫描结束时刻 $t_{i,k}$ 执行更新。
-
-**测量建模 (Modeling of Measurements)**
-
-通用测量模型为：
-$$y_k = h(x_k, v_k) \tag{8}$$
-
- (a) LiDAR 点云测量
-
-对于第 $n$ 个去畸变的点 $^{b_i}p_n$，其到平面的投影距离模型为：
-
-$$0 = \underbrace{u_{n}^{T} \left( ^{G_{i}}T_{b_{i}} \circ (^{b_{i}}p_{n} + n_{p,n}) - ^{G_{i}}q_{n} \right)}_{h_{p,n}(x_i, n_{p,n})} \tag{9}$$
-
-
-
-
-(b) 主动互观测 (Active Mutual Observation)
-
-无人机 $i$ 观测到队友 $j$ 的质心点 $$^{b_i}\tilde{p}_{b_j}$$。利用 $j$ 传来的位置估计值 $$^{G_j}\tilde{p}_{b_j}$$，建模如下：
-
-$$\bar{b}_{i}\tilde{p}_{b_j} = \underbrace{(^{G_{i}}T_{b_{i}}^{-1}{}^{G_{i}}T_{G_{j}}) \circ (^{G_{j}}\tilde{p}_{b_{j}} + n_{p_{j}}) + n_{ao,ij}}_{h_{ao,ij}(x_i, n_{p_j}, n_{ao,ij})} \tag{11}$$
-
-FAST-LIO2 中， LiDAR scan 经过 IMU back-propagation / motion compensation 后，点可以看成在 scan end time 被采样，然后把 raw point 直接注册到地图中的局部平面上。 FAST-LIO2 的点到平面测量模型是：真实 LiDAR 点投影到 global frame 后应该落在地图局部平面上。
-
-Swarm-LIO2 中，第 $n$ 个去畸变点在当前 body frame $b_i$ 下为：
+在每一帧 LiDAR scan 结束时刻 $t_{i,k}$，AAV $i$ 已经通过 IMU prediction 得到预测名义状态和预测协方差：
 
 $$
-{}^{b_i}p_n
+\hat{\mathbf{x}}_{i,k}, \qquad \hat{\mathbf{P}}_{i,k}
 $$
 
-它有测量噪声：
+更新步的任务是利用当前 LiDAR 点云测量、主动互观测和被动互观测，对预测状态进行修正。需要注意的是，ESIKF 更新步并不是直接求解完整状态，而是在当前名义状态附近求解一个误差状态修正量：
 
 $$
-n_{p,n}
+\delta \mathbf{x}
+=
+\mathbf{x}
+\boxminus
+\hat{\mathbf{x}}
 $$
 
-地图中对应平面的法向量为：
+然后通过 manifold 上的加法将该误差注入名义状态：
 
 $$
-u_n
+\hat{\mathbf{x}}
+\leftarrow
+\hat{\mathbf{x}}
+\boxplus
+\delta \mathbf{x}
+$$
+
+---
+
+### 测量建模：Modeling of Measurements
+
+通用测量模型写为：
+
+$$
+\mathbf{y}_{k}
+=
+\mathbf{h}(\mathbf{x}_{k},\mathbf{v}_{k})
+\tag{8}
+$$
+
+其中：
+
+- $\mathbf{y}_{k}$ 是实际测量；
+- $\mathbf{x}_{k}$ 是系统真实状态；
+- $\mathbf{v}_{k}$ 是测量噪声；
+- $\mathbf{h}(\cdot)$ 是非线性测量函数。
+
+Swarm-LIO2 的更新步中，测量主要包括三类：
+
+1. LiDAR 点云测量；
+2. 主动互观测 active mutual observation；
+3. 被动互观测 passive mutual observation。
+
+---
+
+### LiDAR 点云测量
+
+FAST-LIO2 中，LiDAR scan 经过 IMU back-propagation / motion compensation 后，scan 内的点可以近似看成在 scan end time 同时采样。随后系统将 raw points 直接注册到地图中的局部平面上。
+
+对于 Swarm-LIO2 中 AAV $i$ 的第 $n$ 个去畸变 LiDAR 点，设其在当前 body frame $b_i$ 下为：
+
+$$
+{}^{b_i}\mathbf{p}_{n}
+$$
+
+该点的测量噪声为：
+
+$$
+\mathbf{n}_{p,n}
+$$
+
+地图中与该点匹配的局部平面法向量为：
+
+$$
+\mathbf{u}_{n}
 $$
 
 平面上一点为：
 
 $$
-{}^{G_i}q_n
+{}^{G_i}\mathbf{q}_{n}
 $$
 
-如果状态正确，则：
-
-$$
-{}^{G_i}T_{b_i} \circ \left({}^{b_i}p_n + n_{p,n}\right)
-$$
-
-应该落在该平面上。所以点到平面隐式测量模型是：
+如果当前状态正确，则真实 LiDAR 点投影到 $G_i$ 后应该落在该局部平面上。因此点到平面的隐式测量模型为：
 
 $$
 0
 =
-u_n^T
+\underbrace{
+\mathbf{u}_{n}^{T}
 \left(
-{}^{G_i}T_{b_i}
+{}^{G_i}\mathbf{T}_{b_i}
 \circ
-\left({}^{b_i}p_n+n_{p,n}\right)
--
-{}^{G_i}q_n
-\right)
-$$
-
-也就是论文 Eq. (9)。
-
-如果展开：
-
-$$
-{}^{G_i}T_{b_i}\circ p
-=
-{}^{G_i}R_{b_i}p
-+
-{}^{G_i}p_{b_i}
-$$
-
-则：
-
-$$
-h_{p,n}(x,n_{p,n})
-=
-u_n^T
 \left(
-{}^{G_i}R_{b_i}
-\left({}^{b_i}p_n+n_{p,n}\right)
+{}^{b_i}\mathbf{p}_{n}
 +
-{}^{G_i}p_{b_i}
+\mathbf{n}_{p,n}
+\right)
 -
-{}^{G_i}q_n
+{}^{G_i}\mathbf{q}_{n}
+\right)
+}_{\mathbf{h}_{p,n}(\mathbf{x}_i,\mathbf{n}_{p,n})}
+\tag{9}
+$$
+
+其中刚体变换作用定义为：
+
+$$
+{}^{G_i}\mathbf{T}_{b_i}\circ \mathbf{p}
+=
+{}^{G_i}\mathbf{R}_{b_i}\mathbf{p}
++
+{}^{G_i}\mathbf{p}_{b_i}
+$$
+
+因此点云测量函数可以展开为：
+
+$$
+\mathbf{h}_{p,n}(\mathbf{x}_i,\mathbf{n}_{p,n})
+=
+\mathbf{u}_{n}^{T}
+\left(
+{}^{G_i}\mathbf{R}_{b_i}
+\left(
+{}^{b_i}\mathbf{p}_{n}
++
+\mathbf{n}_{p,n}
+\right)
++
+{}^{G_i}\mathbf{p}_{b_i}
+-
+{}^{G_i}\mathbf{q}_{n}
 \right)
 $$
 
-这个残差只直接约束 ego pose：
+忽略噪声时，在当前迭代点 $\tilde{\mathbf{x}}^{\kappa}$ 处的 LiDAR 点云残差为：
 
 $$
-{}^{G_i}R_{b_i},
+\mathbf{r}_{p,n}^{\kappa}
+=
+0
+-
+\mathbf{h}_{p,n}
+\left(
+\tilde{\mathbf{x}}^{\kappa},
+0
+\right)
+$$
+
+这个点到平面残差直接约束的是 AAV $i$ 的 ego pose：
+
+$$
+{}^{G_i}\mathbf{R}_{b_i},
 \qquad
-{}^{G_i}p_{b_i}
+{}^{G_i}\mathbf{p}_{b_i}
 $$
 
-线性化时，令：
+---
+
+### LiDAR 点云残差的线性化
+
+为了说明该残差如何进入 ESIKF，我们对点云测量模型进行一阶线性化。
+
+令当前名义旋转和位置为：
 
 $$
-R=\hat{R}\mathrm{Exp}(\delta\theta),
+\tilde{\mathbf{R}},
 \qquad
-p=\hat{p}+\delta p
+\tilde{\mathbf{p}}
 $$
 
-忽略噪声时的预测残差：
+真实状态可以写成名义状态加误差状态：
 
 $$
-r_{p,n}
+\mathbf{R}
 =
-0-h_{p,n}(\hat{x},0)
+\tilde{\mathbf{R}}
+\mathrm{Exp}(\delta \boldsymbol{\theta})
 $$
 
-测量函数对 ego pose 的一阶变化为：
-
 $$
-\delta h_{p,n}
+\mathbf{p}
 =
-u_n^T
+\tilde{\mathbf{p}}
++
+\delta \mathbf{p}
+$$
+
+忽略噪声时，测量函数的一阶变化为：
+
+$$
+\delta \mathbf{h}_{p,n}
+=
+\mathbf{u}_{n}^{T}
 \left(
-\hat{R}\mathrm{Exp}(\delta\theta){}^{b_i}p_n
+\tilde{\mathbf{R}}
+\mathrm{Exp}(\delta \boldsymbol{\theta})
+{}^{b_i}\mathbf{p}_{n}
 +
-\hat{p}
+\tilde{\mathbf{p}}
 +
-\delta p
+\delta \mathbf{p}
 -
-q_n
+{}^{G_i}\mathbf{q}_{n}
 \right)
 -
-u_n^T
+\mathbf{u}_{n}^{T}
 \left(
-\hat{R}{}^{b_i}p_n
+\tilde{\mathbf{R}}
+{}^{b_i}\mathbf{p}_{n}
 +
-\hat{p}
+\tilde{\mathbf{p}}
 -
-q_n
+{}^{G_i}\mathbf{q}_{n}
 \right)
 $$
 
-$$
-\mathrm{Exp}(\delta\theta)p
-\approx
-p+\delta\theta\times p
-=
-p-[p]_{\times}\delta\theta
-$$
-
-所以：
+利用小角度近似：
 
 $$
-\delta h_{p,n}
+\mathrm{Exp}(\delta \boldsymbol{\theta})\mathbf{p}
 \approx
--u_n^T\hat{R}[{}^{b_i}p_n]_{\times}\delta\theta
+\mathbf{p}
 +
-u_n^T\delta p
+\delta \boldsymbol{\theta}\times \mathbf{p}
+=
+\mathbf{p}
+-
+[\mathbf{p}]_{\times}
+\delta \boldsymbol{\theta}
 $$
 
-因此点云残差的 pose Jacobian 是：
+得到：
 
 $$
-H_{p,n}
+\delta \mathbf{h}_{p,n}
+\approx
+-
+\mathbf{u}_{n}^{T}
+\tilde{\mathbf{R}}
+[
+{}^{b_i}\mathbf{p}_{n}
+]_{\times}
+\delta \boldsymbol{\theta}
++
+\mathbf{u}_{n}^{T}
+\delta \mathbf{p}
+$$
+
+因此，第 $n$ 个 LiDAR 点到平面残差关于 ego pose 误差的 Jacobian 为：
+
+$$
+\mathbf{H}_{p,n}
 =
 \left[
--u_n^T\hat{R}[{}^{b_i}p_n]_{\times}
+-
+\mathbf{u}_{n}^{T}
+\tilde{\mathbf{R}}
+[
+{}^{b_i}\mathbf{p}_{n}
+]_{\times}
 \quad
-u_n^T
+\mathbf{u}_{n}^{T}
 \quad
-0
+\mathbf{0}
 \quad
 \cdots
 \right]
 $$
 
-这个形式和论文后面 degeneration evaluation 使用的 pose Jacobian 一致。
+该形式也正是后续 LiDAR degeneration evaluation 中使用的 pose Jacobian。
 
-(c) 被动互观测 (Passive Mutual Observation)
+---
 
-无人机 $i$ 接收到来自队友 $j$ 对自己的观测数据 $^{b_j}\tilde{p}_{b_i}$：
-$$b_j \tilde{p}_{b_i} = \underbrace{((^{G_{j}}\tilde{T}_{b_{j}} \oplus n_{T_{j}})^{-1}{}^{G_{i}}T_{G_{j}}^{-1}) \circ ^{G_{i}}p_{b_{i}} + n_{po,ij}}_{h_{po,ij}(x_i, n_{T_j}, n_{po,ij})} \tag{13}$$
+### 主动互观测：Active Mutual Observation
 
-(d) 统一测量方程
+主动互观测指的是：AAV $i$ 用自己的 LiDAR 观测到队友 AAV $j$。
 
-综合所有观测，整体测量向量 $y$、函数 $h$ 和噪声 $v$ 为：
+设 AAV $i$ 在当前 body frame $b_i$ 下观测到 AAV $j$ 的质心位置为：
+
 $$
-\begin{aligned}
-y &= [0, \dots, ^{b_i}\tilde{p}_{b_j}^T, \dots, ^{b_j}p_{b_i}^T, \dots]^T \\
-h &= [\dots, h_{p,n}^T, \dots, h_{ao,ij}^T, \dots, h_{po,ij}^T, \dots]^T \\
-v &= [\dots, n_{p,n}^T, \dots, n_{p_j}^T, n_{ao,ij}^T, \dots, n_{T_j}^T, n_{po,ij}^T, \dots]^T
-\end{aligned} \tag{14}
+{}^{b_i}\breve{\mathbf{p}}_{b_j}
 $$
 
-####  互观测的时间补偿 (Temporal Compensation)
-由于异步和传输延迟，必须补偿时间偏差 $^i\tau_j$。
+AAV $j$ 通过网络发送自己的位置估计：
 
-- **主动观测补偿**：将 $j$ 的位置补偿到 $i$ 的系统时间 $t_{i,k}$：
-  $$^{G_{j}}\tilde{p}_{b_{j}}^{comp} = ^{G_{j}}\tilde{p}_{b_{j}} + ^{G_{j}}\tilde{v}_{b_{j}}(t_{i,k} - t_{j,k} + ^{i}\tau_{j}) \tag{15}$$
-  代入 (11) 得到补偿后的模型 (16)。
+$$
+{}^{G_j}\breve{\mathbf{p}}_{b_j}
+$$
 
-- **被动观测补偿**：将自身位置 $G_i p_{b_i}$ 补偿到队友 $j$ 的系统时间 $t_{j,k}$：
-  $$^{G_{i}}p_{b_{i}}^{comp} = ^{G_{i}}p_{b_{i}} + ^{G_{i}}v_{b_{i}}(t_{j,k} - t_{i,k} - ^{i}\tau_{j}) \tag{17}$$
-  代入 (13) 得到补偿后的模型 (18)。
+该位置是在 $j$ 自己的 global frame $G_j$ 下表达的。AAV $i$ 若要预测队友 $j$ 在自己 body frame $b_i$ 下的位置，需要经过两个变换：
+
+1. 用 global extrinsic ${}^{G_i}\mathbf{T}_{G_j}$ 将队友位置从 $G_j$ 变换到 $G_i$；
+2. 再用 ${}^{G_i}\mathbf{T}_{b_i}^{-1}$ 将其从 $G_i$ 变换到本机 body frame $b_i$。
+
+因此主动互观测模型为：
+
+$$
+{}^{b_i}\breve{\mathbf{p}}_{b_j}
+=
+\underbrace{
+\left(
+{}^{G_i}\mathbf{T}_{b_i}^{-1}
+{}^{G_i}\mathbf{T}_{G_j}
+\right)
+\circ
+\left(
+{}^{G_j}\breve{\mathbf{p}}_{b_j}
++
+\mathbf{n}_{p_j}
+\right)
++
+\mathbf{n}_{ao,ij}
+}_{\mathbf{h}_{ao,ij}(\mathbf{x}_i,\mathbf{n}_{p_j},\mathbf{n}_{ao,ij})}
+\tag{11}
+$$
+
+其中：
+
+- $\mathbf{n}_{p_j}$ 表示队友 $j$ 广播位置估计的不确定性；
+- $\mathbf{n}_{ao,ij}$ 表示 AAV $i$ 对 AAV $j$ 的主动观测噪声。
+
+忽略噪声时，主动互观测的预测值为：
+
+$$
+\mathbf{h}_{ao,ij}(\mathbf{x}_i,0,0)
+=
+\left(
+{}^{G_i}\mathbf{T}_{b_i}^{-1}
+{}^{G_i}\mathbf{T}_{G_j}
+\right)
+\circ
+{}^{G_j}\breve{\mathbf{p}}_{b_j}
+$$
+
+对应残差为：
+
+$$
+\mathbf{r}_{ao,ij}^{\kappa}
+=
+{}^{b_i}\breve{\mathbf{p}}_{b_j}
+-
+\mathbf{h}_{ao,ij}
+\left(
+\tilde{\mathbf{x}}^{\kappa},
+0,
+0
+\right)
+$$
+
+主动互观测同时约束：
+
+$$
+{}^{G_i}\mathbf{T}_{b_i}
+\quad
+\text{and}
+\quad
+{}^{G_i}\mathbf{T}_{G_j}
+$$
+
+也就是说，它既会影响本机 ego pose，也会影响本机与队友 $j$ 的 global extrinsic refinement。
+
+---
+
+### 被动互观测：Passive Mutual Observation
+
+被动互观测指的是：AAV $j$ 用自己的 LiDAR 观测到了 AAV $i$，然后将该观测通过网络发送给 AAV $i$。
+
+设 AAV $j$ 在自己的 body frame $b_j$ 下观测到 AAV $i$ 的位置为：
+
+$$
+{}^{b_j}\breve{\mathbf{p}}_{b_i}
+$$
+
+AAV $i$ 接收到该观测后，需要利用队友 $j$ 发送的位姿估计：
+
+$$
+{}^{G_j}\breve{\mathbf{T}}_{b_j}
+$$
+
+以及本机状态中的 global extrinsic：
+
+$$
+{}^{G_i}\mathbf{T}_{G_j}
+$$
+
+预测 AAV $i$ 在 AAV $j$ 的 body frame $b_j$ 下应该出现的位置。被动互观测模型为：
+
+$$
+{}^{b_j}\breve{\mathbf{p}}_{b_i}
+=
+\underbrace{
+\left[
+\left(
+{}^{G_j}\breve{\mathbf{T}}_{b_j}
+\boxplus
+\mathbf{n}_{T_j}
+\right)^{-1}
+{}^{G_i}\mathbf{T}_{G_j}^{-1}
+\right]
+\circ
+{}^{G_i}\mathbf{p}_{b_i}
++
+\mathbf{n}_{po,ij}
+}_{\mathbf{h}_{po,ij}(\mathbf{x}_i,\mathbf{n}_{T_j},\mathbf{n}_{po,ij})}
+\tag{13}
+$$
+
+其中：
+
+- $\mathbf{n}_{T_j}$ 表示队友 $j$ 发送的 ego pose 估计不确定性；
+- $\mathbf{n}_{po,ij}$ 表示 AAV $j$ 对 AAV $i$ 的被动观测噪声。
+
+忽略噪声时，被动互观测的预测值为：
+
+$$
+\mathbf{h}_{po,ij}(\mathbf{x}_i,0,0)
+=
+\left[
+\left(
+{}^{G_j}\breve{\mathbf{T}}_{b_j}
+\right)^{-1}
+{}^{G_i}\mathbf{T}_{G_j}^{-1}
+\right]
+\circ
+{}^{G_i}\mathbf{p}_{b_i}
+$$
+
+对应残差为：
+
+$$
+\mathbf{r}_{po,ij}^{\kappa}
+=
+{}^{b_j}\breve{\mathbf{p}}_{b_i}
+-
+\mathbf{h}_{po,ij}
+\left(
+\tilde{\mathbf{x}}^{\kappa},
+0,
+0
+\right)
+$$
+
+被动互观测主要约束：
+
+$$
+{}^{G_i}\mathbf{p}_{b_i},
+\qquad
+{}^{G_i}\mathbf{T}_{G_j}
+$$
+
+如果考虑时间补偿，它还会通过补偿项进一步涉及本机速度：
+
+$$
+{}^{G_i}\mathbf{v}_{b_i}
+$$
+
+---
+
+### 统一测量方程
+
+将所有 LiDAR 点云测量、主动互观测、被动互观测堆叠起来，可以得到统一的测量向量、测量函数和噪声向量：
+
+$$
+\mathbf{y}
+=
+\left[
+\cdots,
+0,
+\cdots,
+{}^{b_i}\breve{\mathbf{p}}_{b_j}^{T},
+\cdots,
+{}^{b_j}\breve{\mathbf{p}}_{b_i}^{T},
+\cdots
+\right]^{T}
+$$
+
+$$
+\mathbf{h}
+=
+\left[
+\cdots,
+\mathbf{h}_{p,n}^{T},
+\cdots,
+\mathbf{h}_{ao,ij}^{T},
+\cdots,
+\mathbf{h}_{po,ij}^{T},
+\cdots
+\right]^{T}
+$$
+
+$$
+\mathbf{v}
+=
+\left[
+\cdots,
+\mathbf{n}_{p,n}^{T},
+\cdots,
+\mathbf{n}_{p_j}^{T},
+\mathbf{n}_{ao,ij}^{T},
+\cdots,
+\mathbf{n}_{T_j}^{T},
+\mathbf{n}_{po,ij}^{T},
+\cdots
+\right]^{T}
+$$
+
+因此整体测量模型可以统一写为：
+
+$$
+\mathbf{y}
+=
+\mathbf{h}(\mathbf{x}_i,\mathbf{v})
+\tag{14}
+$$
+
+---
+
+### 互观测的时间补偿：Temporal Compensation
+
+上述 active/passive mutual observation model 默认所有状态和观测都在同一时刻成立。但多机系统中，不同 AAV 的系统时间并不同步，网络传输也会引入延迟。因此，在真正进入 ESIKF update 之前，需要利用 IV-A 中估计得到的 pairwise temporal offset ${}^{i}\tau_j$ 对互观测进行时间补偿。
+
+---
+
+#### 主动观测补偿
+
+主动观测 ${}^{b_i}\breve{\mathbf{p}}_{b_j}$ 是 AAV $i$ 在自己的 scan end time $t_{i,k}$ 观测到 AAV $j$ 的结果。
+
+但是，AAV $j$ 发送的位置估计 ${}^{G_j}\breve{\mathbf{p}}_{b_j}$ 对应的是 AAV $j$ 自己系统时间 $t_{j,k}$ 下的状态。因此，需要将 AAV $j$ 的位置补偿到 AAV $i$ 的系统时间 $t_{i,k}$。
+
+时间差为：
+
+$$
+\Delta t_{j\rightarrow i}
+=
+t_{i,k}
+-
+t_{j,k}
++
+{}^{i}\tau_{j}
+$$
+
+利用 constant velocity model：
+
+$$
+{}^{G_j}\breve{\mathbf{p}}_{b_j}^{comp}
+=
+{}^{G_j}\breve{\mathbf{p}}_{b_j}
++
+{}^{G_j}\breve{\mathbf{v}}_{b_j}
+\left(
+t_{i,k}
+-
+t_{j,k}
++
+{}^{i}\tau_{j}
+\right)
+\tag{15}
+$$
+
+将补偿后的位置代入主动互观测模型，得到：
+
+$$
+{}^{b_i}\breve{\mathbf{p}}_{b_j}
+=
+\left(
+{}^{G_i}\mathbf{T}_{b_i}^{-1}
+{}^{G_i}\mathbf{T}_{G_j}
+\right)
+\circ
+\left[
+{}^{G_j}\breve{\mathbf{p}}_{b_j}
++
+{}^{G_j}\breve{\mathbf{v}}_{b_j}
+\left(
+t_{i,k}
+-
+t_{j,k}
++
+{}^{i}\tau_j
+\right)
++
+\mathbf{n}_{p_j}
+\right]
++
+\mathbf{n}_{ao,ij}
+\tag{16}
+$$
+
+---
+
+#### 被动观测补偿
+
+被动观测 ${}^{b_j}\breve{\mathbf{p}}_{b_i}$ 是 AAV $j$ 在自己的系统时间 $t_{j,k}$ 观测 AAV $i$ 得到的结果。
+
+因此，AAV $i$ 需要将自己的位置从当前系统时间 $t_{i,k}$ 补偿到 AAV $j$ 的观测时间 $t_{j,k}$。时间差为：
+
+$$
+\Delta t_{i\rightarrow j}
+=
+t_{j,k}
+-
+t_{i,k}
+-
+{}^{i}\tau_j
+$$
+
+利用 constant velocity model：
+
+$$
+{}^{G_i}\mathbf{p}_{b_i}^{comp}
+=
+{}^{G_i}\mathbf{p}_{b_i}
++
+{}^{G_i}\mathbf{v}_{b_i}
+\left(
+t_{j,k}
+-
+t_{i,k}
+-
+{}^{i}\tau_j
+\right)
+\tag{17}
+$$
+
+将补偿后的位置代入被动互观测模型，得到：
+
+$$
+{}^{b_j}\breve{\mathbf{p}}_{b_i}
+=
+\left[
+\left(
+{}^{G_j}\breve{\mathbf{T}}_{b_j}
+\boxplus
+\mathbf{n}_{T_j}
+\right)^{-1}
+{}^{G_i}\mathbf{T}_{G_j}^{-1}
+\right]
+\circ
+\left[
+{}^{G_i}\mathbf{p}_{b_i}
++
+{}^{G_i}\mathbf{v}_{b_i}
+\left(
+t_{j,k}
+-
+t_{i,k}
+-
+{}^{i}\tau_j
+\right)
+\right]
++
+\mathbf{n}_{po,ij}
+\tag{18}
+$$
+
+经过时间补偿后，LiDAR 点云、主动互观测、被动互观测都可以统一放入测量模型：
+
+$$
+\mathbf{y}
+=
+\mathbf{h}(\mathbf{x},\mathbf{v})
+$$
+
+---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -2016,9 +2471,362 @@ $$
     ESIKF 预测步与更新步：雅可比矩阵与 MAP 估计构造
 </div>
 
+---
 
-**3. 更新步：基于 MAP 的目标函数构造**
-* **最大后验估计**：更新步并未直接套用经典的卡尔曼增益公式，而是从 MAP (Maximum A Posteriori) 视角出发。系统通过构建一个联合代价函数 $C(\delta x^k)$，将基于运动学方程预测得来的**先验残差**，与基于 LiDAR 和多机通讯获取的**测量残差**进行联合最小化优化。
+### 测量线性化：从非线性测量到误差状态残差
+
+ESIKF 更新的核心是：不直接对完整状态 $\mathbf{x}$ 做欧氏加法更新，而是在当前迭代点附近求解误差状态修正量。
+
+设第 $\kappa$ 次迭代的当前名义状态为：
+
+$$
+\tilde{\mathbf{x}}^{\kappa}
+$$
+
+真实状态可以写成：
+
+$$
+\mathbf{x}
+=
+\tilde{\mathbf{x}}^{\kappa}
+\boxplus
+\delta \mathbf{x}^{\kappa}
+$$
+
+其中：
+
+$$
+\delta \mathbf{x}^{\kappa}
+=
+\mathbf{x}
+\boxminus
+\tilde{\mathbf{x}}^{\kappa}
+$$
+
+是当前迭代点附近的误差状态。
+
+对测量模型进行一阶泰勒展开：
+
+$$
+\mathbf{y}
+=
+\mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa}
+\boxplus
+\delta \mathbf{x}^{\kappa},
+\mathbf{v}
+\right)
+$$
+
+$$
+\mathbf{y}
+\approx
+\mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa},
+0
+\right)
++
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
++
+\mathbf{D}^{\kappa}
+\mathbf{v}
+$$
+
+定义当前迭代点处的测量残差：
+
+$$
+\mathbf{r}^{\kappa}
+=
+\mathbf{y}
+-
+\mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa},
+0
+\right)
+$$
+
+则有：
+
+$$
+\mathbf{r}^{\kappa}
+\approx
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
++
+\mathbf{D}^{\kappa}
+\mathbf{v}
+$$
+
+其中：
+
+$$
+\mathbf{H}^{\kappa}
+=
+\left.
+\frac{\partial \mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa}
+\boxplus
+\delta \mathbf{x}^{\kappa},
+0
+\right)}
+{\partial \delta \mathbf{x}^{\kappa}}
+\right|_{\delta \mathbf{x}^{\kappa}=0}
+$$
+
+$$
+\mathbf{D}^{\kappa}
+=
+\left.
+\frac{\partial \mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa},
+\mathbf{v}
+\right)}
+{\partial \mathbf{v}}
+\right|_{\mathbf{v}=0}
+$$
+
+如果原始测量噪声协方差为：
+
+$$
+\mathbf{R}_{v}
+=
+\mathrm{Cov}(\mathbf{v})
+$$
+
+则等效测量噪声协方差为：
+
+$$
+\mathbf{R}^{\kappa}
+=
+\mathbf{D}^{\kappa}
+\mathbf{R}_{v}
+(\mathbf{D}^{\kappa})^{T}
+$$
+
+因此，更新步中的线性化测量模型可以写成：
+
+$$
+\mathbf{r}^{\kappa}
+=
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
++
+\bar{\mathbf{v}}^{\kappa},
+\qquad
+\bar{\mathbf{v}}^{\kappa}
+\sim
+\mathcal{N}(0,\mathbf{R}^{\kappa})
+$$
+
+---
+
+### 4. 先验项：Prediction Prior 在当前迭代坐标系下的表示
+
+IMU prediction 给出了预测名义状态和预测协方差：
+
+$$
+\hat{\mathbf{x}},
+\qquad
+\hat{\mathbf{P}}
+$$
+
+这表示真实状态在预测状态附近满足：
+
+$$
+\mathbf{x}
+\sim
+\mathcal{N}
+\left(
+\hat{\mathbf{x}},
+\hat{\mathbf{P}}
+\right)
+$$
+
+但在第 $\kappa$ 次迭代中，误差状态是定义在当前迭代点 $\tilde{\mathbf{x}}^{\kappa}$ 附近的：
+
+$$
+\delta \mathbf{x}^{\kappa}
+=
+\mathbf{x}
+\boxminus
+\tilde{\mathbf{x}}^{\kappa}
+$$
+
+因此，需要将 prediction prior 表达到当前迭代点的误差坐标系下：
+
+$$
+\delta \mathbf{x}^{\kappa}
+\sim
+\mathcal{N}
+\left(
+\delta \mathbf{x}_{0}^{\kappa},
+\mathbf{P}^{\kappa}
+\right)
+$$
+
+其中，先验均值可以理解为预测状态相对于当前迭代状态的误差：
+
+$$
+\delta \mathbf{x}_{0}^{\kappa}
+=
+\hat{\mathbf{x}}
+\boxminus
+\tilde{\mathbf{x}}^{\kappa}
+$$
+
+对应的协方差为：
+
+$$
+\mathbf{P}^{\kappa}
+$$
+
+严格来说，在 manifold 上，$\mathbf{P}^{\kappa}$ 需要通过切空间变换 Jacobian 从 $\hat{\mathbf{P}}$ 投影到当前迭代点 $\tilde{\mathbf{x}}^{\kappa}$ 的切空间。为了突出主线，可以将其理解为 prediction covariance 在当前误差坐标系下的表示。
+
+第一轮迭代时：
+
+$$
+\tilde{\mathbf{x}}^{0}
+=
+\hat{\mathbf{x}}
+$$
+
+因此：
+
+$$
+\delta \mathbf{x}_{0}^{0}
+=
+\hat{\mathbf{x}}
+\boxminus
+\tilde{\mathbf{x}}^{0}
+=
+\mathbf{0}
+$$
+
+$$
+\mathbf{P}^{0}
+=
+\hat{\mathbf{P}}
+$$
+
+---
+
+### 5. 基于 MAP 的目标函数构造
+
+此时有两类信息：
+
+第一，prediction prior：
+
+$$
+\delta \mathbf{x}^{\kappa}
+\sim
+\mathcal{N}
+\left(
+\delta \mathbf{x}_{0}^{\kappa},
+\mathbf{P}^{\kappa}
+\right)
+$$
+
+第二，线性化后的 measurement model：
+
+$$
+\mathbf{r}^{\kappa}
+=
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
++
+\bar{\mathbf{v}}^{\kappa},
+\qquad
+\bar{\mathbf{v}}^{\kappa}
+\sim
+\mathcal{N}(0,\mathbf{R}^{\kappa})
+$$
+
+因此，最大后验估计可以写成最小化先验残差和测量残差的加权二次型：
+
+$$
+\widehat{\delta \mathbf{x}}^{\kappa}
+=
+\arg\min_{\delta \mathbf{x}^{\kappa}}
+C(\delta \mathbf{x}^{\kappa})
+$$
+
+其中：
+
+$$
+C(\delta \mathbf{x}^{\kappa})
+=
+\left\|
+\delta \mathbf{x}^{\kappa}
+-
+\delta \mathbf{x}_{0}^{\kappa}
+\right\|_{\mathbf{P}^{\kappa}}^{2}
++
+\left\|
+\mathbf{r}^{\kappa}
+-
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
+\right\|_{\mathbf{R}^{\kappa}}^{2}
+$$
+
+展开为：
+
+$$
+\begin{aligned}
+C(\delta \mathbf{x}^{\kappa})
+=&
+\left(
+\delta \mathbf{x}^{\kappa}
+-
+\delta \mathbf{x}_{0}^{\kappa}
+\right)^{T}
+(\mathbf{P}^{\kappa})^{-1}
+\left(
+\delta \mathbf{x}^{\kappa}
+-
+\delta \mathbf{x}_{0}^{\kappa}
+\right)
+\\
+&+
+\left(
+\mathbf{r}^{\kappa}
+-
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
+\right)^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\left(
+\mathbf{r}^{\kappa}
+-
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
+\right)
+\end{aligned}
+$$
+
+其中：
+
+$$
+\|\mathbf{a}\|_{\mathbf{A}}^{2}
+=
+\mathbf{a}^{T}
+\mathbf{A}^{-1}
+\mathbf{a}
+$$
+
+这个目标函数的含义是：
+
+- 第一项是先验残差，表示当前误差状态不能偏离 prediction prior 太远；
+- 第二项是测量残差，表示修正后的状态应该尽量解释 LiDAR 点云、主动互观测和被动互观测；
+- 两项的权重由协方差决定，协方差越小，对应信息越可信。
+
+---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -2029,24 +2837,451 @@ $$
     ESIKF 更新步：二次型优化与卡尔曼增益等价性证明
 </div>
 
-**4. 更新步：状态求解与等价性证明**
+---
 
-* **观测模型**：代价函数中的观测模型对应三个部分：LiDAR 点对面的几何约束（公式 9）、系统预测自身位置与主动观测点云的残差（公式 11），以及系统预测队友位置与被动观测的残差（公式 13）。
+### 6. 二次型求导：求解误差状态修正量
 
-* **二次型求导**：将观测方程在当前迭代点处进行一阶泰勒展开，将非线性优化问题转化为线性最小二乘问题。对该二次型代价函数关于误差状态求导并令其等于零
+对目标函数关于 $\delta \mathbf{x}^{\kappa}$ 求导：
 
-$$\frac{\partial C}{\partial \delta x^k} = 0$$
+$$
+\frac{\partial C}
+{\partial \delta \mathbf{x}^{\kappa}}
+=
+2
+(\mathbf{P}^{\kappa})^{-1}
+\left(
+\delta \mathbf{x}^{\kappa}
+-
+\delta \mathbf{x}_{0}^{\kappa}
+\right)
+-
+2
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\left(
+\mathbf{r}^{\kappa}
+-
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
+\right)
+$$
 
-，解出高斯-牛顿法中的最优状态增量：
+令其为零：
 
-  $$\delta x^k = (P^{-1} + H^T R^{-1} H)^{-1} [ P^{-1}(\hat{x} - \tilde{x}^k) + H^T R^{-1}(y - h(\tilde{x}^k)) ]$$
+$$
+\frac{\partial C}
+{\partial \delta \mathbf{x}^{\kappa}}
+=
+0
+$$
 
-* **卡尔曼增益等价性**：通过应用**矩阵求逆引理 (Matrix Inversion Lemma)** 对上述优化求解结果进行恒等变换，可以严格证明：基于迭代优化的解法在数学上与经典的卡尔曼增益 $$K = P H^T (H P H^T + R)^{-1}$$ 形式完全等价。即 
+得到：
 
-$$\delta x^k = (I - KH)(\hat{x} - \tilde{x}^k) + K(y - h(\tilde{x}^k))$$
+$$
+(\mathbf{P}^{\kappa})^{-1}
+\left(
+\delta \mathbf{x}^{\kappa}
+-
+\delta \mathbf{x}_{0}^{\kappa}
+\right)
+-
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\left(
+\mathbf{r}^{\kappa}
+-
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
+\right)
+=
+0
+$$
 
-这种等价性证明了 ESIKF 在融合复杂非线性观测时的严谨性与有效性。
+展开整理：
+
+$$
+(\mathbf{P}^{\kappa})^{-1}
+\delta \mathbf{x}^{\kappa}
+-
+(\mathbf{P}^{\kappa})^{-1}
+\delta \mathbf{x}_{0}^{\kappa}
+-
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{r}^{\kappa}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
+=
+0
+$$
+
+将含有 $\delta \mathbf{x}^{\kappa}$ 的项放到左侧，其余项放到右侧：
+
+$$
+\left[
+(\mathbf{P}^{\kappa})^{-1}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{H}^{\kappa}
+\right]
+\delta \mathbf{x}^{\kappa}
+=
+(\mathbf{P}^{\kappa})^{-1}
+\delta \mathbf{x}_{0}^{\kappa}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{r}^{\kappa}
+$$
+
+因此，当前迭代点处的最优误差状态修正量为：
+
+$$
+\widehat{\delta \mathbf{x}}^{\kappa}
+=
+\left[
+(\mathbf{P}^{\kappa})^{-1}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{H}^{\kappa}
+\right]^{-1}
+\left[
+(\mathbf{P}^{\kappa})^{-1}
+\delta \mathbf{x}_{0}^{\kappa}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{r}^{\kappa}
+\right]
+$$
+
+这就是从 MAP 二次型优化角度得到的误差状态更新量。它也可以理解为当前迭代点附近的高斯-牛顿更新解。
+
+---
+
+### 7. 与经典 Kalman Gain 形式的等价性
+
+上式看起来不像经典 Kalman update，但通过矩阵求逆引理可以写成 Kalman gain 的形式。
+
+定义 Kalman gain：
+
+$$
+\mathbf{K}^{\kappa}
+=
+\mathbf{P}^{\kappa}
+(\mathbf{H}^{\kappa})^{T}
+\left(
+\mathbf{H}^{\kappa}
+\mathbf{P}^{\kappa}
+(\mathbf{H}^{\kappa})^{T}
++
+\mathbf{R}^{\kappa}
+\right)^{-1}
+$$
+
+根据矩阵求逆引理，有：
+
+$$
+\left[
+(\mathbf{P}^{\kappa})^{-1}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{H}^{\kappa}
+\right]^{-1}
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+=
+\mathbf{K}^{\kappa}
+$$
+
+同时有：
+
+$$
+\left[
+(\mathbf{P}^{\kappa})^{-1}
++
+(\mathbf{H}^{\kappa})^{T}
+(\mathbf{R}^{\kappa})^{-1}
+\mathbf{H}^{\kappa}
+\right]^{-1}
+(\mathbf{P}^{\kappa})^{-1}
+=
+\mathbf{I}
+-
+\mathbf{K}^{\kappa}
+\mathbf{H}^{\kappa}
+$$
+
+因此，MAP 解可以等价写成：
+
+$$
+\widehat{\delta \mathbf{x}}^{\kappa}
+=
+\left(
+\mathbf{I}
+-
+\mathbf{K}^{\kappa}
+\mathbf{H}^{\kappa}
+\right)
+\delta \mathbf{x}_{0}^{\kappa}
++
+\mathbf{K}^{\kappa}
+\mathbf{r}^{\kappa}
+$$
+
+也可以写成：
+
+$$
+\widehat{\delta \mathbf{x}}^{\kappa}
+=
+\delta \mathbf{x}_{0}^{\kappa}
++
+\mathbf{K}^{\kappa}
+\left(
+\mathbf{r}^{\kappa}
+-
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}_{0}^{\kappa}
+\right)
+$$
+
+这说明，Kalman gain 并不是额外假设出来的公式，而是 MAP 二次型最小化的闭式解经过矩阵求逆引理整理后的等价表达。
+
+特别地，第一轮迭代时：
+
+$$
+\tilde{\mathbf{x}}^{0}
+=
+\hat{\mathbf{x}}
+$$
+
+$$
+\delta \mathbf{x}_{0}^{0}
+=
+\mathbf{0}
+$$
+
+于是：
+
+$$
+\widehat{\delta \mathbf{x}}^{0}
+=
+\mathbf{K}^{0}
+\mathbf{r}^{0}
+$$
+
+这就是最常见的 Kalman update 形式：通过 Kalman gain 将测量残差映射成状态误差修正量。
+
+---
+
+### 8. 误差状态注入与迭代更新
+
+求得误差状态修正量 $\widehat{\delta \mathbf{x}}^{\kappa}$ 后，并不是对完整状态做普通加法，而是通过 manifold 上的 $\boxplus$ 操作注入当前名义状态：
+
+$$
+\tilde{\mathbf{x}}^{\kappa+1}
+=
+\tilde{\mathbf{x}}^{\kappa}
+\boxplus
+\widehat{\delta \mathbf{x}}^{\kappa}
+$$
+
+对于旋转状态，例如 ego rotation：
+
+$$
+{}^{G_i}\tilde{\mathbf{R}}_{b_i}^{\kappa+1}
+=
+{}^{G_i}\tilde{\mathbf{R}}_{b_i}^{\kappa}
+\mathrm{Exp}
+\left(
+\widehat{\delta \boldsymbol{\theta}}_{b_i}^{\kappa}
+\right)
+$$
+
+对于位置状态：
+
+$$
+{}^{G_i}\tilde{\mathbf{p}}_{b_i}^{\kappa+1}
+=
+{}^{G_i}\tilde{\mathbf{p}}_{b_i}^{\kappa}
++
+\widehat{\delta \mathbf{p}}_{b_i}^{\kappa}
+$$
+
+对于 global extrinsic rotation：
+
+$$
+{}^{G_i}\tilde{\mathbf{R}}_{G_j}^{\kappa+1}
+=
+{}^{G_i}\tilde{\mathbf{R}}_{G_j}^{\kappa}
+\mathrm{Exp}
+\left(
+\widehat{\delta \boldsymbol{\theta}}_{G_j}^{\kappa}
+\right)
+$$
+
+对于 global extrinsic translation：
+
+$$
+{}^{G_i}\tilde{\mathbf{p}}_{G_j}^{\kappa+1}
+=
+{}^{G_i}\tilde{\mathbf{p}}_{G_j}^{\kappa}
++
+\widehat{\delta \mathbf{p}}_{G_j}^{\kappa}
+$$
+
+然后系统在新的迭代点 $\tilde{\mathbf{x}}^{\kappa+1}$ 处重新计算：
+
+$$
+\mathbf{r}^{\kappa+1}
+=
+\mathbf{y}
+-
+\mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa+1},
+0
+\right)
+$$
+
+$$
+\mathbf{H}^{\kappa+1}
+=
+\left.
+\frac{\partial \mathbf{h}
+\left(
+\tilde{\mathbf{x}}^{\kappa+1}
+\boxplus
+\delta \mathbf{x}^{\kappa+1},
+0
+\right)}
+{\partial \delta \mathbf{x}^{\kappa+1}}
+\right|_{\delta \mathbf{x}^{\kappa+1}=0}
+$$
+
+继续进行下一轮 ESIKF 迭代，直到满足收敛条件，例如：
+
+$$
+\left\|
+\widehat{\delta \mathbf{x}}^{\kappa}
+\right\|
+<
+\epsilon
+$$
+
+收敛后，最终更新状态为：
+
+$$
+\bar{\mathbf{x}}_{i,k}
+=
+\tilde{\mathbf{x}}^{\kappa+1}
+$$
+
+对应协方差可以更新为：
+
+$$
+\bar{\mathbf{P}}_{i,k}
+=
+\left(
+\mathbf{I}
+-
+\mathbf{K}^{\kappa}
+\mathbf{H}^{\kappa}
+\right)
+\mathbf{P}^{\kappa}
+$$
+
+---
+
+### 9. 更新步的整体理解
+
+因此，Swarm-LIO2 的 ESIKF 更新步可以理解为以下流程：
+
+$$
+\text{LiDAR / active / passive measurements}
+\Rightarrow
+\mathbf{y}
+=
+\mathbf{h}(\mathbf{x},\mathbf{v})
+$$
+
+$$
+\text{Temporal compensation}
+\Rightarrow
+\text{异步互观测被补偿到一致时间}
+$$
+
+$$
+\text{Linearization}
+\Rightarrow
+\mathbf{r}^{\kappa}
+\approx
+\mathbf{H}^{\kappa}
+\delta \mathbf{x}^{\kappa}
++
+\bar{\mathbf{v}}^{\kappa}
+$$
+
+$$
+\text{MAP}
+\Rightarrow
+\widehat{\delta \mathbf{x}}^{\kappa}
+=
+\arg\min
+\left(
+\text{prior residual}
++
+\text{measurement residual}
+\right)
+$$
+
+$$
+\text{Kalman gain}
+\Rightarrow
+\widehat{\delta \mathbf{x}}^{\kappa}
+=
+\left(
+\mathbf{I}
+-
+\mathbf{K}^{\kappa}
+\mathbf{H}^{\kappa}
+\right)
+\delta \mathbf{x}_{0}^{\kappa}
++
+\mathbf{K}^{\kappa}
+\mathbf{r}^{\kappa}
+$$
+
+$$
+\text{Error injection}
+\Rightarrow
+\tilde{\mathbf{x}}^{\kappa+1}
+=
+\tilde{\mathbf{x}}^{\kappa}
+\boxplus
+\widehat{\delta \mathbf{x}}^{\kappa}
+$$
+
+一句话总结：
+
+ESIKF 更新步的本质是：先将 LiDAR 点云、主动互观测和被动互观测统一建模为非线性测量方程，再在当前名义状态附近线性化为关于误差状态的残差方程；随后将 prediction prior 和 measurement residual 组成 MAP 二次型优化问题，求解得到误差状态修正量，并通过 $\boxplus$ 将该修正量注入名义状态。由于该过程是迭代执行的，系统能够在复杂非线性测量下不断重新线性化，从而同时更新 ego state 和 global extrinsic。
 
 #### 状态更新
 
 最后，利用迭代卡尔曼滤波器（ESIKF）反复计算增益并更新状态，直到收敛。此过程耦合了 IMU、点云和互观测，保证了在 LiDAR 退化场景下的厘米级精度。
+
+
+### 3.4 Marginalization
+
+当前帧只让“有观测约束的 teammate 外参”进入 ESIKF update；没有 active/passive mutual observation 的 teammate 外参被 marginalize out，并在该轮中保持不变，从而避免状态维度随 swarm size 膨胀。
+
+
+### 3.5 Degeneration Evaluation：LiDAR 退化检测与模式切换
+
+暂时不关注
