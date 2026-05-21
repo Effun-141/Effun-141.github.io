@@ -53,7 +53,7 @@ ninja.data = [{
           },
         },{id: "nav-gallery",
           title: "Gallery",
-          description: "整理中，coming soon",
+          description: "Academic activities and competition memories",
           section: "Navigation",
           handler: () => {
             window.location.href = "/gallery/";
