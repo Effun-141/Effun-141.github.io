@@ -1794,3 +1794,219 @@ F_wQF_w^T
 $$
 
 #### 更新步
+
+这里给出LiDAR 点云、主动互观测、被动互观测如何变成测量残差，并进入 ESIKF 更新？
+
+当接收到新的 LiDAR 扫描或互观测数据时，在扫描结束时刻 $t_{i,k}$ 执行更新。
+
+**测量建模 (Modeling of Measurements)**
+
+通用测量模型为：
+$$y_k = h(x_k, v_k) \tag{8}$$
+
+ (a) LiDAR 点云测量
+
+对于第 $n$ 个去畸变的点 $^{b_i}p_n$，其到平面的投影距离模型为：
+
+$$0 = \underbrace{u_{n}^{T} \left( ^{G_{i}}T_{b_{i}} \circ (^{b_{i}}p_{n} + n_{p,n}) - ^{G_{i}}q_{n} \right)}_{h_{p,n}(x_i, n_{p,n})} \tag{9}$$
+
+
+
+
+(b) 主动互观测 (Active Mutual Observation)
+
+无人机 $i$ 观测到队友 $j$ 的质心点 $$^{b_i}\tilde{p}_{b_j}$$。利用 $j$ 传来的位置估计值 $$^{G_j}\tilde{p}_{b_j}$$，建模如下：
+
+$$\bar{b}_{i}\tilde{p}_{b_j} = \underbrace{(^{G_{i}}T_{b_{i}}^{-1}{}^{G_{i}}T_{G_{j}}) \circ (^{G_{j}}\tilde{p}_{b_{j}} + n_{p_{j}}) + n_{ao,ij}}_{h_{ao,ij}(x_i, n_{p_j}, n_{ao,ij})} \tag{11}$$
+
+FAST-LIO2 中， LiDAR scan 经过 IMU back-propagation / motion compensation 后，点可以看成在 scan end time 被采样，然后把 raw point 直接注册到地图中的局部平面上。 FAST-LIO2 的点到平面测量模型是：真实 LiDAR 点投影到 global frame 后应该落在地图局部平面上。
+
+Swarm-LIO2 中，第 $n$ 个去畸变点在当前 body frame $b_i$ 下为：
+
+$$
+{}^{b_i}p_n
+$$
+
+它有测量噪声：
+
+$$
+n_{p,n}
+$$
+
+地图中对应平面的法向量为：
+
+$$
+u_n
+$$
+
+平面上一点为：
+
+$$
+{}^{G_i}q_n
+$$
+
+如果状态正确，则：
+
+$$
+{}^{G_i}T_{b_i} \circ \left({}^{b_i}p_n + n_{p,n}\right)
+$$
+
+应该落在该平面上。所以点到平面隐式测量模型是：
+
+$$
+0
+=
+u_n^T
+\left(
+{}^{G_i}T_{b_i}
+\circ
+\left({}^{b_i}p_n+n_{p,n}\right)
+-
+{}^{G_i}q_n
+\right)
+$$
+
+也就是论文 Eq. (9)。
+
+如果展开：
+
+$$
+{}^{G_i}T_{b_i}\circ p
+=
+{}^{G_i}R_{b_i}p
++
+{}^{G_i}p_{b_i}
+$$
+
+则：
+
+$$
+h_{p,n}(x,n_{p,n})
+=
+u_n^T
+\left(
+{}^{G_i}R_{b_i}
+\left({}^{b_i}p_n+n_{p,n}\right)
++
+{}^{G_i}p_{b_i}
+-
+{}^{G_i}q_n
+\right)
+$$
+
+这个残差只直接约束 ego pose：
+
+$$
+{}^{G_i}R_{b_i},
+\qquad
+{}^{G_i}p_{b_i}
+$$
+
+线性化时，令：
+
+$$
+R=\hat{R}\mathrm{Exp}(\delta\theta),
+\qquad
+p=\hat{p}+\delta p
+$$
+
+忽略噪声时的预测残差：
+
+$$
+r_{p,n}
+=
+0-h_{p,n}(\hat{x},0)
+$$
+
+测量函数对 ego pose 的一阶变化为：
+
+$$
+\delta h_{p,n}
+=
+u_n^T
+\left(
+\hat{R}\mathrm{Exp}(\delta\theta){}^{b_i}p_n
++
+\hat{p}
++
+\delta p
+-
+q_n
+\right)
+-
+u_n^T
+\left(
+\hat{R}{}^{b_i}p_n
++
+\hat{p}
+-
+q_n
+\right)
+$$
+
+$$
+\mathrm{Exp}(\delta\theta)p
+\approx
+p+\delta\theta\times p
+=
+p-[p]_{\times}\delta\theta
+$$
+
+所以：
+
+$$
+\delta h_{p,n}
+\approx
+-u_n^T\hat{R}[{}^{b_i}p_n]_{\times}\delta\theta
++
+u_n^T\delta p
+$$
+
+因此点云残差的 pose Jacobian 是：
+
+$$
+H_{p,n}
+=
+\left[
+-u_n^T\hat{R}[{}^{b_i}p_n]_{\times}
+\quad
+u_n^T
+\quad
+0
+\quad
+\cdots
+\right]
+$$
+
+这个形式和论文后面 degeneration evaluation 使用的 pose Jacobian 一致。
+
+(c) 被动互观测 (Passive Mutual Observation)
+
+无人机 $i$ 接收到来自队友 $j$ 对自己的观测数据 $^{b_j}\tilde{p}_{b_i}$：
+$$b_j \tilde{p}_{b_i} = \underbrace{((^{G_{j}}\tilde{T}_{b_{j}} \oplus n_{T_{j}})^{-1}{}^{G_{i}}T_{G_{j}}^{-1}) \circ ^{G_{i}}p_{b_{i}} + n_{po,ij}}_{h_{po,ij}(x_i, n_{T_j}, n_{po,ij})} \tag{13}$$
+
+(d) 统一测量方程
+
+综合所有观测，整体测量向量 $y$、函数 $h$ 和噪声 $v$ 为：
+$$
+\begin{aligned}
+y &= [0, \dots, ^{b_i}\tilde{p}_{b_j}^T, \dots, ^{b_j}p_{b_i}^T, \dots]^T \\
+h &= [\dots, h_{p,n}^T, \dots, h_{ao,ij}^T, \dots, h_{po,ij}^T, \dots]^T \\
+v &= [\dots, n_{p,n}^T, \dots, n_{p_j}^T, n_{ao,ij}^T, \dots, n_{T_j}^T, n_{po,ij}^T, \dots]^T
+\end{aligned} \tag{14}
+$$
+
+####  互观测的时间补偿 (Temporal Compensation)
+由于异步和传输延迟，必须补偿时间偏差 $^i\tau_j$。
+
+- **主动观测补偿**：将 $j$ 的位置补偿到 $i$ 的系统时间 $t_{i,k}$：
+  $$^{G_{j}}\tilde{p}_{b_{j}}^{comp} = ^{G_{j}}\tilde{p}_{b_{j}} + ^{G_{j}}\tilde{v}_{b_{j}}(t_{i,k} - t_{j,k} + ^{i}\tau_{j}) \tag{15}$$
+  代入 (11) 得到补偿后的模型 (16)。
+
+- **被动观测补偿**：将自身位置 $G_i p_{b_i}$ 补偿到队友 $j$ 的系统时间 $t_{j,k}$：
+  $$^{G_{i}}p_{b_{i}}^{comp} = ^{G_{i}}p_{b_{i}} + ^{G_{i}}v_{b_{i}}(t_{j,k} - t_{i,k} - ^{i}\tau_{j}) \tag{17}$$
+  代入 (13) 得到补偿后的模型 (18)。
+
+#### 状态更新
+
+最后，利用迭代卡尔曼滤波器（ESIKF）反复计算增益并更新状态，直到收敛。此过程耦合了 IMU、点云和互观测，保证了在 LiDAR 退化场景下的厘米级精度。
