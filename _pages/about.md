@@ -44,8 +44,14 @@ I received my Master's degree in Control Science and Engineering in April 2025 a
 
 ## Honours & Awards
 
-证书材料可在这里查看：
-[获奖证书合集](/assets/img/img/certificates.pdf)
+[certificates合集](/assets/img/img/certificates.pdf)
+
+**荣誉：**
+
+- 南京理工大学优秀毕业研究生（2025）
+- 南京理工大学优秀研究生（2023）
+- 江苏省优秀毕业设计二等奖（2021，省级）
+- 南京理工大学优秀毕业设计（2021，校级）
 
 **奖学金：**
 
@@ -54,12 +60,7 @@ I received my Master's degree in Control Science and Engineering in April 2025 a
 - 南京理工大学优秀学生二等奖学金（本科，2018）
 - 南京理工大学优秀学生三等奖学金（本科，2018、2019、2020 两次、2021）
 
-**荣誉：**
 
-- 南京理工大学优秀毕业研究生（2025）
-- 南京理工大学优秀研究生（2023）
-- 江苏省优秀毕业设计二等奖（2021，省级）
-- 南京理工大学优秀毕业设计（2021，校级）
 
 **科研与竞赛：**
 
