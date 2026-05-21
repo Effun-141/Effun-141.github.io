@@ -1741,3 +1741,56 @@ $$
 \hat{R}_k n_a\Delta t^2
 $$
 
+最后我们求得误差状态转移矩阵为：
+
+$$
+F_x =
+\begin{bmatrix}
+\mathrm{Exp}(-\hat{\omega}\Delta t) & 0 & 0 & -J_r\Delta t & 0 & 0 & 0 \\
+-\frac{1}{2}\hat{R}[\hat{a}]_{\times}\Delta t^2 & I & I\Delta t & 0 & -\frac{1}{2}\hat{R}\Delta t^2 & \frac{1}{2}I\Delta t^2 & 0 \\
+-\hat{R}[\hat{a}]_{\times}\Delta t & 0 & I & 0 & -\hat{R}\Delta t & I\Delta t & 0 \\
+0 & 0 & 0 & I & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & I & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & I & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & I_{6K}
+\end{bmatrix}
+$$
+
+噪声向量：
+
+$$
+w =
+\left[
+n_g,
+n_a,
+n_{b_g},
+n_{b_a}
+\right]^T
+$$
+
+对应噪声雅可比：
+
+$$
+F_w =
+\begin{bmatrix}
+-J_r\Delta t & 0 & 0 & 0 \\
+0 & -\frac{1}{2}\hat{R}\Delta t^2 & 0 & 0 \\
+0 & -\hat{R}\Delta t & 0 & 0 \\
+0 & 0 & I\Delta t & 0 \\
+0 & 0 & 0 & I\Delta t \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+于是协方差预测：
+
+$$
+P_{k+1}
+=
+F_xP_kF_x^T
++
+F_wQF_w^T
+$$
+
+#### 更新步
