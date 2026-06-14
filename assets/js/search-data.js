@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-主流多机slam框架-分布式状态估计的两种方法",
+            },{id: "post-思考一下如何科研",
+        
+          title: "思考一下如何科研",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/think/";
+          
+        },
+      },{id: "post-主流多机slam框架-分布式状态估计的两种方法",
         
           title: "主流多机SLAM框架——分布式状态估计的两种方法",
         
