@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 从事件相机6-DoF跟踪理解贝叶斯状态估计：似然、KL散度、EKF与MAP优化
-date: 2026-08-07 14:58:00
+date: 2026-08-06 14:58:00
 description: 以 Gallego 等人的事件相机6-DoF跟踪论文为主线，从事件生成模型出发，理解贝叶斯滤波、鲁棒似然、KL后验近似，以及它们与SLAM因子图和MAP优化的统一关系
 tags: Event-Camera Bayesian-Filtering EKF MAP SLAM
 categories: Event-Camera Paper-Reading SLAM
