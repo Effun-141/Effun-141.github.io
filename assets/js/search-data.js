@@ -72,7 +72,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/books/";
               },
-            },{id: "post-思考一下如何科研",
+            },{id: "post-从事件相机6-dof跟踪理解贝叶斯状态估计-似然-kl散度-ekf与map优化",
+        
+          title: "从事件相机6-DoF跟踪理解贝叶斯状态估计：似然、KL散度、EKF与MAP优化",
+        
+        description: "以 Gallego 等人的事件相机6-DoF跟踪论文为主线，从事件生成模型出发，理解贝叶斯滤波、鲁棒似然、KL后验近似，以及它们与SLAM因子图和MAP优化的统一关系",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/event_camera_bayesian_state_estimation_notes/";
+          
+        },
+      },{id: "post-思考一下如何科研",
         
           title: "思考一下如何科研",
         
